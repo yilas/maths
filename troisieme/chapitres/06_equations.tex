@@ -1,0 +1,98 @@
+\documentclass[../cours_3e.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{5}
+\chapter{Équations et mise en équation}
+\label{ch:equations}
+\begin{objectif}
+Résoudre une équation du premier degré, une équation produit ou $x^2=a$ ; traduire et contrôler une situation. Prérequis : calcul littéral et fractions.
+\end{objectif}
+\section{Qu'est-ce que résoudre ?}
+\begin{definition}
+Une \textbf{équation} est une égalité contenant une ou plusieurs inconnues. Une \textbf{solution} est une valeur qui rend cette égalité vraie. Résoudre, c'est déterminer toutes les solutions autorisées.
+\end{definition}
+Dans $3x+1=10$, $x=3$ est solution car $3\times3+1=10$. $x=2$ ne l'est pas. L'équation $x+1=x$ n'a aucune solution et $2(x+1)=2x+2$ est vraie pour tout réel $x$.
+\begin{propriete}[Transformations équivalentes]
+Ajouter ou soustraire le même nombre aux deux membres conserve les solutions. Multiplier ou diviser les deux membres par un même nombre \textbf{non nul} conserve aussi les solutions.
+\end{propriete}
+\begin{demonstration}
+Si $A=B$, alors $A+c=B+c$ ; on revient à l'égalité initiale en soustrayant $c$. Si $k\ne0$, $A=B$ donne $kA=kB$ et l'on revient en divisant par $k$. Ces opérations sont réversibles, ce qui garantit qu'aucune solution n'est perdue ni ajoutée.
+\end{demonstration}
+L'image d'une balance aide : agir de la même façon sur les deux plateaux maintient l'équilibre.
+\begin{attention}
+Multiplier par $0$ transforme n'importe quelle équation en $0=0$ et perd l'information. Diviser par une expression contenant $x$ peut supprimer une solution si cette expression peut être nulle.
+\end{attention}
+\section{Équations du premier degré}
+\begin{methode}
+Développer si nécessaire ; réduire chaque membre ; regrouper les termes en $x$ d'un côté et les constantes de l'autre ; diviser par le coefficient non nul de $x$ ; vérifier.
+\end{methode}
+\begin{exemple}
+\[
+\begin{aligned}
+5(2x-1)&=3x+16\\
+10x-5&=3x+16\\
+7x-5&=16&&\text{on soustrait }3x\\
+7x&=21&&\text{on ajoute }5\\
+x&=3&&\text{on divise par }7.
+\end{aligned}
+\]
+Vérification : $5(6-1)=25$ et $9+16=25$.
+\end{exemple}
+Pour $\frac{x}{3}-\frac12=\frac56$, multiplier les deux membres par $6$ donne $2x-3=5$, donc $x=4$.
+\begin{propriete}[Tous les cas de $ax=b$]
+Si $a\ne0$, l'unique solution est $x=b/a$. Si $a=0$ et $b\ne0$, aucune solution. Si $a=b=0$, tous les réels sont solutions.
+\end{propriete}
+\begin{justification}
+Le premier cas est la définition du quotient. Dans les autres, le membre de gauche vaut toujours zéro. Pour $ax+b=cx+d$, on obtient $(a-c)x=d-b$, puis on applique ces trois cas.
+\end{justification}
+\section{Équations produits}
+\begin{theoreme}[Produit nul]
+\[AB=0\quad\Longleftrightarrow\quad A=0\ \text{ou}\ B=0.\]
+\end{theoreme}
+\begin{demonstration}
+Si l'un des facteurs vaut zéro, le produit vaut zéro. Réciproquement, si $AB=0$, soit $A=0$, soit $A\ne0$ et l'on divise alors par $A$, ce qui donne $B=0$. Les deux cas couvrent toutes les possibilités.
+\end{demonstration}
+\begin{exemple}
+\[(2x-5)(x+3)=0\Longleftrightarrow x=\frac52\ \text{ou}\ x=-3.\]
+Pour résoudre $x^2=5x$, on ne divise pas immédiatement par $x$ :
+\[x^2-5x=0\Longleftrightarrow x(x-5)=0.\]
+Les solutions sont $0$ et $5$. La division par $x$ aurait fait perdre $0$.
+\end{exemple}
+Pour $9x^2-16=0$, factoriser $(3x-4)(3x+4)=0$, d'où $x=\pm4/3$.
+\begin{attention}
+La règle s'applique à un \emph{produit égal à zéro}. De $AB=12$, on ne peut pas conclure $A=12$ ou $B=12$. De $A+B=0$, on ne peut pas conclure que chacun vaut zéro.
+\end{attention}
+\section{\texorpdfstring{Équations de la forme $x^2=a$}{Équations de la forme x carré = a}}
+\begin{propriete}
+Si $a<0$, aucune solution réelle. Si $a=0$, une seule solution : $0$. Si $a>0$, deux solutions : $-\sqrt a$ et $\sqrt a$.
+\end{propriete}
+\begin{demonstration}
+Un carré est positif ou nul, ce qui exclut $a<0$. Pour $a\geq0$,
+\[x^2-a=(x-\sqrt a)(x+\sqrt a).\]
+Le produit nul donne les solutions annoncées ; lorsque $a=0$, elles coïncident.
+\end{demonstration}
+\begin{exemple}
+$x^2=13$ donne $x=-\sqrt{13}$ ou $x=\sqrt{13}$. Si $x$ désigne la longueur d'un côté, on conserve seulement $\sqrt{13}$, car une longueur ne peut pas être négative.
+\end{exemple}
+\section{Passer d'un problème à une équation}
+\begin{methode}
+Nommer l'inconnue et son unité ; préciser les valeurs possibles ; traduire chaque information ; écrire l'équation ; résoudre ; vérifier le résultat dans le contexte.
+\end{methode}
+\begin{exemple}[Un rectangle]
+Un rectangle a un périmètre de $46\unite{cm}$. Sa longueur dépasse sa largeur de $5\unite{cm}$. Soit $x>0$ la largeur en centimètres. La longueur vaut $x+5$ :
+\[2x+2(x+5)=46,\quad4x+10=46,\quad x=9.\]
+La largeur vaut $9\unite{cm}$ et la longueur $14\unite{cm}$. On vérifie $2(9+14)=46$.
+\end{exemple}
+\begin{exemple}[Deux tarifs]
+Un tarif coûte $18+4x$ euros pour $x$ séances, un autre $7x$ euros. L'égalité $18+4x=7x$ donne $x=6$. Les tarifs coûtent alors $42$ euros. Le domaine pertinent est ici celui des entiers $x\geq0$.
+\end{exemple}
+\section{Complément : comparer avec une inéquation}
+\approfondissement Une inéquation demande les valeurs pour lesquelles une inégalité est vraie. Ajouter le même nombre conserve l'ordre. Multiplier par un positif conserve l'ordre ; multiplier par un négatif l'inverse.
+\begin{demonstration}
+Si $u<v$, alors $v-u>0$. Pour $k<0$, le produit $k(v-u)$ est négatif, donc $kv-ku<0$ et $ku>kv$.
+\end{demonstration}
+Ainsi $18+4x\leq7x$ équivaut à $x\geq6$. Pour un nombre entier de séances, le premier tarif est au plus aussi cher à partir de $6$ séances.
+Et $-2x<6$ donne $x>-3$. La notation $]-3;+\infty[$ est une écriture de lycée pour cet ensemble.
+\begin{retenir}
+Une solution vérifie l'égalité ; une résolution explique pourquoi il n'y en a pas d'autres. Après calcul, éliminer les valeurs incompatibles avec le contexte, sans les faire disparaître arbitrairement pendant l'algèbre.
+\end{retenir}
+\end{document}

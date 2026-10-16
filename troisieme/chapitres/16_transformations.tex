@@ -1,0 +1,103 @@
+\documentclass[../cours_3e.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{15}
+\chapter{Transformations et changements d'échelle}
+\label{ch:transformations}
+\begin{objectif}
+Reconnaître et construire symétries, translations, rotations et homothéties ; calculer leurs effets ; analyser frises, pavages et rosaces.
+\end{objectif}
+\section{Transformer une figure point par point}
+Une transformation associe un point image à chaque point de départ. Pour un polygone, on construit les images des sommets, puis on relie les sommets correspondants. Les descriptions précises ci-dessous aident à construire ; le programme vise surtout la reconnaissance et l'utilisation de leurs effets.
+\section{Symétrie axiale}
+\begin{definition}
+Le symétrique $M'$ d'un point $M$ par rapport à une droite $d$ est $M$ lui-même si $M\in d$. Sinon, $d$ est la médiatrice de $[MM']$.
+\end{definition}
+\begin{methode}
+Tracer par $M$ la perpendiculaire à $d$ ; repérer son pied $H$ ; reporter $HM$ de l'autre côté de $d$. Alors $H$ est le milieu de $[MM']$.
+\end{methode}
+\begin{propriete}
+La symétrie axiale conserve les longueurs, les angles non orientés, l'alignement, les aires et le parallélisme. Elle retourne l'orientation d'une figure.
+\end{propriete}
+\begin{justification}
+Un pliage autour de l'axe superpose la figure et son image sans les déformer. Plus précisément, dans un repère orthonormé dont l'axe horizontal est $d$, $(x;y)$ devient $(x;-y)$. Les différences de coordonnées ont les mêmes carrés ; Pythagore donne donc les mêmes distances. Les triangles correspondants sont égaux par CCC, donc leurs angles aussi. L'égalité des aires découle de cette superposition.
+\end{justification}
+\section{Symétrie centrale et translation}
+\begin{definition}
+Dans la symétrie centrale de centre $O$, $O$ est le milieu de $[MM']$ (et $O$ reste fixe). C'est un demi-tour.
+Une translation déplace tous les points dans une même direction, un même sens et sur une même distance.
+\end{definition}
+Pour la translation qui envoie $A$ sur $B$, construire $M'$ de sorte que $ABM'M$ forme un parallélogramme, en adaptant la construction si les points sont alignés. On parle parfois du déplacement $\overrightarrow{AB}$ ; le calcul vectoriel n'est pas nécessaire ici.
+\begin{propriete}
+Ces deux transformations conservent longueurs, angles, aires, alignements et parallélisme. Une droite est envoyée sur une droite parallèle (éventuellement elle-même).
+\end{propriete}
+\begin{demonstration}
+Dans un repère orthonormé centré en $O$, la symétrie centrale s'écrit $(x;y)\mapsto(-x;-y)$. Une translation de déplacement $(u;v)$ s'écrit $(x;y)\mapsto(x+u;y+v)$. Entre deux points, les différences de coordonnées sont soit opposées, soit identiques. Les distances restent donc égales par Pythagore. Les angles se conservent par égalité des triangles. La direction des droites est inchangée ; le parallélisme en découle.
+\end{demonstration}
+\section{Rotation}
+\begin{definition}
+Une rotation se décrit par un centre $O$, un angle et un sens. L'image $M'$ vérifie $OM'=OM$ et l'angle de $[OM)$ vers $[OM')$ est celui indiqué. Le centre reste fixe.
+\end{definition}
+Pour construire $M'$, tracer la demi-droite tournée de l'angle donné, puis reporter $OM$ au compas. Toujours préciser le sens horaire ou antihoraire ; pour un demi-tour, les deux sens donnent le même résultat.
+\begin{center}
+\begin{tikzpicture}[scale=.8]
+\coordinate(O)at(0,0);\coordinate(M)at(3,0);\coordinate(N)at(1.5,2.598);
+\draw[dashed](O)circle(3);
+\draw[accent,thick](O)--(M);\draw[accent,thick](O)--(N);
+\draw[-{Stealth}](1,0)arc(0:60:1);
+\node at(1.25,.65){$60\degre$};
+\node[below left]at(O){$O$};\node[right]at(M){$M$};\node[above right]at(N){$M'$};
+\end{tikzpicture}
+\end{center}
+\begin{propriete}
+Une rotation conserve longueurs, angles, aires et parallélisme. L'image d'une droite n'est généralement pas parallèle à la droite initiale.
+\end{propriete}
+\begin{justification}
+Tourner un plan rigide autour de $O$ est un déplacement sans déformation. Pour deux points $M,N$, les distances à $O$ sont conservées et l'angle entre les deux directions reçoit la même rotation : les triangles $OMN$ et $OM'N'$ sont égaux par CAC, donc $MN=M'N'$. Les autres conservations suivent comme pour les symétries.
+\end{justification}
+\section{Homothétie : même forme, autre taille}
+\begin{definition}
+Une homothétie de centre $O$ et de rapport $k\ne0$ envoie $M$ sur $M'$ tel que $O,M,M'$ soient alignés et $OM'=\abs k\,OM$. Pour $k>0$, $M'$ est sur la demi-droite $[OM)$ ; pour $k<0$, il est de l'autre côté de $O$.
+\end{definition}
+Si $\abs k>1$, c'est un agrandissement ; si $0<\abs k<1$, une réduction. $k=1$ laisse tous les points fixes ; $k=-1$ est la symétrie centrale.
+\begin{center}
+\begin{tikzpicture}[scale=.75]
+\coordinate(O)at(0,0);
+\draw[dashed](-2.3,-1.6)--(5.8,3.8);
+\draw[dashed](-2.3,-.4)--(5.8,1.2);
+\draw[accent,thick](2,.4)--(2,1.3)--(3,1)--cycle;
+\draw[black,thick](4,.8)--(4,2.6)--(6,2)--cycle;
+\draw[accent!60,thick](-1,-.2)--(-1,-.65)--(-1.5,-.5)--cycle;
+\fill(O)circle(2pt)node[below]{$O$};
+\node at(2.9,.15){original};
+\node at(5.3,3){$k=2$};\node at(-1.7,-1.2){$k=-0{,}5$};
+\end{tikzpicture}
+\end{center}
+\begin{propriete}
+Une homothétie multiplie les longueurs et les périmètres par $\abs k$, conserve les angles, les alignements et le parallélisme, et envoie une droite sur une droite parallèle.
+\end{propriete}
+\begin{demonstration}
+Pour $k>0$, Thalès et sa réciproque donnent $M'N'=\abs k\,MN$ et $(M'N')\parallel(MN)$ dans la configuration de centre $O$. Les cas alignés se vérifient directement par addition ou différence des distances. Pour $k<0$, on combine l'homothétie de rapport $\abs k$ avec la symétrie centrale. Les triangles images sont semblables, donc les angles sont conservés.
+\end{demonstration}
+\section{Pourquoi le carré pour les aires et le cube pour les volumes ?}
+\begin{propriete}
+Pour un facteur de longueurs $r=\abs k>0$ :
+\[L'=rL,\qquad P'=rP,\qquad \aire'=r^2\aire,\qquad V'=r^3V.\]
+\end{propriete}
+\begin{demonstration}
+Dans un triangle, la base et la hauteur sont toutes deux multipliées par $r$, donc $b'h'/2=r^2bh/2$. Tout polygone se découpe en triangles : son aire suit la même règle. Pour un pavé, $a'b'c'=(ra)(rb)(rc)=r^3abc$. Les formules de prismes, cylindres, pyramides, cônes et boules donnent le même résultat en remplaçant toutes les longueurs par $r$ fois leur valeur. L'extension à des surfaces ou solides quelconques repose sur leur approximation par de petits éléments, admise ici.
+\end{demonstration}
+\begin{exemple}
+Une maquette à l'échelle $1/20$ a des aires $400$ fois plus petites et des volumes $8000$ fois plus petits. Une homothétie de rapport $-3$ multiplie les aires par $9$ et les volumes par $27$ : un volume ne devient pas négatif.
+\end{exemple}
+Inversement, si l'aire est multipliée par $9$, le facteur de longueur positif est $\sqrt9=3$. Pour un volume multiplié par $8$, on cherche $r^3=8$, donc $r=2$.
+\section{Frises, pavages et rosaces}
+Une \textbf{frise} répète un motif le long d'une bande, souvent par translation. Un \textbf{pavage} couvre le plan sans trou ni recouvrement des intérieurs. Une \textbf{rosace} répète un motif par rotations autour d'un centre.
+
+Pour une rosace à $n$ motifs régulièrement espacés, l'angle de rotation est $360\degre/n$, car $n$ rotations complètent un tour. Six triangles équilatéraux de même côté se rejoignent autour d'un sommet : $6\times60\degre=360\degre$, ce qui explique localement l'absence de trou.
+\begin{methode}
+Repérer un motif ; rechercher les points correspondants ; préciser la transformation avec ses données ; vérifier qu'elle transforme bien tous les sommets du motif. Pour additionner les aires, vérifier que les intérieurs ne se recouvrent pas.
+\end{methode}
+\begin{retenir}
+Symétries, translations et rotations gardent la taille. L'homothétie garde la forme mais change la taille. Le signe du rapport règle le côté du centre ; sa valeur absolue règle les longueurs.
+\end{retenir}
+\end{document}

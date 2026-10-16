@@ -1,0 +1,79 @@
+\documentclass[../cours_3e.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{8}
+\chapter{Fonctions linéaires et affines}
+\label{ch:affines}
+\begin{objectif}
+Identifier une relation linéaire ou affine, tracer sa droite et interpréter ses paramètres. Prérequis : fonctions et proportionnalité.
+\end{objectif}
+\section{Fonction linéaire}
+\begin{definition}
+Une fonction \textbf{linéaire} s'écrit $f(x)=ax$, où $a$ est un nombre fixé. Elle modélise une proportionnalité de coefficient $a$.
+\end{definition}
+On a $f(0)=0$, $f(1)=a$ et, pour $x\ne0$, $f(x)/x=a$.
+\begin{exemple}
+À vitesse constante de $6\unite{m/s}$, la distance parcourue en $t$ secondes est $d(t)=6t$ mètres, avec $t\geq0$. Le coefficient $6$ porte ici une unité : mètres par seconde.
+\end{exemple}
+Une augmentation de $12\,\%$ s'exprime par la fonction linéaire $f(x)=1{,}12x$ ; une diminution de $30\,\%$ par $g(x)=0{,}70x$.
+\section{Fonction affine}
+\begin{definition}
+Une fonction \textbf{affine} s'écrit $f(x)=ax+b$. Le nombre $a$ est le \textbf{coefficient directeur} et $b=f(0)$ l'\textbf{ordonnée à l'origine}.
+\end{definition}
+Si $b=0$, la fonction est linéaire. Si $a=0$, elle est constante, égale à $b$. Une constante non nulle n'est pas une fonction linéaire.
+\begin{exemple}
+Une location coûte $12$ euros de frais fixes et $4$ euros par heure : $C(t)=4t+12$. $b=12$ est la part fixe ; $a=4$ est le coût supplémentaire par heure. Deux heures coûtent $20$ euros, trois heures $24$ euros.
+\end{exemple}
+\section{Pourquoi le graphique est-il une droite ?}
+\begin{propriete}
+Dans un repère, la représentation de $f(x)=ax+b$ est une droite non verticale. Elle passe par $(0;b)$ et $(1;a+b)$. Pour $b=0$, elle passe par l'origine.
+\end{propriete}
+\begin{demonstration}
+Dans le plan euclidien, le théorème de Thalès traduit le fait qu'une droite non verticale possède un rapport constant entre déplacement vertical et déplacement horizontal. Pour $y=ax$, ce rapport est $y/x=a$ : les points sont sur une même droite passant par l'origine (le signe indique le sens du déplacement). Ajouter $b$ à toutes les ordonnées translate cette droite verticalement. On obtient exactement les points $(x;ax+b)$.
+
+Réciproquement, une droite non verticale a un tel rapport constant $a$ ; en notant $b$ son ordonnée à l'abscisse $0$, ses points vérifient $y=ax+b$. Cette justification s'appuie sur Thalès, étudié au chapitre 14.
+\end{demonstration}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[width=11cm,height=7cm,axis lines=middle,xmin=-3,xmax=4,ymin=-4,ymax=6,grid=major,xtick={-3,...,4},ytick={-4,...,6},xlabel={$x$},ylabel={$y$},legend style={at={(.02,.98)},anchor=north west,font=\small}]
+\addplot[accent,thick,domain=-3:4]{2*x+1};\addlegendentry{$y=2x+1$}
+\addplot[black,dashed,domain=-3:4]{-x+2};\addlegendentry{$y=-x+2$}
+\addplot[black!50,dotted,thick,domain=-3:4]{-2};\addlegendentry{$y=-2$}
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\begin{methode}[Tracer]
+Choisir deux abscisses distinctes faciles ; calculer les images ; placer les deux points ; tracer la droite qui les relie. Un troisième point sert de contrôle. Pour une situation limitée à $x\geq0$, ne conserver que la partie pertinente.
+\end{methode}
+\section{Le coefficient directeur mesure une variation}
+\begin{propriete}
+Pour $f(x)=ax+b$ et $x_1\ne x_2$,
+\[f(x_2)-f(x_1)=a(x_2-x_1),\qquad
+a=\frac{f(x_2)-f(x_1)}{x_2-x_1}.\]
+\end{propriete}
+\begin{demonstration}
+Soustraire les deux expressions : $(ax_2+b)-(ax_1+b)=a(x_2-x_1)$. La constante $b$ disparaît. Diviser par $x_2-x_1\ne0$ donne le quotient.
+\end{demonstration}
+Quand $x$ augmente de $1$, $f(x)$ augmente de $a$. Si $a>0$, la droite monte de gauche à droite ; si $a<0$, elle descend ; si $a=0$, elle est horizontale. Le signe de $b$ indique si elle coupe l'axe vertical au-dessus ou au-dessous de l'origine.
+\begin{attention}
+Le coefficient directeur dépend des graduations, pas de l'angle visuel de la droite sur la feuille. Une droite verticale $x=c$ n'est pas le graphique d'une fonction $x\mapsto f(x)$.
+\end{attention}
+\section{Déterminer une fonction affine}
+\begin{exemple}
+On sait que $f(2)=7$ et $f(5)=16$. Alors
+\[a=\frac{16-7}{5-2}=3,\qquad 7=3\times2+b,\qquad b=1.\]
+Donc $f(x)=3x+1$. On vérifie $f(5)=16$.
+\end{exemple}
+Si l'on sait d'avance que la fonction est linéaire, une seule image non nulle en abscisse suffit : $f(4)=10$ implique $a=10/4=2{,}5$. Sans cette hypothèse, une seule donnée ne détermine pas une fonction affine.
+\section{Images, antécédents et intersection}
+Pour $f(x)=ax+b$ avec $a\ne0$, l'antécédent de $y$ est $(y-b)/a$, puisque $ax+b=y$ équivaut à cette relation.
+Si $a=0$, $b$ a tous les nombres autorisés pour antécédents et les autres nombres n'en ont aucun.
+\begin{exemple}[Comparer deux offres]
+Deux offres sont $A(x)=15+3x$ et $B(x)=5x$. Leur intersection vérifie
+\[15+3x=5x,\qquad x=7{,}5,\qquad y=37{,}5.\]
+Si $x$ désigne un nombre entier d'entrées, aucun achat n'atteint exactement l'intersection. Pour $7$ entrées, $B$ est moins chère ; à partir de $8$, $A$ l'est. On le justifie aussi par $A(x)-B(x)=15-2x$.
+\end{exemple}
+\utilite{Décrire une part fixe et une part variable, interpréter une pente, comparer des tarifs et rechercher un seuil. Un alignement de mesures peut suggérer un modèle affine ; il ne garantit pas que ce modèle est exact pour toutes les valeurs.}
+\begin{retenir}
+Linéaire : $ax$, proportionnalité, droite par l'origine. Affine : $ax+b$, variation constante, droite. Pour retrouver $a$, diviser la variation des images par celle des antécédents.
+\end{retenir}
+\end{document}

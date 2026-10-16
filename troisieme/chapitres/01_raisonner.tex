@@ -1,0 +1,93 @@
+\documentclass[../cours_3e.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{0}
+\chapter{Lire, chercher et démontrer}
+\label{ch:raisonner}
+\begin{objectif}
+Distinguer un exemple d'une preuve ; comprendre une implication et une réciproque ; rédiger une solution vérifiable. Prérequis : les quatre opérations et les figures usuelles.
+\end{objectif}
+\section{Les mots ont une fonction précise}
+\begin{definition}
+Une \textbf{définition} donne le sens d'un mot. Une \textbf{conjecture} est une affirmation que l'on pense vraie sans l'avoir encore prouvée. Une \textbf{propriété} ou un \textbf{théorème} est un résultat établi. Une \textbf{démonstration} explique pourquoi le résultat découle des hypothèses.
+\end{definition}
+« Un triangle équilatéral a trois côtés de même longueur » est sa définition. « Ses trois angles mesurent $60\degre$ » est une propriété à établir à partir de résultats sur les triangles.
+
+Une affirmation mathématique comporte souvent une portée : « pour tout nombre », « il existe un nombre », « pour les nombres positifs ». Omettre ces mots peut rendre faux un énoncé vrai.
+\begin{exemple}
+« Pour tout nombre $x$, $x^2>0$ » est faux : $x=0$ donne $0^2=0$. En revanche, $x^2\geq0$ pour tout réel $x$, et $x^2>0$ si $x\ne0$.
+\end{exemple}
+
+\section{Hypothèses, conclusion et réciproque}
+\begin{definition}
+Dans « si $P$, alors $Q$ », $P$ est l'hypothèse et $Q$ la conclusion. On note $P\Rightarrow Q$. La \textbf{réciproque} est « si $Q$, alors $P$ ». Si les deux implications sont vraies, on écrit $P\Leftrightarrow Q$ : « $P$ si et seulement si $Q$ ».
+\end{definition}
+Si un entier est multiple de $4$, il est pair : $n=4k=2(2k)$. La réciproque est fausse : $6$ est pair mais n'est pas multiple de $4$.
+\begin{attention}
+Une propriété et sa réciproque sont deux affirmations différentes. Le théorème de Pythagore permet de calculer une longueur dans un triangle déjà connu rectangle. Sa réciproque permet de prouver qu'un triangle est rectangle.
+\end{attention}
+\begin{methode}[La rédaction « données, outil, conclusion »]
+Nommer les objets ; citer les hypothèses effectivement disponibles ; annoncer le résultat utilisé ; vérifier ses conditions ; faire le calcul ou la déduction ; répondre à la question avec l'unité si nécessaire.
+\end{methode}
+\begin{exemple}
+On sait que $(d)\perp(\Delta)$ et $(d')\perp(\Delta)$. Dans le plan, deux droites perpendiculaires à une même droite sont parallèles. Donc $(d)\parallel(d')$. « Cela se voit » n'est pas une justification.
+\end{exemple}
+
+\section{Un exemple ne prouve pas une règle générale}
+Quelques essais peuvent faire naître une conjecture. Pour la prouver, il faut un argument valable pour tous les objets concernés.
+\begin{theoreme}
+La somme de trois entiers consécutifs est divisible par $3$.
+\end{theoreme}
+\begin{demonstration}
+Écrivons les entiers $n$, $n+1$ et $n+2$. Leur somme vaut
+\[n+(n+1)+(n+2)=3n+3=3(n+1).\]
+Comme $n+1$ est entier, la somme est un multiple de $3$. Le calcul ne dépend pas d'un choix particulier de $n$.
+\end{demonstration}
+\begin{definition}
+Un \textbf{contre-exemple} est un cas qui respecte les hypothèses mais contredit la conclusion. Il suffit à réfuter une affirmation universelle.
+\end{definition}
+L'égalité $(a+b)^2=a^2+b^2$ est fausse en général : avec $a=b=1$, le membre de gauche vaut $4$ et celui de droite $2$.
+\utilite{Tester un cas simple permet de détecter une erreur. Le calcul littéral permet ensuite de dépasser les cas particuliers.}
+
+\section{Trois façons de construire une preuve}
+\subsection{Le raisonnement direct}
+On transforme les données jusqu'au résultat voulu. Par exemple, la somme de deux entiers pairs est paire : $2p+2q=2(p+q)$.
+\subsection{La distinction de cas}
+Un entier est pair ou impair. Dans le produit $n(n+1)$, si $n$ est pair, le produit l'est ; si $n$ est impair, $n+1$ est pair et le produit l'est encore. Ces deux cas couvrent tous les entiers : le produit de deux entiers consécutifs est pair.
+\subsection{Le raisonnement par l'absurde}
+On suppose le contraire de ce que l'on cherche à prouver et l'on obtient une contradiction. Cette méthode sera utilisée pour montrer que $\sqrt2$ n'est pas rationnel. Elle est facultative comme technique autonome en troisième, mais utile pour comprendre certaines preuves.
+
+\approfondissement La \textbf{contraposée} de « si $P$ alors $Q$ » est « si non $Q$, alors non $P$ ». Elle a la même valeur de vérité : si $P$ était vrai alors que $Q$ est faux, la première implication serait violée. Ainsi, si l'égalité de Pythagore n'est pas vérifiée, le triangle n'est pas rectangle. Ce n'est pas sa réciproque.
+
+\section{Chercher sans se perdre}
+\begin{methode}
+\begin{enumerate}
+\item Reformuler la question : que cherche-t-on exactement ?
+\item Dresser la liste des données, des unités et des contraintes.
+\item Choisir une représentation : schéma codé, tableau, lettre, arbre ou graphique.
+\item Essayer sur un cas simple ; chercher une relation connue.
+\item Rédiger la solution puis contrôler le résultat.
+\end{enumerate}
+\end{methode}
+\begin{exemple}[Valider un modèle]
+Une salle comporte $x$ rangées de $12$ places. Le nombre de places est $12x$. Si le calcul conduit à $x=7{,}5$, ce résultat peut être la solution d'une équation mais ne décrit pas un nombre entier de rangées complètes : il faut revenir au contexte.
+\end{exemple}
+
+\section{Lire et écrire les symboles}
+\begin{center}
+\begin{tabularx}{\textwidth}{lX}
+\toprule
+Écriture & Lecture et précaution\\\midrule
+$a=b$ & Les deux écritures représentent le même nombre.\\
+$a\approx b$ & $b$ est une valeur approchée de $a$.\\
+$a<b$, $a\leq b$ & Strictement inférieur ; inférieur ou égal.\\
+$A\in(d)$ & Le point $A$ appartient à la droite $(d)$.\\
+$[AB]$, $(AB)$, $[AB)$ & Segment, droite, demi-droite d'origine $A$ passant par $B$.\\
+$AB$, $\widehat{ABC}$ & Longueur ; angle dont le sommet est $B$.\\
+\bottomrule
+\end{tabularx}
+\end{center}
+Une chaîne d'égalités doit rester vraie à chaque étape. Pour calculer $2+3\times4$, on écrit $2+3\times4=2+12=14$, jamais $2+3=5\times4=20$.
+\begin{retenir}
+Un dessin suggère ; une propriété justifie. Une preuve vérifie les conditions d'application et traite tous les cas annoncés. Un résultat numérique s'accompagne d'une interprétation.
+\end{retenir}
+\end{document}

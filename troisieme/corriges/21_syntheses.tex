@@ -1,0 +1,43 @@
+\chapter{Quatre problèmes de synthèse}
+
+Chaque problème peut être travaillé en 25 à 40 minutes. Ce sont des sujets originaux d’entraînement, sans prétention à reproduire un format réglementaire d’examen.
+
+\section*{Problème S1 -- Un jardin et son arrosage}
+
+\begin{enumerate}
+\item $18\unite m=1800\unite{cm}$, donc $9\unite{cm}$ sur le plan ; l'autre côté vaut $6\unite{cm}$ ; le rayon vaut $200/200=1\unite{cm}$.
+\item $\aire=216-4\pi\unite{m^2}\approx203{,}43\unite{m^2}$, soit $203\unite{m^2}$ au mètre carré près.
+\item La capacité vaut $\pi(0{,}7)^2(1{,}2)=0{,}588\pi\unite{m^3}=588\pi\unite L$. Le contenu est $499{,}8\pi\unite L\approx1570{,}17\unite L$.
+\item Le besoin est $6(216-4\pi)=1296-24\pi\unite L\approx1220{,}60\unite L$. La cuve suffit : la différence est $523{,}8\pi-1296\approx349{,}57\unite L$.
+\item $d=\sqrt{18^2+12^2}=\sqrt{468}=6\sqrt{13}\unite m\approx21{,}633\unite m$, donc $21{,}6\unite m$ au décimètre.
+\end{enumerate}
+
+\section*{Problème S2 -- Un club et ses données}
+
+\begin{enumerate}
+\item $30+4n=7n$ donne $n=10$. A est strictement moins chère lorsque $n>10$, donc à partir de $11$ séances entières.
+\item Total des séances : $4\times5+6\times8+7\times10+3\times15=183$. Moyenne $183/20=9{,}15$. Les rangs $10$ et $11$ valent respectivement $8$ et $10$ : médiane conventionnelle $9$. Étendue $15-5=10$.
+\item Seuls les $3$ adhérents à $15$ séances ont un avantage strict : $3/20=15\,\%$. Ceux à $10$ séances sont à égalité.
+\item $B_{\mathrm{nouveau}}(n)=1{,}1\times7n=7{,}7n$. A est moins chère si $30<3{,}7n$, donc $n>300/37\approx8{,}108$. Le premier entier est $9$.
+\item Si $n$ est en \texttt{A2}, écrire \texttt{=7,7*A2} dans un tableur français utilisant la virgule décimale, ou \texttt{=7.7*A2} dans une configuration utilisant le point.
+\end{enumerate}
+
+\section*{Problème S3 -- Une maquette et une hauteur}
+
+\begin{enumerate}
+\item Les dimensions réelles valent $800\unite{cm}=8\unite m$ et $500\unite{cm}=5\unite m$. L'aire vaut $40\unite{m^2}$. On peut aussi multiplier $160\unite{cm^2}$ par $50^2$.
+\item Le volume réel vaut $240\times50^3=30000000\unite{cm^3}=30\unite{m^3}$.
+\item $H=1{,}65+12\tan32\degre\approx9{,}148\unite m$, soit environ $9{,}15\unite m$.
+\item La similitude donne $H/12=1{,}5/2$, donc $H=9\unite m$.
+\item Non, les résultats diffèrent d'environ $15\unite{cm}$. Vérifier les arrondis d'angle, les mesures, la verticalité du bâton, l'horizontalité du terrain et le caractère simultané des ombres. Les données peuvent être approximatives ; le théorème porte sur un modèle géométrique exact.
+\end{enumerate}
+
+\section*{Problème S4 -- Un jeu et son programme}
+
+\begin{enumerate}
+\item $5\times5=25$ couples équiprobables. Il y a $2\times2=4$ couples rouges et $3\times3=9$ couples bleus. $P(\text{gain})=13/25=52\,\%$.
+\item Par contraire : $1-13/25=12/25$. Par comptage : $2\times3$ couples rouge--bleu et $3\times2$ bleu--rouge, soit $12$.
+\item Initialiser gains à $0$ ; répéter $5000$ fois deux tirages indépendants d'entiers de $1$ à $5$ ; coder rouge par $1,2$ et bleu par $3,4,5$ ; si les deux codes sont dans le même groupe, augmenter gains ; afficher gains/$5000$.
+\item L'urne réelle donne $P(R)=2/5$, $P(B)=3/5$, pas $1/2$. La simulation proposée rendrait les couleurs équiprobables et donnerait une probabilité de gain $1/2$ au lieu de $13/25$.
+\item Sans remise, il y a $5\times4=20$ couples distincts. Les couples rouges sont $2\times1=2$, les bleus $3\times2=6$ : $P(\text{gain})=8/20=2/5$.
+\end{enumerate}

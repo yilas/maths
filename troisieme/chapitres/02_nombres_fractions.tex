@@ -1,0 +1,93 @@
+\documentclass[../cours_3e.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{1}
+\chapter{Nombres relatifs et fractions}
+\label{ch:nombres}
+\begin{objectif}
+Comparer, calculer exactement, choisir une écriture et contrôler une approximation. Prérequis : tables de multiplication et division décimale.
+\end{objectif}
+\section{Quelles sortes de nombres ?}
+\begin{definition}
+Un entier relatif est un entier positif, négatif ou nul. Un \textbf{nombre décimal} possède une écriture décimale finie. Un \textbf{rationnel} s'écrit $\frac ab$ avec $a,b$ entiers et $b\ne0$.
+\end{definition}
+Ainsi $-4$, $2{,}75=\frac{11}{4}$ et $\frac23$ sont rationnels. $\frac23=0{,}666\ldots$ n'est pas décimal : les chiffres ne s'arrêtent pas. Le nombre $0{,}666$ est une approximation, pas une autre écriture exacte de $\frac23$.
+
+\approfondissement Les ensembles se notent $\N\subset\Z\subset\D\subset\Q\subset\R$. Ici $\N$ contient $0$. Les réels comprennent les rationnels et des nombres irrationnels, comme $\sqrt2$. Ces notations préparent le lycée ; le calcul ne dépend pas de leur mémorisation en troisième.
+
+\section{Opposé, distance et ordre}
+\begin{definition}
+L'opposé de $a$ est $-a$, car $a+(-a)=0$. La distance de $a$ à zéro, notée $\abs a$, est $a$ si $a\geq0$ et $-a$ si $a<0$.
+\end{definition}
+\begin{center}
+\begin{tikzpicture}[x=.85cm]
+\draw[-{Stealth}](-5.5,0)--(5.5,0);
+\foreach \x in {-5,...,5}{\draw(\x,.09)--(\x,-.09) node[below]{\small$\x$};}
+\fill[accent](-3,0)circle(2pt) node[above]{$A$};
+\fill[accent](2,0)circle(2pt) node[above]{$B$};
+\draw[<->,accent](-3,.7)--(2,.7) node[midway,above]{distance $5$};
+\end{tikzpicture}
+\end{center}
+Sur une droite graduée, le plus grand nombre est le plus à droite : $-5<-2$. La distance de $a$ à $b$ est $\abs{b-a}$. En effet, si $b\geq a$, le déplacement vers la droite mesure $b-a$ ; sinon il mesure $a-b$.
+
+Additionner un nombre négatif fait reculer ; soustraire un nombre revient à ajouter son opposé : $a-b=a+(-b)$. Par exemple $-3-(-7)=4$.
+\begin{propriete}[Règle des signes]
+Le produit ou le quotient de deux nombres non nuls de même signe est positif ; de signes différents, il est négatif.
+\end{propriete}
+\begin{demonstration}
+La distributivité donne $a b+a(-b)=a(b-b)=0$, donc $a(-b)=-ab$. De même $(-a)b=-ab$, puis $(-a)(-b)=-((-a)b)=ab$. Pour les quotients, on choisit le signe qui, multiplié par celui du diviseur, redonne le signe du dividende.
+\end{demonstration}
+On ne confond pas $-3^2=-(3\times3)=-9$ avec $(-3)^2=9$.
+
+\section{Le sens d'une fraction et les fractions égales}
+\begin{definition}
+Pour $b\ne0$, $\frac ab$ est l'unique nombre $q$ tel que $bq=a$. $a$ est le numérateur, $b$ le dénominateur. L'inverse d'un nombre non nul $u$ est $\frac1u$.
+\end{definition}
+La division par zéro n'est pas définie : si $a\ne0$, aucun nombre ne vérifie $0q=a$ ; si $a=0$, tous le vérifient, donc il n'y a pas de quotient unique.
+\begin{propriete}
+Pour $b,d,k\ne0$,
+\[\frac ab=\frac{ka}{kb},\qquad \frac ab=\frac cd\ \Longleftrightarrow\ ad=bc.\]
+\end{propriete}
+\begin{demonstration}
+Puisque $b\frac ab=a$, on a $(kb)\frac ab=ka$ : la définition du quotient donne la première égalité. Pour la seconde, multiplier une égalité de fractions par $bd\ne0$ donne $ad=bc$ ; réciproquement, diviser $ad=bc$ par $bd$ redonne l'égalité des fractions.
+\end{demonstration}
+\begin{attention}
+On simplifie des \emph{facteurs}, pas des morceaux de sommes : $\frac{3\times7}{3\times5}=\frac75$, mais $\frac{3+7}{3+5}=\frac{10}{8}\ne\frac75$.
+\end{attention}
+
+\section{Additionner, multiplier et diviser}
+\begin{propriete}
+Pour $b,d\ne0$,
+\[\frac ab+\frac cb=\frac{a+c}{b},\qquad
+\frac ab+\frac cd=\frac{ad+bc}{bd},\qquad
+\frac ab\times\frac cd=\frac{ac}{bd}.\]
+Pour $c\ne0$ également,
+\[\frac ab\div\frac cd=\frac ab\times\frac dc.\]
+\end{propriete}
+\begin{demonstration}
+Multiplier la somme de même dénominateur par $b$ donne $a+c$ ; c'est donc le quotient de $a+c$ par $b$. Pour des dénominateurs distincts, on écrit $\frac ab=\frac{ad}{bd}$ et $\frac cd=\frac{bc}{bd}$. Pour le produit, $(bd)(\frac ab\frac cd)=(b\frac ab)(d\frac cd)=ac$. Enfin $\frac cd\times\frac dc=1$ : multiplier par $\frac dc$ annule la multiplication par $\frac cd$, d'où la règle de division.
+\end{demonstration}
+La soustraction s'obtient en remplaçant $+$ par $-$ dans les formules d'addition.
+\begin{exemple}[Calcul complet]
+\[\frac56-\frac34\div\frac98
+=\frac56-\frac34\times\frac89
+=\frac56-\frac23=\frac16.\]
+La division est traitée avant la soustraction. Les simplifications avant multiplication réduisent les calculs.
+\end{exemple}
+\begin{methode}[Priorités]
+Parenthèses ; puissances ; multiplications et divisions de gauche à droite ; additions et soustractions de gauche à droite. Une barre de fraction regroupe entièrement le numérateur et le dénominateur.
+\end{methode}
+
+\section{Comparer et encadrer}
+Avec un même dénominateur \emph{positif}, on compare les numérateurs. Avec des dénominateurs positifs $b,d$, $\frac ab<\frac cd$ équivaut à $ad<bc$, car multiplier par $bd>0$ conserve l'ordre. Pour un dénominateur négatif, placer d'abord le signe au numérateur.
+\begin{exemple}
+$\frac58<\frac7{10}$ car $5\times10=50<56=7\times8$. Pour $-\frac58$ et $-\frac7{10}$, l'ordre est inversé : $-\frac58>-\frac7{10}$.
+\end{exemple}
+\begin{definition}
+Encadrer $x$ consiste à donner $a\leq x\leq b$. Un arrondi au centième est le multiple de $0{,}01$ le plus proche, avec une convention pour les égalités de distance. Une troncature supprime les chiffres après le rang choisi.
+\end{definition}
+Pour $x=\frac{17}{6}=2{,}8333\ldots$, $2{,}83<x<2{,}84$ et l'arrondi au centième est $2{,}83$. Une valeur arrondie au centième a une erreur absolue au plus égale à $0{,}005$ : c'est la moitié de l'écart entre deux centièmes consécutifs.
+\utilite{Le calcul exact évite l'accumulation d'erreurs. On arrondit à la fin, selon la précision demandée, et l'on conserve le signe $\approx$.}
+\begin{retenir}
+Opposé : somme égale à zéro. Inverse : produit égal à un. Addition de fractions : dénominateur commun. Division : multiplication par l'inverse. Toujours vérifier que les dénominateurs sont non nuls.
+\end{retenir}
+\end{document}

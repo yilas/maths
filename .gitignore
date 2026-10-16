@@ -1,0 +1,14 @@
+# Produits de compilation temporaires. Les PDF publiés sont dans pdf/.
+/build/
+*.aux
+*.log
+*.toc
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.nav
+*.snm
+*.vrb
+__pycache__/
+*.py[cod]

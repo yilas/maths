@@ -1,0 +1,95 @@
+\documentclass[../cours_3e.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{14}
+\chapter{Trigonométrie dans le triangle rectangle}
+\label{ch:trigo}
+\begin{objectif}
+Choisir sinus, cosinus ou tangente ; calculer un côté ou un angle ; comprendre pourquoi ces rapports dépendent seulement de l'angle. Prérequis : triangles semblables et Pythagore.
+\end{objectif}
+\section{Nommer les côtés par rapport à un angle}
+Dans $ABC$ rectangle en $A$, choisissons l'angle aigu $\alpha=\widehat{ABC}$. L'hypoténuse est $BC$, le côté adjacent à $\alpha$ est $AB$ et le côté opposé est $AC$.
+\begin{center}
+\begin{tikzpicture}[scale=.85]
+\coordinate(A)at(0,0);\coordinate(B)at(6,0);\coordinate(C)at(0,3.5);
+\draw[thick](A)--node[below]{adjacent à $\alpha$}(B)--node[above right]{hypoténuse}(C)--node[left]{opposé à $\alpha$}cycle;
+\draw(.3,0)--(.3,.3)--(0,.3);
+\draw[accent](5.2,0)arc(180:149.7:.8);
+\node[accent]at(4.9,.32){$\alpha$};
+\node[below left]at(A){$A$};\node[below right]at(B){$B$};\node[above]at(C){$C$};
+\end{tikzpicture}
+\end{center}
+Si l'on choisit l'angle en $C$, les deux côtés de l'angle droit échangent leurs rôles. L'hypoténuse reste la même.
+\begin{attention}
+Le côté adjacent est celui qui touche l'angle choisi \emph{et qui n'est pas l'hypoténuse}. Les mots adjacent et opposé n'ont de sens qu'après le choix de l'angle.
+\end{attention}
+\section{Définir les trois rapports}
+\begin{definition}
+Pour un angle aigu $\alpha$ d'un triangle rectangle :
+\[
+\cos\alpha=\frac{\text{adjacent}}{\text{hypoténuse}},\qquad
+\sin\alpha=\frac{\text{opposé}}{\text{hypoténuse}},\qquad
+\tan\alpha=\frac{\text{opposé}}{\text{adjacent}}.
+\]
+Les trois rapports sont sans unité.
+\end{definition}
+\begin{demonstration}
+Pourquoi peut-on parler du cosinus \emph{de l'angle}, sans préciser le triangle ? Deux triangles rectangles ayant le même angle aigu ont leurs trois angles égaux : ils sont semblables. Leurs côtés correspondants sont multipliés par un même facteur $k>0$. Dans chacun des trois quotients, ce facteur se simplifie : $(ku)/(kv)=u/v$. Le rapport est donc indépendant de la taille du triangle.
+\end{demonstration}
+Les définitions ne se démontrent pas ; l'indépendance vis-à-vis du triangle, qui les rend cohérentes, vient d'être justifiée.
+\section{Calculer une longueur}
+\begin{methode}
+Vérifier l'angle droit ; choisir l'angle connu ; identifier le côté connu et le côté cherché ; sélectionner le rapport qui les contient ; écrire l'équation ; isoler la longueur ; calculer en mode degrés.
+\end{methode}
+\begin{exemple}[Côté opposé]
+Une échelle de $5\unite m$ fait un angle de $68\degre$ avec le sol horizontal. Dans le modèle du mur vertical, la hauteur atteinte $h$ vérifie
+\[\sin68\degre=\frac h5,\qquad h=5\sin68\degre\approx4{,}64\unite m.\]
+\end{exemple}
+\begin{exemple}[Hypoténuse inconnue]
+Un côté adjacent mesure $7\unite{cm}$ et l'angle vaut $35\degre$. Si $c$ est l'hypoténuse,
+\[\cos35\degre=\frac7c,\qquad c\cos35\degre=7,\qquad
+c=\frac7{\cos35\degre}\approx8{,}55\unite{cm}.\]
+L'hypoténuse est bien plus grande que $7$.
+\end{exemple}
+\begin{exemple}[Distance au sol]
+Un angle de visée de $32\degre$ et une distance horizontale de $18\unite m$ donnent une différence de hauteur $h=18\tan32\degre\approx11{,}25\unite m$. Si les yeux sont à $1{,}60\unite m$ du sol, la hauteur totale est environ $12{,}85\unite m$, sous l'hypothèse d'un terrain horizontal.
+\end{exemple}
+\section{Calculer un angle}
+\begin{exemple}
+Dans un triangle rectangle, le côté opposé à $\alpha$ vaut $6$ et l'hypoténuse $10$. Alors $\sin\alpha=0{,}6$.
+La fonction inverse de la calculatrice donne
+\[\alpha=\arcsin(0{,}6)\approx36{,}87\degre,\]
+soit $37\degre$ au degré près. La touche peut être notée $\sin^{-1}$ : ici elle cherche l'angle, elle ne calcule pas $1/\sin$.
+\end{exemple}
+On utilise de même $\arccos$ pour un quotient adjacent/hypoténuse et $\arctan$ pour opposé/adjacent.
+\begin{attention}
+La calculatrice doit être en mode \texttt{DEG}, pas \texttt{RAD}. Pour un angle aigu, sinus et cosinus sont compris entre $0$ et $1$ ; une valeur comme $1{,}4$ signale une inversion des côtés. La tangente peut dépasser $1$.
+\end{attention}
+\section{Relations entre les rapports}
+\begin{propriete}
+Pour $0\degre<\alpha<90\degre$,
+\[\sin^2\alpha+\cos^2\alpha=1,\qquad
+\tan\alpha=\frac{\sin\alpha}{\cos\alpha}.\]
+De plus $\sin\alpha=\cos(90\degre-\alpha)$.
+\end{propriete}
+\begin{demonstration}
+En notant $o$ le côté opposé, $a$ l'adjacent et $c$ l'hypoténuse, Pythagore donne $o^2+a^2=c^2$. Diviser par $c^2$ donne la première identité. Ensuite $(o/c)/(a/c)=o/a$, d'où la seconde. Enfin les deux angles aigus sont complémentaires et les rôles de $o$ et $a$ s'échangent, d'où la dernière relation.
+\end{demonstration}
+Ces identités expliquent les liens entre les définitions ; elles ne doivent pas devenir une collection supplémentaire de recettes.
+\section{Quelques valeurs exactes, en complément}
+\begin{center}
+\begin{tabular}{c|ccc}
+\toprule $\alpha$&$30\degre$&$45\degre$&$60\degre$\\\midrule
+$\cos\alpha$&$\sqrt3/2$&$\sqrt2/2$&$1/2$\\
+$\sin\alpha$&$1/2$&$\sqrt2/2$&$\sqrt3/2$\\
+$\tan\alpha$&$\sqrt3/3$&$1$&$\sqrt3$\\\bottomrule
+\end{tabular}
+\end{center}
+\begin{demonstration}
+Un triangle rectangle isocèle de côtés $1,1,\sqrt2$ a deux angles de $45\degre$. Ses rapports donnent les valeurs de la colonne centrale.
+Couper un triangle équilatéral de côté $2$ par une hauteur donne un triangle rectangle de côtés $1,\sqrt3,2$ : la hauteur vaut $\sqrt{2^2-1^2}=\sqrt3$. Les angles aigus sont $30\degre$ et $60\degre$, d'où les autres rapports. Enfin $1/\sqrt3=\sqrt3/3$ en multipliant numérateur et dénominateur par $\sqrt3$.
+\end{demonstration}
+\utilite{Calculer une hauteur inaccessible, une pente ou un angle de visée. Une pente de $p\,\%$ signifie dénivelé/distance horizontale $=p/100$ : son angle satisfait $\tan\alpha=p/100$. Ce pourcentage n'est pas un angle en degrés.}
+\begin{retenir}
+L'angle choisi détermine adjacent et opposé. Écrire le rapport avant de calculer. Pour une longueur, résoudre l'égalité ; pour un angle, utiliser la fonction inverse appropriée.
+\end{retenir}
+\end{document}

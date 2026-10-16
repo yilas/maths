@@ -1,0 +1,99 @@
+\documentclass[../cours_3e.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{13}
+\chapter{Thalès et triangles semblables}
+\label{ch:thales}
+\begin{objectif}
+Calculer avec des parallèles, démontrer un parallélisme, associer les côtés de triangles semblables. Prérequis : proportionnalité, angles, aires et triangles égaux.
+\end{objectif}
+\section{Thalès : une proportion créée par des parallèles}
+\begin{theoreme}
+Dans un triangle $ABC$, on prend $M\ne A$ sur $(AB)$ et $N\ne A$ sur $(AC)$. Si $(MN)\parallel(BC)$, alors
+\[\frac{AM}{AB}=\frac{AN}{AC}=\frac{MN}{BC}.\]
+Les rapports portent ici sur des longueurs positives.
+\end{theoreme}
+\begin{center}
+\begin{tikzpicture}[scale=.8]
+\coordinate(A)at(0,3.5);\coordinate(B)at(-2,0);\coordinate(C)at(3,0);
+\coordinate(M)at(-1,1.75);\coordinate(N)at(1.5,1.75);
+\draw(A)--(B)--(C)--cycle;\draw[accent,thick](M)--(N);
+\foreach \p/\pos in {A/above,B/below left,C/below right,M/left,N/right}{\node[\pos]at(\p){$\p$};}
+\begin{scope}[xshift=9cm]
+\coordinate(A2)at(0,0);\coordinate(B2)at(-2,-1.5);\coordinate(C2)at(2,-1.5);
+\coordinate(M2)at(1.2,.9);\coordinate(N2)at(-1.2,.9);
+\draw(M2)--(B2)--(C2)--(N2);\draw[accent,thick](M2)--(N2);
+\node[right]at(A2){$A$};\node[below]at(B2){$B$};\node[below]at(C2){$C$};
+\node[above]at(M2){$M$};\node[above]at(N2){$N$};
+\end{scope}
+\end{tikzpicture}
+\end{center}
+À gauche, les triangles sont emboîtés ; à droite, la configuration est dite « papillon ». Toujours faire correspondre $A$ à $A$, $M$ à $B$ et $N$ à $C$.
+\section{Démonstration par les aires}
+Commençons par $M\in[AB]$ et $N\in[AC]$, avec les points distincts des extrémités.
+\begin{demonstration}
+Les triangles $BMN$ et $CMN$ ont la même base $MN$ et la même hauteur, car $B,C$ sont sur une parallèle à $(MN)$. Ils ont donc la même aire.
+En ajoutant l'aire de $AMN$, on obtient
+\[\aire(ABN)=\aire(ACM).\]
+Les triangles $ABN$ et $ABC$ ont des bases $AN$ et $AC$ sur la même droite et la même hauteur issue de $B$, donc
+\[\frac{\aire(ABN)}{\aire(ABC)}=\frac{AN}{AC}.\]
+De même $\aire(ACM)/\aire(ABC)=AM/AB$. Ainsi $AM/AB=AN/AC$.
+
+Pour obtenir le troisième rapport, tracer par $N$ la parallèle à $(AB)$ ; elle coupe $[BC]$ en $D$. Le quadrilatère $BMND$ est un parallélogramme, donc $BD=MN$. Appliquer le rapport déjà démontré dans le triangle $CAB$ donne
+\[\frac{CD}{CB}=\frac{CN}{CA}.\]
+En soustrayant à $1$ :
+\[\frac{BD}{BC}=\frac{AN}{AC},\quad\text{donc}\quad
+\frac{MN}{BC}=\frac{AN}{AC}.\]
+\end{demonstration}
+Si $M,N$ sont au-delà de $B,C$, on applique le cas précédent au grand triangle $AMN$ puis on inverse les rapports. Pour le papillon, la symétrie centrale de centre $A$ envoie $M,N$ de l'autre côté sans changer les longueurs et ramène à des triangles emboîtés (éventuellement en échangeant grand et petit). Les cas d'égalité aux extrémités sont immédiats.
+\section{Calculer sans inverser les correspondances}
+\begin{methode}
+Repérer les deux droites sécantes et leur sommet ; vérifier le parallélisme ; écrire les trois rapports dans le même ordre ; choisir les deux rapports contenant la longueur inconnue et trois longueurs connues.
+\end{methode}
+\begin{exemple}
+Dans la configuration emboîtée, $AB=9$, $AC=12$, $BC=15$ et $AM=6$ (en centimètres). Le rapport vaut $AM/AB=2/3$. Donc $AN=8\unite{cm}$ et $MN=10\unite{cm}$.
+Si l'on demande $MB$, il faut encore calculer $AB-AM=3\unite{cm}$.
+\end{exemple}
+\begin{exemple}[Papillon]
+$AB=8$, $AC=6$, $BC=10$ et $AM=12$. Alors le rapport vaut $12/8=1{,}5$, donc $AN=9$ et $MN=15$. Ici $A$ est entre $B$ et $M$ : $BM=BA+AM=20$, et non $4$.
+\end{exemple}
+\section{Réciproque de Thalès}
+\begin{theoreme}
+Supposons $A,B,M$ alignés et $A,C,N$ alignés sur deux droites distinctes, avec tous les rapports définis. Supposons aussi que $M$ est sur la demi-droite $[AB)$ exactement quand $N$ est sur $[AC)$ : les deux côtés suivent la même configuration. Si
+\[\frac{AM}{AB}=\frac{AN}{AC},\]
+alors $(MN)\parallel(BC)$.
+\end{theoreme}
+\begin{demonstration}
+Tracer par $M$ la parallèle à $(BC)$ et appeler $N'$ son intersection avec $(AC)$. Le théorème direct donne $AN'/AC=AM/AB=AN/AC$, donc $AN'=AN$. La condition de configuration place $N'$ et $N$ sur la même demi-droite d'origine $A$. Ils sont donc confondus, et $(MN)$ est la parallèle construite.
+\end{demonstration}
+\begin{attention}
+Les rapports de longueurs ne portent pas de signe. Sans la condition de position, l'égalité des rapports pourrait placer un point du mauvais côté de $A$ et ne garantirait pas le parallélisme.
+\end{attention}
+\begin{exemple}
+$AM=4$, $AB=10$, $AN=6$, $AC=15$, dans une configuration compatible. Les deux rapports valent $2/5$ : les droites sont parallèles. Si $AN=7$, les rapports diffèrent : par contraposée du théorème direct, elles ne sont pas parallèles.
+\end{exemple}
+\section{Triangles semblables}
+\begin{definition}
+Deux triangles sont \textbf{semblables} si leurs angles sont égaux deux à deux. Deux angles correspondants égaux suffisent, car la somme des trois angles vaut $180\degre$.
+\end{definition}
+\begin{theoreme}[Caractérisation par les côtés]
+Deux triangles sont semblables si et seulement si leurs côtés correspondants sont proportionnels.
+\end{theoreme}
+\begin{demonstration}
+Si les angles sont égaux, déplacer et éventuellement retourner un triangle pour faire coïncider un sommet et les deux demi-droites qui en partent. L'égalité des angles correspondants impose que les côtés opposés soient parallèles. Thalès donne alors la proportionnalité des trois côtés.
+
+Réciproquement, supposons les trois côtés proportionnels, de rapport $k>0$. Dans l'un des angles du premier triangle, construire un triangle de rapport $k$ avec un côté parallèle au côté opposé. Thalès lui donne les trois longueurs du second triangle. Par CCC, il est égal au second triangle ; or ses angles sont ceux du premier, grâce aux parallèles. Les triangles initiaux sont donc semblables.
+\end{demonstration}
+\begin{exemple}
+Si $\widehat A=40\degre$, $\widehat B=65\degre$, alors $\widehat C=75\degre$. Dans un autre triangle, les angles $40\degre$ et $75\degre$ suffisent à établir la similitude. Il faut associer les côtés \emph{opposés aux mêmes angles}, même si les dessins sont tournés.
+\end{exemple}
+\begin{propriete}
+Pour des triangles semblables de rapport de longueurs $k>0$, les périmètres sont dans le rapport $k$ et les aires dans le rapport $k^2$.
+\end{propriete}
+\begin{demonstration}
+Chaque côté est multiplié par $k$, donc leur somme l'est aussi. Les hauteurs sont multipliées par $k$ (elles sont des longueurs correspondantes de la même similitude). Avec $\aire=bh/2$, l'aire est multipliée par $k\times k=k^2$.
+\end{demonstration}
+\utilite{Mesurer une hauteur par une ombre, utiliser une maquette, calculer des longueurs dans des figures tournées et justifier les rapports trigonométriques. Une égalité d'angles est parfois plus facile à reconnaître qu'un parallélisme direct.}
+\begin{retenir}
+Thalès utilise des alignements et des parallèles. Sa réciproque utilise des alignements, une condition de position et une égalité de rapports. Les triangles semblables généralisent la proportionnalité à des figures qui ne sont pas forcément emboîtées.
+\end{retenir}
+\end{document}

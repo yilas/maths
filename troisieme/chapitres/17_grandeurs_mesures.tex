@@ -1,0 +1,146 @@
+\documentclass[../cours_3e.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{16}
+\chapter{Grandeurs, aires et volumes}
+\label{ch:mesures}
+\begin{objectif}
+Utiliser les unités, expliquer les formules usuelles et calculer des grandeurs composées ou des assemblages de solides. Prérequis : proportionnalité, aires, Thalès et Pythagore.
+\end{objectif}
+\section{Grandeur, mesure et unité}
+Une longueur, une masse ou une durée est une grandeur ; sa mesure dépend de l'unité choisie. La même longueur vaut $1\unite m$, $100\unite{cm}$ ou $1000\unite{mm}$.
+\begin{propriete}
+Si une unité de longueur est divisée par $10$, le nombre mesurant une aire est multiplié par $100$, et celui mesurant un volume par $1000$.
+\end{propriete}
+\begin{demonstration}
+$1\unite m=100\unite{cm}$ implique $1\unite{m^2}=100\times100\unite{cm^2}=10000\unite{cm^2}$.
+De même $1\unite{m^3}=100^3\unite{cm^3}=1000000\unite{cm^3}$. Chaque dimension apporte un facteur de conversion.
+\end{demonstration}
+\begin{center}
+\begin{tabularx}{\textwidth}{lX}
+\toprule Grandeur & Égalités utiles\\\midrule
+Longueur & $1\unite{km}=1000\unite m$ ; $1\unite{cm}=10\unite{mm}$.\\
+Aire & $1\unite{ha}=10000\unite{m^2}$ ; $1\unite{km^2}=1000000\unite{m^2}$.\\
+Volume & $1\unite{m^3}=1000\unite{dm^3}$ ; $1\unite{dm^3}=1000\unite{cm^3}$.\\
+Contenance & $1\unite L=1\unite{dm^3}$ ; $1\unite{mL}=1\unite{cm^3}$ ; $1\unite{m^3}=1000\unite L$.\\
+Durée & $1\unite h=60\unite{min}=3600\unite s$.\\
+Masse & $1\unite t=1000\unite{kg}$ ; $1\unite{kg}=1000\unite g$.\\\bottomrule
+\end{tabularx}
+\end{center}
+\begin{attention}
+$1{,}5\unite h=1\unite h\,30\unite{min}$, pas $1\unite h\,50\unite{min}$. Masse et volume sont deux grandeurs différentes : $1\unite L$ n'est pas toujours $1\unite{kg}$.
+\end{attention}
+\section{Périmètres et aires planes}
+\begin{center}
+\begin{tabularx}{\textwidth}{lXX}
+\toprule Figure & Périmètre & Aire\\\midrule
+Carré de côté $c$ & $4c$ & $c^2$\\
+Rectangle $L,\ell$ & $2(L+\ell)$ & $L\ell$\\
+Triangle & somme des trois côtés & $bh/2$\\
+Parallélogramme & $2(a+b)$ & $bh$\\
+Trapèze de bases $B,b$ & somme des quatre côtés & $(B+b)h/2$\\
+Losange de côté $c$ & $4c$ & $d_1d_2/2$\\
+Disque/cercle de rayon $r$ & $2\pi r$ & $\pi r^2$\\\bottomrule
+\end{tabularx}
+\end{center}
+Les hauteurs sont \emph{perpendiculaires} aux bases ; une longueur oblique ne peut pas les remplacer.
+\begin{demonstration}
+Les périmètres polygonaux sont les sommes des côtés, par définition. Les aires du rectangle, du triangle et du parallélogramme sont établies au chapitre 12.
+Deux copies d'un trapèze s'assemblent en un parallélogramme de base $B+b$ et de hauteur $h$ ; l'aire d'une copie est donc $(B+b)h/2$.
+Les diagonales perpendiculaires du losange le partagent en quatre triangles rectangles : la somme de leurs aires vaut $4\times\frac12(d_1/2)(d_2/2)=d_1d_2/2$.
+\end{demonstration}
+\section{Le cercle et le disque}
+Le quotient longueur du cercle / diamètre est le même pour tous les cercles : un agrandissement multiplie les deux longueurs par le même facteur. On appelle ce quotient $\pi$. Par définition, $C=\pi(2r)=2\pi r$. La valeur $3{,}14$ est une approximation de $\pi$, pas sa valeur exacte.
+\begin{justification}
+Pour comprendre l'aire du disque, découper celui-ci en nombreux secteurs et les disposer alternativement tête-bêche. La figure se rapproche d'un rectangle de hauteur $r$ et de base égale à la moitié du périmètre, soit $\pi r$. L'aire tend donc vers $\pi r^2$. Le passage à la limite, nécessaire pour rendre cet argument complètement rigoureux, est admis à ce niveau.
+\end{justification}
+Un secteur d'angle $\theta$ degrés représente la fraction $\theta/360$ du disque et du cercle, donc
+\[\aire_{\text{secteur}}=\frac{\theta}{360}\pi r^2,\qquad
+L_{\text{arc}}=\frac{\theta}{360}\,2\pi r.\]
+Ces formules viennent de la proportionnalité à l'angle, en découpant d'abord en secteurs égaux puis en affinant le découpage.
+\begin{exemple}
+Une couronne de rayons extérieur $5$ et intérieur $3\unite{cm}$ a une aire $\pi5^2-\pi3^2=16\pi\unite{cm^2}$. On soustrait les aires, pas les rayons avant de mettre au carré.
+\end{exemple}
+\section{Volumes des solides usuels}
+Dans les formules suivantes, $B$ désigne l'aire de la base et $h$ la hauteur perpendiculaire.
+\begin{center}
+\begin{tabularx}{\textwidth}{lX}
+\toprule Solide & Volume\\\midrule
+Cube de côté $c$ & $c^3$\\
+Pavé droit $L,\ell,h$ & $L\ell h$\\
+Prisme droit & $Bh$\\
+Cylindre droit de rayon $r$ & $\pi r^2h$\\
+Pyramide & $Bh/3$\\
+Cône de révolution & $\pi r^2h/3$\\
+Boule de rayon $r$ & $4\pi r^3/3$\\\bottomrule
+\end{tabularx}
+\end{center}
+La \textbf{sphère} est la surface ; la \textbf{boule} est le solide qu'elle délimite. Une sphère n'est pas un disque.
+
+\begin{demonstration}
+Pour un pavé de dimensions entières, compter les cubes unités donne $L\ell h$. Une subdivision justifie les dimensions rationnelles ; l'extension aux réels est admise par approximation. Un prisme ou un cylindre empile sur une hauteur $h$ des sections constantes d'aire $B$, ce qui donne $Bh$.
+\end{demonstration}
+\section{D'où vient le facteur un tiers ?}
+\admis{Le principe de Cavalieri : deux solides compris entre les mêmes plans parallèles ont le même volume si toutes leurs sections à la même hauteur ont la même aire. On admet aussi qu'étirer un solide uniquement dans la direction verticale d'un facteur $t>0$ multiplie son volume par $t$. Ces principes rendent les preuves suivantes accessibles sans calcul intégral ; leur fondement général dépasse la troisième.}
+\begin{demonstration}[Pyramide et cône]
+Un cube de côté $a$ se décompose en trois pyramides de sommet commun à un sommet du cube, dont les bases sont les trois faces opposées à ce sommet. Les pyramides sont superposables par permutation des trois directions, et leurs intérieurs ne se recouvrent pas : chacune a donc un volume $a^3/3$.
+
+Pour une base carrée d'aire $B$, choisir $a=\sqrt B$. En étirant verticalement cette pyramide de hauteur $a$ jusqu'à la hauteur $h$, son volume devient $(a^3/3)(h/a)=Bh/3$.
+
+Une section parallèle à la base, à la hauteur $z$ mesurée depuis la base, est une réduction de rapport $1-z/h$. Son aire vaut donc $B(1-z/h)^2$. Cette expression ne dépend pas de la forme de la base : une pyramide quelconque ou un cône de même $B,h$ possède les mêmes aires de sections. Par Cavalieri, son volume vaut aussi $Bh/3$.
+\end{demonstration}
+Ce raisonnement évite de présenter le facteur $1/3$ comme une formule isolée, tout en signalant exactement les deux principes admis.
+\section{Une preuve du volume de la boule}
+\begin{demonstration}
+Considérons une boule de rayon $r$. À une distance verticale $z$ de son centre, avec $-r\leq z\leq r$, sa section est un disque de rayon $\sqrt{r^2-z^2}$ par Pythagore. Son aire vaut $\pi(r^2-z^2)$.
+
+Prenons maintenant un cylindre de rayon $r$ et de hauteur $2r$, et retirons deux cônes dont les sommets sont au centre et les bases sur les faces supérieure et inférieure. À la hauteur $z$, la section du cône retiré a pour rayon $\abs z$, par Thalès, donc pour aire $\pi z^2$. Il reste une aire $\pi r^2-\pi z^2$, identique à celle de la boule.
+
+Par Cavalieri, les volumes sont égaux :
+\[V_{\text{boule}}=2\pi r^3-2\left(\frac{\pi r^2r}{3}\right)
+=\frac43\pi r^3.\]
+\end{demonstration}
+\approfondissement L'aire d'une sphère vaut $4\pi r^2$. Cette formule n'est pas requise par les attendus de troisième retenus et sa preuve complète est différée. On peut la relier intuitivement au volume en découpant la boule en très fines pyramides de hauteur proche de $r$ : $V\approx Ar/3$, puis en passant à la limite. C'est une explication, pas une preuve élémentaire complète.
+\section{Assemblages, retraits et surfaces extérieures}
+\begin{exemple}
+Un réservoir est formé d'un cylindre de rayon $2\unite m$ et de hauteur $5\unite m$, surmonté d'une demi-boule de même rayon :
+\[V=\pi2^2\times5+\frac12\times\frac43\pi2^3
+=\frac{76\pi}{3}\unite{m^3}\approx79{,}59\unite{m^3}.\]
+Sa contenance est donc environ $79587\unite L$ avant arrondi à une précision pratique.
+\end{exemple}
+Pour un volume creux, soustraire le volume retiré. Pour une surface extérieure, ne pas compter les faces collées à l'intérieur. L'aire latérale d'un cylindre est $2\pi rh$ : son patron est un rectangle de dimensions $2\pi r$ et $h$. Avec deux bases, l'aire totale est $2\pi rh+2\pi r^2$.
+\section{Grandeurs quotient et grandeurs produit}
+\begin{center}
+\begin{tabularx}{\textwidth}{lXX}
+\toprule Grandeur & Relation & Interprétation\\\midrule
+Vitesse moyenne & $v=d/t$ & distance par unité de temps\\
+Débit moyen & $q=V/t$ & volume par unité de temps\\
+Masse volumique & $\rho=m/V$ & masse par unité de volume\\
+Énergie à puissance constante & $E=Pt$ & puissance multipliée par durée\\\bottomrule
+\end{tabularx}
+\end{center}
+Les trois premières relations définissent des moyennes ou des rapports. La dernière traduit l'accumulation à débit d'énergie constant. On isole les autres grandeurs par les règles d'équations : $d=vt$, $t=d/v$ si $v\ne0$, $m=\rho V$.
+\begin{demonstration}
+$1\unite{m/s}=1\times3600/1000\unite{km/h}=3{,}6\unite{km/h}$. Donc passer de km/h à m/s exige de diviser par $3{,}6$. À $72\unite{km/h}$, on parcourt $20\unite m$ en une seconde.
+\end{demonstration}
+Un débit de $2{,}5\unite{L/min}$ pendant $12$ minutes donne $30\unite L$. Un appareil de $0{,}8\unite{kW}$ utilisé à puissance constante pendant $3$ heures consomme $2{,}4\unite{kWh}$. Le kWh est une unité d'énergie, pas de puissance.
+\begin{attention}
+Une vitesse moyenne se calcule par distance totale / durée totale, pas généralement par la moyenne des vitesses. Deux trajets de $60\unite{km}$ à $60$ puis $30\unite{km/h}$ durent $1+2=3$ heures : la moyenne vaut $120/3=40\unite{km/h}$.
+\end{attention}
+\section{Repères et contrôles d'ordre de grandeur}
+\begin{center}
+\begin{tabularx}{\textwidth}{lX}
+\toprule Repère & Valeur à connaître ou à estimer\\\midrule
+Eau liquide & $1\unite L$ a une masse d'environ $1\unite{kg}$ dans les conditions usuelles ; ce n'est pas une égalité universelle.\\
+Cube de $10\unite{cm}$ de côté & $1\unite{dm^3}=1\unite L$.\\
+Marche tranquille & De l'ordre de $4$ à $5\unite{km/h}$.\\
+Tour de la Terre & Environ $40000\unite{km}$.\\
+Son dans l'air ambiant & Environ $340\unite{m/s}$.\\
+Lumière dans le vide & Environ $3\times10^8\unite{m/s}$.\\
+Feuille A4 & $21\unite{cm}\times29{,}7\unite{cm}$, aire $623{,}7\unite{cm^2}$.\\\bottomrule
+\end{tabularx}
+\end{center}
+\utilite{Détecter une erreur de facteur $10$, $1000$ ou d'unité avant de valider un résultat. Une aire doit sortir en unités carrées, un volume en unités cubes et une vitesse en longueur divisée par durée.}
+\begin{retenir}
+Choisir des unités compatibles avant de remplacer dans une formule. Comprendre la dimension de la grandeur. Conserver les valeurs exactes aussi longtemps que possible et arrondir la réponse finale.
+\end{retenir}
+\end{document}

@@ -1,0 +1,75 @@
+\documentclass[../cours_3e.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{7}
+\chapter{Comprendre les fonctions}
+\label{ch:fonctions}
+\begin{objectif}
+Relier formule, tableau, programme et graphique ; calculer une image ; chercher des antécédents ; modéliser une grandeur. Prérequis : repérage et équations.
+\end{objectif}
+\section{Une entrée, une sortie}
+\begin{definition}
+Une \textbf{fonction} associe à chaque nombre autorisé en entrée un unique nombre en sortie. On écrit $f:x\mapsto f(x)$. Le nombre $f(x)$ est l'\textbf{image} de $x$. Si $f(a)=b$, $a$ est un \textbf{antécédent} de $b$.
+\end{definition}
+La fonction est le procédé entier ; $f(x)$ est le résultat pour une entrée donnée. Le $x$ est une variable. L'écriture $f(x)$ ne signifie pas $f\times x$.
+\begin{exemple}
+Si $f(x)=x^2-1$, alors $f(3)=8$ et $f(-3)=8$. Le nombre $3$ possède une seule image, mais $8$ possède deux antécédents : $3$ et $-3$.
+\end{exemple}
+Un nombre peut avoir aucun, un ou plusieurs antécédents. Ici $-2$ n'en a aucun, car $x^2-1\geq-1$.
+\section{Le domaine des valeurs autorisées}
+Le contexte ou la formule limite les entrées. Pour $g(x)=1/(x-2)$, $x=2$ est interdit. Pour une longueur, les valeurs négatives sont exclues. Pour un nombre de billets, seules des valeurs entières positives ou nulles conviennent.
+\begin{attention}
+Avant de chercher un antécédent, préciser l'intervalle ou l'ensemble étudié. Sur $x\geq0$, la fonction $x^2-1$ n'associe $8$ qu'à $3$ ; sur tous les réels, elle l'associe aussi à $-3$.
+\end{attention}
+\section{Quatre façons de décrire le même objet}
+Pour $f(x)=x^2-1$ :
+\begin{itemize}
+\item formule : $f(x)=x^2-1$ ;
+\item programme : choisir $x$, l'élever au carré, soustraire $1$ ;
+\item tableau : calculer des valeurs choisies ;
+\item graphique : placer les points de coordonnées $(x;f(x))$.
+\end{itemize}
+\[
+\begin{array}{c|rrrrrrr}
+x&-3&-2&-1&0&1&2&3\\\hline
+f(x)&8&3&0&-1&0&3&8
+\end{array}
+\]
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[width=10cm,height=7cm,axis lines=middle,xmin=-3.5,xmax=3.5,ymin=-2,ymax=9,grid=both,xtick={-3,-2,...,3},ytick={-1,0,1,3,5,8},xlabel={$x$},ylabel={$f(x)$}]
+\addplot[accent,thick,domain=-3.15:3.15,samples=100]{x^2-1};
+\addplot[only marks,mark=*,accent]coordinates{(-3,8)(-2,3)(-1,0)(0,-1)(1,0)(2,3)(3,8)};
+\addplot[dashed,domain=-3.3:3.3]{3};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+Un tableau ne donne généralement qu'une partie des valeurs. Plusieurs fonctions peuvent partager ces valeurs et différer entre elles. Relier arbitrairement les points par des segments ajoute donc une hypothèse injustifiée.
+\section{Lire une image et un antécédent}
+\begin{methode}[Lecture graphique]
+Pour l'image de $a$, partir de $a$ sur l'axe horizontal, rejoindre verticalement la courbe, puis lire l'ordonnée. Pour les antécédents de $b$, tracer mentalement l'horizontale d'ordonnée $b$ et lire les abscisses de tous ses points d'intersection avec la courbe.
+\end{methode}
+Sur la figure, l'image de $2$ est $3$. Les antécédents de $3$ sont $-2$ et $2$. Si le graphique est une représentation approchée ou si la lecture ne tombe pas sur un point explicitement connu, on donne un résultat approché.
+\begin{exemple}[À partir d'un tableau]
+Dans le tableau précédent, $f(-1)=0$. Les valeurs $-1$ et $1$ sont des antécédents de $0$. Le tableau seul ne prouverait pas qu'il n'en existe aucun autre ; la formule $x^2-1=0$ le prouve.
+\end{exemple}
+\section{Calculer et résoudre}
+\begin{methode}
+Pour une image, remplacer $x$ par la valeur donnée. Pour un antécédent de $b$, résoudre $f(x)=b$ puis vérifier les contraintes.
+\end{methode}
+Si $h(x)=4x-7$, l'image de $-2$ est $-15$. L'antécédent de $9$ vérifie $4x-7=9$, donc $x=4$.
+Pour $u(x)=(x-3)(2x+1)$, les antécédents de $0$ sont $3$ et $-1/2$ par la règle du produit nul.
+\section{Modéliser un phénomène}
+\begin{exemple}[Aire variable]
+Un rectangle a un périmètre de $24\unite{cm}$. Si un côté mesure $x\unite{cm}$, l'autre mesure $12-x$. Son aire est
+\[A(x)=x(12-x),\qquad 0<x<12.\]
+$A(4)=32\unite{cm^2}$. Les valeurs $x=0$ et $x=12$ donnent des figures aplaties, exclues si l'on demande un vrai rectangle.
+\end{exemple}
+La fonction exprime une variation continue : le côté peut prendre toutes les longueurs réelles comprises entre $0$ et $12$. Pour des objets comptés, on ne retient au contraire que des entrées entières.
+\begin{exemple}[Une même aire, plusieurs rectangles]
+$A(4)=A(8)=32$ : échanger longueur et largeur ne change pas l'aire. Cette égalité s'explique aussi par $x(12-x)=(12-x)x$.
+\end{exemple}
+\utilite{Une fonction rassemble dans un même modèle une table de mesures, une formule et un graphique. On peut alors prévoir une valeur, chercher un seuil ou comparer deux procédés.}
+\begin{retenir}
+Image : partir de l'entrée. Antécédent : retrouver une entrée possible. Un point $(a;b)$ appartient à la courbe exactement lorsque $b=f(a)$. Toujours distinguer une lecture approchée d'un calcul exact.
+\end{retenir}
+\end{document}
