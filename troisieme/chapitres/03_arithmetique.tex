@@ -1,0 +1,110 @@
+\documentclass[../cours_3e.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{2}
+\chapter{Divisibilité et nombres premiers}
+\label{ch:arithmetique}
+\begin{objectif}
+Décomposer un entier, rendre une fraction irréductible et résoudre un problème de partage ou de périodicité. Prérequis : multiplication, division et fractions.
+\end{objectif}
+\section{Division euclidienne}
+\begin{theoreme}
+Pour un entier $a\geq0$ et un entier $b>0$, il existe un unique couple d'entiers $(q,r)$ tel que
+\[a=bq+r,\qquad 0\leq r<b.\]
+$q$ est le quotient entier et $r$ le reste.
+\end{theoreme}
+\begin{demonstration}
+On retire successivement des groupes de $b$ à $a$ jusqu'à ce qu'il reste moins de $b$ : le processus s'arrête puisque le reste décroît. Pour l'unicité, si $bq+r=bq'+r'$, alors $b(q-q')=r'-r$. Or $-b<r'-r<b$. Le seul multiple de $b$ dans cet intervalle est $0$, donc $q=q'$ puis $r=r'$.
+\end{demonstration}
+\begin{exemple}
+$157=12\times13+1$. Dans $157$ objets, on constitue $13$ lots complets de $12$ et il reste un objet. Le quotient décimal $157/12$ répond à une autre question.
+\end{exemple}
+\begin{definition}
+Un entier $d>0$ \textbf{divise} un entier $n$ s'il existe un entier $k$ tel que $n=dk$. On dit que $d$ est un diviseur de $n$ et que $n$ est un multiple de $d$. Cela équivaut à un reste nul.
+\end{definition}
+Tout entier positif divise $0$, et $1$ divise tous les entiers. Ici on ne prend jamais $0$ comme diviseur.
+\section{Critères de divisibilité : pourquoi fonctionnent-ils ?}
+\begin{center}
+\begin{tabularx}{\textwidth}{lX}
+\toprule Divisible par & Critère sur l'écriture décimale\\\midrule
+$2$ & Chiffre des unités pair.\\
+$5$ & Chiffre des unités égal à $0$ ou $5$.\\
+$10$ & Chiffre des unités égal à $0$.\\
+$3$ ou $9$ & Somme des chiffres divisible respectivement par $3$ ou $9$.\\
+$4$ (complément) & Nombre formé par les deux derniers chiffres divisible par $4$.\\
+\bottomrule
+\end{tabularx}
+\end{center}
+\begin{demonstration}
+Écrivons $n=10q+u$. Le terme $10q$ est divisible par $2$, $5$ et $10$ : il reste à tester $u$. Pour $4$, écrire $n=100q+r$ avec $0\leq r<100$ ramène au nombre $r$.
+
+Pour $3$ et $9$, observons que $10-1=9$, $100-1=99$, $1000-1=999$, etc. sont des multiples de $9$. Par exemple
+\[1000a+100b+10c+d=999a+99b+9c+(a+b+c+d).\]
+Le nombre et la somme de ses chiffres diffèrent donc d'un multiple de $9$, lui-même multiple de $3$. La même écriture fonctionne avec autant de chiffres que nécessaire.
+\end{demonstration}
+\begin{exemple}
+Pour $3726$, la somme des chiffres vaut $18$. Ce nombre est divisible par $3$, par $9$ et par $2$, mais pas par $5$. Attention : être divisible par $3$ n'implique pas être divisible par $9$ ; $12$ est un contre-exemple.
+\end{exemple}
+\section{Nombres premiers et crible}
+\begin{definition}
+Un entier naturel est \textbf{premier} s'il possède exactement deux diviseurs positifs : $1$ et lui-même. Les nombres $0$ et $1$ ne sont pas premiers.
+\end{definition}
+Les nombres premiers inférieurs à $30$ sont $2,3,5,7,11,13,17,19,23,29$. Le seul premier pair est $2$ : tout autre pair possède aussi le diviseur $2$.
+\begin{propriete}
+Pour tester la primalité de $n>1$, il suffit de chercher des diviseurs premiers inférieurs ou égaux à $\sqrt n$.
+\end{propriete}
+\begin{demonstration}
+Si $n=ab$ avec $1<a\leq b$, alors $a^2\leq ab=n$, donc $a\leq\sqrt n$. Si $a$ n'est pas premier, on le décompose à son tour jusqu'à obtenir un diviseur premier, encore plus petit. Un entier composé possède donc un petit diviseur premier.
+\end{demonstration}
+\begin{exemple}
+Pour $97$, $9<\sqrt{97}<10$. Tester $2,3,5,7$ suffit. Aucun ne divise $97$, qui est donc premier.
+\end{exemple}
+Le \textbf{crible d'Ératosthène} consiste à lister les entiers de $2$ à $100$, à conserver le premier entier non barré, puis à barrer ses multiples strictement plus grands. Il suffit de traiter $2,3,5,7$. On obtient :
+\[
+\begin{gathered}
+2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,\\
+53,59,61,67,71,73,79,83,89,97.
+\end{gathered}
+\]
+
+\section{Décomposition en facteurs premiers}
+\begin{theoreme}
+Tout entier $n\geq2$ est un produit de nombres premiers. Cette décomposition est unique à l'ordre des facteurs près.
+\end{theoreme}
+\begin{demonstration}
+Pour l'existence, si $n$ est premier, c'est terminé. Sinon, $n=ab$ avec $1<a,b<n$. On recommence sur les facteurs non premiers. Ils deviennent plus petits et le processus finit. L'unicité est admise ici ; sa preuve générale utilise notamment le lemme d'Euclide sur les diviseurs premiers d'un produit.
+\end{demonstration}
+\begin{methode}
+Diviser par $2$ autant que possible, puis par $3$, $5$, $7$, etc. Noter chaque facteur. S'arrêter lorsque le quotient vaut $1$, ou lorsque le quotient restant est premier.
+\end{methode}
+\begin{exemple}
+$360=2\times180=2^2\times90=2^3\times45=2^3\times3^2\times5$.
+Vérification : $8\times9\times5=360$.
+\end{exemple}
+\section{Fractions irréductibles, partages et rendez-vous}
+\begin{definition}
+Une fraction $\frac ab$, avec $b>0$, est \textbf{irréductible} lorsque $a$ et $b$ n'ont aucun diviseur commun supérieur à $1$ (on considère les diviseurs de $\abs a$).
+\end{definition}
+Par décomposition :
+\[\frac{252}{360}=\frac{2^2\times3^2\times7}{2^3\times3^2\times5}
+=\frac7{10}.\]
+On a retiré tous les facteurs premiers communs. Il n'en reste aucun : la fraction est irréductible.
+
+\approfondissement Les noms \textbf{PGCD} (plus grand commun diviseur) et \textbf{PPCM} (plus petit commun multiple positif) facilitent certains problèmes ; leur formalisme n'est pas nécessaire pour les résoudre.
+\begin{exemple}[Lots identiques]
+On dispose de $84$ biscuits et $126$ chocolats. Pour faire le maximum de lots identiques sans reste, le nombre de lots doit diviser les deux effectifs :
+\[84=2^2\times3\times7,\quad126=2\times3^2\times7.\]
+Le plus grand diviseur commun est $2\times3\times7=42$. Chaque lot contient $2$ biscuits et $3$ chocolats.
+\end{exemple}
+\begin{justification}
+Un diviseur commun ne peut utiliser que les facteurs communs, avec au plus le plus petit des exposants. Pour un multiple commun, il faut au contraire inclure tous les facteurs nécessaires, donc prendre le plus grand exposant de chaque facteur.
+\end{justification}
+\begin{exemple}[Deux signaux]
+Deux signaux reviennent toutes les $18$ et $24$ secondes. S'ils coïncident à l'instant $0$, leur prochaine coïncidence survient après $\PPCM(18,24)=2^3\times3^2=72\unite{s}$.
+\end{exemple}
+\approfondissement L'algorithme d'Euclide repose sur $\PGCD(a,b)=\PGCD(b,r)$ lorsque $a=bq+r$.
+En effet, tout diviseur de $a$ et $b$ divise $r=a-bq$, et tout diviseur de $b$ et $r$ divise $a=bq+r$. Répéter les divisions mène à un reste nul ; le dernier reste non nul est le PGCD.
+\utilite{Répartir sans reste, synchroniser des cycles ou simplifier une fraction. Pour deux engrenages, le retour de la même paire de dents utilise un multiple commun des nombres de dents.}
+\begin{retenir}
+Ne pas confondre diviseur et multiple. Pour prouver qu'un nombre est composé, un seul diviseur non trivial suffit. Pour prouver qu'il est premier, il faut justifier que tous les diviseurs premiers possibles ont été écartés.
+\end{retenir}
+\end{document}

@@ -1,0 +1,133 @@
+\documentclass[../cours_3e.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{17}
+\chapter{Se repérer et représenter l'espace}
+\label{ch:espace}
+\begin{objectif}
+Lire des coordonnées, représenter des solides, construire des patrons et analyser des sections ; comprendre latitude et longitude.
+\end{objectif}
+\section{Repères du plan et de l'espace}
+Dans le plan, un point est repéré par son abscisse $x$ puis son ordonnée $y$ : $M(x;y)$. Un repère est orthogonal si ses axes sont perpendiculaires ; il est orthonormé si leurs unités ont aussi la même longueur.
+Dans l'espace, on ajoute une troisième coordonnée $z$, appelée ici altitude : $M(x;y;z)$.
+\begin{center}
+\begin{tikzpicture}[x={(.9cm,0)},y={(.38cm,.28cm)},z={(0,.9cm)}]
+\coordinate(O)at(0,0,0);\coordinate(A)at(5,0,0);\coordinate(B)at(5,3,0);\coordinate(C)at(0,3,0);
+\coordinate(D)at(0,0,3);\coordinate(E)at(5,0,3);\coordinate(F)at(5,3,3);\coordinate(G)at(0,3,3);
+\draw(O)--(A)--(B)--(F)--(G)--(D)--cycle;\draw(D)--(E)--(F);\draw(A)--(E);
+\draw[dashed](O)--(C)--(B);\draw[dashed](C)--(G);
+\draw[-{Stealth}](O)--(6,0,0)node[right]{$x$};
+\draw[-{Stealth}](O)--(0,4,0)node[right]{$y$};
+\draw[-{Stealth}](O)--(0,0,4)node[above]{$z$};
+\fill[accent](3,2,2)circle(2pt)node[above]{$M(3;2;2)$};
+\draw[accent,dashed](3,0,0)--(3,2,0)--(3,2,2);
+\node[below left]at(O){$O$};
+\end{tikzpicture}
+\end{center}
+Les valeurs de coordonnées ne sont pas nécessairement les longueurs visibles sur le dessin : la perspective déforme certaines directions. Pour un pavé de dimensions $5,3,3$, un point intérieur satisfait $0\leq x\leq5$, $0\leq y\leq3$, $0\leq z\leq3$.
+\section{Reconnaître les solides}
+\begin{center}
+\begin{tabularx}{\textwidth}{lX}
+\toprule Solide & Description\\\midrule
+Pavé droit & Six faces rectangulaires ; le cube a six faces carrées identiques.\\
+Prisme droit & Deux bases polygonales superposables et parallèles, faces latérales rectangulaires.\\
+Cylindre droit & Deux bases circulaires superposables et parallèles, surface latérale courbe.\\
+Pyramide & Une base polygonale et des faces triangulaires réunies en un sommet.\\
+Cône de révolution & Une base circulaire et un sommet sur la perpendiculaire au centre de la base.\\
+Boule & Ensemble des points à distance inférieure ou égale au rayon d'un centre.\\\bottomrule
+\end{tabularx}
+\end{center}
+Pour les polyèdres, distinguer faces, arêtes et sommets. Le cube possède $6$ faces, $12$ arêtes et $8$ sommets : trois faces et trois arêtes se rejoignent à chaque sommet.
+\section{Perspective cavalière et vues}
+En perspective cavalière, les arêtes parallèles restent parallèles ; les arêtes cachées sont généralement en pointillés. Une face parallèle au plan du dessin se représente en vraie grandeur. Les directions fuyantes sont dessinées obliquement avec un coefficient de réduction fixé.
+\begin{attention}
+Les angles droits et les longueurs ne sont généralement pas conservés dans les faces fuyantes. Un parallélogramme dessiné peut représenter une face rectangulaire. Il faut lire les données, pas mesurer directement le dessin.
+\end{attention}
+Les vues de face, de dessus et de côté sont des projections. Elles montrent certaines dimensions en vraie grandeur mais peuvent masquer la profondeur ou des parties cachées. Plusieurs solides différents peuvent avoir une même vue de face.
+\begin{exemple}
+Un cylindre vertical se voit comme un disque de dessus et comme un rectangle de face. Un cône vertical se voit comme un disque de dessus et comme un triangle isocèle de face.
+\end{exemple}
+\section{Patrons et surfaces}
+\begin{definition}
+Un patron est une figure plane que l'on peut plier ou enrouler pour reconstituer la surface d'un solide, sans déformation des faces.
+\end{definition}
+\begin{center}
+\begin{tikzpicture}[scale=.65]
+\foreach \x/\y in {0/0,1/0,2/0,3/0,1/1,1/-1}{\draw[fill=accent!10](\x,\y)rectangle++(1,1);}
+\node at(1.5,-1.65){un patron du cube};
+\begin{scope}[xshift=7cm]
+\draw[fill=accent!10](0,0)rectangle(5,2);
+\draw[fill=accent!10](2.5,2.8)circle(.8);
+\draw[fill=accent!10](2.5,-.8)circle(.8);
+\node at(2.5,1){$2\pi r\times h$};
+\node at(2.5,-2){principe du patron du cylindre};
+\end{scope}
+\end{tikzpicture}
+\end{center}
+Pour le cylindre, le rectangle a pour longueur le périmètre de la base $2\pi r$ et pour largeur $h$. Les deux disques complètent les bases. Le schéma est indicatif, pas un patron à découper à l'échelle.
+
+Pour un cône, le patron latéral est un secteur de disque de rayon $g$, la génératrice. Sa longueur d'arc doit être égale à $2\pi r$ :
+\[\frac{\theta}{360}\,2\pi g=2\pi r,\qquad
+\theta=360\frac rg.\]
+Dans un cône de révolution, $g=\sqrt{h^2+r^2}$ par Pythagore. L'aire du secteur vaut $(\theta/360)\pi g^2=\pi rg$ ; en ajoutant la base, on obtient $\pi rg+\pi r^2$.
+
+\approfondissement Une sphère n'a pas de patron plan exact sans déformation ; les cartes et fuseaux n'en sont que des représentations.
+\section{Sections planes}
+\begin{definition}
+Une section plane est l'intersection d'un solide avec un plan. Dans un solide plein, la section est une surface ; sur sa frontière, on observe le contour.
+\end{definition}
+\begin{center}
+\begin{tabularx}{\textwidth}{lX}
+\toprule Situation & Section\\\midrule
+Pavé, plan parallèle à une face & Rectangle de mêmes dimensions que cette face.\\
+Cylindre, plan parallèle aux bases & Disque de même rayon.\\
+Cylindre, plan contenant son axe & Rectangle de largeur $2r$ et de hauteur $h$.\\
+Pyramide, plan parallèle à la base & Polygone semblable à la base.\\
+Cône, plan parallèle à la base & Disque dont le rayon se calcule par proportionnalité.\\
+Boule, plan passant par le centre & Disque de rayon $r$, bordé par un grand cercle.\\\bottomrule
+\end{tabularx}
+\end{center}
+\begin{justification}
+Dans un prisme ou un cylindre droit, les génératrices parallèles transportent une base sur l'autre : les sections parallèles restent identiques. Dans une pyramide ou un cône, les segments partant du sommet rencontrent deux plans parallèles ; Thalès donne un même rapport sur toutes les longueurs de section.
+\end{justification}
+\begin{exemple}[Cône coupé]
+Un cône a une hauteur de $12\unite{cm}$ et un rayon de base de $5\unite{cm}$. Un plan parallèle situé à $3\unite{cm}$ du sommet découpe un petit cône de rapport $3/12=1/4$. Son rayon vaut $1{,}25\unite{cm}$ et son volume vaut $1/64$ du volume initial.
+\end{exemple}
+\begin{theoreme}[Section d'une boule]
+Pour une boule de rayon $R$ et un plan situé à distance $d$ du centre, avec $0\leq d<R$, la section est un disque de rayon
+\[r=\sqrt{R^2-d^2}.\]
+\end{theoreme}
+\begin{demonstration}
+Soit $H$ le projeté perpendiculaire du centre $O$ sur le plan. Pour un point $M$ du cercle de section, $OH=d$, $OM=R$ et le triangle $OHM$ est rectangle en $H$. Pythagore donne $HM^2=R^2-d^2$, indépendant de $M$ : le contour est un cercle de centre $H$.
+\end{demonstration}
+Si $d=R$, la section se réduit à un point ; si $d>R$, il n'y a pas d'intersection. Pour $R=5$ et $d=3$, on trouve $r=4$.
+\section{Latitude et longitude}
+\begin{definition}
+Sur le modèle sphérique de la Terre, la \textbf{latitude} mesure l'angle entre le plan de l'équateur et la direction centre--point : de $0\degre$ à $90\degre$ nord ou sud. La \textbf{longitude} mesure l'écart angulaire du méridien du point au méridien d'origine : de $0\degre$ à $180\degre$ est ou ouest.
+\end{definition}
+\begin{center}
+\begin{tikzpicture}[scale=.75]
+\draw(0,0)circle(2.7);
+\draw(0,0)ellipse(2.7 and .65);
+\draw[dashed](0,0)ellipse(.9 and 2.7);
+\draw[accent](0,1.35)ellipse(2.34 and .42);
+\draw[dashed](0,-3)--(0,3);
+\node[above]at(0,2.7){Nord};\node[below]at(0,-2.7){Sud};
+\node[right]at(2.7,0){équateur};
+\node[right,accent]at(2.35,1.35){un parallèle};
+\node[left]at(-.8,2){un méridien};
+\end{tikzpicture}
+\end{center}
+Un parallèle relie les points de même latitude ; un méridien relie les pôles et les points de même longitude. L'équateur est un grand cercle ; les autres parallèles sont plus petits. Un méridien est un demi-grand cercle, complété par le méridien opposé.
+
+Le point de latitude $30\degre$ N et de longitude $60\degre$ E se trouve dans l'hémisphère nord, sur le méridien situé à $60\degre$ à l'est de l'origine. Les lettres N/S et E/O empêchent l'ambiguïté. Aux pôles, les méridiens se rejoignent : la longitude ne détermine plus un point différent.
+\section{Distances sur une sphère : complément raisonné}
+Sur un grand cercle de rayon $R$, un arc d'angle central $\theta$ degrés mesure
+\[d=\frac{\theta}{360}\,2\pi R.\]
+Il s'agit d'une longueur d'arc, pas de la corde droite à travers la boule.
+
+Pour un parallèle de latitude $\varphi$ avec $\abs\varphi<90\degre$, un triangle rectangle dans un plan méridien donne un rayon de parallèle $R\cos\varphi$ (prendre $\abs\varphi$ si l'on n'utilise que les angles aigus). Sa circonférence vaut $2\pi R\cos\varphi$. Une distance le long de ce parallèle n'est généralement pas la plus courte distance sur la sphère.
+\utilite{Lire un globe, situer un point, relier un solide à son patron et calculer une longueur ou un volume à partir d'une coupe.}
+\begin{retenir}
+Le dessin de l'espace n'est pas l'objet. Identifier la direction, la vue ou le plan de coupe avant d'utiliser une longueur. Pour une section de cône, la hauteur du petit cône se mesure depuis son sommet.
+\end{retenir}
+\end{document}

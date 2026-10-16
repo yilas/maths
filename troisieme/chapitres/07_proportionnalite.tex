@@ -1,0 +1,95 @@
+\documentclass[../cours_3e.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{6}
+\chapter{Proportionnalité, ratios et pourcentages}
+\label{ch:proportionnalite}
+\begin{objectif}
+Reconnaître un modèle proportionnel, partager selon un ratio, utiliser une échelle et calculer une évolution. Prérequis : fractions et équations simples.
+\end{objectif}
+\section{Un même multiplicateur}
+\begin{definition}
+Deux grandeurs sont proportionnelles lorsque toutes les valeurs de la seconde s'obtiennent en multipliant celles de la première par un même nombre $k$, le \textbf{coefficient de proportionnalité} : $y=kx$.
+\end{definition}
+Pour $x\ne0$, le quotient $y/x$ doit être constant. Une situation proportionnelle associe $0$ à $0$. Mais passer par $(0;0)$ ne suffit pas à prouver la proportionnalité : $y=x^2$ en est un contre-exemple.
+\begin{exemple}
+$3\unite{kg}$ de pommes coûtent $7{,}50$ euros. Si le prix au kilogramme est constant, $k=7{,}50/3=2{,}50$ euros par kilogramme ; $5\unite{kg}$ coûtent $12{,}50$ euros.
+\end{exemple}
+Un taxi avec une prise en charge fixe ne suit pas une proportionnalité entre prix et distance, même si le prix augmente avec la distance.
+\section{Trois méthodes et le produit en croix}
+\begin{methode}
+On peut passer par l'unité, utiliser la multiplication d'une colonne, ou additionner des colonnes. Choisir la méthode qui simplifie les calculs.
+\end{methode}
+\begin{justification}
+Si $y_1=kx_1$ et $y_2=kx_2$, alors $y_1+y_2=k(x_1+x_2)$. Si l'on multiplie $x_1$ par $c$, la valeur associée est $k(cx_1)=cy_1$.
+\end{justification}
+Dans le tableau
+\[
+\begin{array}{c|cc}x&a&b\\\hline y&c&d\end{array}
+\]
+la proportionnalité donne $c=ka$, $d=kb$, donc $ad=bc$. Si $a\ne0$, on calcule $d=bc/a$ : c'est la quatrième proportionnelle. Cette relation vient de l'égalité des quotients, pas d'une règle magique.
+\begin{exemple}
+Pour $8$ personnes, il faut $600\unite g$ de farine. Pour $14$ personnes dans la même recette : $600\times14/8=1050\unite g$.
+\end{exemple}
+\section{Ratios et partages}
+\begin{definition}
+Deux quantités sont dans le ratio $p:q$ si elles valent $pt$ et $qt$ pour un même $t$. Pour trois quantités dans le ratio $p:q:r$, elles valent $pt$, $qt$, $rt$.
+\end{definition}
+\begin{propriete}
+Pour partager un total $S$ dans le ratio $p:q$, les parts valent
+\[\frac{p}{p+q}S\quad\text{et}\quad\frac{q}{p+q}S.\]
+\end{propriete}
+\begin{demonstration}
+Le total vaut $(p+q)t=S$, donc $t=S/(p+q)$. Multiplier par $p$ et par $q$ donne les deux parts.
+\end{demonstration}
+\begin{exemple}
+Partager $240$ euros dans le ratio $2:3:5$ revient à faire $10$ parts de $24$ euros. Les trois montants sont $48$, $72$ et $120$ euros.
+\end{exemple}
+\begin{attention}
+Dans un mélange de ratio sirop:eau $1:4$, le sirop représente $1/5$ du mélange, pas $1/4$. Le dénominateur de la proportion du total est la somme des parts.
+\end{attention}
+\section{Pourcentage d'une quantité}
+\begin{definition}
+$p\,\%$ signifie $p/100$. Prendre $p\,\%$ d'une quantité $V$, c'est calculer $(p/100)V$.
+\end{definition}
+Si $18$ personnes sur $60$ choisissent une option, la proportion est $18/60=0{,}30=30\,\%$. Le total de référence doit être indiqué.
+\begin{exemple}[Pourcentage de pourcentage]
+$40\,\%$ des $250$ élèves sont inscrits à une activité ; $30\,\%$ de ces inscrits jouent aux échecs. Le nombre est $250\times0{,}40\times0{,}30=30$. Cela représente $12\,\%$ des élèves, non $70\,\%$.
+\end{exemple}
+\section{Évolution et coefficient multiplicateur}
+\begin{propriete}
+Augmenter de $t\,\%$ revient à multiplier par $1+t/100$.
+Diminuer de $t\,\%$ revient à multiplier par $1-t/100$.
+\end{propriete}
+\begin{demonstration}
+Une augmentation ajoute $(t/100)V$ à $V$ :
+\[V+\frac{t}{100}V=\left(1+\frac{t}{100}\right)V.\]
+Pour une diminution, remplacer l'addition par une soustraction.
+\end{demonstration}
+\begin{definition}
+Pour une valeur initiale $V_i>0$ et une valeur finale $V_f$, le taux d'évolution en écriture décimale est
+\[r=\frac{V_f-V_i}{V_i},\qquad V_f=(1+r)V_i.\]
+Le taux en pourcentage est $100r\,\%$.
+\end{definition}
+Une hausse de $80$ à $92$ euros vaut $(92-80)/80=0{,}15$, soit $15\,\%$.
+Si un article soldé de $20\,\%$ coûte $64$ euros, le prix initial est $64/0{,}8=80$ euros.
+\begin{attention}
+Une proportion passant de $20\,\%$ à $25\,\%$ augmente de $5$ \emph{points de pourcentage}, et de $25\,\%$ relativement à sa valeur initiale, puisque $5/20=0{,}25$.
+\end{attention}
+\section{Évolutions successives et retour en arrière}
+\begin{propriete}
+Deux évolutions de coefficients $c_1$ puis $c_2$ donnent le coefficient global $c_1c_2$. Pour inverser une évolution de coefficient $c\ne0$, utiliser $1/c$.
+\end{propriete}
+\begin{demonstration}
+$V_1=c_1V_0$ puis $V_2=c_2V_1=c_2c_1V_0$. Et $V_f=cV_i$ entraîne $V_i=V_f/c$.
+\end{demonstration}
+Une hausse de $10\,\%$ suivie d'une baisse de $10\,\%$ donne $1{,}1\times0{,}9=0{,}99$, donc une baisse globale de $1\,\%$. Après une baisse de $20\,\%$, retrouver le prix initial exige une hausse de $25\,\%$, car $1/0{,}8=1{,}25$.
+\section{Échelles, recettes et géométrie}
+\begin{definition}
+L'échelle $e$ d'une représentation est le quotient longueur représentée / longueur réelle, avec les deux longueurs dans la même unité.
+\end{definition}
+À l'échelle $1:25000$, $1\unite{cm}$ représente $25000\unite{cm}=250\unite m$. Une distance de $4{,}8\unite{cm}$ représente $1200\unite m$.
+\utilite{Choisir une taille de recette, construire une maquette, comparer des prix ou mesurer sur un plan. Une échelle agit sur les longueurs ; les aires et volumes changent avec son carré et son cube, comme démontré au chapitre 16.}
+\begin{retenir}
+Identifier le total de référence et le coefficient. Les pourcentages successifs se composent par multiplication de coefficients. Un tableau de nombres n'est pas automatiquement proportionnel.
+\end{retenir}
+\end{document}

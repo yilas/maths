@@ -1,0 +1,227 @@
+\documentclass[../cours_3e.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{18}
+\chapter{Algorithmique et programmation}
+\label{ch:algo}
+\begin{objectif}
+Lire, écrire, tester et corriger un programme ; utiliser variables, conditions, boucles, blocs personnalisés, événements et scripts parallèles. Les trois niveaux des attendus de troisième sont travaillés.
+\end{objectif}
+\section{Algorithme, programme et état}
+\begin{definition}
+Un \textbf{algorithme} est une suite organisée d'instructions pour résoudre un problème. Un \textbf{programme} est sa traduction dans un langage exécutable. Une \textbf{variable informatique} est un emplacement nommé dont la valeur peut changer.
+\end{definition}
+Une recette précise est une analogie utile, mais un programme n'interprète pas les sous-entendus. Il faut préciser les entrées, l'ordre des actions et la sortie.
+
+Les programmes de ce chapitre utilisent des noms de blocs de type Scratch et du pseudo-code lisible. Ils peuvent être transcrits dans un logiciel de programmation par blocs. Python n'est pas un prérequis.
+\begin{exemple}[Programme de calcul]
+\begin{lstlisting}
+demander "Nombre choisi ?"
+mettre x à réponse
+mettre résultat à (3 * x + 2)
+dire résultat
+\end{lstlisting}
+Pour une entrée $4$, la sortie est $14$. La fonction calculée est $f(x)=3x+2$.
+\end{exemple}
+\begin{attention}
+« Mettre $x$ à $x+1$ » n'est pas l'équation $x=x+1$. Cela signifie lire l'ancienne valeur, lui ajouter $1$, puis ranger la nouvelle valeur dans $x$. L'affectation modifie l'état.
+\end{attention}
+\section{Suivre l'exécution et détecter une erreur}
+\begin{methode}
+Faire une table de trace : une ligne par instruction ou par passage dans une boucle ; une colonne par variable. Mettre à jour les valeurs dans l'ordre exact.
+\end{methode}
+\begin{exemple}
+\begin{lstlisting}
+mettre x à 2
+mettre y à (x + 3)
+mettre x à (2 * y)
+mettre y à (x - y)
+\end{lstlisting}
+\[
+\begin{array}{c|rr}
+\text{Après instruction}&x&y\\\hline
+1&2&\text{non définie}\\
+2&2&5\\
+3&10&5\\
+4&10&5
+\end{array}
+\]
+La dernière valeur de $y$ utilise le nouveau $x=10$ et l'ancien $y=5$.
+\end{exemple}
+Tester au moins un cas ordinaire, un cas limite et un cas qui déclenche chaque branche. Par exemple, pour tester un signe, choisir un négatif, zéro et un positif.
+\section{Conditions et connecteurs logiques}
+\begin{definition}
+Une condition est une proposition vraie ou fausse. L'instruction « si \ldots alors \ldots sinon \ldots » choisit une branche. Les connecteurs \textbf{et}, \textbf{ou}, \textbf{non} combinent des conditions.
+\end{definition}
+\begin{lstlisting}
+si x < 0 alors
+    dire "négatif"
+sinon
+    si x = 0 alors
+        dire "nul"
+    sinon
+        dire "positif"
+    fin si
+fin si
+\end{lstlisting}
+La condition « $x\geq0$ et $x\leq10$ » signifie que $x$ est entre $0$ et $10$, bornes comprises. « $x<0$ ou $x>10$ » signifie qu'il est à l'extérieur. En mathématiques comme ici, « ou » peut inclure le cas où les deux propositions sont vraies.
+
+Le reste de la division entière est souvent donné par l'opération \texttt{modulo}. Pour un entier $n$, \texttt{n modulo 2 = 0} teste s'il est pair. Ne pas tester seulement si $n/2$ est positif.
+\section{Boucle à nombre de répétitions fixé}
+\begin{lstlisting}
+mettre somme à 0
+mettre i à 1
+répéter 5 fois
+    mettre somme à (somme + i)
+    ajouter 1 à i
+fin répéter
+dire somme
+\end{lstlisting}
+\begin{demonstration}
+Après $j$ tours, la variable \texttt{somme} vaut $1+2+\cdots+j$ et \texttt{i} vaut $j+1$. C'est vrai au départ pour $j=0$ : somme vide $0$, prochain entier $1$. Chaque tour ajoute précisément l'entier suivant, donc la propriété reste vraie. Après cinq tours, la somme vaut $15$.
+\end{demonstration}
+Cette propriété préservée est un \textbf{invariant} : le nom est facultatif, l'idée aide à justifier un programme.
+\begin{attention}
+Initialiser \texttt{somme} à $0$ est indispensable. Placer cette initialisation \emph{dans} la boucle effacerait l'accumulation à chaque tour.
+\end{attention}
+\section{Répéter jusqu'à une condition}
+\begin{lstlisting}
+mettre capital à 100
+mettre années à 0
+répéter jusqu'à (capital >= 150)
+    mettre capital à (capital * 1.05)
+    ajouter 1 à années
+fin répéter
+dire années
+\end{lstlisting}
+La condition d'arrêt est testée avant chaque nouveau passage. Après $n$ tours, le capital est $100\times1{,}05^n$. Il dépasse le seuil après $9$ tours : $1{,}05^8<1{,}5<1{,}05^9$.
+Ce programme illustre une multiplication répétée sous une hypothèse de taux constant.
+\begin{attention}
+Une boucle peut ne jamais s'arrêter. « Répéter jusqu'à $x>10$ » avec $x=0$ et sans modification de $x$ est une boucle infinie. Tester une égalité exacte après des calculs décimaux peut aussi être fragile ; pour franchir un seuil, préférer $\geq$ ou $\leq$.
+\end{attention}
+\section{Déplacements et constructions géométriques}
+Dans Scratch, le lutin possède une position $(x;y)$ et une direction. La direction $90$ correspond habituellement à la droite et $0$ vers le haut. Il faut initialiser position, direction et état du stylo. Le centre de la scène est $(0;0)$ ; la scène standard s'étend horizontalement de $-240$ à $240$ et verticalement de $-180$ à $180$.
+\begin{lstlisting}
+quand le drapeau vert est cliqué
+effacer tout
+relever le stylo
+aller à x: -80 y: -60
+s'orienter à 90
+stylo en position d'écriture
+répéter 4 fois
+    avancer de 80
+    tourner à gauche de 90 degrés
+fin répéter
+relever le stylo
+\end{lstlisting}
+Ce script trace un carré de côté $80$ unités. Le lutin retrouve sa position et sa direction initiales après quatre quarts de tour.
+\begin{propriete}
+Pour tracer un polygone régulier convexe à $n\geq3$ côtés, répéter $n$ fois « avancer de $c$ ; tourner de $360/n$ degrés ».
+\end{propriete}
+\begin{demonstration}
+Les changements de direction sont les angles extérieurs. Pour faire un tour complet, leur somme est $360\degre$ ; ils sont égaux pour un polygone régulier, donc chacun vaut $360\degre/n$. Les côtés sont égaux par l'instruction d'avance constante.
+\end{demonstration}
+Pour un triangle équilatéral, on tourne de $120\degre$, pas de $60\degre$ : l'angle intérieur et le changement de direction sont supplémentaires.
+\section{Blocs personnalisés et boucles imbriquées}
+Un bloc personnalisé donne un nom à un sous-problème. Un paramètre permet de réutiliser le même bloc avec plusieurs valeurs.
+\begin{lstlisting}
+définir carré (côté)
+    répéter 4 fois
+        avancer de côté
+        tourner à gauche de 90 degrés
+    fin répéter
+
+quand le drapeau vert est cliqué
+effacer tout
+relever le stylo
+aller à x: -200 y: -50
+s'orienter à 90
+répéter 5 fois
+    stylo en position d'écriture
+    carré (50)
+    relever le stylo
+    avancer de 75
+fin répéter
+\end{lstlisting}
+La boucle extérieure répète le motif ; celle du bloc construit ses côtés. Comme le bloc carré rend le lutin à sa position et sa direction de départ, le déplacement de $75$ place correctement le motif suivant. Les cinq carrés sont séparés de $25$ unités.
+\begin{methode}
+Décrire l'effet attendu du bloc et son état final. Tester le bloc seul avant de l'intégrer dans un programme plus long. Pour une rosace, remplacer la translation entre motifs par une rotation.
+\end{methode}
+\section{Simuler une expérience aléatoire}
+\begin{lstlisting}
+mettre succès à 0
+mettre N à 1000
+répéter N fois
+    mettre dé à (nombre aléatoire entre 1 et 6)
+    si dé = 6 alors
+        ajouter 1 à succès
+    fin si
+fin répéter
+mettre fréquence à (succès / N)
+dire fréquence
+\end{lstlisting}
+On suppose que le bloc aléatoire produit les six entiers de manière équiprobable. La fréquence devrait être proche de $1/6$ sur beaucoup d'essais, avec des fluctuations. Exécuter le programme plusieurs fois ne donne généralement pas le même résultat.
+Pour simuler deux dés, tirer deux fois et tester leur somme ; choisir directement un nombre entre $2$ et $12$ serait un autre modèle, faux pour la somme de deux dés.
+\section{Événements et scripts parallèles : un mini-jeu}
+Le programme suivant comporte deux lutins, \texttt{Joueur} et \texttt{Cible}. Le joueur se déplace avec les flèches horizontales. Toucher la cible ajoute un point puis déplace la cible. Les variables \texttt{score} et \texttt{contact} sont partagées. L'événement de départ initialise les données avant de lancer les deux scripts.
+\begin{lstlisting}
+SCÈNE
+quand le drapeau vert est cliqué
+mettre score à 0
+mettre contact à 0
+envoyer à tous "initialiser" et attendre
+envoyer à tous "jouer"
+
+JOUEUR
+quand je reçois "initialiser"
+aller à x: -180 y: 0
+
+quand je reçois "jouer"
+répéter indéfiniment
+    si touche flèche droite pressée ET position x < 210 alors
+        ajouter 5 à x
+    fin si
+    si touche flèche gauche pressée ET position x > -210 alors
+        ajouter -5 à x
+    fin si
+fin répéter
+
+CIBLE
+quand je reçois "initialiser"
+aller à x: 100 y: 0
+
+quand je reçois "jouer"
+répéter indéfiniment
+    si touche Joueur ET contact = 0 alors
+        mettre contact à 1
+        ajouter 1 à score
+        aller à x: (nombre aléatoire entre -180 et 180) y: 0
+    fin si
+    si NON touche Joueur alors
+        mettre contact à 0
+    fin si
+fin répéter
+\end{lstlisting}
+Les scripts « jouer » fonctionnent en parallèle. Le verrou \texttt{contact} évite de compter plusieurs fois le même contact continu. Si la cible réapparaît sur le joueur, il faut d'abord s'en éloigner pour réarmer le compteur. On choisit des costumes de taille raisonnable pour conserver une zone de déplacement jouable.
+\begin{attention}
+« Envoyer à tous et attendre » attend la fin des scripts destinataires. On l'utilise pour les initialisations finies, mais pas pour le message \texttt{jouer}, dont les scripts bouclent indéfiniment. Seul le lutin Cible modifie le score pendant la partie : cela évite un double comptage par deux scripts.
+\end{attention}
+\section{Algorithme de décomposition en facteurs premiers}
+\begin{lstlisting}
+demander un entier n >= 2
+mettre d à 2
+répéter jusqu'à (n = 1)
+    si (n modulo d) = 0 alors
+        afficher d
+        mettre n à (n / d)
+    sinon
+        ajouter 1 à d
+    fin si
+fin répéter
+\end{lstlisting}
+Pour $84$, les facteurs affichés sont $2,2,3,7$. Chaque division conserve l'égalité « nombre initial = produit des facteurs affichés $\times n$ ». Le diviseur n'augmente que lorsqu'il ne divise plus le reste ; les facteurs affichés sont premiers, car leurs plus petits facteurs auraient déjà été retirés.
+Le programme s'arrête : pour chaque reste $n>1$, un diviseur au plus égal à $n$ finit par être atteint, puis le reste diminue.
+\utilite{Automatiser un calcul répétitif, explorer une conjecture, construire une figure et comprendre pourquoi une procédure réussit. Tester reste nécessaire, même après une justification sur le papier.}
+\begin{retenir}
+Initialiser ; suivre les valeurs ; distinguer affectation et égalité ; prévoir l'arrêt ; décomposer en blocs ; coordonner les événements. Un programme ne vaut que par son modèle et la précision de ses instructions.
+\end{retenir}
+\end{document}

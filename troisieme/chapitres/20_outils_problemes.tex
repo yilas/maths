@@ -1,0 +1,90 @@
+\documentclass[../cours_3e.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{19}
+\chapter{Outils numériques et synthèse}
+\label{ch:outils}
+\begin{objectif}
+Utiliser un tableur, une calculatrice et un logiciel de géométrie dynamique pour chercher, représenter et vérifier. Réunir plusieurs chapitres dans une même solution.
+\end{objectif}
+\section{Calculatrice : outil de calcul, pas de raisonnement}
+Avant de saisir, estimer le résultat et écrire l'expression. Vérifier les parenthèses, les signes, l'unité d'angle et le rang d'arrondi. Conserver une valeur exacte lorsque c'est possible.
+\begin{exemple}
+Pour $\frac{3+5}{2\times7}$, saisir \texttt{(3+5)/(2*7)}. L'écriture \texttt{3+5/2*7} désigne autre chose. Pour $\sqrt{13}$, garder la racine dans les étapes suivantes et arrondir seulement le résultat final.
+\end{exemple}
+Le nombre affiché est parfois arrondi. Une égalité à l'écran ne constitue pas toujours une égalité exacte ; une représentation graphique ne garantit pas non plus l'absence d'autres solutions hors de la fenêtre.
+\section{Tableur : cellules et formules}
+Une cellule se repère par colonne puis ligne : \texttt{B3}. Une formule commence par \texttt{=}. Les opérations usuelles utilisent \texttt{+}, \texttt{-}, \texttt{*}, \texttt{/}, \texttt{\^}. Les noms de fonctions et les séparateurs dépendent de la langue du logiciel ; les exemples ci-dessous utilisent des noms français et le point-virgule.
+\begin{exemple}[Deux tarifs]
+\[
+\begin{array}{c|lll}
+&A&B&C\\\hline
+1&\text{Nombre de séances}&\text{Tarif A}&\text{Tarif B}\\
+2&0&\texttt{=15+3*A2}&\texttt{=5*A2}\\
+3&\texttt{=A2+1}&\texttt{=15+3*A3}&\texttt{=5*A3}
+\end{array}
+\]
+Recopier vers le bas fournit un tableau. Un graphique de type nuage de points représente correctement l'abscisse numérique ; une courbe par catégories peut espacer également des abscisses pourtant inégales.
+\end{exemple}
+\section{Références relatives et absolues}
+En recopiant \texttt{=B2/A2} d'une ligne vers le bas, les références deviennent \texttt{=B3/A3}. Ce sont des références relatives.
+Pour fixer une cellule, placer des dollars : \texttt{\$B\$8}. La colonne et la ligne ne changent plus à la recopie.
+\begin{exemple}[Fréquences]
+Si les effectifs sont dans \texttt{B2:B6}, écrire \texttt{=SOMME(B2:B6)} en \texttt{B8}. En \texttt{C2}, écrire \texttt{=B2/\$B\$8} et recopier jusqu'à \texttt{C6}. Chaque effectif change de ligne, mais le dénominateur reste le total.
+\end{exemple}
+Une référence mixte, comme \texttt{\$B2}, fixe seulement la colonne. Ce complément aide dans une recopie à deux dimensions.
+\begin{center}
+\begin{tabularx}{\textwidth}{lX}
+\toprule But & Exemple de formule\\\midrule
+Somme & \texttt{=SOMME(B2:B6)}\\
+Moyenne de données brutes & \texttt{=MOYENNE(A2:A21)}\\
+Médiane & \texttt{=MEDIANE(A2:A21)}\\
+Étendue & \texttt{=MAX(A2:A21)-MIN(A2:A21)}\\
+Moyenne avec effectifs & \texttt{=SOMMEPROD(A2:A6;B2:B6)/SOMME(B2:B6)}\\
+Tester une condition & \texttt{=SI(B2<C2;"A";"B ou égalité")}\\
+Dé entier simulé & \texttt{=ALEA.ENTRE.BORNES(1;6)}\\\bottomrule
+\end{tabularx}
+\end{center}
+Les fonctions aléatoires peuvent changer à chaque recalcul : pour conserver un résultat expérimental, copier puis coller les valeurs.
+\section{Géométrie dynamique : construire des dépendances}
+\begin{methode}[Explorer Thalès]
+Créer trois points non alignés $A,B,C$ ; créer $M$ \emph{sur} $[AB]$ ; tracer la parallèle à $(BC)$ passant par $M$ ; définir $N$ comme son intersection avec $(AC)$ ; afficher $AM/AB$ et $AN/AC$ ; déplacer $M$ et les sommets.
+\end{methode}
+Les rapports restent égaux numériquement parce que la construction respecte le parallélisme. Placer $M$ à l'œil près de $[AB]$ ou dessiner une droite « presque parallèle » ne garantit rien.
+\begin{attention}
+Une construction dynamique correcte préserve les hypothèses lors des déplacements. Des mesures répétées suggèrent une propriété mais ne la démontrent pas : la preuve de Thalès reste celle du chapitre 14.
+\end{attention}
+Dans un logiciel 3D, construire un cône, un plan parallèle à sa base puis leur intersection permet d'observer les sections. Changer la hauteur du plan et comparer les rayons aide à préparer le raisonnement de proportionnalité.
+\section{Problème résolu : réservoir et remplissage}
+Un réservoir cylindrique de rayon intérieur $0{,}60\unite m$ et de hauteur $1{,}50\unite m$ est vide. Une pompe fournit un débit constant de $18\unite{L/min}$. On souhaite remplir $80\,\%$ de sa capacité.
+\begin{enumerate}
+\item \textbf{Capacité.} $V=\pi(0{,}60)^2(1{,}50)=0{,}54\pi\unite{m^3}=540\pi\unite L$.
+\item \textbf{Volume visé.} $0{,}8V=432\pi\unite L$.
+\item \textbf{Durée.} $t=432\pi/18=24\pi\unite{min}\approx75{,}40\unite{min}$, soit environ $1\unite h\,15\unite{min}\,24\unite s$.
+\item \textbf{Fonction.} Avant saturation, le volume ajouté après $t$ minutes est $q(t)=18t$. Cette formule ne décrit pas un volume stocké au-delà de la capacité.
+\end{enumerate}
+On a utilisé volume, conversion, pourcentage, débit, fonction et domaine de validité.
+\section{Problème résolu : une hauteur inaccessible}
+Un arbre projette une ombre de $9\unite m$. Un bâton vertical de $1{,}20\unite m$ projette simultanément une ombre de $1{,}80\unite m$, sur le même terrain horizontal. On assimile les rayons lumineux à des droites parallèles.
+
+Les deux triangles ombre--hauteur sont rectangles et possèdent le même angle avec les rayons : ils sont semblables. Donc
+\[\frac h9=\frac{1{,}20}{1{,}80}=\frac23,\qquad h=6\unite m.\]
+Les hypothèses de verticalité, de terrain horizontal et d'éclairage simultané sont essentielles. Le quotient des deux ombres est un rapport de longueurs ; on ne met pas au carré pour trouver une hauteur.
+\section{Problème résolu : optimiser une aire sans dériver}
+\approfondissement Pour le rectangle de périmètre $24\unite{cm}$ du chapitre 8 :
+\[A(x)=x(12-x)=36-(x-6)^2.\]
+Comme un carré est positif ou nul, $A(x)\leq36$ pour $0<x<12$. L'égalité a lieu exactement pour $x=6$. Le rectangle de plus grande aire est donc le carré de côté $6\unite{cm}$.
+Cette preuve combine calcul littéral et signe d'un carré ; un graphique peut suggérer le résultat, mais l'identité le démontre.
+\section{Une méthode de contrôle universelle}
+\begin{enumerate}
+\item \textbf{Sens :} le résultat répond-il à la question posée ?
+\item \textbf{Conditions :} les hypothèses du théorème ou du modèle sont-elles vérifiées ?
+\item \textbf{Unités :} chaque égalité concerne-t-elle des grandeurs compatibles ?
+\item \textbf{Ordre de grandeur :} le résultat paraît-il plausible ?
+\item \textbf{Exactitude :} ai-je distingué $=$ et $\approx$ ?
+\item \textbf{Exhaustivité :} ai-je cherché toutes les solutions ou tous les cas demandés ?
+\end{enumerate}
+\utilite{Ces contrôles s'appliquent à tous les chapitres et continueront à servir au lycée. Un outil numérique devient utile lorsque l'on sait ce qu'il calcule et ce qu'il ne prouve pas.}
+\begin{retenir}
+Chercher avec un outil, démontrer avec des arguments, puis contrôler avec un autre regard. Le résultat final est une réponse expliquée, pas seulement un nombre affiché.
+\end{retenir}
+\end{document}

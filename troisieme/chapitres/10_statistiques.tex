@@ -1,0 +1,104 @@
+\documentclass[../cours_3e.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{9}
+\chapter{Statistiques et lecture critique}
+\label{ch:statistiques}
+\begin{objectif}
+Organiser des données, choisir un diagramme, calculer effectifs, fréquences, moyenne, médiane et étendue. Prérequis : pourcentages et calcul numérique.
+\end{objectif}
+\section{Population, caractère et effectifs}
+\begin{definition}
+La \textbf{population} est l'ensemble étudié ; un \textbf{individu} en est un élément. Le \textbf{caractère} est ce qu'on observe. Il est qualitatif (couleur), quantitatif discret (nombre de livres) ou quantitatif continu (durée).
+\end{definition}
+L'effectif $n_i$ d'une valeur est son nombre d'apparitions. L'effectif total est $N=\sum n_i$ ; le signe $\sum$ abrège ici une somme.
+\begin{definition}
+La fréquence d'une valeur est $f_i=n_i/N$, avec $N>0$. Elle peut être exprimée en fraction, en écriture décimale ou en pourcentage.
+\end{definition}
+\begin{demonstration}
+La somme des fréquences vaut $(n_1+\cdots+n_p)/N=N/N=1$, soit $100\,\%$. De plus $0\leq n_i\leq N$, donc $0\leq f_i\leq1$.
+\end{demonstration}
+\begin{exemple}[Une série suivie dans tout le chapitre]
+On relève le nombre de livres lus pendant un mois par $20$ élèves.
+\[
+\begin{array}{c|rrrrr|r}
+\text{Livres }x_i&0&1&2&3&4&\text{Total}\\\hline
+\text{Effectif }n_i&2&5&7&4&2&20\\
+\text{Fréquence}&0{,}10&0{,}25&0{,}35&0{,}20&0{,}10&1\\
+\text{Effectif cumulé}&2&7&14&18&20&
+\end{array}
+\]
+Au moins $3$ livres : $4+2=6$ élèves, soit $30\,\%$. Au plus $1$ livre : $2+5=7$, soit $35\,\%$.
+\end{exemple}
+\section{Choisir une représentation}
+Un \textbf{diagramme en bâtons} convient aux valeurs discrètes : les bâtons sont séparés. Un \textbf{diagramme circulaire} répartit un disque selon les proportions. Un \textbf{histogramme} convient à des données regroupées en intervalles.
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[width=9cm,height=5.5cm,ybar,bar width=12pt,ymin=0,ymax=8,xmin=-.6,xmax=4.6,xtick={0,1,2,3,4},ytick={0,...,8},xlabel={Nombre de livres},ylabel={Effectif},axis lines=left,nodes near coords]
+\addplot[fill=accent!35,draw=accent]coordinates{(0,2)(1,5)(2,7)(3,4)(4,2)};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+Dans un diagramme circulaire, l'angle d'une catégorie vaut $360\degre\times f_i$ : l'angle représente la même fraction du tour que l'effectif du total. La catégorie « $2$ livres » occupe $360\times0{,}35=126\degre$.
+
+Pour un histogramme à classes de même amplitude, les rectangles se touchent et leurs hauteurs sont proportionnelles aux effectifs. La classe $[10;20[$ contient $10$ mais pas $20$, ce qui évite les doubles comptes.
+\begin{center}
+\begin{tikzpicture}[x=.10cm,y=.28cm]
+\draw[-{Stealth}](0,0)--(45,0)node[right]{Durée (min)};
+\draw[-{Stealth}](0,0)--(0,11)node[above]{Effectif};
+\filldraw[fill=accent!15,draw=accent](0,0)rectangle(10,4);
+\filldraw[fill=accent!30,draw=accent](10,0)rectangle(20,9);
+\filldraw[fill=accent!15,draw=accent](20,0)rectangle(30,5);
+\filldraw[fill=accent!30,draw=accent](30,0)rectangle(40,2);
+\foreach \x in {0,10,20,30,40}{\node[below]at(\x,0){\small$\x$};}
+\foreach \y in {2,4,6,8,10}{\node[left]at(0,\y){\small$\y$};}
+\end{tikzpicture}
+\end{center}
+\begin{attention}
+Avec des amplitudes différentes, c'est l'aire de chaque rectangle, et non sa seule hauteur, qui doit représenter l'effectif. Le traitement de ces histogrammes dépasse les attendus retenus ici. Ne pas confondre barres séparées et intervalles continus.
+\end{attention}
+\section{Moyenne et moyenne pondérée}
+\begin{definition}
+La moyenne est la somme des valeurs divisée par leur nombre :
+\[\bar x=\frac{x_1+\cdots+x_N}{N}.
+\]
+Si les valeurs distinctes $v_i$ ont pour effectifs $n_i$ :
+\[\bar x=\frac{n_1v_1+\cdots+n_pv_p}{n_1+\cdots+n_p}.\]
+\end{definition}
+\begin{justification}
+La moyenne est la valeur commune que chacun aurait si l'on redistribuait le total à parts égales : $N\bar x=\text{total}$. Dans un tableau, une valeur $v_i$ répétée $n_i$ fois contribue $n_iv_i$ à la somme ; cela explique la pondération.
+\end{justification}
+Pour les livres :
+\[\bar x=\frac{0\times2+1\times5+2\times7+3\times4+4\times2}{20}
+=\frac{39}{20}=1{,}95.\]
+La moyenne n'est pas nécessairement une valeur observée ni un entier.
+\begin{attention}
+On ne moyenne pas deux moyennes sans tenir compte des effectifs. Si $10$ élèves ont une moyenne de $12$ et $30$ élèves une moyenne de $16$, la moyenne commune vaut $(10\times12+30\times16)/40=15$, pas $14$.
+\end{attention}
+Pour des données regroupées en classes, remplacer chaque donnée par le centre de sa classe donne généralement une moyenne \emph{approchée}, pas exacte.
+\section{Médiane}
+\begin{definition}
+Une médiane partage une série ordonnée de sorte qu'au moins la moitié des valeurs lui soient inférieures ou égales et au moins la moitié supérieures ou égales.
+\end{definition}
+Pour $N=2k+1$, choisir la valeur de rang $k+1$. Pour $N=2k$, on prend habituellement la moyenne des valeurs de rangs $k$ et $k+1$.
+\begin{justification}
+Dans le cas impair, il reste $k$ valeurs de chaque côté. Dans le cas pair, n'importe quelle valeur entre les deux valeurs centrales respecte la définition ; leur moyenne est une convention pratique qui en choisit une.
+\end{justification}
+Dans la série des livres, les rangs $8$ à $14$ valent $2$. Les rangs $10$ et $11$ valent donc $2$ : la médiane est $2$. Avec $1,2,4,9$, la médiane conventionnelle est $(2+4)/2=3$.
+\begin{attention}
+Il faut d'abord trier la série. Une médiane ne signifie pas que la moitié des observations lui sont \emph{strictement} inférieures : les répétitions peuvent empêcher cette interprétation.
+\end{attention}
+\clearpage
+\section{Étendue, comparaison et limites}
+\begin{definition}
+L'étendue est la différence entre la plus grande et la plus petite valeur : $E=x_{\max}-x_{\min}$.
+\end{definition}
+Pour les livres, $E=4-0=4$. Les séries $0,5,10$ et $4,5,6$ ont la même moyenne et la même médiane, mais des étendues différentes : $10$ et $2$.
+Une valeur extrême peut modifier fortement la moyenne et l'étendue ; la médiane dépend surtout du classement. Aucun indicateur ne résume tout.
+\begin{methode}[Lire avec esprit critique]
+Vérifier le nombre d'observations, la population, les unités, les graduations et la source. Distinguer un changement de proportion d'un changement d'effectif. Vérifier si l'axe vertical commence à zéro et si l'échantillon représente la population visée.
+\end{methode}
+\utilite{Résumer des données réelles et comparer des groupes sans se laisser tromper par un seul indicateur ou un graphique tronqué. Une association statistique ne démontre pas à elle seule une relation de cause à effet.}
+\begin{retenir}
+Moyenne : partage du total. Médiane : position centrale après tri. Étendue : écart entre extrêmes. Fréquence : proportion de l'effectif total. Justifier l'indicateur choisi selon la question.
+\end{retenir}
+\end{document}

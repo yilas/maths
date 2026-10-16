@@ -1,0 +1,23 @@
+\chapter{Algorithmique et programmation}
+\label{exercices:19}
+\section*{Exercice 19.1 -- Trace et condition}
+Exécuter mentalement le programme suivant pour les entrées $-2$, $0$ et $3$.
+\begin{lstlisting}
+mettre y à (2 * x - 1)
+si y > 0 alors
+    mettre y à (y * y)
+sinon
+    mettre y à (-y)
+fin si
+dire y
+\end{lstlisting}
+Quel cas limite de la condition faudrait-il aussi tester ?
+
+\section*{Exercice 19.2 -- Boucle et correction}
+Un programme initialise $s=0$ et $i=1$, puis répète quatre fois « ajouter $i$ à $s$ ; ajouter $1$ à $i$ ». Donner les valeurs finales. Que se passerait-il si l'on remettait $s$ à zéro au début de chaque tour ? Écrire un programme qui trouve le premier entier $n$ tel que $2^n\geq100$.
+
+\section*{Exercice 19.3 -- Motif et boucle imbriquée}
+Écrire un bloc personnalisé « triangle(côté) » traçant un triangle équilatéral et ramenant le lutin à son point et à sa direction de départ. L'utiliser pour produire une rosace de six triangles. Préciser l'angle tourné à chaque étape.
+
+\section*{Exercice 19.4 -- Simulation et scripts parallèles}
+Décrire une simulation de $1000$ lancers de deux dés comptant les sommes égales à $7$. Dans un jeu à deux lutins, expliquer pourquoi chacun ne doit pas ajouter un point au même contact et proposer une organisation correcte.

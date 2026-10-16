@@ -1,0 +1,109 @@
+\documentclass[../cours_3e.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{3}
+\chapter{Puissances et racines carrées}
+\label{ch:puissances}
+\begin{objectif}
+Comprendre les exposants, utiliser la notation scientifique, distinguer valeur exacte et approchée d'une racine. Prérequis : produits, quotients et ordre.
+\end{objectif}
+\section{Une écriture pour les produits répétés}
+\begin{definition}
+Pour un entier $n\geq1$, $a^n$ est le produit de $n$ facteurs égaux à $a$. Pour $a\ne0$, on définit $a^0=1$ et $a^{-n}=\frac1{a^n}$.
+\end{definition}
+Ainsi $3^4=81$, $10^{-3}=0{,}001$ et $2^{-3}=\frac18$. Un exposant négatif n'indique pas un nombre négatif. L'écriture $0^0$ n'est pas utilisée dans ce cours et $0^{-n}$ n'est pas défini.
+\begin{propriete}[Règles à comprendre]
+Pour $a,b\ne0$ et des exposants entiers $m,n$,
+\[
+a^m a^n=a^{m+n},\quad
+\frac{a^m}{a^n}=a^{m-n},\quad
+(a^m)^n=a^{mn},\quad
+(ab)^n=a^nb^n.
+\]
+La dernière règle s'applique aussi aux quotients : $(a/b)^n=a^n/b^n$.
+\end{propriete}
+\begin{demonstration}
+Pour des exposants positifs, compter les facteurs donne les trois premières règles : un produit de deux groupes contient $m+n$ facteurs ; un produit de $n$ groupes de $m$ contient $mn$ facteurs. Dans $(ab)^n$, regrouper les $a$ et les $b$ donne $a^nb^n$.
+
+Pour les quotients, les facteurs communs se simplifient. Si $m<n$, il reste $1/a^{n-m}=a^{m-n}$. Le choix $a^0=1$ prolonge donc la règle lorsque $m=n$ ; les exposants négatifs la prolongent dans l'autre sens. Les mêmes substitutions par des inverses justifient les autres cas.
+\end{demonstration}
+\begin{exemple}
+\[\frac{2^5\times2^{-3}}{2^4}=2^{5-3-4}=2^{-2}=\frac14.\]
+On peut vérifier directement : $(32\times\frac18)/16=\frac14$.
+\end{exemple}
+\begin{attention}
+$a^m+a^n$ ne se réduit pas en $a^{m+n}$. Par exemple $2^3+2^2=12$, alors que $2^5=32$. Pour $a<0$, $a^n$ est positif si $n$ est pair et négatif si $n$ est impair, car les signes négatifs se regroupent par paires.
+\end{attention}
+\section{Notation scientifique et préfixes}
+\begin{definition}
+L'écriture scientifique d'un nombre positif non nul est $a\times10^n$, où $1\leq a<10$ et $n$ est entier. Pour un nombre négatif, on place le signe devant.
+\end{definition}
+$75300=7{,}53\times10^4$ et $0{,}000052=5{,}2\times10^{-5}$. Le déplacement de la virgule est compensé par la puissance de $10$ ; la valeur du nombre ne change pas.
+Pour comparer deux nombres positifs en notation scientifique, comparer d'abord les exposants, puis les coefficients si les exposants sont égaux. En effet, $1\leq a<10$ donne $10^n\leq a10^n<10^{n+1}$. Ainsi $7{,}2\times10^4<1{,}1\times10^5$, malgré $7{,}2>1{,}1$. Pour des nombres négatifs, comparer leurs valeurs absolues puis inverser l'ordre.
+\begin{exemple}
+\[
+\frac{(6\times10^7)(3\times10^{-4})}{2\times10^2}
+=9\times10^{7-4-2}=9\times10^1.
+\]
+Pour additionner, utiliser la même puissance : $4{,}2\times10^5+3\times10^4=(4{,}2+0{,}3)\times10^5$.
+\end{exemple}
+\begin{center}
+\begin{tabular}{lclc}
+\toprule Préfixe & Facteur & Préfixe & Facteur\\\midrule
+nano (n)&$10^{-9}$& micro ($\mu$)&$10^{-6}$\\
+milli (m)&$10^{-3}$& centi (c)&$10^{-2}$\\
+déci (d)&$10^{-1}$& déca (da)&$10^1$\\
+hecto (h)&$10^2$& kilo (k)&$10^3$\\
+méga (M)&$10^6$& giga (G)&$10^9$\\\bottomrule
+\end{tabular}
+\end{center}
+Par exemple $85\unite{nm}=85\times10^{-9}\unite m=8{,}5\times10^{-8}\unite m$.
+\utilite{Comparer des tailles très petites ou de grandes quantités et éviter les erreurs dans les suites de zéros. Les unités doivent accompagner le calcul.}
+\section{Croissance répétée}
+Si une quantité initiale $Q_0$ est multipliée par $r$ à chaque étape, après $n$ étapes elle vaut $Q_0r^n$ : chaque étape ajoute un facteur $r$.
+\begin{exemple}
+Une population expérimentale de $500$ cellules double toutes les heures dans un modèle idéal. Après $6$ heures : $500\times2^6=32000$. Le résultat dépend de l'hypothèse de doublement constant ; le modèle ne peut pas décrire indéfiniment un milieu limité.
+\end{exemple}
+\section{Carré et racine carrée}
+\begin{definition}
+Pour $a\geq0$, $\sqrt a$ est l'unique nombre \textbf{positif ou nul} dont le carré vaut $a$ :
+\[(\sqrt a)^2=a.\]
+\end{definition}
+L'existence pour chaque réel positif est admise. L'unicité se comprend ainsi : si $0\leq u<v$, alors $v^2-u^2=(v-u)(v+u)>0$. Deux nombres positifs différents ne peuvent donc pas avoir le même carré.
+
+Les carrés à connaître :
+\[
+\begin{array}{c|rrrrrrrrrrrr}
+n&1&2&3&4&5&6&7&8&9&10&11&12\\\hline
+n^2&1&4&9&16&25&36&49&64&81&100&121&144
+\end{array}
+\]
+Et $0^2=0$. On a $\sqrt{49}=7$, mais l'équation $x^2=49$ possède deux solutions : $7$ et $-7$.
+\begin{propriete}
+Pour tout réel $x$, $\sqrt{x^2}=\abs x$. Pour $a,b\geq0$,
+\[\sqrt{ab}=\sqrt a\,\sqrt b.\]
+Si $b>0$, $\sqrt{a/b}=\sqrt a/\sqrt b$.
+\end{propriete}
+\begin{demonstration}
+$\abs x$ est positif et son carré est $x^2$, donc il répond à la définition de $\sqrt{x^2}$. Le produit $\sqrt a\sqrt b$ est positif et son carré vaut $ab$ ; par unicité, il vaut $\sqrt{ab}$. Le même argument appliqué au quotient prouve la dernière formule.
+\end{demonstration}
+Ces règles, utiles en complément, permettent d'écrire $\sqrt{72}=\sqrt{36\times2}=6\sqrt2$.
+\begin{attention}
+En général $\sqrt{a+b}\ne\sqrt a+\sqrt b$ : $\sqrt{9+16}=5$, alors que $3+4=7$. La racine d'un nombre négatif n'est pas définie parmi les réels étudiés ici.
+\end{attention}
+\section{Encadrer et utiliser une racine}
+Puisque $4^2<19<5^2$, on a $4<\sqrt{19}<5$. Puis $4{,}35^2=18{,}9225$ et $4{,}36^2=19{,}0096$, donc $4{,}35<\sqrt{19}<4{,}36$. Pour arrondir au centième, il faut un chiffre supplémentaire : $\sqrt{19}\approx4{,}3589$, donc l'arrondi est $4{,}36$.
+\begin{exemple}
+Un carré d'aire $19\unite{cm^2}$ a pour côté $\sqrt{19}\unite{cm}$. C'est la valeur exacte. Au millimètre près, le côté mesure environ $4{,}4\unite{cm}$, soit $44\unite{mm}$.
+\end{exemple}
+\section{Pourquoi certains nombres ne sont-ils pas des fractions ?}
+\approfondissement
+\begin{theoreme}
+$\sqrt2$ est irrationnel.
+\end{theoreme}
+\begin{demonstration}
+Supposons $\sqrt2=p/q$ avec $p,q$ entiers positifs et la fraction irréductible. Alors $p^2=2q^2$, donc $p^2$ est pair. Or le carré d'un impair est impair : $(2k+1)^2=2(2k^2+2k)+1$. Ainsi $p$ est pair ; écrivons $p=2r$. L'égalité devient $4r^2=2q^2$, puis $q^2=2r^2$. Donc $q$ est pair aussi. La fraction avait alors un facteur commun $2$, contradiction.
+\end{demonstration}
+\begin{retenir}
+Une puissance abrège un produit ; une racine retrouve une longueur positive à partir d'un carré. Les règles reposent sur ces sens, pas sur des manipulations de symboles isolées.
+\end{retenir}
+\end{document}
