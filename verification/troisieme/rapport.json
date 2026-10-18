@@ -1,0 +1,147 @@
+{
+  "corriges_3e.pdf": {
+    "pages": 24,
+    "alertes": [],
+    "observations": [
+      {
+        "page": 6,
+        "extraction_unicode": [
+          "limètre près : 9,9 cm, soit 99 mm.\n�\n(−8)2 =\n√\n64 = 8 = |−8|, et non −8"
+        ]
+      },
+      {
+        "page": 14,
+        "extraction_unicode": [
+          "gles d’un triangle\nDans l’isocèle, �B = �C. Leur somme vaut 180 − 44 = ",
+          "d’un triangle\nDans l’isocèle, �B = �C. Leur somme vaut 180 − 44 = 136◦,"
+        ]
+      }
+    ]
+  },
+  "cours_3e.pdf": {
+    "pages": 77,
+    "alertes": [],
+    "observations": [
+      {
+        "page": 10,
+        "extraction_unicode": [
+          "ite d’origine A passant par B.\nAB, �\nABC\nLongueur ; angle dont le somme"
+        ]
+      },
+      {
+        "page": 19,
+        "extraction_unicode": [
+          "a, b ≥ 0,\n√\nab = √a\n√\nb.\nSi b > 0,\n�\na/b = √a/\n√\nb.\nDémonstration. |x| "
+        ]
+      },
+      {
+        "page": 27,
+        "extraction_unicode": [
+          "ajoute (t/100)V à V :\nV +\nt\n100V =\n�\n1 +\nt\n100\n�\nV.\nPour une diminution",
+          "0)V à V :\nV +\nt\n100V =\n�\n1 +\nt\n100\n�\nV.\nPour une diminution, remplacer "
+        ]
+      },
+      {
+        "page": 29,
+        "extraction_unicode": [
+          "e nombre en sortie. On écrit\nf : x �→ f(x). Le nombre f(x) est l’image "
+        ]
+      },
+      {
+        "page": 33,
+        "extraction_unicode": [
+          " pas le graphique d’une fonction x �→ f(x).\n9.5 Déterminer une fonction"
+        ]
+      },
+      {
+        "page": 35,
+        "extraction_unicode": [
+          "aritions. L’effectif total est N = � ni ; le signe �\nabrège ici une som",
+          "ctif total est N = � ni ; le signe �\nabrège ici une somme.\nDéfinition\nL"
+        ]
+      },
+      {
+        "page": 43,
+        "extraction_unicode": [
+          "r alternance interne. Avec l’angle �\nBAC, ils\nforment un angle plat. Le"
+        ]
+      },
+      {
+        "page": 49,
+        "extraction_unicode": [
+          " et B(xB; yB) est rectangle :\nAB =\n�\n(xB − xA)2 + (yB − yA)2.\nC’est une"
+        ]
+      },
+      {
+        "page": 52,
+        "extraction_unicode": [
+          "ont donc semblables.\n□\nExemple. Si �A = 40◦, �B = 65◦, alors �C = 75◦. ",
+          "emblables.\n□\nExemple. Si �A = 40◦, �B = 65◦, alors �C = 75◦. Dans un au",
+          "mple. Si �A = 40◦, �B = 65◦, alors �C = 75◦. Dans un autre triangle, le"
+        ]
+      },
+      {
+        "page": 53,
+        "extraction_unicode": [
+          "en A, choisissons l’angle aigu α = �\nABC. L’hypoténuse est BC, le côté "
+        ]
+      },
+      {
+        "page": 57,
+        "extraction_unicode": [
+          "a symétrie centrale s’écrit (x; y) �→\n(−x; −y). Une translation de dépl",
+          " déplacement (u; v) s’écrit (x; y) �→ (x + u; y + v). Entre deux points"
+        ]
+      },
+      {
+        "page": 63,
+        "extraction_unicode": [
+          "mes sont égaux :\nVboule = 2πr3 − 2\n�\nπr2r\n3\n�\n= 4\n3πr3.\n□\nApprofondisse",
+          "égaux :\nVboule = 2πr3 − 2\n�\nπr2r\n3\n�\n= 4\n3πr3.\n□\nApprofondissement facu"
+        ]
+      },
+      {
+        "page": 67,
+        "extraction_unicode": [
+          "section\nest un disque de rayon\nr =\n�\nR2 − d2.\nDémonstration. Soit H le "
+        ]
+      }
+    ]
+  },
+  "exercices_3e.pdf": {
+    "pages": 24,
+    "alertes": [],
+    "observations": [
+      {
+        "page": 6,
+        "extraction_unicode": [
+          "ndir au\nmillimètre. Calculer aussi\n�\n(−8)2.\nExercice 4.3 – Doublements\n"
+        ]
+      },
+      {
+        "page": 14,
+        "extraction_unicode": [
+          "n triangle ABC est isocèle en A et �A = 44◦. Calculer les autres angles"
+        ]
+      },
+      {
+        "page": 17,
+        "extraction_unicode": [
+          " AB = 8, AC = 6, BC = 10. Pour α = �\nABC, calculer sinus, cosinus\net ta"
+        ]
+      }
+    ]
+  },
+  "guide_3e.pdf": {
+    "pages": 13,
+    "alertes": [],
+    "observations": [
+      {
+        "page": 9,
+        "extraction_unicode": [
+          ".\n14. Calculer\n√\n121.\n15. Calculer\n�\n(−6)2.\n16. Développer 3(2x − 5).\n1"
+        ]
+      }
+    ]
+  }
+}
