@@ -17,6 +17,7 @@ $1414^2=1\,999\,396<2\,000\,000$ et $1415^2=2\,002\,225>2\,000\,000$. Donc $k=14
 \section*{Exercice 23.4 -- Lire une fonction statistique}
 La liste doit être non vide et contenir des nombres. \texttt{n} est l'effectif, \texttt{m} la moyenne. On additionne les carrés des écarts, on divise par $n$, puis on prend la racine : le résultat est l'écart-type de population. La variance est l'expression avant la racine. L'écriture avec une liste est un support de lecture ; la maîtrise générale des listes n'est pas exigée en seconde.
 
+\begin{finchapitre}
 \section*{Exercice 23.5 -- Simuler sans conclure trop vite}
 \begin{lstlisting}[language=Python]
 from random import random
@@ -33,3 +34,4 @@ Les appels utilisent des tirages pseudo-aléatoires différents. Les fréquences
 
 \section*{Exercice 23.6 -- Longueur polygonale}
 Poser $x_k=k/n$ et additionner, pour $k=0,\ldots,n-1$, les distances entre $(x_k;x_k^2)$ et $(x_{k+1};x_{k+1}^2)$. Chaque distance vaut $\sqrt{(1/n)^2+(x_{k+1}^2-x_k^2)^2}$. Pour $n=1$, on obtient $\sqrt2$. Un tableau numérique ne démontre ni la convergence, ni une erreur maximale ; ces questions relèvent d'une étude d'analyse supplémentaire.
+\end{finchapitre}
