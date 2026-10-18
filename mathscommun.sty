@@ -66,6 +66,9 @@
 \newenvironment{demonstration}[1][]{\par\smallskip\needspace{4\baselineskip}\noindent\textbf{Démonstration\if\relax\detokenize{#1}\relax\else\ -- #1\fi.}\ }{\hfill\(\square\)\par\smallskip}
 \newenvironment{justification}{\par\smallskip\needspace{4\baselineskip}\noindent\textbf{Pourquoi ?}\ }{\par\smallskip}
 \newenvironment{exemple}[1][]{\par\smallskip\needspace{4\baselineskip}\noindent\textbf{Exemple\if\relax\detokenize{#1}\relax\else\ -- #1\fi.}\ }{\par\smallskip}
+% Garder une courte section finale avec son bilan, sans encadré orphelin.
+% Réserver cet environnement aux blocs plus courts qu'une page.
+\newenvironment{finchapitre}{\par\noindent\begin{minipage}{\linewidth}\setlength{\parskip}{4pt plus 1pt}}{\end{minipage}\par}
 \newcommand{\utilite}[1]{\par\textbf{À quoi cela sert-il ?} #1\par}
 \newcommand{\approfondissement}{\par\smallskip\textbf{Approfondissement facultatif.}\ }
 \newcommand{\admis}[1]{\par\textbf{Résultat admis à ce niveau.} #1\par}

@@ -128,6 +128,7 @@ def frequence(p, n):
 On impose $0\leq p\leq1$ et $n\geq1$. Le générateur simule un uniforme sur $[0;1[$ ; la condition \texttt{random() < p} modélise un succès de probabilité $p$.
 Répéter \texttt{frequence(0.5,100)} donne des résultats différents : c'est la fluctuation d'échantillonnage. En augmentant $n$, les grands écarts deviennent moins fréquents, sans imposer une amélioration à chaque exécution.
 La graine fixe une suite reproductible pour un essai ; elle ne rend pas le modèle plus vrai.
+\begin{finchapitre}
 \section{Filtrer et tabuler}
 Les connecteurs Python \texttt{and}, \texttt{or}, \texttt{not} traduisent et, ou, non. Pour deux listes représentant des caractères des mêmes individus, parcourir simultanément leurs éléments, tester le critère et augmenter les compteurs.
 Le dossier \texttt{python/} contient des versions exécutables avec contrôles d'entrée : divisibilité, géométrie, recherche de seuil, encadrements, balayage, statistiques, simulations et lecture du fichier cantonal. Le script de vérification teste des cas connus et des propriétés mathématiques.
@@ -135,4 +136,5 @@ Le dossier \texttt{python/} contient des versions exécutables avec contrôles d
 \begin{retenir}
 Décrire le problème avant le code, tracer les variables, tester une réponse connue, traiter les cas limites et séparer simulation, approximation et démonstration.
 \end{retenir}
+\end{finchapitre}
 \end{document}
