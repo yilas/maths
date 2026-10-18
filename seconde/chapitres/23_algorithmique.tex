@@ -125,7 +125,7 @@ def frequence(p, n):
         succes += experience(p)
     return succes / n
 \end{lstlisting}
-On impose $0\leq p\leq1$ et $n\geq1$. Le générateur simule un uniforme sur $[0,1[$ ; la condition \texttt{random() < p} modélise un succès de probabilité $p$.
+On impose $0\leq p\leq1$ et $n\geq1$. Le générateur simule un uniforme sur $[0;1[$ ; la condition \texttt{random() < p} modélise un succès de probabilité $p$.
 Répéter \texttt{frequence(0.5,100)} donne des résultats différents : c'est la fluctuation d'échantillonnage. En augmentant $n$, les grands écarts deviennent moins fréquents, sans imposer une amélioration à chaque exécution.
 La graine fixe une suite reproductible pour un essai ; elle ne rend pas le modèle plus vrai.
 \section{Filtrer et tabuler}

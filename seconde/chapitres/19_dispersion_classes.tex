@@ -40,7 +40,7 @@ $\sigma_y=|a|\sigma_x$. Ajouter une constante ne change pas la dispersion ; mult
 \end{demonstration}
 \section{Classes de même amplitude}
 Pour des mesures nombreuses, on peut regrouper les valeurs par intervalles disjoints.
-Une borne commune appartient à une seule classe : par exemple $[0,10[$, $[10,20[$, $[20,30]$.
+Une borne commune appartient à une seule classe : par exemple $[0;10[$, $[10;20[$, $[20;30]$.
 Considérons les effectifs suivants :
 \[
 \begin{array}{c|ccc|c}
@@ -77,8 +77,8 @@ L'écart type obtenu en remplaçant toutes les valeurs par les centres est lui a
 \section{Cumul, classe médiane et interpolation}
 Le polygone des fréquences cumulées relie ici les points
 $(0,0)$, $(10,0{,}2)$, $(20,0{,}6)$, $(30,1)$.
-Les valeurs aux bornes sont déterminées par les effectifs. Les segments intermédiaires traduisent un modèle uniforme dans chaque classe, pas des données individuelles connues.
-La moitié de l'effectif vaut $N/2=10$. Le cumul passe de $4$ à $12$ dans $[10,20[$ : c'est la classe médiane.
+Les cumuls aux bornes sont déterminés par les effectifs des classes précédentes (valeurs strictement inférieures à la borne, sauf à la dernière borne incluse). Les segments intermédiaires traduisent un modèle uniforme dans chaque classe, pas des données individuelles connues.
+La moitié de l'effectif vaut $N/2=10$. Le cumul passe de $4$ à $12$ dans $[10;20[$ : c'est la classe médiane.
 \begin{propriete}[Médiane estimée sous hypothèse uniforme]
 Si la classe médiane commence en $L$, a une amplitude $h$, un effectif $n_c>0$ et est précédée d'un cumul $C$, alors
 $m_{\mathrm{est}}=L+h\,\dfrac{N/2-C}{n_c}$.

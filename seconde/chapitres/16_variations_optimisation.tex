@@ -14,7 +14,7 @@ Elle est décroissante si $f(a)\geq f(b)$ dans la même situation. Une fonction 
 Pour établir une croissance, il faut comparer deux entrées quelconques, pas seulement deux points du graphique.
 Un tableau de variations résume les intervalles où la monotonie est connue, les valeurs aux bornes lorsqu'elles sont définies et les extrémums atteints. Une flèche n'indique pas une pente constante.
 \begin{exemple}
-Pour $f(x)=(x-2)^2+1$ sur $[-1,4]$ :
+Pour $f(x)=(x-2)^2+1$ sur $[-1;4]$ :
 \[
 \begin{array}{c|ccccc}
 x&-1&&2&&4\\\hline
@@ -29,7 +29,7 @@ $f$ admet un maximum $M$ sur $D$ s'il existe $a\in D$ tel que $f(a)=M$ et si, po
 Un minimum $m$ est défini avec $f(x)\geq m$ et une valeur où l'égalité est atteinte.
 \end{definition}
 \begin{exemple}
-Sur $]0,1[$, $f(x)=x$ reste entre $0$ et $1$ mais n'atteint aucun des deux : elle n'a ni minimum ni maximum. Sur $[0,1]$, elle atteint les deux.
+Sur $]0;1[$, $f(x)=x$ reste entre $0$ et $1$ mais n'atteint aucun des deux : elle n'a ni minimum ni maximum. Sur $[0;1]$, elle atteint les deux.
 Montrer seulement $f(x)\leq10$ ne prouve pas que $10$ est son maximum.
 \end{exemple}
 Un tableau de valeurs ou une courbe tracée par un logiciel peut suggérer des variations ; il peut manquer un pic étroit entre deux points.
@@ -41,7 +41,7 @@ Pour un extremum, établir une borne générale puis montrer qu'elle est atteint
 \end{methode}
 \begin{exemple}
 $g(x)=-3(x-1)^2+7\leq7$, avec égalité exactement pour $x=1$.
-Sur $]-\infty,1]$, le carré $(x-1)^2$ décroît ; multiplier par $-3$ renverse l'ordre, donc $g$ croît. Sur $[1,+\infty[$, elle décroît.
+Sur $]-\infty;1]$, le carré $(x-1)^2$ décroît ; multiplier par $-3$ renverse l'ordre, donc $g$ croît. Sur $[1;+\infty[$, elle décroît.
 \end{exemple}
 \section{Optimiser une aire}
 \begin{exemple}[Rectangle de périmètre fixé]
@@ -59,13 +59,13 @@ Si le domaine était $0<x<4$, la valeur $x=5$ ne serait pas admissible. Sur cet 
 \section{Approximer : balayage et dichotomie}
 Un balayage évalue $f$ sur une grille et retient la meilleure valeur. Il calcule un maximum \emph{sur la grille}, pas automatiquement sur le domaine continu.
 \begin{exemple}
-Pour $F(x)=2-|x^2-2|$ sur $[0,2]$, $F(x)=x^2$ jusqu'à $\sqrt2$, puis $F(x)=4-x^2$.
+Pour $F(x)=2-|x^2-2|$ sur $[0;2]$, $F(x)=x^2$ jusqu'à $\sqrt2$, puis $F(x)=4-x^2$.
 Le tableau de variations montre un maximum $2$ atteint en $\sqrt2$.
 Pour en approcher l'abscisse, maintenir un encadrement $a\leq\sqrt2\leq b$, tester $m=(a+b)/2$, puis remplacer $a$ par $m$ si $m^2<2$, sinon $b$ par $m$.
 \end{exemple}
 \begin{demonstration}[Garantie de la dichotomie]
 La croissance du carré sur les positifs assure que l'intervalle conservé contient toujours $\sqrt2$.
-Sa longueur est divisée par $2$ à chaque étape : depuis $[1,2]$, elle vaut $2^{-n}$ après $n$ étapes. Dix étapes donnent une amplitude inférieure à $10^{-3}$.
+Sa longueur est divisée par $2$ à chaque étape : depuis $[1;2]$, elle vaut $2^{-n}$ après $n$ étapes. Dix étapes donnent une amplitude inférieure à $10^{-3}$.
 \end{demonstration}
 Ce procédé localise un extremum grâce à une propriété spécifique démontrée ; ce n'est pas un algorithme universel de maximisation d'une fonction quelconque.
 \section{Approcher une longueur de courbe}

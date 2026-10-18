@@ -10,7 +10,7 @@
 $f(x)=1/x$ est définie sur $\R\setminus\{0\}$ et a le signe de $x$.
 Sa courbe possède deux branches. Elle ne rencontre aucun axe : $x=0$ est interdit et $1/x$ n'est jamais nul.
 \begin{theoreme}
-La fonction inverse est strictement décroissante sur chacun des intervalles $]-\infty,0[$ et $]0,+\infty[$.
+La fonction inverse est strictement décroissante sur chacun des intervalles $]-\infty;0[$ et $]0;+\infty[$.
 \end{theoreme}
 \begin{demonstration}
 Pour $a<b$ de même signe non nul,
@@ -25,11 +25,11 @@ On a $f(-x)=-f(x)$ : la fonction est \emph{impaire}. Sa courbe est symétrique p
 \begin{exemple}
 $1/x=2$ donne $x=1/2$ ; $1/x=0$ n'a aucune solution.
 Pour $1/x<2$, étudier $(1-2x)/x<0$ donne
-$]-\infty,0[\cup]1/2,+\infty[$.
+$]-\infty;0[\cup]1/2;+\infty[$.
 Multiplier directement par $x$ sans en connaître le signe serait incorrect.
 \end{exemple}
 \section{La fonction racine carrée}
-$g(x)=\sqrt x$ est définie sur $[0,+\infty[$, positive ou nulle et strictement croissante.
+$g(x)=\sqrt x$ est définie sur $[0;+\infty[$, positive ou nulle et strictement croissante.
 \begin{demonstration}
 Pour $0\leq a<b$, les racines sont non négatives.
 Si $\sqrt a\geq\sqrt b$, la croissance du carré sur les positifs donnerait $a\geq b$, contradiction.
@@ -37,7 +37,7 @@ Donc $\sqrt a<\sqrt b$.
 \end{demonstration}
 \begin{exemple}
 $\sqrt x=3$ équivaut à $x=9$.
-$\sqrt x<3$ donne $x\in[0,9[$ ; la borne $0$ vient du domaine.
+$\sqrt x<3$ donne $x\in[0;9[$ ; la borne $0$ vient du domaine.
 $\sqrt x=-3$ n'a aucune solution.
 Pour $\sqrt{x+2}=x$, imposer $x\geq0$, puis résoudre $x+2=x^2$ :
 $(x-2)(x+1)=0$. Seule la valeur $2$ respecte la condition initiale.
@@ -58,7 +58,7 @@ La différence est donc positive.
 L'équation $x^3=k$ possède un unique réel solution, appelé racine cubique de $k$ et noté $\sqrt[3]{k}$.
 L'unicité vient de la croissance ; l'existence pour tout réel est admise ici, liée à la continuité du cube.
 On a donc $x^3<k\Leftrightarrow x<\sqrt[3]{k}$.
-En particulier $x^3=-8$ donne $x=-2$, et $x^3\geq27$ donne $[3,+\infty[$.
+En particulier $x^3=-8$ donne $x=-2$, et $x^3\geq27$ donne $[3;+\infty[$.
 \begin{center}
 \begin{tikzpicture}
 \begin{axis}[width=7cm,height=5.5cm,axis lines=middle,xmin=-3,xmax=3,ymin=-4,ymax=4,xlabel={$x$},ylabel={$1/x$},samples=100]
