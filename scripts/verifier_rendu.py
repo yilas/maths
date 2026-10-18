@@ -34,18 +34,27 @@ def main():
     for pdf in sorted((ROOT / "pdf" / "seconde").glob("*.pdf")):
         doc = fitz.open(pdf)
         alertes = []
+        observations = []
         selections = {0}
         for numero, page in enumerate(doc):
             texte = page.get_text()
-            if "\ufffd" in texte or "??" in texte:
-                alertes.append(f"Page {numero+1} : caractère ou référence à vérifier")
+            if "??" in texte:
+                alertes.append(f"Page {numero+1} : référence à vérifier")
+            if "\ufffd" in texte:
+                # Une table ToUnicode de police mathématique peut être incomplète.
+                # L'extraction ne suffit pas à conclure à un défaut visuel :
+                # conserver le contexte et rendre cette page pour inspection.
+                extraits = [texte[max(0, i-35):i+36] for i, c in enumerate(texte)
+                            if c == "\ufffd"]
+                observations.append({"page": numero+1, "extraction_unicode": extraits})
+                selections.add(numero)
             for x0, y0, x1, y1, mot, *_ in page.get_text("words"):
                 if x0 < -1 or y0 < -1 or x1 > page.rect.width+1 or y1 > page.rect.height+1:
                     alertes.append(f"Page {numero+1} : texte hors page ({mot!r})")
             for mot in mots.get(pdf.stem, []):
                 if mot.casefold() in texte.casefold() and numero > 3:
                     selections.add(numero)
-        rapport[pdf.name] = {"pages": len(doc), "alertes": alertes}
+        rapport[pdf.name] = {"pages": len(doc), "alertes": alertes, "observations": observations}
         with tempfile.TemporaryDirectory() as temporaire:
             prefixe = Path(temporaire) / "page"
             subprocess.run(["pdftoppm", "-r", "35", "-png", str(pdf), str(prefixe)],
