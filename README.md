@@ -1,4 +1,4 @@
-# Mathématiques — de la troisième à la terminale
+# Mathématiques — du collège vers le supérieur
 
 Une collection de cours en français, écrite en LaTeX : définitions, exemples
 expliqués, démonstrations, exercices et corrigés. Le fichier
@@ -106,6 +106,18 @@ Ces PDF ponctuels restent dans `build/`. La commande fonctionne aussi depuis un
 autre répertoire si l'on donne le chemin du script. Pour utiliser directement
 pdfLaTeX, il faut ajouter la racine du dépôt à `TEXINPUTS` et travailler dans le
 dossier du document ; le script le fait automatiquement.
+
+La vérification GitHub Actions compile tous les niveaux et un chapitre autonome,
+puis exécute les contrôles Python et prépare des planches de rendu. Les PDF et
+aperçus sont disponibles dans les artefacts de la vérification pendant 14 jours.
+Le workflow final fonctionne en lecture seule sur le dépôt : les PDF suivis dans
+Git restent à actualiser dans la PR avec leurs sources.
+
+Pour refaire les planches localement, `scripts/verifier_rendu.py` utilise Poppler
+(`pdftoppm`), PyMuPDF et Pillow ; ces outils sont facultatifs pour la compilation
+LaTeX normale. Les aperçus restent dans `build/apercus/`. Les anomalies
+d'extraction Unicode sont signalées avec leur contexte pour inspection visuelle :
+elles ne signifient pas nécessairement qu'un glyphe est absent du PDF.
 
 ## Suite de la collection et contributions
 
