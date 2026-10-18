@@ -18,9 +18,10 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--destination", type=Path, default=ROOT / "build" / "apercus")
+    parser.add_argument("--niveau", choices=["troisieme", "seconde"], default="seconde")
+    parser.add_argument("--destination", type=Path)
     args = parser.parse_args()
-    destination = args.destination
+    destination = args.destination or ROOT / "build" / "apercus" / args.niveau
     destination.mkdir(parents=True, exist_ok=True)
     rapport = {}
     mots = {
@@ -31,7 +32,7 @@ def main():
         "corriges_2de": ["Un jardin et son coût", "Un diagnostic fictif"],
         "exercices_2de": ["Classes et histogramme"],
     }
-    for pdf in sorted((ROOT / "pdf" / "seconde").glob("*.pdf")):
+    for pdf in sorted((ROOT / "pdf" / args.niveau).glob("*.pdf")):
         doc = fitz.open(pdf)
         alertes = []
         observations = []
@@ -77,7 +78,7 @@ def main():
                                check=True, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
         doc.close()
     if len(rapport) != 4:
-        raise SystemExit("Les quatre PDF de seconde sont requis")
+        raise SystemExit(f"Les quatre PDF de {args.niveau} sont requis")
     (destination / "rapport.json").write_text(json.dumps(rapport, ensure_ascii=False, indent=2)+"\n")
     print(json.dumps(rapport, ensure_ascii=False, indent=2))
     if any(v["alertes"] for v in rapport.values()):

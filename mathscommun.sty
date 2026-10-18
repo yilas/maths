@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{mathscommun}[2026/10/15 v1.0 Collection mathematiques]
+\ProvidesPackage{mathscommun}[2026/10/18 v1.1 Collection mathematiques]
 \RequirePackage{iftex}
 \ifPDFTeX
   \RequirePackage[T1]{fontenc}
@@ -42,9 +42,10 @@
 \renewcommand{\arraystretch}{1.2}
 \emergencystretch=2em
 \raggedbottom
-\titleformat{\chapter}[display]{\normalfont\sffamily\bfseries\color{encre}}{\large\chaptername\ \thechapter}{6pt}{\Huge}
+\titleformat{\chapter}[display]{\normalfont\sffamily\bfseries\color{encre}}{\large\chaptername\ \thechapter}{6pt}{\Huge\raggedright}
 \titlespacing*{\chapter}{0pt}{0pt}{20pt}
 \titleformat{\section}{\Large\sffamily\bfseries\color{accent}}{\thesection}{.7em}{}
+\titlespacing*{\section}{0pt}{2ex plus .5ex minus .2ex}{.8ex plus .2ex}
 \titleformat{\subsection}{\large\sffamily\bfseries}{\thesubsection}{.7em}{}
 \pagestyle{fancy}
 \fancyhf{}
