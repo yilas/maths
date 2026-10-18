@@ -1,0 +1,88 @@
+\documentclass[../cours_2de.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{17}
+\chapter{Statistiques : position et lecture critique}
+\label{sec:ch18}
+\begin{objectif}
+Décrire une série ; interpréter moyenne, médiane et quartiles ; lire des graphiques et mesurer l'effet d'une donnée ajoutée ou supprimée.
+\end{objectif}
+\section{Population, variable et distribution}
+Une population est l'ensemble étudié, un individu une unité statistique.
+Une variable qualitative décrit une catégorie ; une variable quantitative une quantité, discrète ou continue.
+L'effectif $n_i$ d'une valeur $x_i$ est son nombre d'apparitions ; sa fréquence est $f_i=n_i/N$ avec $N=\sum n_i>0$.
+Ainsi $\sum f_i=1$.
+Une étude décrit la population observée ; extrapoler à une population plus grande demande un protocole d'échantillonnage adapté.
+\section{Moyenne et linéarité}
+\begin{definition}
+La moyenne d'une série de $N$ valeurs est
+$\overline x=(x_1+\cdots+x_N)/N$.
+Pour des valeurs regroupées avec effectifs $n_i$,
+$\overline x=\sum n_ix_i/N=\sum f_ix_i$.
+\end{definition}
+La formule pondérée ne change pas le calcul : elle regroupe les valeurs répétées.
+\begin{propriete}
+Si chaque valeur est transformée en $y_i=ax_i+b$, alors
+$\overline y=a\overline x+b$.
+\end{propriete}
+\begin{demonstration}
+$\sum_{i=1}^N(ax_i+b)=a\sum_{i=1}^Nx_i+Nb$ ; diviser par $N$ donne le résultat.
+\end{demonstration}
+Si deux groupes ont des effectifs $N_1,N_2$ et des moyennes $m_1,m_2$, leur moyenne globale est
+$(N_1m_1+N_2m_2)/(N_1+N_2)$, puisque $N_jm_j$ reconstitue la somme du groupe.
+\begin{exemple}
+Sur la série ordonnée $1,2,2,4,5,8,8,10$, la somme vaut $40$, donc la moyenne vaut $5$.
+Ajouter $3$ à chaque valeur donne une moyenne de $8$.
+\end{exemple}
+\section{Médiane, quartiles, écart interquartile}
+Pour la série ordonnée $x_{(1)}\leq\cdots\leq x_{(N)}$, nous retenons la convention :
+si $N$ est impair, médiane de rang $(N+1)/2$ ; si $N$ est pair, moyenne des valeurs de rangs $N/2$ et $N/2+1$.
+Une médiane partage la série en deux parties contenant chacune au moins la moitié des observations, égalités comprises.
+$Q_1$ est la valeur de rang $\lceil N/4\rceil$ et $Q_3$ celle de rang $\lceil3N/4\rceil$.
+L'écart interquartile est $Q_3-Q_1$, l'étendue est maximum moins minimum.
+\begin{exemple}
+Pour $1,2,2,4,5,8,8,10$, la médiane vaut $(4+5)/2=4{,}5$,
+$Q_1=2$, $Q_3=8$, l'écart interquartile vaut $6$ et l'étendue $9$.
+\end{exemple}
+Ces indicateurs sont des définitions assorties de conventions, pas des théorèmes.
+Les logiciels n'utilisent pas toujours la même interpolation pour les quartiles ; annoncer la convention avant une comparaison.
+\section{Boîte à moustaches et graphiques}
+Une boîte à moustaches représente ici les cinq valeurs minimum, $Q_1$, médiane, $Q_3$, maximum.
+\begin{center}
+\begin{tikzpicture}[x=.9cm,y=1cm]
+\draw[->](0,0)--(11,0);
+\foreach \x in {0,1,...,10}{\draw(\x,.05)--(\x,-.05)node[below]{\small\x};}
+\draw(1,.7)--(2,.7);\draw(8,.7)--(10,.7);
+\draw(1,.45)--(1,.95);\draw(10,.45)--(10,.95);
+\draw[fill=accent!10](2,.4)rectangle(8,1);
+\draw[thick](4.5,.4)--(4.5,1);
+\node[above]at(4.5,1){médiane};
+\end{tikzpicture}
+\end{center}
+Certaines boîtes utilisent des moustaches calculées à partir de $1{,}5$ fois l'écart interquartile : ce n'est pas la convention de cette figure.
+Un diagramme en barres compare des catégories ; un secteur circulaire de fréquence $f$ a un angle $360f$ degrés (ou $180f$ pour un demi-disque) par proportionnalité des aires des secteurs.
+Une courbe montre une évolution ; un nuage de points montre des couples de mesures, sans prouver de causalité.
+\begin{attention}
+Lire les axes, les unités, l'origine, la période et la population.
+Une échelle verticale tronquée peut amplifier visuellement une différence.
+Une corrélation observée ne prouve ni causalité ni absence de variable cachée.
+\end{attention}
+\section{Ajouter ou supprimer une valeur}
+\begin{propriete}
+Si une série de taille $N$ et moyenne $m$ reçoit une nouvelle valeur $a$, sa moyenne devient
+$m'=(Nm+a)/(N+1)$, donc $m'-m=(a-m)/(N+1)$.
+\end{propriete}
+\begin{demonstration}
+L'ancienne somme vaut $Nm$ ; la nouvelle vaut $Nm+a$ et l'effectif augmente de $1$. En soustrayant $m$ à la nouvelle moyenne, on obtient la différence annoncée.
+\end{demonstration}
+L'ajout fait monter la moyenne si $a>m$, baisser si $a<m$ ; il la conserve si $a=m$.
+Supprimer $a$ d'une série de taille $N>1$ donne $m'=(Nm-a)/(N-1)$.
+Pour la médiane, il faut regarder les nouveaux rangs : il n'existe pas de règle analogue fondée sur la seule ancienne médiane.
+\begin{exemple}
+Ajouter $100$ à la série de l'exemple donne $140/9\simeq15{,}56$ de moyenne, mais une médiane de $5$.
+Une valeur extrême peut donc déplacer fortement la moyenne tout en modifiant peu la médiane. Cela ne signifie pas que la médiane est toujours inchangée.
+\end{exemple}
+\utilite{La moyenne mesure un niveau global ; la médiane résiste mieux aux valeurs extrêmes. Un indicateur ne remplace ni le graphique ni l'examen de la collecte des données.}
+\begin{retenir}
+Trier avant de chercher médiane et quartiles ; pondérer par les effectifs ; annoncer les conventions et comparer des populations effectivement comparables.
+\end{retenir}
+\end{document}

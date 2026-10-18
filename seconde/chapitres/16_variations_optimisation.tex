@@ -1,0 +1,81 @@
+\documentclass[../cours_2de.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{15}
+\chapter{Variations, extrémums et optimisation}
+\label{sec:ch16}
+\begin{objectif}
+Lire et construire un tableau de variations ; distinguer observation et preuve ; résoudre des problèmes d'optimisation sans dérivées.
+\end{objectif}
+\section{Les définitions précises}
+\begin{definition}
+$f$ est croissante sur un intervalle $I$ si, pour tous $a,b\in I$ tels que $a<b$, on a $f(a)\leq f(b)$. Elle est strictement croissante si l'inégalité des images est stricte.
+Elle est décroissante si $f(a)\geq f(b)$ dans la même situation. Une fonction monotone est croissante ou décroissante sur l'intervalle considéré.
+\end{definition}
+Pour établir une croissance, il faut comparer deux entrées quelconques, pas seulement deux points du graphique.
+Un tableau de variations résume les intervalles où la monotonie est connue, les valeurs aux bornes lorsqu'elles sont définies et les extrémums atteints. Une flèche n'indique pas une pente constante.
+\begin{exemple}
+Pour $f(x)=(x-2)^2+1$ sur $[-1,4]$ :
+\[
+\begin{array}{c|ccccc}
+x&-1&&2&&4\\\hline
+f(x)&10&\searrow&1&\nearrow&5
+\end{array}
+\]
+Le minimum vaut $1$, atteint en $2$ ; le maximum sur cet intervalle vaut $10$, atteint en $-1$. Pour deux entrées situées de part et d'autre de $2$, le tableau seul ne fixe pas l'ordre des images.
+\end{exemple}
+\section{Un extremum est une valeur atteinte}
+\begin{definition}
+$f$ admet un maximum $M$ sur $D$ s'il existe $a\in D$ tel que $f(a)=M$ et si, pour tout $x\in D$, $f(x)\leq M$.
+Un minimum $m$ est défini avec $f(x)\geq m$ et une valeur où l'égalité est atteinte.
+\end{definition}
+\begin{exemple}
+Sur $]0,1[$, $f(x)=x$ reste entre $0$ et $1$ mais n'atteint aucun des deux : elle n'a ni minimum ni maximum. Sur $[0,1]$, elle atteint les deux.
+Montrer seulement $f(x)\leq10$ ne prouve pas que $10$ est son maximum.
+\end{exemple}
+Un tableau de valeurs ou une courbe tracée par un logiciel peut suggérer des variations ; il peut manquer un pic étroit entre deux points.
+De même, une fonction croissante peut avoir une discontinuité : la monotonie seule ne garantit pas qu'elle prenne toutes les valeurs intermédiaires. Nous n'invoquons cette dernière propriété que pour les fonctions continues usuelles, avec son statut d'outil admis.
+\section{Prouver sans dériver}
+\begin{methode}
+Comparer $f(b)-f(a)$ pour $a<b$ ; reconnaître une fonction de référence après un changement de variable ; ou écrire une quantité sous forme d'un carré positif ou nul.
+Pour un extremum, établir une borne générale puis montrer qu'elle est atteinte.
+\end{methode}
+\begin{exemple}
+$g(x)=-3(x-1)^2+7\leq7$, avec égalité exactement pour $x=1$.
+Sur $]-\infty,1]$, le carré $(x-1)^2$ décroît ; multiplier par $-3$ renverse l'ordre, donc $g$ croît. Sur $[1,+\infty[$, elle décroît.
+\end{exemple}
+\section{Optimiser une aire}
+\begin{exemple}[Rectangle de périmètre fixé]
+Pour un périmètre de $20$ mètres, les côtés sont $x$ et $10-x$, avec $0<x<10$.
+L'aire est
+$A(x)=x(10-x)=25-(x-5)^2\leq25$.
+L'égalité est atteinte pour $x=5$, valeur admissible. L'aire maximale vaut donc $25\unite{m^2}$ et correspond à un carré de côté $5$ mètres.
+\end{exemple}
+On peut aussi utiliser l'inégalité arithmético-géométrique :
+$\sqrt{x(10-x)}\leq(x+10-x)/2=5$, puis élever au carré les quantités non négatives.
+Cela fournit une autre preuve du même résultat.
+\begin{attention}
+Si le domaine était $0<x<4$, la valeur $x=5$ ne serait pas admissible. Sur cet intervalle, l'aire croît mais ne possède pas de maximum : la borne $24$ est approchée quand $x$ se rapproche de $4$, sans être atteinte.
+\end{attention}
+\section{Approximer : balayage et dichotomie}
+Un balayage évalue $f$ sur une grille et retient la meilleure valeur. Il calcule un maximum \emph{sur la grille}, pas automatiquement sur le domaine continu.
+\begin{exemple}
+Pour $F(x)=2-|x^2-2|$ sur $[0,2]$, $F(x)=x^2$ jusqu'à $\sqrt2$, puis $F(x)=4-x^2$.
+Le tableau de variations montre un maximum $2$ atteint en $\sqrt2$.
+Pour en approcher l'abscisse, maintenir un encadrement $a\leq\sqrt2\leq b$, tester $m=(a+b)/2$, puis remplacer $a$ par $m$ si $m^2<2$, sinon $b$ par $m$.
+\end{exemple}
+\begin{demonstration}[Garantie de la dichotomie]
+La croissance du carré sur les positifs assure que l'intervalle conservé contient toujours $\sqrt2$.
+Sa longueur est divisée par $2$ à chaque étape : depuis $[1,2]$, elle vaut $2^{-n}$ après $n$ étapes. Dix étapes donnent une amplitude inférieure à $10^{-3}$.
+\end{demonstration}
+Ce procédé localise un extremum grâce à une propriété spécifique démontrée ; ce n'est pas un algorithme universel de maximisation d'une fonction quelconque.
+\section{Approcher une longueur de courbe}
+Pour $x_0<\cdots<x_n$, on relie les points $(x_i,f(x_i))$ par des segments. La longueur polygonale est
+\[
+L_n=\sum_{i=0}^{n-1}\sqrt{(x_{i+1}-x_i)^2+(f(x_{i+1})-f(x_i))^2}.
+\]
+La formule vient de la distance entre deux points et de l'addition des longueurs. Pour une courbe régulière comme $y=x^2$, raffiner la subdivision donne une approximation de sa longueur ; l'existence et la convergence vers cette longueur relèvent d'une étude ultérieure.
+\utilite{Optimiser signifie chercher la meilleure valeur admissible et la justifier. Séparer preuve, modèle et approximation sera essentiel en analyse et en calcul scientifique.}
+\begin{retenir}
+Un extremum doit être atteint. Toujours donner le domaine, une borne et un cas d'égalité. Un résultat numérique ne suffit pas à établir une propriété globale.
+\end{retenir}
+\end{document}

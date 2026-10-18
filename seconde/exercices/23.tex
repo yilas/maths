@@ -1,0 +1,29 @@
+\chapter{Algorithmique et Python}
+\section*{Exercice 23.1 -- Tracer des variables}
+Exécuter à la main : \begin{lstlisting}[language=Python]
+s = 0
+for k in range(1, 5):
+    s = s + k * k
+\end{lstlisting}
+Donner les valeurs successives de \texttt{s}. Que changerait \texttt{range(1, 4)} ?
+
+\section*{Exercice 23.2 -- Dernier multiple}
+Écrire une fonction qui renvoie le dernier multiple d'un entier $a>0$ inférieur ou égal à un entier $b\ge0$. Proposer un test de frontière et expliquer la correction.
+
+\section*{Exercice 23.3 -- Un encadrement certifié}
+Pour encadrer $\sqrt2$ au millième, un programme cherche le plus grand entier $k$ tel que $k^2\le2\times1000^2$. Donner $k$ et l'encadrement. Pourquoi ces comparaisons entières sont-elles utiles ?
+
+\section*{Exercice 23.4 -- Lire une fonction statistique}
+Expliquer le rôle de chaque ligne, les conditions d'entrée et la différence entre le résultat renvoyé et une variance :\begin{lstlisting}[language=Python]
+from math import sqrt
+def dispersion(valeurs):
+    n = len(valeurs)
+    m = sum(valeurs) / n
+    return sqrt(sum((x - m)**2 for x in valeurs) / n)
+\end{lstlisting}
+
+\section*{Exercice 23.5 -- Simuler sans conclure trop vite}
+Écrire une fonction simulant la fréquence de face pour $n>0$ lancers d'une pièce équilibrée. Pourquoi deux appels peuvent-ils donner des résultats différents ?
+
+\section*{Exercice 23.6 -- Longueur polygonale}
+Écrire le principe d'un algorithme qui approche la longueur de la courbe $y=x^2$ sur $[0;1]$ avec $n$ segments. Quel résultat exact doit-il produire pour $n=1$ ? Que ne garantit pas à lui seul un tableau de valeurs croissantes ?

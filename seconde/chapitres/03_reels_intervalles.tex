@@ -1,0 +1,76 @@
+\documentclass[../cours_2de.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{2}
+\chapter{Réels, intervalles et approximations}
+\label{sec:ch03}
+\begin{objectif}
+Distinguer les ensembles de nombres, représenter des intervalles, encadrer et arrondir. Prouver deux impossibilités d'écriture. Prérequis : fractions, parité, nombres premiers.
+\end{objectif}
+\section{Une famille d'ensembles emboîtés}
+$\N$ désigne les naturels et $\Z$ les entiers. Un \textbf{décimal} est un nombre de la forme $a/10^n$, $a\in\Z$, $n\in\N$ ; leur ensemble est $\D$. Un \textbf{rationnel} est de la forme $a/b$, avec $a,b\in\Z$, $b\ne0$ ; leur ensemble est $\Q$. Les \textbf{réels} forment $\R$, représenté par la droite graduée. Un réel non rationnel est irrationnel.
+\[
+\N\subsetneq\Z\subsetneq\D\subsetneq\Q\subsetneq\R.
+\]
+Les nombres $-1$, $1/2$, $1/3$ et $\sqrt2$ montrent successivement que ces inclusions sont strictes. Il reste à justifier les deux derniers exemples.
+\admis{La construction complète des réels et leurs propriétés de corps ordonné ne sont pas refaites. On admet notamment l'existence d'une racine carrée positive pour tout réel positif et l'existence d'entiers aussi grands que nécessaire.}
+\begin{theoreme}
+$1/3$ n'est pas un nombre décimal.
+\end{theoreme}
+\begin{demonstration}
+Supposons $1/3=a/10^n$ avec a entier et n naturel. Alors $10^n=3a$, donc $3$ divise $10^n$. Or $10^n=2^n5^n$ ne possède pas de facteur premier $3$, ce qui contredit l'unicité de la décomposition en facteurs premiers. Donc cette écriture décimale finie n'existe pas.
+\end{demonstration}
+\begin{theoreme}
+$\sqrt2$ est irrationnel.
+\end{theoreme}
+\begin{demonstration}
+Supposons $\sqrt2=p/q$ sous forme irréductible avec $p,q$ entiers positifs. Alors $p^2=2q^2$ ; $p^2$ est pair, donc p est pair (chapitre 2). Écrivons $p=2k$. On obtient $4k^2=2q^2$, donc $q^2=2k^2$. Ainsi q est lui aussi pair. La fraction aurait un facteur commun $2$, contrairement à l'hypothèse d'irréductibilité. La supposition est donc fausse.
+\end{demonstration}
+\section{Intervalles : lire les bornes}
+Pour $a<b$, $[a;b]$ est l'ensemble des réels x tels que $a\le x\le b$. Les crochets ouverts excluent la borne : $]a;b]$ signifie $a<x\le b$. Les symboles $-\infty$ et $+\infty$ ne sont pas des réels et portent toujours un crochet ouvert : $]-\infty;3[$ signifie $x<3$.
+\begin{center}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\draw[->] (-.5,0)--(6,0);
+\draw[very thick,accent] (1,0)--(4,0);
+\fill[accent] (1,0) circle (2pt);
+\draw[accent,fill=white] (4,0) circle (2pt);
+\node[below] at (1,-.1) {$a$};\node[below] at (4,-.1) {$b$};
+\node[above] at (2.5,.15) {$[a;b[$};
+\end{tikzpicture}
+\end{center}
+Pour $I=[-3;2[$ et $J=]0;5]$, $I\cap J=]0;2[$ et $I\cup J=[-3;5]$. Une réunion n'est pas toujours un intervalle : $[-3;-1]\cup[1;2]$ contient un trou.
+\section{Distance et valeur absolue}
+\begin{definition}
+La valeur absolue de x est sa distance à zéro :
+\[
+|x|=\begin{cases}x&\text{si }x\ge0,\\-x&\text{si }x<0.\end{cases}
+\]
+La distance entre les réels x et a est $|x-a|$.
+\end{definition}
+\begin{propriete}
+Pour $r\ge0$,
+\[
+|x-a|\le r\quad\Longleftrightarrow\quad a-r\le x\le a+r
+\quad\Longleftrightarrow\quad x\in[a-r;a+r].
+\]
+\end{propriete}
+\begin{demonstration}
+Pour un réel u, si $u\ge0$, $|u|\le r$ signifie $0\le u\le r$ ; si $u<0$, elle signifie $-r\le u<0$. Réunir les deux cas donne $-r\le u\le r$. Poser $u=x-a$ et ajouter a établit l'équivalence. Pour $r=0$, seul $x=a$ convient ; pour $r<0$, aucune valeur ne peut convenir.
+\end{demonstration}
+Ainsi $|x-5|\le0{,}2$ décrit une mesure située à au plus $0{,}2$ de $5$, soit $[4{,}8;5{,}2]$.
+\section{Valeur exacte, encadrement et arrondi}
+$\sqrt2$ est une valeur exacte ; $1{,}414$ est une approximation. Puisque $1{,}414^2=1{,}999396<2$ et $1{,}415^2=2{,}002225>2$, la croissance du carré sur les positifs donne
+\[
+1{,}414<\sqrt2<1{,}415.
+\]
+L'encadrement a une amplitude de $10^{-3}$. Prendre sa borne inférieure donne une approximation par défaut ; le milieu $1{,}4145$ a une erreur au plus $0{,}0005$.
+
+Arrondir au millième consiste à choisir le multiple de $10^{-3}$ le plus proche. Pour $\sqrt2$, comparer à $1{,}4145$ permet de choisir $1{,}414$ puisque $1{,}4145^2>2$. Aux égalités exactes, on convient ici d'arrondir à l'opposé de zéro : $1{,}25$ au dixième donne $1{,}3$, et $-1{,}25$ donne $-1{,}3$. D'autres conventions informatiques existent.
+\begin{attention}
+Les chiffres significatifs commencent au premier chiffre non nul : $0{,}004567$ à trois chiffres significatifs devient $0{,}00457$. Pour lever une ambiguïté sur les zéros finaux, écrire $9{,}9\times10^4$ pour deux chiffres significatifs. Conserver des chiffres de garde dans les calculs intermédiaires.
+\end{attention}
+\section{Écritures décimales infinies}
+\approfondissement Dans la division de a par $b>0$, les restes possibles sont $0,\ldots,b-1$. Si un reste devient nul, l'écriture s'arrête ; sinon un reste finit par se répéter, et les mêmes chiffres recommencent : l'écriture est périodique. Réciproquement, un motif périodique s'exprime comme une fraction : si $x=0{,}272727\ldots$, alors $100x-x=27$, donc $x=27/99=3/11$. Ce calcul avec une écriture infinie repose sur sa définition par limite, qui sera formalisée plus tard.
+\begin{retenir}
+Un irrationnel n'est pas un nombre « impossible à écrire » : $\sqrt2$ en est une écriture exacte. Distinguer l'objet, sa représentation et une approximation numérique. Donner une précision ne remplace pas la justification de l'erreur.
+\end{retenir}
+\end{document}

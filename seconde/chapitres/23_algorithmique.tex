@@ -1,0 +1,138 @@
+\documentclass[../cours_2de.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{22}
+\chapter{Algorithmique et Python}
+\label{sec:ch23}
+\begin{objectif}
+Lire, écrire et tester un programme ; comprendre variables, fonctions et boucles ; relier chaque algorithme à un problème mathématique. Ce chapitre est un atelier de référence à utiliser tout au long du cours.
+\end{objectif}
+\section{Variables, types et affectation}
+Une variable informatique mémorise une valeur. Les types rencontrés sont
+\texttt{int} (entier), \texttt{float} (réel approché), \texttt{bool} (vrai ou faux), \texttt{str} (texte).
+L'affectation en langage naturel $x\leftarrow x+1$ se note \texttt{x = x + 1} : on calcule d'abord avec l'ancienne valeur, puis on la remplace.
+Le test d'égalité se note \texttt{==}, la différence \texttt{!=}.
+\begin{lstlisting}[language=Python]
+x = 4
+x = x + 1
+est_pair = (x % 2 == 0)
+message = "La valeur obtenue est"
+print(message, x, est_pair)
+\end{lstlisting}
+Ce programme affiche une valeur $5$ et un booléen faux. Les instructions sont exécutées dans l'ordre.
+Avec deux variables, échanger leurs valeurs demande une variable temporaire ou l'affectation simultanée \texttt{x, y = y, x}.
+Les nombres flottants sont approchés : \texttt{0.1 + 0.2 == 0.3} peut être faux. Un test numérique utilise une tolérance justifiée ; un calcul exact peut utiliser des entiers ou des fractions.
+\section{Conditions et fonctions}
+\begin{lstlisting}[language=Python]
+def tarif(age):
+    if age < 12:
+        return 6
+    elif age < 18:
+        return 9
+    else:
+        return 12
+
+def distance(ax, ay, bx, by):
+    return ((bx-ax)**2 + (by-ay)**2)**0.5
+\end{lstlisting}
+\texttt{def} définit une fonction, ses arguments reçoivent les valeurs lors de l'appel, et \texttt{return} renvoie le résultat.
+\texttt{tarif(15)} renvoie $9$ ; \texttt{distance(0,0,3,4)} renvoie $5$.
+Une fonction informatique peut avoir plusieurs arguments ; une fonction mathématique réelle à une variable est un cas particulier.
+L'indentation définit les blocs. \texttt{print} affiche un résultat mais ne remplace pas \texttt{return}.
+\section{Boucles bornées et non bornées}
+\begin{lstlisting}[language=Python]
+def somme_impairs(n):
+    total = 0
+    for k in range(n):
+        total = total + (2*k + 1)
+    return total
+
+def seuil(q, cible):
+    # q > 1, cible >= 1
+    n, valeur = 0, 1
+    while valeur <= cible:
+        n, valeur = n + 1, valeur * q
+    return n
+\end{lstlisting}
+\texttt{range(n)} fournit les entiers de $0$ à $n-1$.
+La boucle \texttt{for} a un nombre de tours connu ; la boucle \texttt{while} continue tant que la condition est vraie.
+Avant chaque nouveau tour de la seconde boucle, \texttt{valeur} représente $q^n$ : c'est un \emph{invariant}. La preuve de terminaison exige $q>1$, comme au chapitre 4.
+\begin{attention}
+Une boucle \texttt{while} qui ne modifie pas la variable de son test peut tourner indéfiniment. Écrire d'abord les conditions d'entrée, l'état après un tour et la condition d'arrêt.
+\end{attention}
+\section{Un balayage exact pour encadrer une racine}
+Le programme suivant renvoie les entiers $k,k+1,d$ tels que
+$k/d\leq\sqrt2<(k+1)/d$, avec $d=10^n$.
+\begin{lstlisting}[language=Python]
+def encadrement_racine2(n):
+    k, d = 1, 1
+    for _ in range(n):
+        k, d = 10*k, 10*d
+        while (k+1)**2 <= 2*d*d:
+            k = k + 1
+    return k, k+1, d
+\end{lstlisting}
+On cherche chiffre après chiffre le dernier entier dont le carré ne dépasse pas $2d^2$.
+Les comparaisons se font sur des entiers, ce qui évite l'ambiguïté d'un arrondi.
+\texttt{encadrement\_racine2(3)} renvoie $(1414,1415,1000)$.
+\section{Dichotomie et longueur polygonale}
+\begin{lstlisting}[language=Python]
+def dichotomie_racine2(n):
+    a, b = 1.0, 2.0
+    for _ in range(n):
+        m = (a+b)/2
+        if m*m < 2:
+            a = m
+        else:
+            b = m
+    return a, b
+\end{lstlisting}
+L'amplitude théorique est $2^{-n}$, jusqu'aux limites de précision des flottants. Pour un nombre excessif de tours, les deux bornes finissent par ne plus être distinguées par la machine.
+\begin{lstlisting}[language=Python]
+def longueur_polygone(f, a, b, n):
+    pas = (b-a)/n
+    total = 0.0
+    for k in range(n):
+        x, y = a+k*pas, a+(k+1)*pas
+        total += (pas**2 + (f(y)-f(x))**2)**0.5
+    return total
+\end{lstlisting}
+On exige $a<b$ et un entier $n\geq1$.
+Pour la droite $f(x)=2x$ entre $0$ et $1$, chaque subdivision donne exactement $\sqrt5$ en arithmétique réelle, car la ligne polygonale est déjà le segment. Pour une parabole, comparer plusieurs subdivisions illustre l'approximation.
+\section{Moyenne et écart type}
+Le paramètre \texttt{valeurs} représente une collection de nombres ; les détails sur les listes sont un support, pas un prérequis obligatoire.
+\begin{lstlisting}[language=Python]
+from math import sqrt
+
+def moyenne_ecart_type(valeurs):
+    n = len(valeurs)
+    if n == 0:
+        raise ValueError("Serie vide")
+    m = sum(valeurs) / n
+    v = sum((x-m)**2 for x in valeurs) / n
+    return m, sqrt(v)
+\end{lstlisting}
+Lire le programme consiste à identifier l'effectif, la moyenne, la moyenne des écarts quadratiques et sa racine. On utilise la variance descriptive de dénominateur $n$.
+\section{Simuler des répétitions}
+\begin{lstlisting}[language=Python]
+from random import random
+
+def experience(p):
+    return int(random() < p)
+
+def frequence(p, n):
+    succes = 0
+    for _ in range(n):
+        succes += experience(p)
+    return succes / n
+\end{lstlisting}
+On impose $0\leq p\leq1$ et $n\geq1$. Le générateur simule un uniforme sur $[0,1[$ ; la condition \texttt{random() < p} modélise un succès de probabilité $p$.
+Répéter \texttt{frequence(0.5,100)} donne des résultats différents : c'est la fluctuation d'échantillonnage. En augmentant $n$, les grands écarts deviennent moins fréquents, sans imposer une amélioration à chaque exécution.
+La graine fixe une suite reproductible pour un essai ; elle ne rend pas le modèle plus vrai.
+\section{Filtrer et tabuler}
+Les connecteurs Python \texttt{and}, \texttt{or}, \texttt{not} traduisent et, ou, non. Pour deux listes représentant des caractères des mêmes individus, parcourir simultanément leurs éléments, tester le critère et augmenter les compteurs.
+Le dossier \texttt{python/} contient des versions exécutables avec contrôles d'entrée : divisibilité, géométrie, recherche de seuil, encadrements, balayage, statistiques, simulations et lecture du fichier cantonal. Le script de vérification teste des cas connus et des propriétés mathématiques.
+\utilite{Programmer oblige à rendre explicites les hypothèses et l'ordre du raisonnement. Un programme correct sur un exemple doit encore être confronté à des cas limites et à une justification générale.}
+\begin{retenir}
+Décrire le problème avant le code, tracer les variables, tester une réponse connue, traiter les cas limites et séparer simulation, approximation et démonstration.
+\end{retenir}
+\end{document}

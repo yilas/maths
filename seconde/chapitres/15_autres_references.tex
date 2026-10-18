@@ -1,0 +1,86 @@
+\documentclass[../cours_2de.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{14}
+\chapter{Inverse, racine carrée et cube}
+\label{sec:ch15}
+\begin{objectif}
+Étendre le répertoire des fonctions de référence ; justifier leurs variations ; contrôler domaines, signes et solutions.
+\end{objectif}
+\section{La fonction inverse}
+$f(x)=1/x$ est définie sur $\R\setminus\{0\}$ et a le signe de $x$.
+Sa courbe possède deux branches. Elle ne rencontre aucun axe : $x=0$ est interdit et $1/x$ n'est jamais nul.
+\begin{theoreme}
+La fonction inverse est strictement décroissante sur chacun des intervalles $]-\infty,0[$ et $]0,+\infty[$.
+\end{theoreme}
+\begin{demonstration}
+Pour $a<b$ de même signe non nul,
+$\dfrac1b-\dfrac1a=\dfrac{a-b}{ab}<0$, car $a-b<0$ et $ab>0$.
+Ainsi $f(b)<f(a)$.
+\end{demonstration}
+\begin{attention}
+Elle n'est pas décroissante sur tout $\R\setminus\{0\}$ : $-1<1$ mais $f(-1)=-1<1=f(1)$.
+Un intervalle de variation ne doit pas traverser une valeur interdite.
+\end{attention}
+On a $f(-x)=-f(x)$ : la fonction est \emph{impaire}. Sa courbe est symétrique par rapport à l'origine, car le symétrique de $(x,f(x))$ est $(-x,-f(x))$.
+\begin{exemple}
+$1/x=2$ donne $x=1/2$ ; $1/x=0$ n'a aucune solution.
+Pour $1/x<2$, étudier $(1-2x)/x<0$ donne
+$]-\infty,0[\cup]1/2,+\infty[$.
+Multiplier directement par $x$ sans en connaître le signe serait incorrect.
+\end{exemple}
+\section{La fonction racine carrée}
+$g(x)=\sqrt x$ est définie sur $[0,+\infty[$, positive ou nulle et strictement croissante.
+\begin{demonstration}
+Pour $0\leq a<b$, les racines sont non négatives.
+Si $\sqrt a\geq\sqrt b$, la croissance du carré sur les positifs donnerait $a\geq b$, contradiction.
+Donc $\sqrt a<\sqrt b$.
+\end{demonstration}
+\begin{exemple}
+$\sqrt x=3$ équivaut à $x=9$.
+$\sqrt x<3$ donne $x\in[0,9[$ ; la borne $0$ vient du domaine.
+$\sqrt x=-3$ n'a aucune solution.
+Pour $\sqrt{x+2}=x$, imposer $x\geq0$, puis résoudre $x+2=x^2$ :
+$(x-2)(x+1)=0$. Seule la valeur $2$ respecte la condition initiale.
+\end{exemple}
+\approfondissement Les courbes de $y=x^2$ pour $x\geq0$ et de $y=\sqrt x$ sont symétriques par rapport à $y=x$ : échanger les coordonnées de $(t,t^2)$ donne $(t^2,t)$, et $t=\sqrt{t^2}$ puisque $t\geq0$. Cette relation annonce les fonctions réciproques.
+\section{La fonction cube}
+$h(x)=x^3$ est définie sur $\R$, impaire, et a le signe de $x$.
+\begin{theoreme}
+La fonction cube est strictement croissante sur $\R$.
+\end{theoreme}
+\begin{demonstration}
+Pour $a<b$,
+$b^3-a^3=(b-a)(b^2+ab+a^2)$.
+Le premier facteur est positif. Le second s'écrit
+$(b+a/2)^2+3a^2/4$ ; il est positif, car il ne pourrait être nul que si $a=b=0$, impossible avec $a<b$.
+La différence est donc positive.
+\end{demonstration}
+L'équation $x^3=k$ possède un unique réel solution, appelé racine cubique de $k$ et noté $\sqrt[3]{k}$.
+L'unicité vient de la croissance ; l'existence pour tout réel est admise ici, liée à la continuité du cube.
+On a donc $x^3<k\Leftrightarrow x<\sqrt[3]{k}$.
+En particulier $x^3=-8$ donne $x=-2$, et $x^3\geq27$ donne $[3,+\infty[$.
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[width=7cm,height=5.5cm,axis lines=middle,xmin=-3,xmax=3,ymin=-4,ymax=4,xlabel={$x$},ylabel={$1/x$},samples=100]
+\addplot[accent,thick,domain=-3:-.26]{1/x};\addplot[accent,thick,domain=.26:3]{1/x};
+\end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}
+\begin{axis}[width=7cm,height=5.5cm,axis lines=middle,xmin=-2,xmax=4,ymin=-2,ymax=4,xlabel={$x$},legend pos=north west,samples=100]
+\addplot[accent,thick,domain=0:4]{sqrt(x)};\addlegendentry{$\sqrt x$}
+\addplot[dashed,domain=-1.25:1.58]{x^3};\addlegendentry{$x^3$}
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\section{Comparer à l'aide d'une référence}
+Pour $0<a<b$, $a^2<b^2$, $\sqrt a<\sqrt b$ et $1/a>1/b$.
+Pour deux nombres de signes différents, commencer par le signe des images.
+\begin{exemple}
+Sans calcul approché, $\sqrt{5}<\sqrt{6}$ ; $1/7<1/5$ ; $(-3)^3<(-2)^3$.
+En revanche comparer $(-3)^2$ et $2^2$ demande de comparer $9$ et $4$, ou les valeurs absolues, puisque les entrées ne sont pas dans un même intervalle de monotonie du carré.
+\end{exemple}
+\utilite{Ces courbes forment un vocabulaire visuel. Les preuves par différences permettent d'étudier leur variation avant l'introduction des dérivées.}
+\begin{retenir}
+Connaître pour chaque fonction le domaine, le signe, les zéros, les variations et les symétries ; distinguer racine carrée et racine cubique.
+\end{retenir}
+\end{document}

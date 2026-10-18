@@ -1,0 +1,82 @@
+\documentclass[../cours_2de.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{16}
+\chapter{Proportions et évolutions}
+\label{sec:ch17}
+\begin{objectif}
+Identifier la population de référence ; traiter des proportions de proportions, des variations successives et réciproques ; distinguer points de pourcentage et variation relative.
+\end{objectif}
+\section{Une proportion porte sur un tout}
+Pour une sous-population d'effectif $n$ dans une population d'effectif $N>0$, la proportion est $p=n/N$.
+Elle peut s'écrire comme fraction, décimal ou pourcentage : $3/8=0{,}375=37{,}5\,\%$.
+On retrouve $n=pN$ ; si $p>0$, $N=n/p$.
+\begin{exemple}
+$42$ élèves représentent $35\,\%$ d'un groupe. L'effectif total est $42/0{,}35=120$.
+Prendre $35\,\%$ de $42$ répondrait à une autre question.
+\end{exemple}
+\begin{propriete}[Proportion de proportion]
+Si $B\subseteq A\subseteq E$, avec des effectifs non nuls pour les dénominateurs, alors
+la proportion de $B$ dans $E$ est le produit de la proportion de $A$ dans $E$ par celle de $B$ dans $A$.
+\end{propriete}
+\begin{demonstration}
+$\dfrac{\operatorname{Card}(A)}{\operatorname{Card}(E)}
+ \dfrac{\operatorname{Card}(B)}{\operatorname{Card}(A)}
+=\dfrac{\operatorname{Card}(B)}{\operatorname{Card}(E)}$ par simplification.
+\end{demonstration}
+Si $60\,\%$ d'une population appartient à un groupe et $25\,\%$ de ce groupe possède une caractéristique, la proportion totale est $0{,}60\times0{,}25=0{,}15$, soit $15\,\%$.
+\section{Variation absolue et relative}
+Entre une valeur initiale $V_0>0$ et une valeur finale $V_1\geq0$, la variation absolue est $V_1-V_0$, le coefficient multiplicateur $c=V_1/V_0$ et le taux d'évolution
+$t=(V_1-V_0)/V_0$.
+\begin{demonstration}
+$V_1=V_0+(V_1-V_0)=V_0+tV_0=(1+t)V_0$, donc $c=1+t$.
+\end{demonstration}
+Une hausse de $12\,\%$ multiplie par $1{,}12$ ; une baisse de $12\,\%$ par $0{,}88$.
+Une baisse de $100\,\%$ donne zéro. Un taux à partir d'une valeur initiale nulle n'est pas défini par cette formule.
+\begin{exemple}
+Passer de $80$ à $92$ donne $+12$ unités, un coefficient $92/80=1{,}15$ et un taux $15\,\%$.
+Le dénominateur du taux est la valeur \emph{initiale}.
+\end{exemple}
+\section{Évolutions successives}
+\begin{propriete}
+Deux évolutions de taux $t_1,t_2$ donnent le coefficient global
+$(1+t_1)(1+t_2)$ et le taux global
+$t_1+t_2+t_1t_2$.
+\end{propriete}
+\begin{demonstration}
+$V_1=(1+t_1)V_0$ puis $V_2=(1+t_2)V_1$, donc
+$V_2=(1+t_2)(1+t_1)V_0$.
+Le taux global est le coefficient moins $1$, ce qui donne la formule développée.
+\end{demonstration}
+\begin{exemple}
+Une hausse de $20\,\%$ suivie d'une baisse de $20\,\%$ donne
+$1{,}2\times0{,}8=0{,}96$, soit une baisse globale de $4\,\%$.
+Les pourcentages ne portent pas sur la même valeur, donc ils ne s'annulent pas.
+\end{exemple}
+Pour $n$ évolutions identiques de taux $t$, le coefficient global est $(1+t)^n$.
+Un taux constant produit une évolution multiplicative, et non une fonction affine du nombre d'étapes.
+\section{Évolution réciproque}
+Pour revenir de $V_1>0$ à $V_0$, le coefficient réciproque est $1/c$.
+Ainsi, si $t>-1$,
+\[
+t_{\mathrm{rec}}=\frac1{1+t}-1=\frac{-t}{1+t}.
+\]
+\begin{demonstration}
+Multiplier successivement par $c$ puis par $1/c$ redonne la valeur initiale.
+Le taux correspondant au second coefficient est donc $1/c-1$.
+\end{demonstration}
+Une hausse de $25\,\%$ se compense par une baisse de $20\,\%$ : $1/1{,}25=0{,}8$.
+Une baisse de $20\,\%$ exige ensuite une hausse de $25\,\%$.
+Après une baisse de $100\,\%$, aucune multiplication finie de la valeur nulle ne restaure une valeur initiale positive.
+\section{Lire et commenter des pourcentages}
+Passer de $20\,\%$ à $25\,\%$ représente $5$ \emph{points de pourcentage}, mais une hausse relative de $(25-20)/20=25\,\%$.
+Une comparaison additive donne la différence ; une comparaison multiplicative donne le rapport. Les deux sont utiles, mais répondent à des questions distinctes.
+Pour comparer des groupes de tailles différentes, une moyenne simple de pourcentages peut tromper.
+\begin{exemple}
+Un groupe de $20$ personnes a $50\,\%$ de réussite, un groupe de $80$ personnes $75\,\%$.
+Le total est $10+60=70$ réussites sur $100$, soit $70\,\%$, et non $(50+75)/2=62{,}5\,\%$.
+\end{exemple}
+\utilite{Les pourcentages décrivent des proportions ou des évolutions. Nommer le tout et la valeur de référence empêche les comparaisons trompeuses dans les données économiques et sociales.}
+\begin{retenir}
+Multiplier les coefficients, pas additionner les taux. Pour inverser une évolution, inverser le coefficient. Distinguer taux, quantité et points de pourcentage.
+\end{retenir}
+\end{document}

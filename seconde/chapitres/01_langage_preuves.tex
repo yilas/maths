@@ -1,0 +1,76 @@
+\documentclass[../cours_2de.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{0}
+\chapter{Langage, ensembles et preuves}
+\label{sec:ch01}
+\begin{objectif}
+Apprendre à lire une affirmation, préciser ses hypothèses et construire une preuve. Ces outils se travaillent toute l'année. Prérequis : calcul numérique et lecture d'une égalité.
+\end{objectif}
+\section{Objets, définitions et propositions}
+Une \textbf{définition} fixe le sens d'un mot : un entier pair est un entier de la forme $2k$, avec $k\in\Z$. Une \textbf{proposition} affirme quelque chose de vrai ou de faux une fois ses variables précisées. Une \textbf{conjecture} est une proposition que l'on soupçonne vraie, sans preuve disponible. Un \textbf{théorème} est une proposition démontrée dans un cadre explicite.
+
+« $x>3$ » dépend de $x$ ; « pour tout réel $x>3$, $x^2>9$ » est une proposition complète. Un exemple montre qu'une situation existe. Il ne prouve pas qu'une propriété est vraie dans tous les cas.
+\begin{exemple}
+« Tout entier premier est impair » est faux : $2$ est premier et pair. Un seul \textbf{contre-exemple} suffit à réfuter une affirmation universelle. Tester $3,5,7,11$ n'aurait pas suffi à la démontrer.
+\end{exemple}
+\section{Ensembles et opérations}
+\begin{definition}
+Un ensemble est une collection d'objets appelés éléments. $x\in A$ signifie que $x$ appartient à A ; $x\notin A$ signifie le contraire. L'ensemble vide se note $\varnothing$. $A\subseteq B$ signifie que tout élément de A appartient à B. Pour un ensemble fini, $\operatorname{card}(A)$ est son nombre d'éléments.
+\end{definition}
+Fixons un univers U. L'intersection $A\cap B$ contient les éléments appartenant à A \textbf{et} à B. La réunion $A\cup B$ contient ceux appartenant à A \textbf{ou} à B, éventuellement aux deux. Le complémentaire $\overline A=U\setminus A$ contient les éléments de U qui ne sont pas dans A.
+
+Pour $U=\{1,2,3,4,5,6\}$, $A=\{2,4,6\}$ et $B=\{3,6\}$ :
+\[
+A\cap B=\{6\},\quad A\cup B=\{2,3,4,6\},\quad \overline A=\{1,3,5\}.
+\]
+\begin{attention}
+$\{2\}$ est un ensemble contenant un élément ; $2$ est cet élément. On écrit $2\in\{2\}$ et $\{2\}\subseteq A$, pas $2\subseteq A$. Le complémentaire dépend de l'univers.
+\end{attention}
+\begin{propriete}
+Pour deux ensembles finis,
+\[
+\operatorname{card}(A\cup B)=\operatorname{card}(A)+\operatorname{card}(B)-\operatorname{card}(A\cap B).
+\]
+\end{propriete}
+\begin{demonstration}
+Séparer les trois régions disjointes $A\setminus B$, $A\cap B$ et $B\setminus A$. En additionnant les cardinaux de A et B, on compte deux fois la région commune. En retirer une copie donne le cardinal de la réunion.
+\end{demonstration}
+Un \textbf{couple} $(a;b)$ est ordonné : $(1;2)\ne(2;1)$. Le produit cartésien $A\times B$ est l'ensemble des couples avec $a\in A$, $b\in B$. Pour deux ensembles finis, son cardinal vaut $\operatorname{card}(A)\operatorname{card}(B)$ : pour chacun des éléments de A, il y a exactement $\operatorname{card}(B)$ choix du second élément. Cela justifie les tableaux à double entrée et les univers de deux lancers de dés.
+\section{ET, OU et NON}
+Une conjonction P ET Q est vraie lorsque les deux propositions sont vraies. Une disjonction P OU Q est vraie lorsqu'au moins l'une l'est. La négation NON P est vraie lorsque P est fausse.
+\begin{propriete}
+La négation de « P ET Q » est « NON P OU NON Q ». La négation de « P OU Q » est « NON P ET NON Q ».
+\end{propriete}
+\begin{demonstration}
+Ne pas avoir les deux conditions vraies signifie qu'au moins l'une est fausse. Ne pas avoir au moins une condition vraie signifie qu'elles sont toutes deux fausses. Ces explications couvrent les quatre possibilités de vérité pour P et Q.
+\end{demonstration}
+Par exemple, la négation de « $x>2$ et $x\le5$ » est « $x\le2$ ou $x>5$ ». Les bornes doivent être conservées correctement.
+\section{Implication, réciproque, contraposée}
+\begin{definition}
+L'implication $P\Rightarrow Q$ affirme que, chaque fois que P est vraie, Q est vraie. P est une condition suffisante de Q ; Q est une condition nécessaire de P. La réciproque est $Q\Rightarrow P$. L'équivalence $P\Leftrightarrow Q$ signifie que les deux implications sont vraies.
+\end{definition}
+« Multiple de $6$ $\Rightarrow$ multiple de $3$ » est vrai : si $n=6k$, alors $n=3(2k)$. Sa réciproque est fausse, puisque $3$ est multiple de $3$ sans l'être de $6$.
+
+La \textbf{contraposée} de $P\Rightarrow Q$ est « NON Q $\Rightarrow$ NON P ». Elle lui est équivalente : toutes deux interdisent exactement la situation P vraie et Q fausse. Ainsi « $n$ n'est pas multiple de $3$ $\Rightarrow$ $n$ n'est pas multiple de $6$ » est valide.
+\begin{attention}
+La réciproque n'est pas la contraposée. Dans une résolution d'équation, écrire $\Leftrightarrow$ exige des transformations réversibles. Élever au carré peut créer des solutions supplémentaires.
+\end{attention}
+\section{Pour tout et il existe}
+« Pour tout réel $x$, $x^2\ge0$ » demande de traiter un réel arbitraire. « Il existe un réel $x$ tel que $x^2=9$ » demande un témoin : $x=3$ convient.
+
+L'ordre compte : pour tout $x$, il existe $y>x$ (prendre $y=x+1$). Mais il n'existe pas un réel $y$ plus grand que \emph{tous} les réels : $x=y+1$ le dépasserait. Les symboles formels des quantificateurs et leur négation sont réservés au complément du chapitre 24 ; on travaille ici en français.
+\section{Quatre méthodes de preuve}
+\begin{methode}
+\textbf{Directe :} partir des hypothèses et enchaîner des conséquences justifiées.
+\textbf{Par cas :} répartir toutes les possibilités, par exemple pair ou impair.
+\textbf{Par contraposée :} démontrer NON Q $\Rightarrow$ NON P.
+\textbf{Par l'absurde :} supposer la conclusion fausse et obtenir une contradiction.
+\end{methode}
+Pour prouver que $n(n+1)$ est pair, distinguer les cas : si n est pair, le premier facteur l'est ; sinon n est impair, donc $n+1$ est pair. Ces deux cas couvrent tous les entiers.
+
+Une rédaction utile annonce les hypothèses, le résultat visé, les justifications puis la conclusion. Chercher et rédiger sont deux moments différents : on peut explorer sur un brouillon, puis organiser seulement les étapes nécessaires.
+\utilite{Les ensembles organisent les solutions d'équations et les événements. La logique permet de contrôler les preuves et les programmes.}
+\begin{retenir}
+Vérifier quelques exemples ne remplace pas une preuve générale. Un contre-exemple réfute une proposition universelle. Toute transformation doit respecter ses conditions ; les mots « pour tout », « existe », « et », « ou » changent le sens d'un énoncé.
+\end{retenir}
+\end{document}

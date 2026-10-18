@@ -1,0 +1,92 @@
+\documentclass[../cours_2de.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{7}
+\chapter{Vecteurs, translations et combinaisons}
+\label{sec:ch08}
+\begin{objectif}
+Définir les vecteurs comme déplacements, les additionner et utiliser leurs coordonnées. Les notions sont reprises depuis le début afin de ne pas dépendre d'une anticipation au collège.
+\end{objectif}
+\section{Un vecteur ne dépend pas de son point de départ}
+Le vecteur $\overrightarrow{AB}$ décrit le déplacement de A vers B : une direction, un sens et une longueur. Deux couples de points représentent le même vecteur si la même translation envoie leur premier point sur leur second. Les flèches sont des \textbf{représentants} d'un même vecteur.
+
+Le vecteur nul $\vec0=\overrightarrow{AA}$ décrit l'absence de déplacement ; il n'a pas de direction privilégiée. Le vecteur opposé à $\overrightarrow{AB}$ est $\overrightarrow{BA}$.
+\begin{definition}
+Dans un repère, les coordonnées du déplacement de A à B sont
+\[
+\overrightarrow{AB}=(x_B-x_A\,;\,y_B-y_A).
+\]
+L'égalité de deux vecteurs équivaut à l'égalité de leurs deux coordonnées.
+\end{definition}
+En effet, un déplacement est entièrement déterminé par ses composantes selon les deux directions du repère. Ne pas confondre le point A et le vecteur $\overrightarrow{OA}$ : leurs coordonnées coïncident dans le repère, mais les objets sont différents.
+\section{Addition et relation de Chasles}
+Additionner deux vecteurs consiste à enchaîner leurs déplacements. Pour trois points quelconques,
+\[
+\overrightarrow{AB}+\overrightarrow{BC}=\overrightarrow{AC}.
+\]
+C'est la \textbf{relation de Chasles}.
+\begin{demonstration}
+Sur le premier axe, $(x_B-x_A)+(x_C-x_B)=x_C-x_A$. Les termes intermédiaires s'annulent ; même calcul sur le second axe. Cela correspond exactement au déplacement total de A à C.
+\end{demonstration}
+Pour $\vec u=(u_x;u_y)$ et $\vec v=(v_x;v_y)$,
+\[
+\vec u+\vec v=(u_x+v_x;u_y+v_y),\qquad
+-\vec u=(-u_x;-u_y).
+\]
+L'addition est commutative et associative parce que l'addition réelle l'est sur chaque coordonnée. Le vecteur nul est neutre.
+\begin{center}
+\begin{tikzpicture}[scale=.85,>=Stealth]
+\coordinate (O) at (0,0);\coordinate (A) at (4,0);\coordinate (B) at (1,2);\coordinate (C) at (5,2);
+\draw[->,thick,accent] (O)--(A) node[midway,below] {$\vec u$};
+\draw[->,thick,accent] (O)--(B) node[midway,left] {$\vec v$};
+\draw[->,dashed] (A)--(C) node[midway,right] {$\vec v$};
+\draw[dashed] (B)--(C);
+\draw[->,thick] (O)--(C) node[midway,above] {$\vec u+\vec v$};
+\end{tikzpicture}
+\end{center}
+La règle du parallélogramme est une autre représentation de la même addition.
+\section{Multiplier par un réel}
+Pour un réel $\lambda$, $\lambda\vec u$ a pour coordonnées $(\lambda u_x;\lambda u_y)$. Si $\vec u\ne\vec0$, c'est un déplacement sur la même direction ; même sens si $\lambda>0$, sens contraire si $\lambda<0$ ; longueur multipliée par $|\lambda|$.
+
+La \textbf{norme} $\|\vec u\|$ est la longueur du déplacement. Dans un repère orthonormé, $\|\vec u\|=\sqrt{u_x^2+u_y^2}$. Ainsi
+\[
+\|\lambda\vec u\|=\sqrt{\lambda^2(u_x^2+u_y^2)}
+=|\lambda|\|\vec u\|,
+\]
+ce qui justifie la règle de longueur.
+\begin{propriete}
+$\lambda(\vec u+\vec v)=\lambda\vec u+\lambda\vec v$,
+$(\lambda+\mu)\vec u=\lambda\vec u+\mu\vec u$ et
+$\lambda(\mu\vec u)=(\lambda\mu)\vec u$.
+\end{propriete}
+\begin{demonstration}
+Sur chaque coordonnée, ces identités sont respectivement la distributivité et l'associativité des nombres réels. L'égalité des deux coordonnées donne celle des vecteurs.
+\end{demonstration}
+Avec $\vec u=(2;-1)$ et $\vec v=(-3;4)$, $2\vec u-\vec v=(7;-6)$. La soustraction consiste à additionner l'opposé.
+\section{Milieu et parallélogramme}
+\begin{propriete}
+I est le milieu de AB si et seulement si $\overrightarrow{AI}=\frac12\overrightarrow{AB}$, ou encore $\overrightarrow{IA}+\overrightarrow{IB}=\vec0$.
+\end{propriete}
+\begin{demonstration}
+La première égalité décrit le demi-déplacement de A vers B. Par Chasles,
+$\overrightarrow{IA}+\overrightarrow{IB}
+=-\overrightarrow{AI}+(\overrightarrow{AB}-\overrightarrow{AI})
+=\overrightarrow{AB}-2\overrightarrow{AI}$.
+Sa nullité équivaut donc à la première égalité et aux formules de coordonnées du milieu.
+\end{demonstration}
+Pour tout point M, on en déduit
+\[
+\overrightarrow{MA}+\overrightarrow{MB}
+=2\overrightarrow{MI},
+\]
+car les deux décompositions par I laissent $\overrightarrow{IA}+\overrightarrow{IB}=\vec0$.
+
+Pour un quadrilatère ABCD non dégénéré (sommets distincts, non tous alignés), les conditions suivantes sont équivalentes : ABCD est un parallélogramme ; $\overrightarrow{AB}=\overrightarrow{DC}$ ; les diagonales ont le même milieu.
+\begin{demonstration}
+L'égalité vectorielle s'écrit $B-A=C-D$ en coordonnées, soit $A+C=B+D$ : elle équivaut à l'égalité des milieux de AC et BD. Elle dit aussi que les côtés AB et DC ont même direction, sens et longueur ; de la même égalité on tire $D-A=C-B$, donc les deux autres côtés sont parallèles. Réciproquement, dans un parallélogramme, la translation de vecteur $\overrightarrow{AB}$ envoie D sur C, d'où l'égalité. La condition de non-dégénérescence permet de parler d'un quadrilatère usuel.
+\end{demonstration}
+\section{Base et décomposition}
+Les deux vecteurs unitaires du repère $\vec i$ et $\vec j$ permettent d'écrire $\vec u=x\vec i+y\vec j$. On appelle \textbf{combinaison linéaire} une expression $\alpha\vec u+\beta\vec v$. Le chapitre 9 démontre qu'une paire de vecteurs non colinéaires permet de décomposer de façon unique tout vecteur du plan.
+\begin{retenir}
+Un vecteur est un déplacement libre, pas un point. Coordonnées de AB : arrivée moins départ. Les égalités vectorielles permettent de démontrer alignements, milieux et parallélogrammes sans mesurer une figure.
+\end{retenir}
+\end{document}

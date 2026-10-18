@@ -1,0 +1,77 @@
+\documentclass[../cours_2de.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{3}
+\chapter{Puissances et racines carrées}
+\label{sec:ch04}
+\begin{objectif}
+Calculer avec les puissances entières et les racines carrées en respectant leurs domaines. Prérequis : fractions, ordre et valeur absolue.
+\end{objectif}
+\section{Définir les puissances}
+Pour un entier $n\ge1$, $a^n$ est le produit de n facteurs égaux à a. Pour $a\ne0$, on définit $a^0=1$ et $a^{-n}=1/a^n$. L'expression $0^0$ n'est pas utilisée ici.
+\begin{propriete}
+Pour $a,b\ne0$ et des entiers m,n,
+\[
+a^ma^n=a^{m+n},\quad \frac{a^m}{a^n}=a^{m-n},\quad
+(a^m)^n=a^{mn},\quad (ab)^n=a^nb^n.
+\]
+La dernière identité et les identités à exposants strictement positifs restent valides lorsque les bases s'annulent, dès que les expressions sont définies.
+\end{propriete}
+\begin{demonstration}
+Pour m,n positifs, regrouper les facteurs donne $m+n$ facteurs dans le premier produit et mn dans une puissance de puissance. Dans $(ab)^n$, la commutativité permet de regrouper les n facteurs a et les n facteurs b. Pour des exposants négatifs, remplacer les puissances par leurs inverses et simplifier : par exemple, si $m\ge n\ge0$, $a^ma^{-n}=a^m/a^n=a^{m-n}$. Si $m<n$, le quotient vaut $1/a^{n-m}=a^{m-n}$. Deux exposants négatifs donnent $1/(a^ma^n)=a^{-(m+n)}$ pour m,n positifs. Ces cas couvrent les signes des exposants.
+\end{demonstration}
+\begin{attention}
+$(-2)^4=16$, mais $-2^4=-(2^4)=-16$ : les parenthèses changent la base. En général, $a^m+a^n$ ne se simplifie pas en une seule puissance.
+\end{attention}
+\section{Écriture scientifique et ordres de grandeur}
+Un réel non nul s'écrit $\pm c\times10^n$, avec $1\le c<10$ et $n\in\Z$. Par exemple $0{,}00062=6{,}2\times10^{-4}$ et $93\,000=9{,}3\times10^4$.
+\[
+(3\times10^5)(4\times10^{-2})=12\times10^3=1{,}2\times10^4.
+\]
+Un ordre de grandeur est une approximation grossière utile pour contrôler une réponse. Il faut annoncer la convention : arrondi à un chiffre significatif, puissance de dix voisine, etc. Une vitesse de course de $300\unite{m/s}$ doit faire rechercher une erreur d'unité ou de calcul.
+\section{La racine carrée}
+\begin{definition}
+Pour $a\ge0$, $\sqrt a$ est l'unique réel positif ou nul dont le carré vaut a.
+\end{definition}
+Son existence est admise dans le cadre des réels. Son unicité se justifie : si $0\le u<v$, alors $v^2-u^2=(v-u)(v+u)>0$ ; deux positifs distincts ne peuvent donc avoir le même carré.
+\begin{propriete}
+Pour $a,b\ge0$ et $b>0$ lorsqu'il est au dénominateur,
+\[
+\sqrt{ab}=\sqrt a\sqrt b,\qquad
+\sqrt{\frac ab}=\frac{\sqrt a}{\sqrt b}.
+\]
+Pour tout réel x, $\sqrt{x^2}=|x|$.
+\end{propriete}
+\begin{demonstration}
+Le produit $\sqrt a\sqrt b$ est positif ou nul et son carré vaut ab : l'unicité de la racine positive donne la première formule. Le quotient $\sqrt a/\sqrt b$ est défini, positif ou nul et son carré vaut $a/b$, ce qui donne la seconde. Enfin $|x|\ge0$ et $|x|^2=x^2$, donc $\sqrt{x^2}=|x|$.
+\end{demonstration}
+\begin{exemple}
+$\sqrt{72}=\sqrt{36\times2}=6\sqrt2$. De même, $\sqrt{(-7)^2}=7$, et non $-7$. L'expression $\sqrt{x-3}$ n'existe dans $\R$ que pour $x\ge3$.
+\end{exemple}
+\begin{attention}
+Il n'existe pas de règle $\sqrt{a+b}=\sqrt a+\sqrt b$ : pour $a=b=1$, elle donnerait $\sqrt2=2$. Une formule a des hypothèses : $\sqrt{ab}=\sqrt a\sqrt b$ n'est pas une égalité réelle utilisable avec $a=b=-1$, car les deux racines à droite n'existent pas.
+\end{attention}
+\section{Comparer et transformer}
+Pour $u,v\ge0$, $u<v$ équivaut à $u^2<v^2$ : la différence des carrés est $(v-u)(v+u)$, et le cas $u=v=0$ se traite directement. Ainsi $2\sqrt7>5$ car $28>25$. Avec des nombres de signes quelconques, on ne peut pas élever une inégalité au carré sans examiner les signes.
+
+\approfondissement Pour $b>0$, $a/\sqrt b=a\sqrt b/b$, par multiplication du numérateur et du dénominateur par $\sqrt b$. Pour $a,b\ge0$, $a\ne b$,
+\[
+\frac1{\sqrt a+\sqrt b}=\frac{\sqrt a-\sqrt b}{a-b}.
+\]
+Le produit conjugué justifie la transformation. Si $a=b>0$, le membre initial est défini, mais cette forme ne l'est pas : il faut garder $1/(2\sqrt a)$.
+\section{Chercher un seuil de puissance}
+Pour $q>1$ et $M\ge1$, chercher le premier entier n tel que $q^n>M$ conduit à multiplier successivement par q.
+\begin{lstlisting}[language=Python]
+def seuil_puissance(q, M):
+    n, valeur = 0, 1
+    while valeur <= M:
+        n += 1
+        valeur *= q
+    return n
+\end{lstlisting}
+Après n tours, la variable \texttt{valeur} représente $q^n$, aux arrondis flottants près. L'arrêt est minimal car on teste les entiers dans l'ordre. Pour $q=1{,}1$, $M=2$, les valeurs autour du seuil sont $1{,}1^7\simeq1{,}949$ et $1{,}1^8\simeq2{,}144$ : réponse $8$.
+
+Pourquoi la boucle finit-elle mathématiquement ? En écrivant $q=1+u$ avec $u>0$, l'inégalité $(1+u)^n\ge1+nu$ du chapitre 24 montre qu'un seuil fixé sera dépassé. Avec des flottants, les cas très proches de l'égalité exigent un contrôle exact ou un encadrement : le fichier Python fournit aussi un calcul avec fractions rationnelles.
+\begin{retenir}
+Les puissances négatives imposent une base non nulle. Une racine carrée réelle impose un radicand positif ou nul. Simplifier une expression signifie conserver sa valeur et son domaine.
+\end{retenir}
+\end{document}

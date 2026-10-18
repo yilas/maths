@@ -1,0 +1,42 @@
+\chapter{Six problèmes de synthèse}
+\section*{Problème 1 -- Un jardin et son coût}
+La longueur vaut $40-2x$ ; un rectangle non dégénéré exige $0<x<20$. L'aire vaut $x(40-2x)=-2x^2+40x=200-2(x-10)^2$. Elle est au plus $200$, atteinte pour $x=10$ et une longueur $20$.
+L'inégalité $A(x)\ge150$ équivaut à $(x-10)^2\le25$, donc $x\in[5;15]$, inclus dans le domaine géométrique.
+Pour $40$ mètres, les devis valent $720$ et $680$ euros. Leur différence est $-80+3L$ : le premier est moins cher pour $0\le L<80/3$, ils sont égaux à $80/3$, et le second est moins cher au-delà. Toutes les aires sont exprimées en mètres carrés et les coûts en euros.
+
+\section*{Problème 2 -- Un triangle sous plusieurs regards}
+$AB=6$, $AC=\sqrt{20}=2\sqrt5$, $BC=\sqrt{32}=4\sqrt2$. La hauteur issue de C vaut $4$, donc l'aire est $12$.
+$I(4;2)$ ; AI a pour équation $x-2y=0$. G la vérifie, et $\overrightarrow{AG}=(2/3)\overrightarrow{AI}$.
+Le milieu de AC est $J(1;2)$. $\overrightarrow{BG}=(-10/3;4/3)=(2/3)(-5;2)=(2/3)\overrightarrow{BJ}$. G est aux deux tiers de chaque médiane en partant du sommet.
+La médiatrice de AB est $x=3$. L'égalité $OA^2=OC^2$ donne $x^2+y^2=(x-2)^2+(y-4)^2$, soit $x+2y=5$. Ainsi $O(3;1)$ et $R=\sqrt{10}$. On vérifie $OB^2=OC^2=10$.
+La hauteur issue de C est $x=2$. BC a une pente $-1$ ; sa perpendiculaire par A a pour équation $y=x$. Elles se coupent en $H(2;2)$, qui appartient aussi à la hauteur issue de B, de pente $-1/2$.
+
+\section*{Problème 3 -- Un tarif et une expérience}
+$m(n)=80/n+0{,}25$. L'inverse est strictement décroissant sur les positifs, donc le coût moyen décroît avec $n$.
+$80/n+0{,}25\le1$ équivaut, puisque $n>0$, à $80\le0{,}75n$, soit $n\ge320/3\simeq106{,}667$. Le plus petit entier est $107$. La courbe continue sert d'aide à la lecture ; seules ses abscisses entières positives représentent un nombre d'utilisations.
+\begin{lstlisting}[language=Python]
+n = 1
+while 80 / n + 0.25 > 1:
+    n += 1
+\end{lstlisting}
+L'entier $107$ vérifie le seuil, et la boucle visite successivement tous les entiers de $1$ à cette valeur : elle termine et son premier arrêt est minimal. Pour éviter un arrondi près de la frontière, on peut tester exactement \texttt{while 320 > 3 * n}.
+
+\section*{Problème 4 -- Comparer deux distributions}
+Dans A, moyenne et médiane valent $10$, $Q_1=8$, $Q_3=12$ et $\sigma=\sqrt{(10\times4+10\times4)/20}=2$. La boîte va de $8$ à $12$, la médiane est $10$, et les moustaches sont aux extrêmes $8$ et $12$.
+Dans B, moyenne et médiane valent aussi $10$. $Q_1$ est de rang $5$, soit $4$ ; $Q_3$ de rang $15$, soit $10$. L'écart-type vaut $\sqrt{(5\times36+10\times0+5\times36)/20}=\sqrt{18}=3\sqrt2$. La boîte est $[4;10]$ avec médiane $10$, et maximum $16$. B est plus dispersé selon l'écart-type et l'écart interquartile ($6$ contre $4$). La convention des quartiles explique l'asymétrie de sa boîte.
+Après modification, A a moyenne $12$ et écart-type $2$ ; B a moyenne $11$ et écart-type $3{,}3\sqrt2$. Un ajout fixe donne le même gain absolu ; une hausse en pourcentage donne ici $0{,}4$, $1$ ou $1{,}6$ point selon la note initiale. Les deux transformations n'ont pas le même effet.
+
+\section*{Problème 5 -- Du contrôle qualité à la décision}
+Les chemins donnent : défectueuse rejetée $0{,}03\times0{,}95=0{,}0285$ ; défectueuse acceptée $0{,}0015$ ; conforme rejetée $0{,}97\times0{,}04=0{,}0388$ ; conforme acceptée $0{,}9312$. Le tableau théorique comporte donc $2850$, $150$, $3880$ et $93\,120$ pièces.
+La probabilité de rejet vaut $0{,}0673$. Parmi les rejets, la proportion de défauts est $2850/6730=285/673\simeq42{,}35\,\%$. Parmi les acceptations, elle est $150/93270=5/3109\simeq0{,}161\,\%$.
+Deux contrôles peuvent réagir aux mêmes caractéristiques et être dépendants. Même avec les mêmes performances marginales, on ne peut pas multiplier sans connaître les probabilités conditionnelles pertinentes. Une hypothèse d'indépendance des résultats \emph{conditionnellement à l'état de la pièce} permettrait de calculer les chemins successifs ; elle doit être justifiée par le dispositif.
+
+\section*{Problème 6 -- Un atelier de preuve et de données}
+La somme des colonnes donne $339\,161$ femmes et $342\,812$ hommes, donc $681\,973$ personnes. Si $F_i$ est le nombre de femmes et $N_i>0$ la population du canton i, alors, avec $N=\sum_iN_i$,
+\[
+\sum_i\frac{N_i}{N}\frac{F_i}{N_i}
+=\frac{\sum_iF_i}{N}.
+\]
+Les poids sont positifs et leur somme vaut un. Une moyenne simple accorderait autant de poids à Vianden qu'au canton de Luxembourg, malgré des effectifs très différents.
+Le tableau attendu est Esch : $(97\,721;97\,370)$, autres : $(241\,440;245\,442)$. Les marges sont $(195\,091;486\,882)$ pour les lignes et $(339\,161;342\,812)$ pour les colonnes. Le module Python joint lit le CSV et construit ce tableau ; les tests vérifient ces sommes.
+Si $u\le v$, écrire $tu+(1-t)v=u+(1-t)(v-u)$. Comme $0\le1-t\le1$, on obtient $u\le tu+(1-t)v\le v$. L'autre ordre s'obtient en échangeant u et v. Par le même argument, une moyenne pondérée positive se situe entre le minimum et le maximum de ses valeurs.

@@ -1,0 +1,103 @@
+\documentclass[../cours_2de.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{10}
+\chapter{Configurations et preuves géométriques}
+\label{sec:ch11}
+\begin{objectif}
+Réinvestir les outils sur des figures ; comparer méthodes vectorielles et géométriques. Les barycentres et plusieurs preuves de concours sont des approfondissements proposés pour préparer la suite.
+\end{objectif}
+\section{Thalès et vecteurs}
+Dans un triangle $ABC$, si
+$\overrightarrow{AM}=t\overrightarrow{AB}$ et
+$\overrightarrow{AN}=t\overrightarrow{AC}$, alors
+\[
+\overrightarrow{MN}=\overrightarrow{AN}-\overrightarrow{AM}
+=t(\overrightarrow{AC}-\overrightarrow{AB})=t\overrightarrow{BC}.
+\]
+Pour $t\ne0$, les droites $(MN)$ et $(BC)$ sont parallèles et $MN=|t|BC$.
+Le cas $0<t<1$ correspond à une configuration intérieure, $t<0$ à une configuration de l'autre côté de $A$.
+C'est une traduction vectorielle de l'homothétie ; Thalès et sa réciproque sont établis dans le volume de troisième.
+\begin{exemple}[Segment des milieux]
+Si $M$ et $N$ sont les milieux de $[AB]$ et $[AC]$, $t=1/2$.
+On démontre à la fois le parallélisme et $MN=BC/2$.
+\end{exemple}
+\section{Barycentre de deux ou trois points}
+\approfondissement Pour des poids $\alpha,\beta$ dont la somme est non nulle,
+le barycentre $G$ de $A$ et $B$ est défini par
+$\alpha\overrightarrow{GA}+\beta\overrightarrow{GB}=\vec0$.
+En décomposant avec une origine $O$, on obtient
+\[
+\overrightarrow{OG}=
+\frac{\alpha\overrightarrow{OA}+\beta\overrightarrow{OB}}{\alpha+\beta}.
+\]
+Cette égalité définit un unique point et ne dépend pas de l'origine, puisque l'égalité de départ n'en utilise aucune.
+Pour $\alpha,\beta>0$, $G\in[AB]$ et
+$\overrightarrow{AG}=\dfrac{\beta}{\alpha+\beta}\overrightarrow{AB}$.
+\begin{exemple}
+Pour $A(0,0)$ de poids $2$ et $B(6,3)$ de poids $1$, $G(2,1)$.
+Le point se rapproche du point portant le poids le plus élevé.
+Des poids de signes contraires peuvent placer $G$ hors du segment.
+\end{exemple}
+La même preuve avec trois poids de somme non nulle donne
+$\overrightarrow{OG}=(\alpha\overrightarrow{OA}+\beta\overrightarrow{OB}+\gamma\overrightarrow{OC})/(\alpha+\beta+\gamma)$.
+\begin{theoreme}[Concours des médianes, approfondissement]
+Les médianes d'un triangle se rencontrent en son isobarycentre
+$G\bigl((x_A+x_B+x_C)/3,(y_A+y_B+y_C)/3\bigr)$.
+Il se situe aux deux tiers de chaque médiane en partant du sommet.
+\end{theoreme}
+\begin{demonstration}
+Si $I$ est le milieu de $[BC]$,
+$\overrightarrow{AI}=(\overrightarrow{AB}+\overrightarrow{AC})/2$.
+La formule de $G$ donne
+$\overrightarrow{AG}=(\overrightarrow{AB}+\overrightarrow{AC})/3
+=(2/3)\overrightarrow{AI}$.
+Donc $G$ appartient à la médiane issue de $A$. Le même calcul à partir de $B$ et de $C$ prouve le concours.
+\end{demonstration}
+\section{Cercle circonscrit}
+\begin{theoreme}[Approfondissement]
+Les médiatrices des côtés d'un triangle non aplati se coupent en un point $O$, centre du cercle passant par ses trois sommets.
+\end{theoreme}
+\begin{demonstration}
+Les médiatrices de $[AB]$ et $[AC]$ ne sont pas parallèles : leurs directions sont perpendiculaires à deux côtés non parallèles. Elles ont un unique point commun $O$.
+La caractérisation du chapitre 7 donne $OA=OB$ et $OA=OC$, donc $OB=OC$ : $O$ appartient aussi à la troisième médiatrice. Le cercle de centre $O$ et de rayon $OA$ passe par $A,B,C$.
+\end{demonstration}
+Le centre n'est pas nécessairement à l'intérieur. Dans un triangle rectangle, il est au milieu de l'hypoténuse, à égale distance des trois sommets ; la formule de distance permet de le vérifier.
+\section{Une preuve du concours des hauteurs}
+\approfondissement Pour deux vecteurs non nuls $(a,b)$ et $(c,d)$, la perpendicularité équivaut à $ac+bd=0$ dans une base orthonormée.
+En effet,
+$\|\vec u-\vec v\|^2=\|\vec u\|^2+\|\vec v\|^2-2(ac+bd)$ ;
+Pythagore et sa réciproque appliqués au triangle formé par les deux vecteurs donnent l'équivalence.
+Ce calcul annonce le produit scalaire.
+\begin{demonstration}[Concours des trois hauteurs]
+Choisir un repère orthonormé et l'unité de sorte que $A(0,0)$, $B(1,0)$ et $C(p,q)$, avec $q\ne0$.
+La hauteur issue de $C$ est $x=p$. Celle issue de $A$, perpendiculaire à $(BC)$, est
+$(p-1)x+qy=0$.
+Elles se coupent en $H\bigl(p,p(1-p)/q\bigr)$.
+Or $\overrightarrow{BH}=(p-1,p(1-p)/q)$ et $\overrightarrow{AC}=(p,q)$ vérifient
+$p(p-1)+q\,p(1-p)/q=0$.
+Donc $H$ appartient à la hauteur issue de $B$. Si $H$ est un sommet, la conclusion reste valable par les équations des droites.
+\end{demonstration}
+\section{Aire et trigonométrie}
+\approfondissement Si deux côtés d'un triangle de longueurs $a,b$ forment un angle $\theta$, alors
+$\aire=\tfrac12 ab\sin\theta$.
+\begin{demonstration}
+Choisir le côté $a$ comme base. Si l'angle est aigu, la hauteur vaut $b\sin\theta$ par la définition du sinus dans un triangle rectangle.
+Si l'angle est obtus, son pied est sur le prolongement ; on utilise l'angle supplémentaire et la convention
+$\sin\theta=\sin(180\degre-\theta)$.
+Pour un angle droit, la hauteur est $b$. Dans chaque cas, l'aire est la base multipliée par la hauteur, divisée par $2$.
+\end{demonstration}
+La formule d'aire du triangle résulte du découpage d'un parallélogramme en deux triangles égaux.
+\begin{exemple}
+Deux côtés mesurent $6$ et $8$ et forment $30\degre$ : l'aire vaut
+$\frac12\times6\times8\times\frac12=12$ unités d'aire.
+\end{exemple}
+\section{Un lieu parabolique}
+\approfondissement Soit $F(0,p)$ avec $p>0$. Les points $M(x,y)$ équidistants de $F$ et de l'axe des abscisses vérifient
+$x^2+(y-p)^2=y^2$, d'où
+$y=x^2/(2p)+p/2$.
+Les distances étant non négatives, leur égalité équivaut à celle de leurs carrés : aucun point parasite n'a été introduit. Ce lieu est une parabole.
+\utilite{Les barycentres relient moyenne et géométrie ; les lieux montrent comment une définition produit une courbe.}
+\begin{retenir}
+Choisir des coordonnées générales, vérifier les hypothèses de non-dégénérescence et expliciter les équivalences.
+\end{retenir}
+\end{document}

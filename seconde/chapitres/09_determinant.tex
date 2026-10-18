@@ -1,0 +1,76 @@
+\documentclass[../cours_2de.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{8}
+\chapter{Colinéarité, déterminant et bases}
+\label{sec:ch09}
+\begin{objectif}
+Reconnaître des vecteurs colinéaires, prouver un alignement ou un parallélisme et décomposer un vecteur. Prérequis : coordonnées vectorielles et calcul littéral.
+\end{objectif}
+\section{Colinéarité}
+Deux vecteurs non nuls sont colinéaires si l'un est un multiple réel de l'autre. On convient que le vecteur nul est colinéaire à tout vecteur. Géométriquement, deux vecteurs non nuls colinéaires ont des directions parallèles.
+
+Pour $\vec u=(a;b)\ne\vec0$ et $\vec v=(c;d)$, la colinéarité signifie qu'il existe $\lambda\in\R$ tel que $c=\lambda a$ et $d=\lambda b$. Il ne faut pas écrire des quotients dont un dénominateur pourrait être nul.
+\section{Le déterminant et son critère}
+\begin{definition}
+Le déterminant de $\vec u=(a;b)$ et $\vec v=(c;d)$ est
+\[
+\det(\vec u,\vec v)=ad-bc.
+\]
+\end{definition}
+\begin{theoreme}
+Deux vecteurs du plan sont colinéaires si et seulement si leur déterminant est nul.
+\end{theoreme}
+\begin{demonstration}
+Si l'un est nul, le déterminant est nul et la convention s'applique. Sinon, si $\vec v=\lambda\vec u$, alors $ad-bc=a(\lambda b)-b(\lambda a)=0$.
+
+Réciproquement, supposons $ad-bc=0$ et $\vec u\ne\vec0$. Si $a\ne0$, poser $\lambda=c/a$. L'égalité $ad=bc$ donne $d=bc/a=\lambda b$, donc $\vec v=\lambda\vec u$. Si $a=0$, alors $b\ne0$ et $bc=0$ impose $c=0$. Poser $\lambda=d/b$ donne à nouveau $\vec v=\lambda\vec u$. Tous les cas sont traités, y compris une coordonnée nulle.
+\end{demonstration}
+\begin{exemple}
+$(2;3)$ et $(-4;-6)$ ont un déterminant $2(-6)-3(-4)=0$ ; le second vaut $-2$ fois le premier. Pour $(0;5)$ et $(0;-1)$, le critère fonctionne sans diviser par la première coordonnée.
+\end{exemple}
+\section{Alignement et parallélisme}
+Si $A\ne B$, les points A,B,C sont alignés si et seulement si $\overrightarrow{AB}$ et $\overrightarrow{AC}$ sont colinéaires. En effet, C est alors de la forme $A+\lambda\overrightarrow{AB}$, donc sur la droite AB ; la réciproque décrit les points de cette droite.
+
+Deux droites définies par des couples de points distincts sont parallèles (éventuellement confondues) si et seulement si leurs vecteurs directeurs sont colinéaires. Pour distinguer parallèle stricte et confondue, tester si un point de l'une appartient à l'autre.
+\begin{exemple}
+Avec $A(1;-1)$, $B(3;2)$ et $C(5;5)$,
+$\overrightarrow{AB}=(2;3)$ et $\overrightarrow{AC}=(4;6)$ : le déterminant vaut zéro, donc les points sont alignés. Le dessin n'intervient pas dans la preuve.
+\end{exemple}
+\begin{methode}
+Pour déterminer un paramètre, calculer les deux vecteurs puis leur déterminant. Résoudre son annulation, en contrôlant que les points censés définir une droite restent distincts.
+\end{methode}
+Si $A(0;0)$, $B(2;3)$ et $M(t;6)$, l'alignement équivaut à $12-3t=0$, soit $t=4$.
+\section{Pourquoi une base décompose tout vecteur}
+\begin{theoreme}
+Si $\vec u=(a;b)$ et $\vec v=(c;d)$ ne sont pas colinéaires, tout vecteur $\vec w=(p;q)$ s'écrit de façon unique $\alpha\vec u+\beta\vec v$.
+\end{theoreme}
+\begin{demonstration}
+Le déterminant $\Delta=ad-bc$ est non nul. On cherche
+$a\alpha+c\beta=p$ et $b\alpha+d\beta=q$.
+Multiplier la première égalité par d, la seconde par c et soustraire donne $\Delta\alpha=dp-cq$. De même, on obtient $\Delta\beta=aq-bp$. Les seules valeurs possibles sont donc
+\[
+\alpha=\frac{dp-cq}{\Delta},\qquad
+\beta=\frac{aq-bp}{\Delta}.
+\]
+En les substituant dans les deux équations, on retrouve p et q : elles existent et sont uniques. Cette vérification prouve l'existence, tandis que l'élimination prouve l'unicité.
+\end{demonstration}
+On appelle \textbf{base du plan} une telle paire de vecteurs non colinéaires. Par exemple $(4;2)=3(1;1)+(1;-1)$. Si les deux vecteurs étaient colinéaires, leurs combinaisons resteraient dans une seule direction : ils ne pourraient pas représenter tout le plan.
+\section{Deux propriétés et un algorithme}
+Échanger les vecteurs change le signe :
+$\det(\vec v,\vec u)=cb-da=-\det(\vec u,\vec v)$.
+Le déterminant est linéaire en chaque argument ; par exemple
+\[
+\det(\vec u+\vec v,\vec w)=\det(\vec u,\vec w)+\det(\vec v,\vec w).
+\]
+Pour le vérifier, si $\vec w=(p;q)$, développer $(a+c)q-(b+d)p$ et regrouper. La multiplication par un réel se vérifie de la même manière.
+\begin{lstlisting}[language=Python]
+def alignes(A, B, C):
+    ux, uy = B[0] - A[0], B[1] - A[1]
+    vx, vy = C[0] - A[0], C[1] - A[1]
+    return ux * vy - uy * vx == 0
+\end{lstlisting}
+Pour des coordonnées entières, Python effectue ici un calcul exact. Pour des flottants issus de mesures, un résultat proche de zéro nécessite une tolérance liée à la précision et à l'échelle des données ; il ne prouve pas un alignement exact. Si A=B, la fonction renvoie vrai pour la colinéarité des vecteurs, mais ne définit aucune droite AB.
+\begin{retenir}
+Le déterminant évite les divisions par des coordonnées nulles. La formule ne suffit pas : il faut préciser quels vecteurs on compare et pourquoi leur colinéarité traduit la propriété géométrique voulue.
+\end{retenir}
+\end{document}

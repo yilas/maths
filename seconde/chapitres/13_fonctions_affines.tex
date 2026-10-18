@@ -1,0 +1,82 @@
+\documentclass[../cours_2de.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{12}
+\chapter{Fonctions affines et comparaisons}
+\label{sec:ch13}
+\begin{objectif}
+Interpréter pente et ordonnée à l'origine ; démontrer les variations et le signe d'une fonction affine ; comparer deux modèles.
+\end{objectif}
+\section{Une variation additive constante}
+Une fonction affine s'écrit $f(x)=mx+p$ sur $\R$ ou sur un domaine précisé. Si $p=0$, elle est linéaire ; si $m=0$, elle est constante.
+\begin{propriete}
+Pour $a\ne b$, le taux d'accroissement d'une fonction affine est constant :
+\[
+\frac{f(b)-f(a)}{b-a}=m.
+\]
+\end{propriete}
+\begin{demonstration}
+$f(b)-f(a)=(mb+p)-(ma+p)=m(b-a)$.
+Diviser par $b-a\ne0$ donne le résultat. Réciproquement, si ce quotient vaut toujours $m$, choisir un point $a$ fixé donne $f(x)=mx+f(a)-ma$ : la fonction est affine.
+\end{demonstration}
+Le coefficient $m$ mesure la variation de la sortie pour une unité d'entrée ; son unité est une unité de sortie divisée par une unité d'entrée. L'ordonnée à l'origine vaut $f(0)=p$ si $0$ est dans le domaine.
+\begin{exemple}
+Un réservoir contient $120$ litres puis perd $3$ litres par minute :
+$V(t)=120-3t$ pour $0\leq t\leq40$. La pente est $-3$ litres par minute. Au-delà de $40$, le modèle doit changer car un volume ne devient pas négatif.
+\end{exemple}
+\section{Pourquoi une droite ?}
+L'ensemble des points $(x,f(x))$ vérifie $y=mx+p$ ; c'est une droite d'après le chapitre 10. Une fonction constante donne une droite horizontale, une fonction linéaire une droite passant par l'origine.
+Pour reconstruire l'expression à partir de deux couples $(a,f(a))$ et $(b,f(b))$, calculer d'abord $m$, puis $p=f(a)-ma$.
+\begin{exemple}
+Si $f(2)=7$ et $f(5)=1$, alors $m=(1-7)/(5-2)=-2$ et $p=7+4=11$.
+Donc $f(x)=-2x+11$. Un troisième point permettrait de vérifier la compatibilité de données avec ce modèle, mais ne prouverait pas que le phénomène réel reste affine partout.
+\end{exemple}
+\section{Variations : la preuve}
+Une fonction est strictement croissante sur un intervalle si, lorsque l'entrée augmente, sa sortie augmente strictement ; la version non stricte admet l'égalité.
+\begin{theoreme}
+$f(x)=mx+p$ est strictement croissante si $m>0$, strictement décroissante si $m<0$, et constante si $m=0$.
+\end{theoreme}
+\begin{demonstration}
+Pour $a<b$, $b-a>0$ et $f(b)-f(a)=m(b-a)$.
+Cette différence a donc le signe de $m$. Si elle est positive, $f(a)<f(b)$ ; si elle est négative, l'ordre est inversé ; si elle est nulle, les images sont égales.
+\end{demonstration}
+Cette démonstration explique le rôle de la pente. L'ordonnée à l'origine déplace la droite verticalement sans changer la variation.
+\section{Signe et zéro}
+Si $m\ne0$, le seul zéro est $r=-p/m$, et $f(x)=m(x-r)$.
+\[
+\begin{array}{c|ccc}
+x&x<r&r&x>r\\\hline
+m>0&-&0&+\\
+m<0&+&0&-
+\end{array}
+\]
+Ce tableau découle du signe de $x-r$ et de la règle des signes.
+Si $m=0$, le signe est simplement celui de $p$ sur tout le domaine.
+\begin{attention}
+« Croissante » n'est pas synonyme de « positive ». La fonction $x\mapsto x-10$ est croissante sur $\R$, mais négative pour $x<10$. Le signe compare $f(x)$ à $0$ ; les variations comparent $f(a)$ à $f(b)$.
+\end{attention}
+\section{Comparer deux fonctions affines}
+\begin{exemple}
+Deux tarifs sont $A(x)=25+4x$ et $B(x)=10+7x$, pour $x\geq0$.
+Leur différence est $A(x)-B(x)=15-3x$.
+Ils sont égaux pour $x=5$ ; $A>B$ pour $0\leq x<5$ ; $A<B$ pour $x>5$.
+Graphiquement, la droite de $A$ est au-dessus de celle de $B$ avant l'intersection, puis en dessous.
+\end{exemple}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[width=10cm,height=5.7cm,axis lines=left,xmin=0,xmax=8,ymin=0,ymax=70,xlabel={$x$},ylabel={prix},legend pos=north west]
+\addplot[accent,thick,domain=0:8]{25+4*x};\addlegendentry{$A$}
+\addplot[black,dashed,domain=0:8]{10+7*x};\addlegendentry{$B$}
+\addplot[only marks]coordinates{(5,45)};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\section{Interpolation et prudence}
+Entre deux mesures $(a,A)$ et $(b,B)$, l'interpolation affine attribue à $x$ la valeur
+$A+(B-A)(x-a)/(b-a)$.
+Elle est obtenue en imposant la pente $(B-A)/(b-a)$ et le passage par le premier point.
+C'est un choix de modèle : entre deux relevés de température, la température réelle n'évolue pas forcément de façon affine.
+\utilite{Les fonctions affines décrivent des accroissements constants. Le taux d'accroissement préparera la dérivée, mais aucun calcul différentiel n'est nécessaire pour leurs preuves.}
+\begin{retenir}
+La pente explique les variations ; le zéro organise le signe ; une différence permet de comparer deux modèles.
+\end{retenir}
+\end{document}
