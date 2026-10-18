@@ -1,0 +1,202 @@
+{
+  "corriges_2de.pdf": {
+    "pages": 33,
+    "alertes": [],
+    "observations": [
+      {
+        "page": 9,
+        "extraction_unicode": [
+          "dition de longueur\nsélectionne r =\n�\nV/(πh). Sans r ≥ 0, il faudrait co"
+        ]
+      },
+      {
+        "page": 12,
+        "extraction_unicode": [
+          "⃗u = (a, b), la nouvelle\nnorme est\n�\n(9/4)(a2 + b2) = (3/2)\n√\na2 + b2.\n"
+        ]
+      },
+      {
+        "page": 30,
+        "extraction_unicode": [
+          "k+1; x2\nk+1).\nChaque distance vaut\n�\n(1/n)2 + (x2\nk+1 − x2\nk)2. Pour n "
+        ]
+      },
+      {
+        "page": 32,
+        "extraction_unicode": [
+          " valent 10, Q1 = 8, Q3 = 12 et σ =\n�\n(10 × 4 + 10 × 4)/20 = 2. La\nboîte",
+          "ang 15, soit 10. L’écart-type vaut\n�\n(5 × 36 + 10 × 0 + 5 × 36)/20 =\n√\n"
+        ]
+      },
+      {
+        "page": 33,
+        "extraction_unicode": [
+          "ation du canton i, alors, avec N = �\ni Ni,\n�\ni\nNi\nN\nFi\nNi\n=\n�\ni Fi\nN\n.\n",
+          " canton i, alors, avec N = �\ni Ni,\n�\ni\nNi\nN\nFi\nNi\n=\n�\ni Fi\nN\n.\nLes poid",
+          " avec N = �\ni Ni,\n�\ni\nNi\nN\nFi\nNi\n=\n�\ni Fi\nN\n.\nLes poids sont positifs e"
+        ]
+      }
+    ]
+  },
+  "cours_2de.pdf": {
+    "pages": 74,
+    "alertes": [],
+    "observations": [
+      {
+        "page": 18,
+        "extraction_unicode": [
+          "st au dénominateur,\n√\nab = √a\n√\nb,\n�a\nb =\n√a\n√\nb\n.\nPour tout réel x,\n√\n",
+          ".\n√\n72 = √36 × 2 = 6\n√\n2. De même,\n�\n(−7)2 = 7, et non −7. L’expression"
+        ]
+      },
+      {
+        "page": 22,
+        "extraction_unicode": [
+          "les\n• S = πr2 avec r ≥ 0 donne r =\n�\nS/π pour S ≥ 0.\n• V = abc donne a ",
+          "= 0 ; si h > 0 et r ≥ 0, alors r =\n�\nV/(πh).\n• ax + by = c donne y = (c"
+        ]
+      },
+      {
+        "page": 26,
+        "extraction_unicode": [
+          " pour A(xA; yA) et B(xB; yB),\nAB =\n�\n(xB − xA)2 + (yB − yA)2.\nDémonstra"
+        ]
+      },
+      {
+        "page": 27,
+        "extraction_unicode": [
+          "du segment AB a pour coordonnées\nI\n�xA + xB\n2\n; yA + yB\n2\n�\n.\nDémonstra",
+          "ordonnées\nI\n�xA + xB\n2\n; yA + yB\n2\n�\n.\nDémonstration. Le déplacement de",
+          " La formule de distance donne CM =\n�\n(x − a)2 + (y − b)2. Les distances"
+        ]
+      },
+      {
+        "page": 30,
+        "extraction_unicode": [
+          " Dans un repère orthonormé, ∥⃗u∥ =\n�\nu2x + u2y. Ainsi\n∥λ⃗u∥ =\n�\nλ2(u2x ",
+          " ∥⃗u∥ =\n�\nu2x + u2y. Ainsi\n∥λ⃗u∥ =\n�\nλ2(u2x + u2y) = |λ|∥⃗u∥,\nce qui ju"
+        ]
+      },
+      {
+        "page": 36,
+        "extraction_unicode": [
+          "rencontrent en son isobarycentre G\n�(xA + xB + xC)/3, (yA + yB +\nyC)/3\n",
+          "(xA + xB + xC)/3, (yA + yB +\nyC)/3\n�. Il se situe aux deux tiers de cha"
+        ]
+      },
+      {
+        "page": 37,
+        "extraction_unicode": [
+          ")x + qy = 0. Elles se coupent en H\n�p, p(1 − p)/q\n�. Or\n−−→\nBH = (p − 1",
+          "les se coupent en H\n�p, p(1 − p)/q\n�. Or\n−−→\nBH = (p − 1, p(1 − p)/q) e"
+        ]
+      },
+      {
+        "page": 43,
+        "extraction_unicode": [
+          "yme de « positive ». La fonction x �→ x − 10 est croissante sur R,\nmais"
+        ]
+      },
+      {
+        "page": 50,
+        "extraction_unicode": [
+          "négalité arithmético-géométrique :\n�\nx(10 − x) ≤ (x + 10 − x)/2 = 5, pu",
+          "a longueur polygonale est\nLn =\nn−1\n�\ni=0\n�\n(xi+1 − xi)2 + (f(xi+1) − f(",
+          "ueur polygonale est\nLn =\nn−1\n�\ni=0\n�\n(xi+1 − xi)2 + (f(xi+1) − f(xi))2."
+        ]
+      },
+      {
+        "page": 54,
+        "extraction_unicode": [
+          "a fréquence est fi = ni/N avec N = � ni > 0. Ainsi\n� fi = 1. Une étude ",
+          "fi = ni/N avec N = � ni > 0. Ainsi\n� fi = 1. Une étude décrit la popula",
+          " regroupées\navec effectifs ni, x = � nixi/N = � fixi.\nLa formule pondér",
+          "\navec effectifs ni, x = � nixi/N = � fixi.\nLa formule pondérée ne chang",
+          ", alors y = ax + b.\nDémonstration. �N\ni=1(axi + b) = a �N\ni=1 xi + Nb ;",
+          "Démonstration. �N\ni=1(axi + b) = a �N\ni=1 xi + Nb ; diviser par N donne"
+        ]
+      },
+      {
+        "page": 57,
+        "extraction_unicode": [
+          " à la moyenne vaut toujours zéro : �(xi − x) = � xi − Nx = 0. On ne peu",
+          "e vaut toujours zéro : �(xi − x) = � xi − Nx = 0. On ne peut donc pas m",
+          "a variance descriptive est V = 1\nN\n�N\ni=1(xi − x)2 ; l’écart type est σ",
+          " σ =\n√\nV . Avec des effectifs,\nV = � ni(xi − x)2/N.\nLa variance est non",
+          "té – Calcul de la variance\nV = 1\nN\n� x2\ni − x 2.\nDémonstration. Dévelop",
+          "2\ni −2x xi+x 2, puis sommer : NV = � x2\ni −2x(Nx)+Nx 2 =\n� x2\ni − Nx 2.",
+          "ommer : NV = � x2\ni −2x(Nx)+Nx 2 =\n� x2\ni − Nx 2.\n□\nExemple. Pour (0, 5"
+        ]
+      },
+      {
+        "page": 58,
+        "extraction_unicode": [
+          " classe, la moyenne exacte est x = � nimi/N : chaque\nproduit nimi resti"
+        ]
+      },
+      {
+        "page": 59,
+        "extraction_unicode": [
+          "variance Vi, on peut\ndémontrer V = �(ni/N)\n�Vi + (mi − x)2�. Écrire x −",
+          " Vi, on peut\ndémontrer V = �(ni/N)\n�Vi + (mi − x)2�. Écrire x − x = (x ",
+          "montrer V = �(ni/N)\n�Vi + (mi − x)2�. Écrire x − x = (x − mi) + (mi − x",
+          " le terme croisé disparaît puisque �(x − mi) = 0 dans le groupe. La dis"
+        ]
+      },
+      {
+        "page": 63,
+        "extraction_unicode": [
+          "aque issue ω un nombre\npω ≥ 0 avec �\nω∈Ω pω = 1. On définit P(A) = �\nω∈",
+          "ec �\nω∈Ω pω = 1. On définit P(A) = �\nω∈A pω.\nPoint de vigilance\nLe choi"
+        ]
+      },
+      {
+        "page": 67,
+        "extraction_unicode": [
+          "abilités positives, alors\nP(B) =\nk\n�\ni=1\nP(Ai)PAi(B).\nEn effet, les Ai "
+        ]
+      },
+      {
+        "page": 72,
+        "extraction_unicode": [
+          "ité k2 − (k − 1)2 = 2k − 1 donne\nn\n�\nk=1\n(2k − 1) =\nn\n�\nk=1\n�k2 − (k − ",
+          " 2k − 1 donne\nn\n�\nk=1\n(2k − 1) =\nn\n�\nk=1\n�k2 − (k − 1)2� = n2 − 02.\nCha",
+          "1 donne\nn\n�\nk=1\n(2k − 1) =\nn\n�\nk=1\n�k2 − (k − 1)2� = n2 − 02.\nChaque ca",
+          "1\n(2k − 1) =\nn\n�\nk=1\n�k2 − (k − 1)2� = n2 − 02.\nChaque carré intermédia",
+          "appelle télescopage.\n□\nLa notation � abrège une somme ; elle ne crée pa"
+        ]
+      }
+    ]
+  },
+  "exercices_2de.pdf": {
+    "pages": 31,
+    "alertes": [],
+    "observations": [
+      {
+        "page": 8,
+        "extraction_unicode": [
+          "\nSimplifier\n√\n50 + 2\n√\n8 −\n√\n18 et\n�\n(−7)2.\nExercice 4.4 – Comparer\nCom",
+          "xercice 4.6 – Une preuve\nDémontrer\n�\na/b = √a/\n√\nb pour a ≥ 0, b > 0, p"
+        ]
+      }
+    ]
+  },
+  "guide_2de.pdf": {
+    "pages": 18,
+    "alertes": [],
+    "observations": [
+      {
+        "page": 14,
+        "extraction_unicode": [
+          " grandeur de 198 × 51.\n9. Calculer\n�\n(−9)2 et simplifier\n√\n75.\n10. Donn"
+        ]
+      },
+      {
+        "page": 16,
+        "extraction_unicode": [
+          "s cohérentes de la formule.\n19\nr =\n�\nS/π = 7 cm.\n20\ny = 4 − 2\n3x.\n21\n27"
+        ]
+      }
+    ]
+  }
+}
