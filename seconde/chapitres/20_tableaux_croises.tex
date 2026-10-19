@@ -1,0 +1,84 @@
+\documentclass[../cours_2de.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{19}
+\chapter{Tableaux croisés et fréquences conditionnelles}
+\label{sec:ch20}
+\begin{objectif}
+Croiser deux variables qualitatives ; calculer les marges et les fréquences conditionnelles ; filtrer des données et interpréter des effectifs réels.
+\end{objectif}
+\section{Deux caractères d'une même population}
+Une variable qualitative est nominale si ses catégories n'ont pas d'ordre naturel (canton, couleur), ordinale si elles sont ordonnées (faible, moyen, élevé).
+Un tableau croisé compte les individus selon deux caractères observés sur les mêmes individus.
+Voici une enquête fictive auprès de $200$ cyclistes :
+\[
+\begin{array}{c|rr|r}
+ &\text{casque oui}&\text{casque non}&\text{total}\\\hline
+\text{site A}&90&30&120\\
+\text{site B}&40&40&80\\\hline
+\text{total}&130&70&200
+\end{array}
+\]
+Les totaux en bordure sont les \emph{marges}. Une ligne manquante se complète par soustraction, à condition que les catégories soient disjointes et couvrent bien tous les individus.
+\section{Choisir le bon dénominateur}
+\begin{definition}
+Une fréquence conjointe rapporte une case au total général.
+Une fréquence marginale rapporte un total de ligne ou de colonne au total général.
+Une fréquence conditionnelle rapporte une case au total de la sous-population sélectionnée, qui doit être non nul.
+\end{definition}
+Dans l'exemple :
+\begin{itemize}
+\item $90/200=45\,\%$ sont à la fois sur A et avec casque ;
+\item $120/200=60\,\%$ sont sur A ; $130/200=65\,\%$ ont un casque ;
+\item parmi les cyclistes de A, $90/120=75\,\%$ ont un casque ;
+\item parmi ceux portant un casque, $90/130=9/13\simeq69{,}2\,\%$ sont sur A.
+\end{itemize}
+Les deux dernières phrases n'ont pas la même population de référence.
+\begin{demonstration}[Lien entre les fréquences]
+Pour des groupes $A,B$ avec $n(A)>0$ et un effectif total $N>0$,
+$\dfrac{n(A\cap B)}{N}
+=\dfrac{n(A)}{N}\dfrac{n(A\cap B)}{n(A)}$.
+La fréquence conjointe est donc une fréquence marginale multipliée par une fréquence conditionnelle.
+\end{demonstration}
+\section{Reconstituer un tableau}
+\begin{exemple}
+Sur $500$ personnes, $40\,\%$ sont dans le groupe $A$. Parmi celles-ci, $30\,\%$ répondent oui ; parmi les autres, $50\,\%$ répondent oui.
+On trouve d'abord $200$ et $300$ personnes dans les groupes, puis $60$ et $150$ réponses oui.
+Les réponses non valent $140$ et $150$ ; le total oui vaut $210$.
+\end{exemple}
+La moyenne non pondérée de $30\,\%$ et $50\,\%$ donnerait $40\,\%$, alors que la proportion globale est $210/500=42\,\%$.
+Les pourcentages seuls ne suffisent pas à produire des effectifs sans connaître leurs bases.
+\section{Un tableau réel : population du Luxembourg}
+Le STATEC publie pour le 1\textsuperscript{er} janvier 2025 les effectifs par canton et par sexe.
+En regroupant le canton d'Esch-sur-Alzette et les autres cantons, on obtient :
+\[
+\begin{array}{c|rr|r}
+ &\text{femmes}&\text{hommes}&\text{total}\\\hline
+\text{Esch-sur-Alzette}&97721&97370&195091\\
+\text{autres cantons}&241440&245442&486882\\\hline
+\text{Luxembourg}&339161&342812&681973
+\end{array}
+\]
+Source : STATEC, \emph{La démographie luxembourgeoise en chiffres, édition 2025}, tableau 2, p.~11 (données au 1\textsuperscript{er} janvier 2025, consultées le 18 octobre 2026).
+La deuxième ligne est calculée par différence avec le total national ; elle n'est pas une catégorie publiée séparément.
+Le fichier \texttt{donnees/population\_cantons\_2025.csv} contient les douze lignes cantonales, avec leur provenance.
+\begin{exemple}
+La fréquence des femmes parmi les habitants du canton d'Esch-sur-Alzette est
+$97721/195091\simeq50{,}09\,\%$.
+La fréquence des habitants de ce canton parmi les femmes du pays est
+$97721/339161\simeq28{,}81\,\%$.
+Une même case conduit à deux questions distinctes. Ces données décrivent la date indiquée, pas la population actuelle.
+\end{exemple}
+\section{Filtrer et contrôler un fichier}
+Une ligne d'un fichier d'individus correspond à un individu ; une ligne du fichier cantonal correspond à un \emph{agrégat}. Les confondre ferait compter douze cantons comme douze habitants.
+Sur un fichier d'individus, un filtre « A et casque » sélectionne l'intersection ; « A ou casque » la réunion ; « non casque » le complémentaire.
+Pour construire un tableau, initialiser les compteurs, parcourir les lignes et incrémenter la case appropriée. Les listes peuvent servir de support, mais leur maîtrise technique n'est pas un attendu obligatoire de seconde.
+\begin{methode}[Contrôles]
+Vérifier les catégories, les doublons, les valeurs manquantes et l'unité statistique.
+Contrôler que la somme des cases égale les marges, que les marges égalent le total et que les fréquences d'une même ligne conditionnelle somment à $1$.
+\end{methode}
+Une différence de fréquence ne suffit pas à établir une causalité : le lieu, l'âge ou la méthode de collecte peuvent modifier la composition des groupes.
+\utilite{Les tableaux croisés sont la base de la lecture des enquêtes et des bases de données. Leur dénominateur prépare directement les probabilités conditionnelles.}
+\begin{retenir}
+Traduire d'abord « parmi qui ? ». Conserver les effectifs aussi longtemps que possible, puis arrondir les fréquences à la fin.
+\end{retenir}
+\end{document}

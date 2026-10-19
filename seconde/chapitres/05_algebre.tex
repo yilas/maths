@@ -1,0 +1,100 @@
+\documentclass[../cours_2de.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{4}
+\chapter{Expressions, identités et formules}
+\label{sec:ch05}
+\begin{objectif}
+Développer, factoriser, choisir une forme utile et isoler une variable. Prérequis : distributivité, fractions et puissances.
+\end{objectif}
+\section{Une lettre peut avoir plusieurs rôles}
+Dans $A=\pi r^2$, r est une grandeur variable et $\pi$ une constante. Dans $3x+2=11$, x est une inconnue. Dans $f(x)=ax+b$, a et b peuvent être des paramètres fixés pendant que x varie. Préciser ces rôles évite de confondre une identité, vraie pour toutes les valeurs autorisées, avec une équation à résoudre.
+\section{Distributivité et identités}
+\begin{propriete}
+Pour tous réels a,b,c,
+\[
+a(b+c)=ab+ac,\quad
+(a+b)^2=a^2+2ab+b^2,\quad
+(a-b)^2=a^2-2ab+b^2,\quad
+(a-b)(a+b)=a^2-b^2.
+\]
+\end{propriete}
+\begin{demonstration}
+La distributivité est une propriété fondamentale des opérations admise sur $\R$. Elle donne
+$(a+b)(a+b)=a^2+ab+ba+b^2=a^2+2ab+b^2$.
+Remplacer b par $-b$ donne la deuxième identité de carré. Enfin
+$(a-b)(a+b)=a^2+ab-ab-b^2=a^2-b^2$.
+\end{demonstration}
+Pour $a,b\ge0$, la première identité de carré se voit aussi en découpant un carré de côté $a+b$ en deux carrés et deux rectangles :
+\begin{center}
+\begin{tikzpicture}[scale=.7]
+\draw[fill=accent!8] (0,0) rectangle (5,5);
+\draw (3,0)--(3,5) (0,3)--(5,3);
+\node at (1.5,1.5) {$a^2$};\node at (4,1.5) {$ab$};
+\node at (1.5,4) {$ab$};\node at (4,4) {$b^2$};
+\node[below] at (1.5,0) {$a$};\node[below] at (4,0) {$b$};
+\node[left] at (0,1.5) {$a$};\node[left] at (0,4) {$b$};
+\end{tikzpicture}
+\end{center}
+Le calcul algébrique étend la preuve aux réels négatifs, qui ne sont pas des longueurs.
+\section{Développer ou factoriser selon le but}
+Développer transforme un produit en somme ; factoriser transforme une somme en produit. Il faut d'abord chercher un facteur commun.
+\[
+3x(x-2)+5(x-2)=(x-2)(3x+5).
+\]
+Pour $F(x)=(x+3)^2-9$, les trois formes
+\[
+F(x)=(x+3)^2-9=x^2+6x=x(x+6)
+\]
+sont équivalentes. La forme factorisée donne les zéros $0$ et $-6$ ; la forme avec le carré montre le minimum $-9$, atteint en $-3$ ; la forme développée facilite certains calculs et comparaisons.
+\begin{attention}
+$(a+b)^2\ne a^2+b^2$ en général. Dans $-(x-3)$, le signe moins porte sur les deux termes : $-x+3$. Une vérification numérique peut détecter une erreur, sans établir une identité générale.
+\end{attention}
+\section{Expressions fractionnaires et domaine}
+Une expression n'est définie que si ses dénominateurs sont non nuls. Pour $x\ne-3$,
+\[
+\frac{x^2-9}{x+3}=\frac{(x-3)(x+3)}{x+3}=x-3.
+\]
+La simplification ne permet pas d'attribuer une valeur en $x=-3$ à l'expression initiale. On simplifie des \emph{facteurs}, pas des termes d'une somme.
+
+Pour $b,d\ne0$,
+\[
+\frac ab+\frac cd=\frac{ad+bc}{bd},\quad
+\frac ab\frac cd=\frac{ac}{bd},\quad
+\frac{a/b}{c/d}=\frac{ad}{bc}\quad(c\ne0).
+\]
+\begin{demonstration}
+Multiplier le numérateur et le dénominateur par d ou b donne les dénominateurs communs ; la distributivité permet ensuite l'addition. Le produit $(a/b)(c/d)$ multiplié par $bd$ vaut ac, d'où la formule de produit. Diviser par $c/d\ne0$ revient à multiplier par son inverse $d/c$, puisque leur produit vaut un.
+\end{demonstration}
+Par exemple,
+\[
+\frac1{x-1}+\frac2{x+1}=\frac{3x-1}{(x-1)(x+1)},\qquad x\ne1,-1.
+\]
+\section{Isoler une variable dans une formule}
+\begin{methode}
+Identifier la variable cherchée, préciser les quantités non nulles ou positives, puis effectuer la même opération sur les deux membres. Vérifier les unités et substituer le résultat dans la formule initiale.
+\end{methode}
+\begin{itemize}
+\item $U=RI$ donne $I=U/R$ si $R\ne0$. Si $R=0$, il faut revenir à $U=0$.
+\item $d=vt$ donne $t=d/v$ pour $v\ne0$. Une distance en kilomètres et une vitesse en kilomètres par heure donnent un temps en heures.
+\item $S=\pi r^2$ avec $r\ge0$ donne $r=\sqrt{S/\pi}$ pour $S\ge0$.
+\item $V=abc$ donne $a=V/(bc)$ si $bc\ne0$.
+\item $V=\pi r^2h$ donne $h=V/(\pi r^2)$ si $r\ne0$ ; si $h>0$ et $r\ge0$, alors $r=\sqrt{V/(\pi h)}$.
+\item $ax+by=c$ donne $y=(c-ax)/b$ si $b\ne0$. Si $b=0$ et $a\ne0$, la contrainte est $x=c/a$.
+\end{itemize}
+\section{Trois compléments utiles}
+\approfondissement En appliquant deux fois la distributivité,
+\[
+(a+b+c)^2=a^2+b^2+c^2+2ab+2ac+2bc,
+\]
+\[
+(a+b)^3=(a^2+2ab+b^2)(a+b)=a^3+3a^2b+3ab^2+b^3.
+\]
+Pour $a,b\ge0$, $(\sqrt a-\sqrt b)^2\ge0$ donne
+\[
+\frac{a+b}{2}\ge\sqrt{ab},
+\]
+avec égalité exactement lorsque $a=b$. Cette inégalité entre moyenne arithmétique et moyenne géométrique permet des optimisations sans dérivée.
+\begin{retenir}
+Une bonne forme algébrique dépend de la question. Annoncer les valeurs interdites avant de simplifier. Isoler une variable n'autorise jamais une division par zéro.
+\end{retenir}
+\end{document}

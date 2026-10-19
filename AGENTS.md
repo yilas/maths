@@ -14,6 +14,9 @@
 
 - Construire une collection de la troisième à la terminale, exhaustive par
   rapport au programme et au parcours explicitement annoncés.
+- L'objectif final est un niveau permettant d'étudier les mathématiques universitaires.
+  Renforcer progressivement la précision des définitions, la rédaction de preuves,
+  les contre-exemples et l'autonomie ; signaler clairement les compléments hors programme.
 - Vérifier les textes officiels applicables avant de rédiger un nouveau niveau.
   Recenser toutes les notions dans une table de couverture avec leurs chapitres.
 - Écrire comme un professeur pédagogue : objectifs, prérequis, définitions

@@ -1,0 +1,57 @@
+\chapter{Six problèmes de synthèse}
+\section*{Problème 1 -- Un jardin et son coût}
+Un jardin rectangulaire s'appuie sur un mur. On dispose de $40\unite m$ de grillage pour les trois autres côtés. On note $x$ la largeur perpendiculaire au mur.
+\begin{enumerate}
+\item Exprimer la longueur et donner le domaine géométrique de $x$.
+\item Montrer que l'aire vaut $A(x)=200-2(x-10)^2$. Déterminer son maximum.
+\item Déterminer les largeurs donnant une aire d'au moins $150\unite{m^2}$.
+\item Deux entreprises proposent $120+15L$ et $200+12L$ euros pour poser $L$ mètres de grillage. Comparer les devis pour $L=40$, puis pour un $L\ge0$ quelconque.
+\end{enumerate}
+
+\section*{Problème 2 -- Un triangle sous plusieurs regards}
+Dans un repère orthonormé, $A(0;0)$, $B(6;0)$ et $C(2;4)$. On note I le milieu de BC et G le point de coordonnées $(8/3;4/3)$.
+\begin{enumerate}
+\item Calculer les longueurs des côtés et l'aire.
+\item Trouver une équation de la droite AI et montrer que G y appartient.
+\item Vérifier que G appartient aussi à la médiane issue de B ; préciser sa position sur chaque médiane.
+\item Trouver le centre O du cercle circonscrit et son rayon.
+\item Déterminer le point d'intersection des hauteurs issues de C et de A.
+\end{enumerate}
+Les questions 3 à 5 prolongent facultativement la partie obligatoire.
+
+\section*{Problème 3 -- Un tarif et une expérience}
+Un appareil coûte $C(n)=80+0{,}25n$ euros pour $n$ utilisations, $n$ entier strictement positif. Son coût moyen est $m(n)=C(n)/n$.
+\begin{enumerate}
+\item Écrire $m(n)$ à l'aide de la fonction inverse et justifier son sens de variation.
+\item Déterminer le plus petit $n$ tel que $m(n)\le1$ euro.
+\item Un élève trace $m(x)$ sur $]0;200]$. Expliquer la différence entre ce tracé et les valeurs autorisées par le modèle.
+\item Écrire une boucle cherchant le premier entier vérifiant le seuil, et prouver qu'elle se termine.
+\end{enumerate}
+
+\section*{Problème 4 -- Comparer deux distributions}
+Deux groupes de $20$ élèves ont obtenu les notes suivantes : groupe A, dix $8$ et dix $12$ ; groupe B, cinq $4$, dix $10$ et cinq $16$.
+\begin{enumerate}
+\item Calculer moyenne, médiane, quartiles et écart-type dans chaque groupe.
+\item Représenter les diagrammes en boîte et rédiger une comparaison.
+\item Le groupe A gagne uniformément $2$ points ; le groupe B gagne $10\,\%$ de sa note. Calculer les nouvelles moyennes et dispersions.
+\item Peut-on affirmer que les deux transformations profitent pareillement à tous les élèves ?
+\end{enumerate}
+
+\section*{Problème 5 -- Du contrôle qualité à la décision}
+Une production comporte $3\,\%$ de pièces défectueuses. Un contrôle rejette $95\,\%$ des pièces défectueuses et $4\,\%$ des pièces conformes.
+\begin{enumerate}
+\item Construire un arbre puis un tableau pour $100\,000$ pièces théoriques.
+\item Calculer la probabilité de rejet et la proportion de pièces défectueuses parmi les rejets.
+\item Calculer la proportion de pièces défectueuses parmi les pièces acceptées.
+\item Un second contrôle identique permet-il de multiplier automatiquement les deux probabilités de rejet ? Expliquer l'hypothèse manquante.
+\end{enumerate}
+
+\section*{Problème 6 -- Un atelier de preuve et de données}
+On étudie les populations des douze cantons dans le fichier CSV fourni.
+\begin{enumerate}
+\item Vérifier les totaux femmes, hommes et ensemble.
+\item Démontrer que la proportion nationale de femmes est une moyenne des proportions cantonales pondérée par les populations des cantons.
+\item Expliquer pourquoi la moyenne simple des douze proportions ne donne pas forcément cette proportion nationale.
+\item Programmer la construction du tableau Esch / autres cantons croisé avec femmes / hommes, puis vérifier ses marges.
+\item \textbf{Facultatif.} Démontrer pour deux nombres $u,v$ et $0\le t\le1$ que $tu+(1-t)v$ est compris entre $u$ et $v$. Relier cela à la question 2.
+\end{enumerate}

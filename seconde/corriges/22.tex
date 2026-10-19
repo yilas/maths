@@ -1,0 +1,19 @@
+\chapter{Probabilités conditionnelles et arbres}
+\section*{Exercice 22.1 -- Du tableau à la probabilité}
+$P(A)=120/200=0{,}6$ ; $P_A(C)=90/120=0{,}75$ ; $P_C(A)=90/130=9/13$ ; $P(A\cap C)=90/200=0{,}45$. On vérifie $P(A)P_A(C)=0{,}6\times0{,}75=0{,}45$.
+
+\section*{Exercice 22.2 -- Deux chemins}
+Première branche : A $0{,}6$, B $0{,}4$. Deuxième niveau : défaut/non-défaut, respectivement $(0{,}02;0{,}98)$ dans A et $(0{,}05;0{,}95)$ dans B. Les deux chemins disjoints vers un défaut ont des probabilités $0{,}012$ et $0{,}020$. Leur somme est $0{,}032$. Parmi les défauts, la part venant de A vaut $0{,}012/0{,}032=3/8=37{,}5\,\%$.
+
+\section*{Exercice 22.3 -- Un diagnostic fictif}
+\begin{center}\begin{tabular}{lrrr}\toprule & Positif & Négatif & Total\\\midrule Malade&90&10&100\\ Non-malade&495&9405&9900\\ Total&585&9415&10000\\\bottomrule\end{tabular}\end{center}
+Non : parmi les positifs, la proportion de malades vaut $90/585=2/13\simeq15{,}38\,\%$. $90\,\%$ est la probabilité d'un positif \emph{sachant que} la personne est malade. Ces paramètres sont inventés pour l'exercice et ne décrivent aucun test réel.
+
+\section*{Exercice 22.4 -- Sensibilité et spécificité}
+Sensibilité $P_M(T)=90\,\%$ ; spécificité $P_{\overline M}(\overline T)=95\,\%$ ; taux de faux négatifs parmi les malades $10\,\%$ ; taux de faux positifs parmi les non-malades $5\,\%$. Dans toute la population, $P(\overline M\cap T)=0{,}99\times0{,}05=0{,}0495$, soit $4{,}95\,\%$. Le dénominateur doit toujours être précisé.
+
+\section*{Exercice 22.5 -- Indépendance (facultatif)}
+$P(A)P(B)=0{,}2=P(A\cap B)$ : ils sont indépendants. On retrouve $P_A(B)=0{,}2/0{,}4=0{,}5=P(B)$. Ils ne sont pas incompatibles puisque leur intersection a une probabilité positive. Indépendance ne signifie pas impossibilité de se produire ensemble.
+
+\section*{Exercice 22.6 -- Pourquoi la multiplication ?}
+La définition est $P_A(B)=P(A\cap B)/P(A)$. Multiplier par $P(A)$ donne $P(A\cap B)=P(A)P_A(B)$. Si $P(A)=0$, le quotient n'est pas défini dans ce cadre élémentaire. L'intersection a toutefois une probabilité nulle puisqu'elle est incluse dans A. Il ne faut pas écrire une probabilité conditionnelle qui n'existe pas.

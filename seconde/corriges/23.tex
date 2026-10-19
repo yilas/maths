@@ -1,0 +1,37 @@
+\chapter{Algorithmique et Python}
+\section*{Exercice 23.1 -- Tracer des variables}
+Les valeurs de $k$ sont $1,2,3,4$, et celles de \texttt{s} après addition sont $1,5,14,30$. La borne finale de \texttt{range} est exclue. Avec \texttt{range(1, 4)}, on s'arrête à $k=3$ et le résultat vaut $14$.
+
+\section*{Exercice 23.2 -- Dernier multiple}
+\begin{lstlisting}[language=Python]
+def dernier_multiple(a, b):
+    if a <= 0 or b < 0:
+        raise ValueError("a > 0 et b >= 0")
+    return a * (b // a)
+\end{lstlisting}
+La division euclidienne donne $b=aq+r$ avec $0\le r<a$ ; $aq\le b<a(q+1)$. Pour $a=7$, $b=21$, on obtient $21$, et pour $b=20$, on obtient $14$. Le test sur un multiple exact vérifie le signe « inférieur ou égal ». Les entrées sont supposées entières.
+
+\section*{Exercice 23.3 -- Un encadrement certifié}
+$1414^2=1\,999\,396<2\,000\,000$ et $1415^2=2\,002\,225>2\,000\,000$. Donc $k=1414$ et $1{,}414<\sqrt2<1{,}415$. Les produits d'entiers Python sont exacts ; on évite de faire dépendre la décision finale de l'arrondi d'un flottant. La largeur de l'encadrement vaut $10^{-3}$.
+
+\section*{Exercice 23.4 -- Lire une fonction statistique}
+La liste doit être non vide et contenir des nombres. \texttt{n} est l'effectif, \texttt{m} la moyenne. On additionne les carrés des écarts, on divise par $n$, puis on prend la racine : le résultat est l'écart-type de population. La variance est l'expression avant la racine. L'écriture avec une liste est un support de lecture ; la maîtrise générale des listes n'est pas exigée en seconde.
+
+\begin{finchapitre}
+\section*{Exercice 23.5 -- Simuler sans conclure trop vite}
+\begin{lstlisting}[language=Python]
+from random import random
+def frequence_face(n):
+    if n <= 0:
+        raise ValueError("n doit etre positif")
+    succes = 0
+    for _ in range(n):
+        if random() < 0.5:
+            succes += 1
+    return succes / n
+\end{lstlisting}
+Les appels utilisent des tirages pseudo-aléatoires différents. Les fréquences fluctuent même avec le même nombre de lancers. Le code simule un modèle d'indépendance et de probabilité $1/2$ ; une sortie particulière ne prouve pas une loi générale.
+
+\section*{Exercice 23.6 -- Longueur polygonale}
+Poser $x_k=k/n$ et additionner, pour $k=0,\ldots,n-1$, les distances entre $(x_k;x_k^2)$ et $(x_{k+1};x_{k+1}^2)$. Chaque distance vaut $\sqrt{(1/n)^2+(x_{k+1}^2-x_k^2)^2}$. Pour $n=1$, on obtient $\sqrt2$. Un tableau numérique ne démontre ni la convergence, ni une erreur maximale ; ces questions relèvent d'une étude d'analyse supplémentaire.
+\end{finchapitre}

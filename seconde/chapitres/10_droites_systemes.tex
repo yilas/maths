@@ -1,0 +1,80 @@
+\documentclass[../cours_2de.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{9}
+\chapter{Droites et systèmes linéaires}
+\label{sec:ch10}
+\begin{objectif}
+Décrire une droite par une équation ; passer d'une figure à des coefficients ; déterminer un point d'intersection. Prérequis : vecteurs, déterminant et équations.
+\end{objectif}
+\section{Une équation décrit un ensemble de points}
+Un vecteur directeur d'une droite est un vecteur non nul parallèle à celle-ci.
+Si la droite passe par $A$ et a pour vecteur directeur $\vec u$, ses points sont les $M$ tels que $\overrightarrow{AM}=t\vec u$ pour un réel $t$.
+\begin{theoreme}[Équation cartésienne]
+Toute droite du plan possède une équation $ax+by+c=0$ avec $(a,b)\ne(0,0)$.
+Réciproquement, une telle équation décrit une droite, de vecteur directeur $(-b,a)$.
+\end{theoreme}
+\begin{demonstration}
+Pour une droite passant par $A(x_0,y_0)$ et dirigée par $\vec u=(u,v)\ne\vec0$,
+$M(x,y)$ est sur la droite si et seulement si
+$\det((u,v),(x-x_0,y-y_0))=0$.
+En développant : $u(y-y_0)-v(x-x_0)=0$, donc
+$-vx+uy+vx_0-uy_0=0$.
+Réciproquement, $ax+by+c=0$ possède un point $A$ :
+si $b\ne0$, prendre $(0,-c/b)$ ; sinon $a\ne0$ et on prend $(-c/a,0)$.
+L'équation équivaut alors à $a(x-x_A)+b(y-y_A)=0$, donc à la colinéarité de $\overrightarrow{AM}$ et $(-b,a)$, qui est non nul. Elle décrit bien cette droite.
+\end{demonstration}
+Multiplier tous les coefficients par un même réel non nul ne change pas la droite.
+Si $a=b=0$, l'équation décrit tout le plan lorsque $c=0$, et l'ensemble vide sinon.
+\section{Équation réduite et pente}
+Si $b\ne0$, l'équation se réécrit $y=mx+p$, avec $m=-a/b$ et $p=-c/b$.
+Le nombre $m$ est la pente, $p$ l'ordonnée à l'origine. Un vecteur directeur est $(1,m)$.
+Si $b=0$, la droite est verticale : $x=-c/a$. Elle n'a pas d'équation $y=mx+p$.
+\begin{propriete}
+Pour deux points distincts d'une droite non verticale,
+$m=(y_B-y_A)/(x_B-x_A)$.
+\end{propriete}
+\begin{demonstration}
+Soustraire $y_A=mx_A+p$ de $y_B=mx_B+p$ donne
+$y_B-y_A=m(x_B-x_A)$. Le dénominateur est non nul puisque la droite n'est pas verticale.
+\end{demonstration}
+\begin{exemple}
+Par $A(1,2)$ et $B(3,6)$, $m=4/2=2$, puis $p=2-2\times1=0$ : la droite est $y=2x$.
+Avec $A(1,2)$ et le vecteur $(3,-1)$, le déterminant donne
+$3(y-2)+(x-1)=0$, soit $x+3y-7=0$.
+\end{exemple}
+\begin{methode}[Tracer une droite]
+Trouver deux points distincts vérifiant son équation, puis les relier.
+Pour $2x+3y-6=0$, les points $(0,2)$ et $(3,0)$ conviennent.
+Pour $x=4$, choisir $(4,0)$ et $(4,1)$.
+\end{methode}
+\section{Parallélisme et intersection}
+Pour les droites $ax+by+c=0$ et $a'x+b'y+c'=0$,
+les directions sont parallèles exactement lorsque $ab'-ba'=0$.
+Cela découle du déterminant de $(-b,a)$ et $(-b',a')$.
+Si les directions sont parallèles, tester un point permet de distinguer droites confondues et parallèles distinctes.
+\begin{exemple}
+$2x+3y-6=0$ et $4x+6y+1=0$ sont parallèles distinctes : doubler la première donne une constante $-12$, pas $1$.
+$2x+3y-6=0$ et $-4x-6y+12=0$ décrivent la même droite.
+\end{exemple}
+\begin{exemple}[Deux droites sécantes]
+Pour $y=2x-1$ et $y=-x+5$, on résout
+$2x-1=-x+5$, donc $x=2$, puis $y=3$.
+Le point d'intersection est $(2,3)$, que l'on vérifie dans les deux équations.
+\end{exemple}
+\section{Systèmes : substitution et élimination}
+Un système impose plusieurs équations simultanément. Ses solutions sont des couples, et non deux listes indépendantes.
+Pour
+$\left\{\begin{array}{rcl}2x+y&=&7\\x-y&=&2\end{array}\right.$,
+additionner les lignes donne $3x=9$, donc $x=3$ ; puis $y=1$.
+\begin{demonstration}[Pourquoi éliminer est réversible]
+Remplacer la deuxième équation $E_2$ par $E_2+\lambda E_1$ en conservant $E_1$ ne change pas les solutions. Une solution des anciennes équations vérifie la nouvelle. Réciproquement, soustraire $\lambda E_1$ de la nouvelle reconstitue $E_2$.
+\end{demonstration}
+Un système de deux équations de droites peut avoir une solution (sécantes), aucune (parallèles distinctes) ou une infinité (confondues). Les formules du chapitre 9 concernent le cas d'un déterminant non nul.
+\section{Régions du plan : un prolongement}
+\approfondissement L'inégalité $y\leq2x-1$ décrit le demi-plan situé sous la droite, frontière comprise. Le système $x\geq0$, $y\geq0$, $x+y\leq4$ décrit le triangle plein de sommets $(0,0)$, $(4,0)$ et $(0,4)$.
+Chaque inégalité sélectionne un côté d'une frontière, et le « et » impose leur intersection.
+\utilite{Les systèmes modélisent des mélanges, des tarifs et des contraintes ; l'élimination prépare le calcul matriciel.}
+\begin{retenir}
+Ne pas oublier les droites verticales. Une intersection vérifie toutes les équations. Une pente exige une différence d'abscisses non nulle.
+\end{retenir}
+\end{document}

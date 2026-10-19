@@ -1,0 +1,74 @@
+\documentclass[../cours_2de.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{20}
+\chapter{Probabilités finies et dénombrement}
+\label{sec:ch21}
+\begin{objectif}
+Définir un modèle probabiliste fini ; calculer des événements composés ; distinguer loi supposée, calcul démontré et fréquence observée.
+\end{objectif}
+\section{Choisir un modèle}
+Une expérience aléatoire est décrite par un univers fini $\Omega$ de résultats possibles, appelés issues.
+Un événement est un sous-ensemble de $\Omega$.
+Une loi de probabilité associe à chaque issue $\omega$ un nombre $p_\omega\geq0$ avec
+$\sum_{\omega\in\Omega}p_\omega=1$.
+On définit $P(A)=\sum_{\omega\in A}p_\omega$.
+\begin{attention}
+Le choix de la loi est une hypothèse du modèle, pas un théorème sur l'objet réel.
+Un dé supposé équilibré conduit à six probabilités $1/6$. Une expérience réelle peut s'écarter de ce modèle.
+\end{attention}
+\begin{propriete}
+$P(\varnothing)=0$, $P(\Omega)=1$, $0\leq P(A)\leq1$.
+Si $A\subseteq B$, alors $P(A)\leq P(B)$.
+Pour des événements disjoints, $P(A\cup B)=P(A)+P(B)$.
+\end{propriete}
+\begin{demonstration}
+Les résultats découlent de sommes de nombres non négatifs.
+Si $A\subseteq B$, les termes de $P(A)$ font partie de ceux de $P(B)$.
+Si les événements sont disjoints, aucune issue n'est comptée deux fois dans la somme.
+\end{demonstration}
+\section{Contraire, réunion et intersection}
+\begin{propriete}
+$P(\overline A)=1-P(A)$ et
+$P(A\cup B)=P(A)+P(B)-P(A\cap B)$.
+\end{propriete}
+\begin{demonstration}
+$A$ et $\overline A$ partitionnent $\Omega$ : leurs probabilités somment à $1$.
+Dans $P(A)+P(B)$, les issues de $A\cap B$ sont comptées deux fois ; les soustraire une fois donne exactement la somme des issues de la réunion.
+\end{demonstration}
+\begin{exemple}
+Sur un dé équilibré, $A=\{2,4,6\}$ (pair), $B=\{4,5,6\}$ (au moins $4$).
+Alors $P(A)=P(B)=1/2$, $P(A\cap B)=2/6=1/3$ et $P(A\cup B)=2/3$.
+Le « ou » comprend les issues communes.
+\end{exemple}
+\section{Équiprobabilité et couples}
+Si toutes les issues ont la même probabilité et si leur nombre est $N$, chacune vaut $1/N$, car leur somme vaut $1$.
+Ainsi $P(A)=\operatorname{Card}(A)/N$.
+Cette formule exige l'équiprobabilité des \emph{issues élémentaires}, pas celle de résultats regroupés.
+\begin{exemple}[Deux dés]
+Deux dés équilibrés lancés indépendamment donnent $36$ couples ordonnés équiprobables.
+La somme $7$ correspond à six couples : $(1,6),(2,5),\ldots,(6,1)$ ; sa probabilité vaut $1/6$.
+La somme $2$ ne correspond qu'à $(1,1)$, de probabilité $1/36$.
+Les onze sommes possibles ne sont pas équiprobables.
+\end{exemple}
+Le produit cartésien rend l'ordre explicite. Pour un choix de $a$ possibilités suivi d'un choix de $b$ possibilités pour chacune, le nombre de couples est $ab$.
+Un tableau ou un arbre de dénombrement permet de contrôler qu'aucune issue n'est oubliée ni comptée deux fois.
+\section{Avec et sans remise}
+\begin{exemple}
+Une urne contient trois boules rouges distinctes et deux bleues distinctes.
+Deux tirages avec remise donnent $5\times5=25$ couples équiprobables : neuf sont rouge--rouge, donc $P(RR)=9/25$.
+Sans remise, il y a $5\times4=20$ couples ordonnés distincts, dont $3\times2=6$ rouge--rouge : $P(RR)=3/10$.
+\end{exemple}
+Le modèle est différent parce que le second tirage dépend du premier lorsqu'on ne remet pas la boule. Le chapitre suivant traduira ce raisonnement par des probabilités conditionnelles.
+\section{Fréquence et probabilité}
+La fréquence $f_n$ est observée dans $n$ répétitions ; la probabilité $p$ appartient au modèle.
+Pour des répétitions indépendantes d'une même expérience, une version vulgarisée de la loi des grands nombres affirme que, pour un grand nombre de répétitions, les écarts importants entre $f_n$ et $p$ deviennent peu probables.
+Elle ne dit ni $f_n=p$ exactement, ni que l'écart diminue à chaque nouveau tirage.
+\begin{exemple}
+Après dix piles consécutifs avec une pièce équilibrée et des lancers indépendants, le prochain lancer garde une probabilité $1/2$ de donner pile. Il n'existe pas d'obligation de « rattraper » les résultats précédents.
+\end{exemple}
+La simulation du chapitre 23 permet d'observer des fluctuations. Une justification quantitative facultative est donnée au chapitre 24 ; elle précise les hypothèses d'indépendance.
+\utilite{Le calcul probabiliste est rigoureux une fois le modèle choisi. Savoir identifier les issues élémentaires est plus important que choisir immédiatement une formule.}
+\begin{retenir}
+Décrire l'univers et la loi, puis l'événement. Ne pas confondre « incompatible », « contraire » et « indépendant », ni fréquence expérimentale et probabilité.
+\end{retenir}
+\end{document}

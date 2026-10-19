@@ -1,0 +1,53 @@
+\documentclass[11pt,a4paper,oneside]{book}
+\usepackage{mathscommun}
+\setniveau{Seconde}
+\renewcommand{\ReferenceProgramme}{Programme français de seconde GT -- rentrée 2026}
+\renewcommand{\EditionDocument}{Édition du 18 octobre 2026}
+\hypersetup{pdftitle={Mathématiques de seconde - Cours et démonstrations}}
+\begin{document}
+\titrecollection{Cours et démonstrations}{Comprendre les objets, justifier les méthodes, devenir autonome.}{Vingt-quatre chapitres, du socle de seconde aux premiers approfondissements vers le supérieur. Chaque résultat est accompagné de ses conditions ; les fondements admis et les compléments facultatifs sont explicités.}
+\frontmatter
+\chapter*{Comment utiliser ce volume}
+\addcontentsline{toc}{chapter}{Comment utiliser ce volume}
+Ce cours couvre la seconde générale et technologique selon le programme entrant en application à la rentrée 2026. Le guide donne les références officielles et la correspondance détaillée avec les chapitres, les exercices et les automatismes. Il précise aussi ce qui est facultatif.
+
+Le projet est de construire progressivement un niveau permettant d'aborder des mathématiques universitaires. Cela commence par des habitudes : définir les objets, vérifier les hypothèses, distinguer exemple et preuve, rédiger une solution personnelle et savoir expliquer une erreur. Les notions avancées ne dispensent pas de maîtriser les calculs et les représentations élémentaires.
+
+Les chapitres sont rangés par thèmes pour faciliter la consultation. Ce n'est pas un calendrier linéaire : la logique, Python et les automatismes se travaillent au fil de l'année. Le guide propose des allers-retours entre calcul, géométrie, fonctions et données.
+
+\begin{methode}[Une boucle de travail]
+Lire une définition et donner un exemple. Refaire un exemple résolu sans le regarder. Identifier les hypothèses d'une preuve puis la reconstruire. Chercher les six exercices du chapitre avant de consulter leurs corrigés. Revenir quelques jours plus tard sur une question qui avait résisté.
+\end{methode}
+Les exercices du chapitre 24 sont facultatifs, de même que les questions explicitement signalées comme approfondissements. Les six problèmes de synthèse croisent plusieurs domaines.
+
+\begin{attention}[Le sens d'une démonstration]
+Une définition fixe le sens d'un terme ; elle ne se démontre pas. Une propriété se déduit de résultats déjà établis et de fondements admis. Nous ne prétendons pas reconstruire les réels ou toute la géométrie à partir d'axiomes. Le guide recense ces dépendances. Une figure exacte, un graphique et une simulation aident à comprendre, mais ne remplacent pas une preuve générale.
+\end{attention}
+Les résultats de géométrie du collège sont réactivés au moment où ils servent ; leurs démonstrations détaillées sont disponibles dans le volume de troisième. Les vecteurs sont en revanche introduits intégralement, afin que le cours soit utilisable par un élève qui les découvre.
+\tableofcontents
+\mainmatter
+\subfile{chapitres/01_langage_preuves.tex}
+\subfile{chapitres/02_arithmetique.tex}
+\subfile{chapitres/03_reels_intervalles.tex}
+\subfile{chapitres/04_puissances_racines.tex}
+\subfile{chapitres/05_algebre.tex}
+\subfile{chapitres/06_equations_inequations.tex}
+\subfile{chapitres/07_geometrie_reperee.tex}
+\subfile{chapitres/08_vecteurs.tex}
+\subfile{chapitres/09_determinant.tex}
+\subfile{chapitres/10_droites_systemes.tex}
+\subfile{chapitres/11_configurations.tex}
+\subfile{chapitres/12_notion_fonction.tex}
+\subfile{chapitres/13_fonctions_affines.tex}
+\subfile{chapitres/14_valeur_absolue_carre.tex}
+\subfile{chapitres/15_autres_references.tex}
+\subfile{chapitres/16_variations_optimisation.tex}
+\subfile{chapitres/17_pourcentages.tex}
+\subfile{chapitres/18_statistiques_position.tex}
+\subfile{chapitres/19_dispersion_classes.tex}
+\subfile{chapitres/20_tableaux_croises.tex}
+\subfile{chapitres/21_probabilites_finies.tex}
+\subfile{chapitres/22_conditionnement.tex}
+\subfile{chapitres/23_algorithmique.tex}
+\subfile{chapitres/24_vers_superieur.tex}
+\end{document}

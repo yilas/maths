@@ -10,7 +10,7 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parent
-NIVEAUX = {"troisieme": "3e"}
+NIVEAUX = {"troisieme": "3e", "seconde": "2de"}
 DOCUMENTS = ("cours", "exercices", "corriges", "guide")
 PROBLEMES = re.compile(
     r"Overfull \\[hv]box|undefined|Rerun to get cross-references right|"

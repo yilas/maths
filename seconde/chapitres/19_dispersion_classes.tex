@@ -1,0 +1,104 @@
+\documentclass[../cours_2de.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{18}
+\chapter{Dispersion et séries regroupées en classes}
+\label{sec:ch19}
+\begin{objectif}
+Comprendre variance et écart type ; lire un histogramme et un polygone cumulé ; calculer ou estimer des indicateurs en distinguant données connues et hypothèses.
+\end{objectif}
+\section{Pourquoi la moyenne ne suffit pas}
+Les séries $(5,5,5)$ et $(0,5,10)$ ont la même moyenne, mais pas la même dispersion.
+La somme des écarts à la moyenne vaut toujours zéro :
+$\sum(x_i-\overline x)=\sum x_i-N\overline x=0$.
+On ne peut donc pas mesurer la dispersion en faisant la moyenne de ces écarts signés.
+\begin{definition}
+La variance descriptive est
+$V=\frac1N\sum_{i=1}^N(x_i-\overline x)^2$ ;
+l'écart type est $\sigma=\sqrt V$.
+Avec des effectifs, $V=\sum n_i(x_i-\overline x)^2/N$.
+\end{definition}
+La variance est non négative. Elle est nulle exactement lorsque toutes les valeurs sont égales à la moyenne, car une somme de carrés non négatifs est nulle si et seulement si chacun l'est.
+L'écart type s'exprime dans la même unité que les données ; la variance dans le carré de cette unité.
+Il s'agit ici de la description de la série entière : le dénominateur est $N$, et non $N-1$, utilisé dans certains problèmes d'estimation ultérieurs.
+\begin{propriete}[Calcul de la variance]
+$V=\dfrac1N\sum x_i^2-\overline x^{\,2}$.
+\end{propriete}
+\begin{demonstration}
+Développer $(x_i-\overline x)^2=x_i^2-2\overline x\,x_i+\overline x^{\,2}$, puis sommer :
+$NV=\sum x_i^2-2\overline x(N\overline x)+N\overline x^{\,2}
+=\sum x_i^2-N\overline x^{\,2}$.
+\end{demonstration}
+\begin{exemple}
+Pour $(0,5,10)$, $V=(25+0+25)/3=50/3$, et $\sigma\simeq4{,}08$.
+Pour la série du chapitre 18, la somme des carrés vaut $278$, donc
+$V=278/8-25=39/4$ et $\sigma=\sqrt{39}/2\simeq3{,}12$.
+\end{exemple}
+\begin{demonstration}[Changement d'unité]
+Si $y_i=ax_i+b$, alors $\overline y=a\overline x+b$ et
+$y_i-\overline y=a(x_i-\overline x)$. Donc $V_y=a^2V_x$ et
+$\sigma_y=|a|\sigma_x$. Ajouter une constante ne change pas la dispersion ; multiplier les données change l'échelle.
+\end{demonstration}
+\section{Classes de même amplitude}
+Pour des mesures nombreuses, on peut regrouper les valeurs par intervalles disjoints.
+Une borne commune appartient à une seule classe : par exemple $[0;10[$, $[10;20[$, $[20;30]$.
+Considérons les effectifs suivants :
+\[
+\begin{array}{c|ccc|c}
+\text{classe}&[0,10[&[10,20[&[20,30]&\text{total}\\\hline
+n_i&4&8&8&20\\
+f_i&0{,}20&0{,}40&0{,}40&1\\
+\text{cumul aux bornes supérieures}&4&12&20&
+\end{array}
+\]
+Un histogramme juxtapose des rectangles dont les aires sont proportionnelles aux effectifs. Avec des amplitudes toutes égales, on peut utiliser les effectifs comme hauteurs. Avec des amplitudes différentes, il faudrait des densités : comparer les seules hauteurs serait trompeur.
+\begin{center}
+\begin{tikzpicture}[x=.25cm,y=.25cm]
+\draw[->](0,0)--(33,0)node[right]{valeur};
+\draw[->](0,0)--(0,11)node[above]{effectif};
+\draw[fill=accent!20](0,0)rectangle(10,4);
+\draw[fill=accent!20](10,0)rectangle(20,8);
+\draw[fill=accent!20](20,0)rectangle(30,8);
+\foreach \x in {0,10,20,30}{\node[below]at(\x,0){\x};}
+\foreach \y in {4,8}{\node[left]at(0,\y){\y};}
+\end{tikzpicture}
+\end{center}
+\section{Moyenne exacte ou estimation ?}
+Si l'on connaît la moyenne $m_i$ de chaque classe, la moyenne exacte est
+$\overline x=\sum n_im_i/N$ : chaque produit $n_im_i$ restitue la somme de la classe.
+Si seuls les effectifs des classes sont connus, les valeurs individuelles sont perdues.
+On peut estimer la moyenne avec les centres $c_i$ ; cela revient à supposer une répartition uniforme dans les classes (ou, plus généralement, une moyenne égale au centre).
+\begin{exemple}
+Avec les centres $5,15,25$, on obtient
+$\overline x_{\mathrm{est}}=(4\times5+8\times15+8\times25)/20=17$.
+Mais si les moyennes réelles des classes sont $4,14,26$, la moyenne exacte vaut
+$(16+112+208)/20=16{,}8$.
+\end{exemple}
+L'écart type obtenu en remplaçant toutes les valeurs par les centres est lui aussi une approximation ; il ne tient pas compte de la dispersion à l'intérieur des classes.
+\section{Cumul, classe médiane et interpolation}
+Le polygone des fréquences cumulées relie ici les points
+$(0,0)$, $(10,0{,}2)$, $(20,0{,}6)$, $(30,1)$.
+Les cumuls aux bornes sont déterminés par les effectifs des classes précédentes (valeurs strictement inférieures à la borne, sauf à la dernière borne incluse). Les segments intermédiaires traduisent un modèle uniforme dans chaque classe, pas des données individuelles connues.
+La moitié de l'effectif vaut $N/2=10$. Le cumul passe de $4$ à $12$ dans $[10;20[$ : c'est la classe médiane.
+\begin{propriete}[Médiane estimée sous hypothèse uniforme]
+Si la classe médiane commence en $L$, a une amplitude $h$, un effectif $n_c>0$ et est précédée d'un cumul $C$, alors
+$m_{\mathrm{est}}=L+h\,\dfrac{N/2-C}{n_c}$.
+\end{propriete}
+\begin{demonstration}
+Dans le modèle uniforme, la fraction de la classe parcourue est proportionnelle à la fraction de son effectif accumulée :
+$(m-L)/h=(N/2-C)/n_c$. Isoler $m$ donne la formule.
+\end{demonstration}
+Dans l'exemple, $m_{\mathrm{est}}=10+10(10-4)/8=17{,}5$.
+Si $N/2$ tombe exactement sur une borne de classe, le polygone atteint $0{,}5$ à cette borne ; annoncer cette convention de lecture. La médiane exacte de la série brute peut rester indéterminée.
+\begin{finchapitre}
+\section{Comparer deux distributions}
+Le couple moyenne--écart type convient pour décrire niveau et dispersion ; le couple médiane--écart interquartile est moins sensible aux valeurs extrêmes.
+Toujours compléter par un graphique : deux distributions différentes peuvent partager ces indicateurs.
+\approfondissement Si chaque groupe a une moyenne $m_i$ et une variance $V_i$, on peut démontrer
+$V=\sum (n_i/N)\bigl(V_i+(m_i-\overline x)^2\bigr)$.
+Écrire $x-\overline x=(x-m_i)+(m_i-\overline x)$ dans chaque groupe : après développement, le terme croisé disparaît puisque $\sum(x-m_i)=0$ dans le groupe. La dispersion totale combine donc dispersion interne et différence entre moyennes.
+\utilite{Les données regroupées exigent de savoir ce que l'on peut calculer exactement et ce que l'on ne peut qu'estimer. C'est une compétence essentielle pour interpréter des publications statistiques.}
+\begin{retenir}
+Une hypothèse uniforme doit être annoncée. Moyenne pondérée, écart type et interpolation médiane répondent à des questions différentes ; ne pas donner une estimation comme une valeur exacte.
+\end{retenir}
+\end{finchapitre}
+\end{document}

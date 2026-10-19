@@ -1,0 +1,45 @@
+name: Vérifier et compiler les cours
+on:
+  pull_request:
+    paths:
+      - '**.tex'
+      - '**.sty'
+      - '**.py'
+      - 'seconde/donnees/**'
+      - '.github/workflows/latex.yml'
+permissions:
+  contents: read
+concurrency:
+  group: latex-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+jobs:
+  compiler:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: Installer LaTeX et les outils de contrôle
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq texlive-latex-base texlive-latex-recommended texlive-latex-extra texlive-pictures texlive-fonts-recommended texlive-lang-french lmodern poppler-utils python3-fitz python3-pil
+      - name: Vérifier les algorithmes et les données
+        run: python3 seconde/python/verifier.py
+      - name: Compiler tous les niveaux avec le style commun
+        run: python3 compiler.py
+      - name: Vérifier la compilation d'un chapitre autonome
+        run: python3 compiler.py --niveau seconde --chapitre 9
+      - name: Contrôler et rendre les PDF
+        run: |
+          /usr/bin/python3 scripts/verifier_rendu.py --niveau troisieme
+          /usr/bin/python3 scripts/verifier_rendu.py --niveau seconde
+      - name: Conserver les PDF et les planches pour la revue
+        uses: actions/upload-artifact@v7
+        with:
+          name: cours-pdf-et-apercus
+          path: |
+            pdf/**/*.pdf
+            build/apercus/
+          if-no-files-found: error
+          retention-days: 14

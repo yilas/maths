@@ -1,0 +1,91 @@
+\documentclass[../cours_2de.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{23}
+\chapter{Approfondir les preuves et préparer la suite}
+\label{sec:ch24}
+\begin{objectif}
+Consolider les habitudes nécessaires au supérieur : quantifier précisément, prouver une généralité, contrôler une approximation. Ce chapitre est un approfondissement facultatif ; il ne transforme pas les notions hors programme en attendus de seconde.
+\end{objectif}
+\section{Quantificateurs : une notation pour des phrases}
+Les symboles $\forall$ (« pour tout ») et $\exists$ (« il existe ») sont hors programme de seconde ; on les introduit ici pour préparer la lecture de textes universitaires.
+La phrase $\forall x\in\R,\ \exists y\in\R,\ y>x$ est vraie par le choix $y=x+1$.
+La phrase $\exists y\in\R,\ \forall x\in\R,\ y>x$ est fausse en prenant $x=y+1$.
+Nier « tous les objets possèdent $P$ » revient à affirmer qu'au moins un ne la possède pas ; nier « il existe un objet possédant $P$ » revient à affirmer qu'aucun ne la possède.
+\begin{methode}[Lire une preuve]
+Repérer le domaine, le choix des variables, les hypothèses et la conclusion.
+Pour chaque division, vérifier le dénominateur ; pour chaque carré, vérifier les signes ; pour chaque existence, chercher le témoin ; pour chaque unicité, supposer deux solutions et montrer qu'elles coïncident.
+\end{methode}
+\section{Une identité par télescopage}
+\begin{theoreme}
+Pour tout entier $n\geq1$, $1+3+\cdots+(2n-1)=n^2$.
+\end{theoreme}
+\begin{demonstration}
+L'identité $k^2-(k-1)^2=2k-1$ donne
+\[
+\sum_{k=1}^n(2k-1)=\sum_{k=1}^n\bigl(k^2-(k-1)^2\bigr)=n^2-0^2.
+\]
+Chaque carré intermédiaire apparaît une fois avec un signe plus et une fois avec un signe moins : il disparaît. Ce mécanisme s'appelle télescopage.
+\end{demonstration}
+La notation $\sum$ abrège une somme ; elle ne crée pas une nouvelle opération. Le programme de somme du chapitre 23 calcule exactement le membre de gauche.
+\section{Le principe de récurrence}
+\approfondissement On admet le principe suivant pour les entiers : si une propriété est vraie au rang initial et si sa vérité à un rang quelconque entraîne sa vérité au suivant, elle est vraie à tous les rangs suivants.
+Il faut une initialisation et une hérédité ; vérifier les dix premiers cas ne remplace pas cette dernière.
+\begin{demonstration}[Inégalité de Bernoulli pour $h\geq0$]
+On prouve $(1+h)^n\geq1+nh$ pour tout $n\in\N$.
+Pour $n=0$, les deux membres valent $1$.
+Si l'inégalité est vraie à $n$, multiplier par $1+h>0$ donne
+$(1+h)^{n+1}\geq(1+nh)(1+h)
+=1+(n+1)h+nh^2\geq1+(n+1)h$.
+L'hérédité est établie, donc la propriété est vraie pour tout $n$.
+\end{demonstration}
+Pour $h>0$, elle justifie qu'une puissance $(1+h)^n$ dépasse toute borne fixée lorsque $n$ est assez grand.
+\section{Pourquoi les fréquences se stabilisent-elles ?}
+Nous donnons une preuve quantitative dans un modèle précis : $n$ expériences indépendantes, chacune ayant une probabilité $p$ de succès. Les notions qui suivent dépassent les attendus de seconde.
+On code le résultat par $X_i=1$ en cas de succès et $0$ sinon ; la fréquence est
+$F_n=(X_1+\cdots+X_n)/n$.
+L'\emph{espérance} d'une variable sur un univers fini est la moyenne de ses valeurs pondérées par leurs probabilités. La linéarité de l'espérance vient de la distributivité dans une somme finie.
+Ainsi $E(X_i)=p$, $X_i^2=X_i$, et
+$\operatorname{Var}(X_i)=E(X_i^2)-E(X_i)^2=p(1-p)$.
+Pour $i\ne j$, l'indépendance donne $E(X_iX_j)=p^2$, car le produit vaut $1$ exactement lorsque les deux expériences réussissent.
+\begin{demonstration}[Variance de la fréquence]
+En développant le carré de la somme, il y a $n$ termes $E(X_i^2)=p$ et $n(n-1)$ termes croisés $p^2$ :
+\[
+ E(F_n^2)=\frac{np+n(n-1)p^2}{n^2}.
+\]
+Comme $E(F_n)=p$, on soustrait $p^2$ et obtient
+$\operatorname{Var}(F_n)=p(1-p)/n$.
+\end{demonstration}
+\begin{demonstration}[Borne sur une fluctuation]
+Pour $\varepsilon>0$, sur l'événement $|F_n-p|\geq\varepsilon$,
+$(F_n-p)^2\geq\varepsilon^2$.
+La moyenne pondérée de ces carrés sur tout l'univers est donc au moins
+$\varepsilon^2P(|F_n-p|\geq\varepsilon)$, les autres contributions étant positives ou nulles.
+Ainsi
+\[
+P(|F_n-p|\geq\varepsilon)
+\leq\frac{p(1-p)}{n\varepsilon^2}
+\leq\frac1{4n\varepsilon^2}.
+\]
+La dernière inégalité vient de $(p-1/2)^2\geq0$, donc de $p(1-p)\leq1/4$.
+\end{demonstration}
+Pour n'importe quels seuils $\varepsilon>0$ et $\delta>0$, choisir
+$n>1/(4\varepsilon^2\delta)$ rend cette probabilité inférieure à $\delta$.
+C'est une forme de la loi faible des grands nombres pour ce modèle.
+La borne peut être très pessimiste : elle garantit une majoration, pas la valeur exacte de la probabilité. Elle ne s'applique pas sans vérifier les hypothèses.
+\section{Du numérique au raisonnement}
+La dichotomie fournit un intervalle garanti ; une grille de valeurs fournit des observations. Cette différence doit apparaître dans la rédaction.
+Un logiciel de calcul formel peut proposer une factorisation : la redévelopper prouve l'identité.
+Un logiciel de géométrie peut suggérer un concours : une preuve doit ensuite traiter toutes les figures admissibles.
+\begin{exemple}[Une fausse généralisation]
+$1^2+1=2$, $2^2+2=6$, $3^2+3=12$ sont pairs. La preuve n'est pas la liste : c'est $n^2+n=n(n+1)$, produit de deux entiers consécutifs, dont l'un est pair.
+\end{exemple}
+\begin{finchapitre}
+\section{Construire une autonomie}
+Pour chaque théorème, savoir : énoncer les hypothèses ; donner un exemple d'application ; produire un cas où une hypothèse manque ; refaire la preuve sans la regarder.
+La suite de la collection abordera la spécialité de première puis de terminale, avec les compléments utiles à un parcours mathématique. Les premiers objectifs universitaires seront ensuite les raisonnements formels, l'analyse des suites et fonctions, l'algèbre linéaire et les probabilités.
+Ce volume constitue une étape de cette progression ; sa maîtrise repose sur la résolution personnelle des exercices et la rédaction des justifications.
+\begin{retenir}
+Une preuve explique pourquoi tous les cas admissibles fonctionnent. Les approfondissements donnent un avant-goût du supérieur tout en conservant un socle de seconde clairement identifiable.
+\end{retenir}
+\end{finchapitre}
+\end{document}

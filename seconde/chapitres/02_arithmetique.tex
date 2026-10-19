@@ -1,0 +1,75 @@
+\documentclass[../cours_2de.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{1}
+\chapter{Entiers, divisibilité et fractions}
+\label{sec:ch02}
+\begin{objectif}
+Manipuler entiers, multiples, diviseurs et fractions irréductibles. Démontrer les propriétés de parité. Prérequis : calcul avec les entiers relatifs.
+\end{objectif}
+\section{Multiples et diviseurs}
+On note $\N=\{0,1,2,\ldots\}$ et $\Z=\{\ldots,-2,-1,0,1,2,\ldots\}$. Pour $a\in\Z$ non nul, a \textbf{divise} b s'il existe $k\in\Z$ tel que $b=ak$. On dit aussi que b est un multiple de a. Zéro est un multiple de tout entier non nul. Les diviseurs positifs de $12$ sont $1,2,3,4,6,12$.
+
+\begin{propriete}
+La somme et la différence de deux multiples d'un entier a sont des multiples de a. Plus généralement, toute combinaison entière de ces multiples l'est.
+\end{propriete}
+\begin{demonstration}
+Si $b=am$ et $c=an$, avec m et n entiers, alors $b+c=a(m+n)$ et $b-c=a(m-n)$. Pour des entiers u et v, $ub+vc=a(um+vn)$ ; le facteur entre parenthèses est encore entier. Par exemple, $18+42=6(3+7)$ est multiple de $6$.
+\end{demonstration}
+\section{Division euclidienne et dernier multiple}
+Pour des entiers $b\ge0$ et $a>0$, la division euclidienne écrit
+\[
+b=aq+r,\qquad q\in\N,\quad 0\le r<a.
+\]
+On prend pour q le plus grand entier tel que $aq\le b$ ; la différence $r=b-aq$ est alors dans $[0;a[$. L'existence d'un plus grand entier admissible résulte du fait qu'il y en a un nombre fini non nul : $0$ est admissible et $q\le b$ si $a\ge1$.
+\begin{demonstration}[unicité]
+Si $aq+r=aq'+r'$, alors $a(q-q')=r'-r$, dont la valeur absolue est strictement inférieure à a. Le seul multiple de a dans $]-a;a[$ est zéro, donc $q=q'$ et $r=r'$.
+\end{demonstration}
+Ainsi le dernier multiple de a inférieur ou égal à b est $aq$ ; le suivant $a(q+1)$ dépasse b. Le reste nul caractérise la divisibilité.
+\begin{lstlisting}[language=Python]
+def est_multiple(b, a):
+    if a == 0:
+        raise ValueError("diviseur non nul")
+    return b % a == 0
+
+def dernier_multiple(a, b):
+    if a <= 0 or b < 0:
+        raise ValueError("a > 0 et b >= 0")
+    return a * (b // a)
+\end{lstlisting}
+Ici les paramètres sont des entiers. Pour $a=13$ et $b=250$, $q=19$, $r=3$ et le résultat est $247$.
+\section{Pair et impair}
+Un entier pair s'écrit $2k$ ; un entier impair s'écrit $2k+1$, avec $k\in\Z$. Ces deux cas sont exclusifs et couvrent les entiers, par division par $2$.
+\begin{theoreme}
+Le carré d'un entier impair est impair. Le carré d'un entier est pair si et seulement si cet entier est pair.
+\end{theoreme}
+\begin{demonstration}
+Si $n=2k+1$, alors
+\[
+n^2=4k^2+4k+1=2(2k^2+2k)+1,
+\]
+qui est impair. Si $n=2k$, son carré est $4k^2=2(2k^2)$, donc pair. Réciproquement, si le carré est pair, l'entier ne peut pas être impair d'après la première partie : il est pair. On utilise une contraposée.
+\end{demonstration}
+Les mêmes écritures montrent : pair + pair est pair ; pair + impair est impair ; impair + impair est pair ; un produit ayant un facteur pair est pair. Un produit de deux impairs est impair car $(2k+1)(2\ell+1)=2(2k\ell+k+\ell)+1$.
+
+\begin{exemple}
+Le produit de deux entiers consécutifs $n(n+1)$ est pair : l'un des deux facteurs est pair. Le résultat est général, contrairement à une liste de vérifications.
+\end{exemple}
+\section{Nombres premiers et fractions irréductibles}
+Un entier $p\ge2$ est premier si ses seuls diviseurs positifs sont $1$ et p. Le nombre $1$ n'est donc pas premier.
+\admis{Tout entier supérieur ou égal à $2$ s'écrit de façon unique, à l'ordre des facteurs près, comme produit de nombres premiers. L'existence s'obtient en décomposant les facteurs non premiers, qui diminuent à chaque étape. L'unicité exige un théorème d'arithmétique non démontré ici.}
+Pour tester si n est premier, il suffit de chercher un diviseur premier inférieur ou égal à $\sqrt n$ : si $n=ab$ avec $1<a\le b$, alors $a^2\le ab=n$, donc $a\le\sqrt n$ ; a possède lui-même un diviseur premier.
+
+Une fraction $a/b$, $b\ne0$, est \textbf{irréductible} lorsque a et b n'ont pas de diviseur commun positif autre que $1$. Multiplier ou diviser les deux termes par un même nombre non nul ne change pas sa valeur : $(ka)/(kb)=a/b$, puisque les produits croisés sont égaux.
+\begin{exemple}
+$252=2^2\times3^2\times7$ et $198=2\times3^2\times11$. Le plus grand diviseur commun est $18$, d'où $252/198=14/11$. Aucun facteur premier commun ne subsiste.
+\end{exemple}
+\begin{finchapitre}
+\section{Un problème de partage}
+Avec $84$ objets rouges et $126$ bleus, former le plus grand nombre de lots identiques utilisant tous les objets revient à chercher le plus grand diviseur commun : $42$. Chaque lot contient $2$ rouges et $3$ bleus. Chercher un diviseur commun est différent de chercher un multiple commun.
+
+\approfondissement L'algorithme d'Euclide utilise $b=aq+r$ : les diviseurs communs à a et b sont exactement ceux communs à a et r. En effet, un diviseur de a et b divise $b-aq=r$ ; un diviseur de a et r divise $aq+r=b$. Les restes positifs diminuent ; l'algorithme termine. Pour $252$ et $198$, les restes sont $54,36,18,0$, d'où un PGCD de $18$.
+\begin{retenir}
+Écrire explicitement un multiple sous la forme $ak$ transforme une intuition en preuve. Une fraction irréductible a un dénominateur non nul et aucun facteur commun à simplifier.
+\end{retenir}
+\end{finchapitre}
+\end{document}

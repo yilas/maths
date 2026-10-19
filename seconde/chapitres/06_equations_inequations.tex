@@ -1,0 +1,66 @@
+\documentclass[../cours_2de.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{5}
+\chapter{Équations, inéquations et signes}
+\label{sec:ch06}
+\begin{objectif}
+Résoudre des équations et des inéquations, utiliser des tableaux de signes et contrôler les solutions. Prérequis : factorisation et intervalles.
+\end{objectif}
+\section{Équations et équivalences}
+Résoudre une équation, c'est déterminer \emph{toutes} les valeurs du domaine qui rendent l'égalité vraie. Ajouter la même quantité aux deux membres est réversible. Multiplier ou diviser par une même quantité non nulle l'est aussi.
+\begin{propriete}
+Pour $ax=b$, si $a\ne0$, l'unique solution est $x=b/a$. Si $a=0,b=0$, tous les réels conviennent ; si $a=0,b\ne0$, aucun ne convient.
+\end{propriete}
+\begin{demonstration}
+Pour $a\ne0$, diviser donne la seule valeur possible, et la substitution la vérifie. Pour $a=0$, le membre gauche vaut zéro quel que soit x ; l'égalité dépend donc seulement de b.
+\end{demonstration}
+Ainsi $3x+5=7x-9$ équivaut à $14=4x$, puis à $x=7/2$.
+\section{Produit nul et carrés}
+\begin{propriete}
+Un produit de deux réels est nul si et seulement si au moins un facteur est nul.
+\end{propriete}
+\begin{demonstration}
+Si un facteur est nul, le produit l'est. Si $uv=0$ et $u\ne0$, diviser par u donne $v=0$ ; cela couvre le cas où le premier facteur n'est pas nul.
+\end{demonstration}
+$(2x-1)(x+4)=0$ a donc pour solutions $1/2$ et $-4$.
+Pour $x^2=a$, il n'y a pas de solution si $a<0$, une solution $0$ si $a=0$, deux solutions $\pm\sqrt a$ si $a>0$. Dans ce dernier cas, factoriser $x^2-a=(x-\sqrt a)(x+\sqrt a)$ démontre la liste.
+\section{Quotients et transformations non réversibles}
+Pour résoudre $(x+1)/(x-2)=3$, commencer par $x\ne2$. Sur ce domaine, multiplier par $x-2\ne0$ donne $x+1=3x-6$, donc $x=7/2$. Cette valeur n'est pas interdite et sa substitution confirme le résultat.
+
+L'équation $a/x=b$, avec $x\ne0$, devient $a=bx$. Si $b\ne0$, la valeur candidate est $a/b$, à conserver seulement si elle n'est pas nulle. Si $b=0$, tous les $x\ne0$ conviennent lorsque $a=0$, aucun sinon.
+\begin{attention}
+De $x=2$, on déduit $x^2=4$, mais la réciproque est fausse car $x=-2$ convient à la seconde équation. Une élévation au carré exige de vérifier les candidats. Diviser $x(x-1)=0$ par x fait perdre la solution $0$.
+\end{attention}
+\section{Ordre : ce qui préserve ou inverse}
+\begin{propriete}
+Si $a<b$, alors $a+c<b+c$. Si $c>0$, $ac<bc$ ; si $c<0$, $ac>bc$. On peut additionner deux inégalités de même sens. Ces propriétés valent aussi au sens large.
+\end{propriete}
+\begin{demonstration}
+$a<b$ signifie $b-a>0$. La différence $(b+c)-(a+c)=b-a$ reste positive. Si $c>0$, $bc-ac=c(b-a)>0$. Si $c<0$, $ac-bc=(-c)(b-a)>0$. Enfin, la somme de deux différences positives est positive, ce qui justifie l'addition des inégalités.
+\end{demonstration}
+Ainsi $-3x+2\le11$ équivaut à $-3x\le9$, puis à $x\ge-3$.
+Pour comparer A et B, étudier $A-B$. Si $B>0$, on peut aussi comparer $A/B$ à $1$, puisque $A/B-1=(A-B)/B$. Le signe positif du dénominateur est essentiel.
+\section{Tableaux de signes}
+Une expression affine $ax+b$ avec $a\ne0$ change de signe au zéro $-b/a$. En effet, $ax+b=a(x+b/a)$ ; le signe dépend de a et de la position de x par rapport à ce zéro.
+\begin{exemple}
+Résolvons $(x+1)(x-2)\le0$. Les zéros sont $-1$ et $2$.
+\begin{center}\begin{tabular}{c|ccccc}
+$x$ & $]-\infty;-1[$ & $-1$ & $]-1;2[$ & $2$ & $]2;+\infty[$\\\hline
+$x+1$ & $-$ & $0$ & $+$ & $+$ & $+$\\
+$x-2$ & $-$ & $-$ & $-$ & $0$ & $+$\\
+produit & $+$ & $0$ & $-$ & $0$ & $+$\\
+\end{tabular}\end{center}
+La solution est $[-1;2]$.
+\end{exemple}
+Pour un quotient, les signes se combinent comme pour un produit, mais un zéro du dénominateur reste interdit. Ainsi $(x-3)/(x+2)\le0$ a pour ensemble de solutions $]-2;3]$ : $-2$ est exclu, $3$ est inclus.
+\begin{methode}
+Tout ramener d'un côté, factoriser lorsque c'est utile, repérer les zéros et valeurs interdites, dresser le tableau, lire les intervalles, puis vérifier les bornes. Ne pas multiplier une inéquation par une expression de signe inconnu.
+\end{methode}
+\section{Modéliser et interpréter}
+Deux tarifs pour n séances sont $18+2n$ et $5n$ euros. Leur égalité donne $n=6$. Le premier est strictement moins cher si $18+2n<5n$, soit $n>6$ : pour un nombre entier de séances, à partir de $7$.
+
+Une solution algébrique doit appartenir au domaine du problème : nombre entier d'objets, longueur positive, temps non négatif. Cette dernière étape fait partie de la résolution.
+\begin{retenir}
+Équation : même valeur des deux côtés. Inéquation : ordre à respecter, avec inversion en cas de multiplication par un négatif. Tableau de signes : produit et quotient se lisent facteur par facteur, sans oublier les valeurs interdites.
+\end{retenir}
+\end{document}

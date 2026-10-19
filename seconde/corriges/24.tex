@@ -1,0 +1,18 @@
+\chapter{Approfondir les preuves et préparer la suite}
+\section*{Exercice 24.1 -- L'ordre des quantificateurs}
+La première est vraie : choisir $y=x+1$. La seconde est fausse : pour un $y$ proposé, prendre $x=y$ (ou $y+1$). Les négations sont respectivement : « il existe un réel $x$ tel que, pour tout réel $y$, $y\le x$ » ; « pour tout réel $y$, il existe un réel $x$ tel que $y\le x$ ». La dépendance de $y$ à $x$ est décisive.
+
+\section*{Exercice 24.2 -- Une somme télescopique}
+$k^2-(k-1)^2=2k-1$. En additionnant pour $k=1,\ldots,n$, les termes intermédiaires s'annulent : la somme vaut $n^2-0^2=n^2$. Pour $n=4$, $1+3+5+7=16$. Ce calcul particulier illustre la formule ; seule l'identité sommée traite tout entier $n\ge1$.
+
+\section*{Exercice 24.3 -- Une récurrence guidée}
+Au rang $0$, les deux membres valent $1$. Si $(1+u)^n\ge1+nu$, multiplier par $1+u>0$ donne $(1+u)^{n+1}\ge1+(n+1)u+nu^2\ge1+(n+1)u$. L'hérédité est établie ; le principe de récurrence donne la propriété à tout rang. Choisir un entier $n>(M-1)/u$ rend $1+nu>M$. L'existence d'un entier assez grand utilise la propriété archimédienne des réels.
+
+\section*{Exercice 24.4 -- Une borne de fluctuation}
+$4n\varepsilon^2=4\times10\,000\times0{,}0025=100$ ; la borne vaut $0{,}01$. La probabilité d'un écart d'au moins $0{,}05$ est donc au plus $1\,\%$ sous les hypothèses du modèle. Ce n'est pas une impossibilité. La borne peut être peu précise ; elle justifie un rapprochement en probabilité, pas une garantie sur chaque tirage.
+
+\section*{Exercice 24.5 -- Trouver le trou d'une preuve}
+Le passage de $(a-b)(a+b)=b(a-b)$ à $a+b=b$ divise par $a-b$. Or $a=b$, donc $a-b=0$ : cette division est interdite. Les égalités précédentes sont correctes mais deviennent $0=0$, qui ne permet aucune simplification par le facteur nul.
+
+\section*{Exercice 24.6 -- Démontrer seul}
+$(\sqrt a-\sqrt b)^2\ge0$ donne $a+b\ge2\sqrt{ab}$, avec égalité si et seulement si $a=b$. En élevant au carré des quantités positives, $(a+b)^2\ge4ab$. En divisant par $ab(a+b)>0$, on obtient $(a+b)/(ab)\ge4/(a+b)$, soit l'inégalité demandée. Le cas d'égalité reste $a=b$. Le contrôle de la positivité justifie chaque opération.

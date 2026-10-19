@@ -1,0 +1,18 @@
+\chapter{Probabilités finies et dénombrement}
+\section*{Exercice 21.1 -- Construire une loi}
+Écrire $P(k)=ck$. La somme vaut $c(1+2+3+4)=10c=1$, donc $c=1/10$. La loi est $(0{,}1;0{,}2;0{,}3;0{,}4)$ et $P(\text{pair})=0{,}2+0{,}4=0{,}6$. L'équiprobabilité ne s'applique pas ici.
+
+\section*{Exercice 21.2 -- Deux dés}
+Les $36$ couples ordonnés sont équiprobables sous les hypothèses annoncées. Il y a six couples de somme $7$, donc $1/6$. Pour au moins un $6$, le contraire a $5\times5=25$ couples : $P=1-25/36=11/36$. Les sommes ne sont pas équiprobables.
+
+\section*{Exercice 21.3 -- Réunion et intersection}
+Les régions $A\setminus B$, $A\cap B$ et $B\setminus A$ ont des probabilités $0{,}2$, $0{,}2$ et $0{,}3$. Leur somme est $0{,}7$. En général, additionner $P(A)$ et $P(B)$ compte deux fois l'intersection ; en retirer une copie donne $P(A\cup B)=P(A)+P(B)-P(A\cap B)$. Le contraire vaut $0{,}3$.
+
+\section*{Exercice 21.4 -- Remettre ou ne pas remettre}
+Avec remise et mélange à chaque fois, la probabilité est $(3/5)^2=9/25$. Sans remise, après une rouge il reste deux rouges parmi quatre boules : $(3/5)(2/4)=3/10$. On peut aussi compter $3\times2=6$ couples favorables parmi $5\times4=20$ couples ordonnés sans remise.
+
+\section*{Exercice 21.5 -- Un modèle est une hypothèse}
+$0{,}63$ est une fréquence observée. Elle n'est pas automatiquement la probabilité inconnue. Une simulation sous l'hypothèse d'une pièce équilibrée permet d'observer la variabilité des fréquences et de comparer l'observation au modèle. Elle ne prouve ni l'équilibrage ni une valeur exacte du paramètre ; l'étude formelle d'un test dépasse ce chapitre.
+
+\section*{Exercice 21.6 -- Compter un complément}
+Il y a $10^3=1000$ codes. Sans répétition : $10\times9\times8=720$. Donc $P(\text{au moins une répétition})=1-720/1000=0{,}28$. Le complément évite de compter plusieurs fois un code comme $777$.
