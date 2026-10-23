@@ -1,0 +1,79 @@
+\documentclass[../cours_1re.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{0}
+\chapter{Raisonner, définir et démontrer}
+\label{ch:01}
+\begin{objectif}
+Distinguer définition, conjecture et théorème ; choisir une méthode de preuve ; manipuler ensembles, fonctions et quantifications. Prérequis : calcul et logique de seconde.
+\end{objectif}
+\section{Les objets avant les calculs}
+Une définition fixe le sens d'un mot ; elle n'est pas une affirmation à démontrer. Une conjecture est une affirmation à tester. Un théorème est une implication démontrée à partir d'hypothèses et de résultats antérieurs. Une preuve doit traiter tous les objets autorisés, même ceux qui sont nuls, négatifs ou situés à une borne.
+\begin{exemple}
+« $f(x)=x^2$ » peut définir une fonction ; « $x^2=9$ » peut être une équation d'inconnue $x$ ; « $(x+1)^2=x^2+2x+1$ » est une identité valable pour tout réel. Dans $x^2-2ax+1=0$, $a$ est un paramètre : on résout en $x$ pour chaque valeur de $a$.
+\end{exemple}
+\section{Ensembles, couples et fonctions}
+On écrit $x\in A$, $A\subseteq B$, $A\cap B$, $A\cup B$ et $E\setminus A$ pour appartenance, inclusion, intersection, réunion et complémentaire dans un univers $E$ fixé. L'ensemble vide est $\varnothing$. Le cardinal d'un ensemble fini est son nombre d'éléments.
+Le produit cartésien $A\times B$ est l'ensemble des couples $(a,b)$ avec $a\in A$, $b\in B$. L'ordre compte : $(1,2)\ne(2,1)$.
+\begin{propriete}
+Pour des ensembles finis, $\operatorname{Card}(A\times B)=\operatorname{Card}(A)\operatorname{Card}(B)$ et
+\[
+\operatorname{Card}(A\cup B)=\operatorname{Card}(A)+\operatorname{Card}(B)-\operatorname{Card}(A\cap B).
+\]
+\end{propriete}
+\begin{demonstration}
+Pour chaque premier élément d'un couple, il y a exactement $\operatorname{Card}(B)$ choix du second. Pour la réunion, les éléments de l'intersection ont été comptés deux fois dans la somme des cardinaux ; il faut retrancher une copie de chacun.
+\end{demonstration}
+Une fonction $f:E\to F$ associe à chaque élément de $E$ un unique élément de $F$. Plusieurs entrées peuvent avoir la même image. Pour $B\subseteq F$, son image réciproque est $f^{-1}(B)=\{x\in E:f(x)\in B\}$ ; cette notation ne suppose pas que $f$ possède une fonction réciproque.
+\begin{demonstration}[Une opération sur les conditions]
+$x\in f^{-1}(B\cap C)$ signifie simultanément $f(x)\in B$ et $f(x)\in C$ : c'est exactement $x\in f^{-1}(B)\cap f^{-1}(C)$. La même traduction prouve la conservation de la réunion et du complémentaire par image réciproque.
+\end{demonstration}
+\section{Implication, équivalence et négation}
+Dans $P\Rightarrow Q$, $P$ est une condition suffisante de $Q$ ; $Q$ est nécessaire à $P$. La réciproque $Q\Rightarrow P$ peut être fausse. La contraposée est $\text{non }Q\Rightarrow\text{non }P$ ; elle a la même valeur logique que l'implication initiale : toutes deux excluent exactement le cas où $P$ est vraie et $Q$ fausse.
+
+Une équivalence $P\Leftrightarrow Q$ exige les deux implications. Par exemple $x=2\Rightarrow x^2=4$ est vraie, mais sa réciproque est fausse, car $x=-2$ est un contre-exemple. En revanche $x^2=4\Leftrightarrow(x=2\text{ ou }x=-2)$.
+\begin{propriete}[Nier une condition]
+La négation de « $P$ et $Q$ » est « non $P$ ou non $Q$ ». Celle de « $P$ ou $Q$ » est « non $P$ et non $Q$ ». Le « ou » mathématique est inclusif.
+\end{propriete}
+\begin{demonstration}
+Une conjonction échoue dès qu'au moins une de ses conditions échoue. Une disjonction échoue exactement quand ses deux possibilités échouent. On peut aussi vérifier ces affirmations dans les quatre cas de vérité de $(P,Q)$.
+\end{demonstration}
+\section{Quantifier sans ambiguïté}
+Dire « pour tout $x\in E$ » demande une preuve pour un objet arbitraire ; dire « il existe $x\in E$ » demande un témoin ou un argument d'existence.
+La négation de « tout $x$ vérifie $P(x)$ » est « il existe $x$ ne vérifiant pas $P(x)$ ». La négation de « il existe $x$ vérifiant $P(x)$ » est « aucun $x$ ne vérifie $P(x)$ ».
+\begin{exemple}
+Nier « $f$ est positive sur $I$ » donne « il existe $x\in I$ tel que $f(x)<0$ », et non « $f$ est négative partout ». Nier « $u_n$ finit par dépasser $10$ définitivement » donne : pour tout rang $N$, il existe $n\ge N$ tel que $u_n\le10$.
+\end{exemple}
+\approfondissement Les symboles $\forall$ et $\exists$ abrègent ces phrases. L'ordre compte :
+$\forall x\in\R,\exists y\in\R,\ y>x$ est vrai ($y=x+1$), tandis que
+$\exists y\in\R,\forall x\in\R,\ y>x$ est faux (prendre $x=y+1$).
+\section{Construire une démonstration}
+\begin{methode}
+Énoncer les hypothèses ; annoncer la conclusion ; choisir une méthode ; justifier chaque passage ; traiter les cas exclus par les divisions ; conclure dans les termes du problème.
+\end{methode}
+Une preuve directe enchaîne des conséquences. Une preuve par cas découpe toutes les possibilités. Une preuve par l'absurde suppose la conclusion fausse et obtient une contradiction.
+\begin{demonstration}[Contraposée et parité]
+Pour un entier $n$, si $n^2$ est pair, alors $n$ est pair. Prouvons la contraposée : si $n=2k+1$, alors $n^2=2(2k^2+2k)+1$ est impair. La contraposée donne le résultat. On a utilisé la définition d'un entier impair, pas seulement des exemples.
+\end{demonstration}
+\begin{finchapitre}
+\section{Récurrence : un complément structurant}
+\approfondissement Le principe de récurrence est un fondement des entiers : une propriété vraie au rang initial et transmise de chaque rang au suivant est vraie à tous les rangs suivants. On admet ce principe, mais on démontre chaque hérédité.
+\begin{demonstration}[Une inégalité pour toutes les puissances]
+Pour $t\ge0$ et $n\in\N$, $(1+t)^n\ge1+nt$.
+Au rang $0$, les deux membres valent $1$. Supposons le résultat au rang $n$. Puisque $1+t>0$,
+\[
+(1+t)^{n+1}\ge(1+nt)(1+t)=1+(n+1)t+nt^2\ge1+(n+1)t.
+\]
+L'hérédité et l'initialisation concluent.
+\end{demonstration}
+La relation $u_{n+1}=f(u_n)$ est une \emph{définition par récurrence} ; elle ne constitue pas à elle seule une preuve par récurrence. La distinction évite une confusion fréquente.
+
+
+\section{Utilité et prolongements}
+Un ensemble de solutions est une image réciproque : résoudre $f(x)\ge0$ revient à chercher $f^{-1}([0;+\infty[)$. Les événements $\{X\le a\}$ du chapitre 21 utilisent exactement ce langage.
+
+En licence, quantifier correctement permet de définir limite et continuité. En master, les mêmes questions d'ordre des quantificateurs distinguent convergence simple et convergence uniforme : « un rang pour chaque point » est moins exigeant qu'« un rang valable pour tous les points ». Le chapitre 26 donnera une utilisation effective de cette différence.
+\begin{retenir}
+Une généralité exige une preuve générale ; un contre-exemple suffit à la réfuter. Définir le domaine et contrôler les quantificateurs fait partie du raisonnement.
+\end{retenir}
+\end{finchapitre}
+\end{document}

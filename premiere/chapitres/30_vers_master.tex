@@ -1,0 +1,130 @@
+\documentclass[../cours_1re.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{29}
+\chapter{Relier les outils et construire le parcours vers le master}
+\label{ch:30}
+\begin{objectif}
+Relier les outils construits et situer la progression vers un master.
+Ce chapitre ne remplace pas les futurs cours de terminale, licence et master :
+il montre des usages précis et propose des critères de maîtrise.
+\end{objectif}
+\section{Un même théorème dans trois langages}
+En géométrie, si $p$ est le projeté de $x$ sur un sous-espace $F$,
+$\|x-z\|^2=\|x-p\|^2+\|p-z\|^2$ pour $z\in F$.
+En statistique, $\mathbb E((X-a)^2)=\operatorname{Var}(X)+(a-\mu)^2$.
+Avec une information partielle, on a
+$\mathbb E((X-Z)^2)=\mathbb E((X-Y)^2)+\mathbb E((Y-Z)^2)$.
+Ces identités ont la même preuve : décomposer en deux termes orthogonaux,
+développer un carré, annuler le terme croisé.
+Savoir reconnaître cette structure est plus utile que mémoriser
+trois recettes sans lien.
+
+\section{Décomposer un système en directions simples}
+Considérons la récurrence à deux composantes
+\[
+\begin{pmatrix}x_{n+1}\\y_{n+1}\end{pmatrix}
+=
+\begin{pmatrix}1/2&0\\0&1/4\end{pmatrix}
+\begin{pmatrix}x_n\\y_n\end{pmatrix}.
+\]
+Elle donne $x_n=2^{-n}x_0$ et $y_n=4^{-n}y_0$ par deux suites géométriques.
+Donc le vecteur tend vers $0$, et
+$\sqrt{x_n^2+y_n^2}\le2^{-n}\sqrt{x_0^2+y_0^2}$.
+Les axes sont des directions conservées par la transformation :
+ce sont ici des directions propres.
+
+Un exemple moins immédiat est la matrice
+$A=\frac14\begin{pmatrix}3&1\\1&3\end{pmatrix}$.
+On vérifie $A(1,1)=(1,1)$ et $A(1,-1)=\frac12(1,-1)$.
+Décomposer $(x_0,y_0)=m(1,1)+d(1,-1)$, avec
+$m=(x_0+y_0)/2$, $d=(x_0-y_0)/2$, donne
+$A^n(x_0,y_0)=m(1,1)+2^{-n}d(1,-1)$.
+Les deux composantes convergent vers leur moyenne commune.
+Cette preuve annonce la diagonalisation sans supposer son théorème général.
+
+\section{Du discret au continu}
+La relation $u_{n+1}=qu_n$ mesure une multiplication par pas de temps.
+L'équation $y'=ay$ mesure un taux instantané, avec $y(t)=y(0)e^{at}$.
+Au pas $h$, son facteur exact est $e^{ah}$ ; Euler utilise $1+ah$.
+L'approximation affine de l'exponentielle justifie leur proximité pour un petit pas.
+Les matrices remplaceront ensuite les nombres pour des systèmes couplés.
+Les séries du chapitre 26 suggèrent une exponentielle de matrice,
+mais sa convergence et ses propriétés demanderont de définir une norme adaptée.
+
+\section{Décomposer un signal discret}
+Dans $\R^4$, les vecteurs
+\[
+v_0=(1,1,1,1),\quad v_1=(1,0,-1,0),\quad
+v_2=(0,1,0,-1),\quad v_3=(1,-1,1,-1)
+\]
+sont deux à deux orthogonaux, comme on le vérifie en calculant leurs six
+produits scalaires. Ils sont non nuls, donc libres ; tout vecteur de $\R^4$
+se décompose sur eux. Plus explicitement, pour $x=(a,b,c,d)$,
+\[
+x=\frac{a+b+c+d}{4}v_0+\frac{a-c}{2}v_1
++\frac{b-d}{2}v_2+\frac{a-b+c-d}{4}v_3.
+\]
+Vérifier les quatre coordonnées démontre directement la formule.
+Les vecteurs $v_1$ et $v_2$ sont des valeurs de cosinus et de sinus sur
+quatre points régulièrement espacés du cercle. Cette petite décomposition
+annonce la transformée de Fourier discrète.
+Omettre une composante donne une projection sur les composantes conservées :
+l'erreur au carré est la somme des carrés des composantes omises,
+avec les facteurs de norme correspondants.
+
+\section{La progression à poursuivre}
+\begin{longtable}{>{\raggedright\arraybackslash}p{.18\linewidth}>{\raggedright\arraybackslash}p{.74\linewidth}}
+\toprule Étape & Objets et capacités à construire\\\midrule
+Terminale &
+Limites et continuité systématiques, logarithme, intégration, probabilités
+binomiales et concentration, géométrie dans l'espace. Avec mathématiques
+expertes : nombres complexes, arithmétique, graphes et matrices.\\
+Licence 1 &
+Logique et rédaction autonome ; ensembles et applications ; analyse réelle,
+suites et séries ; algèbre linéaire et systèmes ; calcul différentiel et intégral.\\
+Licence 2 &
+Espaces vectoriels abstraits, réduction des matrices, fonctions de plusieurs
+variables, séries de fonctions, probabilités et méthodes numériques.\\
+Licence 3 &
+Topologie et espaces métriques, mesure et intégration, groupes et anneaux,
+analyse complexe, probabilités, premiers choix de spécialisation.\\
+Master &
+Selon le parcours : analyse fonctionnelle, équations différentielles et aux
+dérivées partielles, géométrie, algèbre, probabilités avancées, statistiques
+et optimisation. Lire des preuves longues, résoudre des problèmes ouverts
+à l'échelle du cours et produire un travail autonome.\\\bottomrule
+\end{longtable}
+Il n'existe pas un programme unique de master de mathématiques :
+les spécialités diffèrent. Ce tableau est une progression pédagogique,
+pas une équivalence de diplôme ni le programme d'une université donnée.
+
+\begin{finchapitre}
+\section{Comment savoir si une notion est maîtrisée}
+Pour chaque outil, être capable de donner sa définition, de citer exactement
+les hypothèses d'un résultat, de reconstruire sa preuve et de fournir un
+contre-exemple si l'on supprime une hypothèse.
+Savoir ensuite résoudre un problème où le nom de l'outil n'est pas annoncé,
+expliquer les unités ou le modèle, puis vérifier une réponse par un second point de vue.
+
+Les problèmes de synthèse demandent ce transfert : coût et optimisation,
+croissances discrète et continue, projection et ajustement, conditionnement
+et prédiction, approximation et erreur. Une rédaction doit faire apparaître
+le choix de la méthode, pas seulement la suite des calculs.
+Les compléments peuvent être relus après le programme de terminale :
+ne pas tout comprendre au premier passage n'empêche pas de progresser.
+
+
+\section{Utilité et prolongements}
+Les liens entre domaines constituent un outil de travail : un carré
+développé peut résoudre une question de géométrie, de statistique ou d'optimisation.
+
+Le parcours vers le master se construira en ajoutant des objets et des preuves,
+avec une autonomie croissante. Ce volume fournit des fondations de première
+et des premiers ponts démontrés, pas la maîtrise prématurée de ces domaines.
+\begin{retenir}
+Définir, démontrer, chercher un contre-exemple, appliquer et relier.
+Le niveau avancé se construit par la maîtrise progressive des hypothèses
+et des raisonnements, autant que par l'accumulation de formules.
+\end{retenir}
+\end{finchapitre}
+\end{document}

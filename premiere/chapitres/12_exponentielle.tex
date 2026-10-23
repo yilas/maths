@@ -1,0 +1,89 @@
+\documentclass[../cours_1re.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{11}
+\chapter{La fonction exponentielle}
+\label{ch:12}
+\begin{objectif}
+Définir l'exponentielle par une équation différentielle et démontrer ses propriétés algébriques et analytiques. L'existence est d'abord admise ; une construction complète est donnée au chapitre 26.
+\end{objectif}
+\section{Une définition par un taux de variation}
+\begin{definition}
+La fonction exponentielle est l'unique fonction dérivable sur $\R$ telle que
+$\exp'(x)=\exp(x)$ pour tout $x$ et $\exp(0)=1$.
+\end{definition}
+Son accroissement instantané est proportionnel à sa propre valeur, avec coefficient $1$. On admet ici l'existence d'une telle fonction ; l'unicité et les propriétés seront démontrées. Le chapitre 26 construira l'objet, afin de fermer cette dépendance.
+\section{L'exponentielle ne s'annule pas}
+\begin{demonstration}
+Poser $g(x)=\exp(x)\exp(-x)$. La règle du produit et la composition affine donnent
+$g'(x)=\exp(x)\exp(-x)-\exp(x)\exp(-x)=0$.
+Comme $\R$ est un intervalle, $g$ est constante ; $g(0)=1$, donc
+\[
+\exp(x)\exp(-x)=1.
+\]
+Aucun facteur ne peut donc être nul.
+\end{demonstration}
+\section{Unicité et addition des arguments}
+\begin{demonstration}[Unicité]
+Si $f'=f$ et $f(0)=1$, le quotient $f/\exp$ est défini partout et sa dérivée est
+$(f'\exp-f\exp')/\exp^2=0$. Il est constant et vaut $1$ en zéro ; donc $f=\exp$.
+\end{demonstration}
+\begin{theoreme}
+Pour tous réels $x,y$,
+$\exp(x+y)=\exp(x)\exp(y)$.
+\end{theoreme}
+\begin{demonstration}
+Fixer $y$ et considérer $h(x)=\exp(x+y)/\exp(x)$.
+La règle du quotient donne $h'(x)=0$. Ainsi $h(x)=h(0)=\exp(y)$, d'où l'identité.
+Le dénominateur est non nul par la preuve précédente.
+\end{demonstration}
+En particulier $\exp(x)=\exp(x/2)^2>0$. Puisque $\exp'=\exp>0$, la fonction est strictement croissante.
+La preuve n'a pas supposé la positivité pour justifier une division : la non-annulation avait été établie séparément.
+\section{Notation et règles de calcul}
+On pose $e=\exp(1)$ et on écrit $e^x=\exp(x)$. Pour les entiers, cette notation coïncide avec les puissances usuelles, car l'addition répétée des arguments donne $\exp(n)=e^n$.
+Pour $q=m/n$ rationnel, $n>0$, $\exp(q)^n=\exp(m)=e^m$, ce qui prolonge les puissances par racines positives.
+Pour un exposant réel quelconque, la notation désigne la fonction construite, pas une multiplication répétée un nombre irrationnel de fois.
+\[
+e^{x+y}=e^xe^y,\quad e^{-x}=1/e^x,\quad
+e^{x-y}=e^x/e^y,\quad (e^x)^n=e^{nx}\quad(n\in\Z).
+\]
+\begin{exemple}
+$e^{2x}e^{3-x}/e^x=e^3$.
+$e^{2x-1}=e^{x+4}$ équivaut à $2x-1=x+4$, donc $x=5$.
+$e^{2x-1}<1$ équivaut à $2x-1<0$, donc $x<1/2$.
+En revanche $e^{x+y}$ n'est pas $e^x+e^y$ : en $x=y=0$, les valeurs seraient $1$ et $2$.
+\end{exemple}
+\section{Courbe, tangente et croissance}
+La courbe passe par $(0;1)$, avec une tangente $y=1+x$. La fonction
+$g(x)=e^x-1-x$ a pour dérivée $e^x-1$, négative pour $x<0$ et positive pour $x>0$.
+Son minimum vaut zéro : pour tout réel $x$,
+\[
+e^x\ge1+x,
+\]
+avec égalité seulement en zéro. Cette inégalité implique $e>1$.
+\begin{center}\begin{tikzpicture}
+\begin{axis}[width=10cm,height=5.5cm,axis lines=middle,xmin=-3,xmax=2,ymin=-1,ymax=7.5,xlabel={$x$},ylabel={$y$},legend pos=north west]
+\addplot[accent,thick,domain=-3:2,samples=100]{exp(x)};\addlegendentry{$e^x$}
+\addplot[black,dashed,domain=-2:2]{1+x};\addlegendentry{$1+x$}
+\end{axis}\end{tikzpicture}\end{center}
+Pour $x\to+\infty$, $e^x\ge1+x$ donne une croissance sans borne. Pour $x\to-\infty$, écrire $e^x=1/e^{-x}$ donne une limite nulle ; la valeur zéro n'est jamais atteinte.
+\begin{finchapitre}
+\section{Dériver et étudier}
+La composition affine donne $[e^{ax+b}]'=ae^{ax+b}$. Pour $k>0$, $e^{kt}$ croît et $e^{-kt}$ décroît.
+Leur valeur en zéro vaut $1$ ; le paramètre $k$ règle la vitesse d'évolution.
+\begin{exemple}
+Pour $f(x)=(x+1)e^{-x}$, $f'(x)=e^{-x}-(x+1)e^{-x}=-xe^{-x}$. Le signe de la dérivée est celui de $-x$. Le maximum global est $f(0)=1$, puisque la fonction croît avant zéro et décroît après.
+\end{exemple}
+\section{Liaison avec les suites}
+Pour $u_n=e^{an+b}$, $u_{n+1}=e^a u_n$ : la suite est géométrique de raison positive $e^a$.
+Une suite géométrique de raison négative alterne de signe et ne se prolonge donc pas par une exponentielle réelle positive de cette forme.
+
+
+\section{Utilité et prolongements}
+L'exponentielle décrit des évolutions dont la variation relative instantanée est constante : croissance idéale, décroissance radioactive ou relaxation d'un écart. Les hypothèses du modèle seront étudiées au chapitre suivant.
+
+En licence, elle résout les équations différentielles linéaires ; pour des matrices, l'exponentielle définie par une série jouera un rôle analogue. En master, elle intervient dans les semi-groupes d'évolution, les transformées et les lois de probabilité. La loi $e^{x+y}=e^xe^y$ exprime déjà la composition de deux durées d'évolution.
+\begin{retenir}
+L'exponentielle est définie sur tous les réels, strictement positive et croissante. Ses lois de calcul résultent de son équation différentielle ; l'existence est construite plus loin, sans raisonnement circulaire.
+\end{retenir}
+\end{finchapitre}
+\end{document}

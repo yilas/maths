@@ -1,0 +1,18 @@
+\chapter{Algorithmique, listes et calcul fiable}
+\section*{Exercice 24.1 -- Listes et indices}
+La liste est \texttt{[1, 4, 9, 16]}. \texttt{range(1, 5)} inclut $1$ et exclut $5$. L'indice $0$ donne $1$ ; l'indice $-1$ désigne le dernier élément, $16$.
+
+\section*{Exercice 24.2 -- Copie ou alias}
+\texttt{a} vaut \texttt{[1, 2, 3]} car les deux noms désignent la même liste. Utiliser \texttt{b = a.copy()} avant la modification produit une autre liste de nombres. Pour des listes imbriquées, une copie superficielle laisse les sous-listes partagées.
+
+\section*{Exercice 24.3 -- Invariant}
+Après $k$ tours, l'invariant est $s=\sum_{j=1}^k j$. Il est vrai pour $k=0$ avec la somme vide. Ajouter $k+1$ le conserve au tour suivant. La boucle finie termine au rang $n$, donc renvoie la somme demandée. On peut comparer le résultat à $n(n+1)/2$ comme test.
+
+\section*{Exercice 24.4 -- Syracuse et borne}
+On obtient $6,3,10,5,16,8,4,2,1$. Cette trajectoire finit en $1$, mais elle ne prouve pas que toutes les trajectoires le font. Le programme doit pouvoir signaler « borne atteinte sans conclusion » ; cet arrêt informatique ne constitue pas un contre-exemple à la conjecture.
+
+\section*{Exercice 24.5 -- Différences finies}
+Le résultat exact est $2a+h$, qui tend vers $2a$. En flottants, les deux carrés peuvent être arrondis à des valeurs très proches, voire identiques. Leur soustraction puis la division par $h$ amplifient l'erreur. Il faut comparer plusieurs pas, pas supposer que le plus petit est toujours meilleur.
+
+\section*{Exercice 24.6 -- Fréquences de lettres}
+La normalisation donne \texttt{ete} : deux \texttt{e}, un \texttt{t}, donc fréquences $2/3$ et $1/3$. Une comparaison de langues demande des textes suffisamment longs et comparables, une convention sur les accents et le même dénominateur de lettres retenues. Une seule phrase ne représente pas une langue.

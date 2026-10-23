@@ -1,0 +1,132 @@
+\documentclass[../cours_1re.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{26}
+\chapter{Complément : espaces vectoriels et projections}
+\label{ch:27}
+\begin{objectif}
+Complément de transition vers la licence : généraliser les vecteurs, les produits scalaires et les projections.
+Prérequis : chapitres 16 et 18 ; intégration du chapitre 25 pour le dernier exemple.
+\end{objectif}
+\section{Des vecteurs du plan aux listes de nombres}
+Un vecteur de $\R^n$ est une liste ordonnée $(x_1,\ldots,x_n)$ de réels.
+L'addition et la multiplication par un réel se font coordonnée par coordonnée.
+Les règles de calcul se vérifient sur chaque coordonnée.
+Plus généralement, un \emph{espace vectoriel réel} est un ensemble muni d'une
+addition et d'une multiplication par un réel : l'addition est associative
+et commutative, possède un neutre $0$ et un opposé pour chaque vecteur ;
+la multiplication vérifie, pour tous réels $\lambda,\mu$ et vecteurs $u,v$,
+\[
+1u=u,\quad(\lambda\mu)u=\lambda(\mu u),\quad
+\lambda(u+v)=\lambda u+\lambda v,\quad
+(\lambda+\mu)u=\lambda u+\mu u.
+\]
+Les opérations restent dans l'ensemble considéré. Les polynômes réels
+en fournissent un autre exemple ; le produit scalaire n'est pas requis
+pour définir un espace vectoriel.
+
+Une combinaison linéaire est une somme $\sum_{i=1}^r\lambda_i v_i$.
+Une famille est libre si $\sum_i\lambda_iv_i=0$ force tous les coefficients
+à être nuls ; elle est génératrice si tout vecteur est une telle combinaison.
+Une base est une famille à la fois libre et génératrice.
+Dans $\R^n$, les vecteurs $e_i$ ayant un $1$ à la position $i$ et des $0$
+ailleurs forment une base : $x=\sum_ix_ie_i$, de manière unique.
+
+\section{Applications linéaires et matrices}
+Une application $T$ est linéaire si
+$T(au+bv)=aT(u)+bT(v)$ pour tous $u,v,a,b$.
+Elle est entièrement déterminée par les images des vecteurs d'une base :
+$T(\sum_ix_ie_i)=\sum_ix_iT(e_i)$.
+Une matrice range ces images en colonnes ; multiplier la matrice par
+le vecteur des coordonnées calcule cette combinaison.
+\begin{exemple}
+$T(x,y)=(x+y,2x+2y)$ a pour matrice
+$\begin{pmatrix}1&1\\2&2\end{pmatrix}$.
+Son noyau, ensemble des vecteurs envoyés sur $0$, est
+$\{(t,-t):t\in\R\}$.
+Son image est la droite $\{(s,2s):s\in\R\}$.
+Le noyau et l'image sont stables par combinaison linéaire, donc des
+sous-espaces vectoriels. En particulier, $T$ ne permet pas de retrouver
+un antécédent unique à partir de son image.
+\end{exemple}
+
+\section{Produit scalaire et distance}
+Dans $\R^n$, on pose $\langle x,y\rangle=\sum_ix_iy_i$.
+C'est une forme bilinéaire symétrique, positive, et
+$\langle x,x\rangle=0$ seulement pour $x=0$.
+La norme associée est $\|x\|=\sqrt{\langle x,x\rangle}$.
+La preuve par le carré $\|x-ty\|^2\ge0$ du chapitre 16 démontre encore
+Cauchy--Schwarz ; le développement de $\|x+y\|^2$ prouve l'inégalité triangulaire.
+La distance $d(x,y)=\|x-y\|$ vérifie donc les propriétés attendues d'une distance.
+Une famille est orthonormée si $\langle e_i,e_j\rangle$ vaut $1$ pour $i=j$
+et $0$ sinon. Elle est libre : prendre le produit scalaire d'une combinaison
+nulle avec chaque $e_j$ donne $\lambda_j=0$.
+
+\section{Construire une base orthonormée}
+Pour deux vecteurs libres $u,v$, poser
+\[
+e_1=\frac u{\|u\|},\qquad w=v-\langle v,e_1\rangle e_1,\qquad
+e_2=\frac w{\|w\|}.
+\]
+On a $\langle w,e_1\rangle=0$. Le vecteur $w$ n'est pas nul, sinon
+$v$ serait proportionnel à $u$. Les deux vecteurs $e_1,e_2$ sont donc
+orthonormés et engendrent le même plan que $u,v$.
+C'est la première étape du procédé de Gram--Schmidt.
+\begin{exemple}
+Pour $u=(1,1,0)$ et $v=(1,0,1)$,
+$e_1=(1,1,0)/\sqrt2$ et
+$w=(1/2,-1/2,1)$, donc $e_2=(1,-1,2)/\sqrt6$.
+Le produit scalaire des numérateurs vaut $1-1+0=0$.
+\end{exemple}
+
+\section{Projection : la meilleure approximation}
+Si $F$ possède une base orthonormée $(e_1,\ldots,e_r)$, poser
+$p_F(x)=\sum_i\langle x,e_i\rangle e_i$.
+Le vecteur $x-p_F(x)$ est orthogonal à chaque $e_j$, donc à tout $F$.
+Pour tout $z\in F$, les deux termes de
+$x-z=(x-p_F(x))+(p_F(x)-z)$ sont orthogonaux. Ainsi
+\[
+\|x-z\|^2=\|x-p_F(x)\|^2+\|p_F(x)-z\|^2.
+\]
+Le minimum est atteint uniquement pour $z=p_F(x)$.
+Cette preuve établit à la fois l'optimalité et l'unicité, sans calcul différentiel.
+En particulier, sur une droite $\R u$ avec $u\ne0$,
+$p(x)=\langle x,u\rangle u/\|u\|^2$.
+
+\section{Ajuster une droite par moindres carrés}
+Pour approcher les points $(0,1),(1,2),(2,2)$ par $y=ax+b$, on minimise
+\[
+Q(a,b)=(b-1)^2+(a+b-2)^2+(2a+b-2)^2.
+\]
+Le vecteur des valeurs prédites est $a(0,1,2)+b(1,1,1)$.
+À la projection, le résidu est orthogonal à ces deux vecteurs :
+\[
+5a+3b=6,\qquad 3a+3b=5.
+\]
+On obtient $a=1/2$, $b=7/6$. Le résidu « observation moins prédiction »
+vaut $(-1/6,1/3,-1/6)$, bien orthogonal aux deux vecteurs.
+L'identité de projection prouve que c'est l'unique minimum global, de valeur
+$1/6$. Les équations dites normales ne sont pas seulement des recettes de calcul.
+
+\section{Un espace de fonctions}
+Sur les polynômes, $\langle P,Q\rangle=\int_0^1P(t)Q(t)\,dt$ est un produit
+scalaire. La linéarité et la symétrie viennent de l'intégrale.
+Si $P\ne0$, il n'est pas nul sur tout $[0,1]$ (un polynôme non nul a
+un nombre fini de racines). Par continuité, $P^2$ est strictement positif
+sur un petit intervalle ; son intégrale est donc positive.
+On peut orthogonaliser $1,t,t^2,\ldots$ comme des vecteurs.
+Par exemple $t-1/2$ est orthogonal à $1$ car son intégrale est nulle.
+
+\begin{finchapitre}
+\section{Utilité et prolongements}
+Les coordonnées permettent de calculer ; les propriétés vectorielles
+expliquent pourquoi le calcul fonctionne. Une projection minimise une erreur au carré.
+
+En licence, matrices, valeurs propres et espaces euclidiens systématiseront ces
+idées. En master, les espaces de Hilbert demanderont en plus une propriété de
+complétude ; elle ne découle pas de la seule présence d'un produit scalaire.
+\begin{retenir}
+Une matrice représente une application linéaire dans des bases.
+L'orthogonalité du résidu caractérise une projection et prouve l'optimalité des moindres carrés.
+\end{retenir}
+\end{finchapitre}
+\end{document}

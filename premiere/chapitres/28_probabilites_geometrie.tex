@@ -1,0 +1,120 @@
+\documentclass[../cours_1re.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{27}
+\chapter{Complément : la géométrie des probabilités}
+\label{ch:28}
+\begin{objectif}
+Complément : reconnaître la géométrie cachée dans les probabilités finies.
+Prérequis : espérance, variance et projections du chapitre 27.
+\end{objectif}
+\section{Les variables aléatoires comme vecteurs}
+Sur un univers fini dont toutes les issues ont un poids strictement positif,
+les variables réelles forment un espace vectoriel. Posons
+$\langle X,Y\rangle=\mathbb E(XY)$.
+La bilinéarité et la symétrie sont immédiates ; $\mathbb E(X^2)>0$
+pour $X\ne0$ puisque l'une de ses valeurs non nulles a un poids positif.
+On a donc un produit scalaire.
+Si certaines issues ont un poids nul, on les supprime, ou l'on identifie
+les variables égales presque sûrement ; sinon la positivité stricte échouerait.
+
+La projection de $X$ sur les constantes vaut $\mathbb E(X)$, car
+$\langle X,1\rangle/\langle1,1\rangle=\mathbb E(X)$.
+La variance est la norme au carré du résidu $X-\mathbb E(X)$.
+Le théorème de meilleure constante du chapitre 22 est donc un théorème de projection.
+
+\section{Prévoir à partir d'une information}
+Une partition $A_1,\ldots,A_r$ de probabilités positives représente
+l'information disponible : on sait dans quel groupe se trouve l'issue,
+mais pas laquelle. Une prédiction utilisant seulement cette information
+est une variable $Z$ constante, de valeur $z_i$, sur chaque $A_i$.
+Définissons
+\[
+m_i=\frac{\mathbb E(X\mathbf1_{A_i})}{P(A_i)},\qquad
+Y=\sum_{i=1}^r m_i\mathbf1_{A_i}.
+\]
+On appelle $Y$ l'espérance conditionnelle de $X$ sachant cette partition.
+Elle est elle-même une variable aléatoire, alors que chaque $m_i$ est un nombre.
+
+\begin{theoreme}[prédiction quadratique optimale]
+Pour toute prédiction $Z$ constante sur les groupes,
+\[
+\mathbb E((X-Z)^2)=\mathbb E((X-Y)^2)+\mathbb E((Y-Z)^2).
+\]
+Le meilleur prédicteur au sens de l'erreur quadratique est donc $Y$,
+unique à égalité presque sûre près.
+\end{theoreme}
+\begin{demonstration}
+Par définition,
+$\mathbb E((X-Y)\mathbf1_{A_i})
+=\mathbb E(X\mathbf1_{A_i})-m_iP(A_i)=0$.
+Le résidu est donc orthogonal à toute variable constante sur les groupes,
+en particulier à $Y-Z$.
+Développer $X-Z=(X-Y)+(Y-Z)$ et prendre l'espérance du carré :
+le terme croisé s'annule. Le dernier carré est nul seulement si $Y=Z$
+sur toutes les issues de poids positif.
+\end{demonstration}
+
+\section{Espérance et variance totales}
+En sommant les égalités précédentes sur les groupes,
+$\mathbb E(Y)=\mathbb E(X)$ : c'est la formule de l'espérance totale.
+Définir la variance dans le groupe $i$ par
+$v_i=\mathbb E((X-m_i)^2\mathbf1_{A_i})/P(A_i)$.
+La décomposition orthogonale de $X-\mu=(X-Y)+(Y-\mu)$ donne
+\[
+\operatorname{Var}(X)=\sum_iP(A_i)v_i+\operatorname{Var}(Y).
+\]
+La dispersion totale se décompose en dispersion à l'intérieur des groupes
+et dispersion entre leurs moyennes.
+
+\begin{exemple}
+Quatre issues équiprobables donnent $X=0,2,4,6$.
+L'information distingue le groupe des deux premières et celui des deux dernières.
+On a $Y=1,1,5,5$, $\mu=3$, $\operatorname{Var}(X)=5$.
+Les variances internes valent chacune $1$, et $\operatorname{Var}(Y)=4$ :
+$5=1+4$. Prédire par la moyenne globale $3$ donne une erreur quadratique $5$ ;
+utiliser le groupe la réduit à $1$.
+\end{exemple}
+
+\section{Corrélation et dépendance}
+Cauchy--Schwarz appliquée aux variables centrées donne
+$|\operatorname{Cov}(X,Y)|\le\sigma(X)\sigma(Y)$.
+Si les deux écarts types sont non nuls, le coefficient de corrélation
+$\rho=\operatorname{Cov}(X,Y)/(\sigma(X)\sigma(Y))$ appartient à $[-1,1]$.
+Il atteint $1$ ou $-1$ exactement lorsque les variables centrées sont
+proportionnelles presque sûrement, par le cas d'égalité de Cauchy--Schwarz.
+Une corrélation nulle exclut une liaison linéaire mesurée par ce produit,
+mais n'exclut pas une dépendance non linéaire (exemple $Y=X^2$ du chapitre 22).
+Elle ne démontre pas non plus une relation causale.
+
+\section{Une première inégalité de Jensen}
+Supposons $f$ dérivable sur un intervalle contenant les valeurs de $X$
+et leur moyenne, avec $f'$ croissante. Le chapitre 11 montre que la courbe
+est au-dessus de sa tangente en $\mu$ :
+$f(x)\ge f(\mu)+f'(\mu)(x-\mu)$.
+Prendre l'espérance donne
+\[
+\mathbb E(f(X))\ge f(\mathbb E(X)).
+\]
+C'est une forme de l'inégalité de Jensen pour une fonction convexe dérivable.
+Avec $f(x)=x^2$, on retrouve $\mathbb E(X^2)\ge\mathbb E(X)^2$ ;
+avec $f(x)=e^x$, $\mathbb E(e^X)\ge e^{\mathbb E(X)}$.
+Pour prouver la convexité géométrique dans ce cadre, fixer $a<b$ et
+$c=(1-t)a+tb$. Les pentes moyennes de $[a,c]$ et $[c,b]$ sont ordonnées
+par les accroissements finis et la croissance de $f'$.
+Après multiplication par les longueurs, cela donne
+$f(c)\le(1-t)f(a)+tf(b)$, pour $0\le t\le1$.
+
+\begin{finchapitre}
+\section{Utilité et prolongements}
+Le produit scalaire unifie les calculs de variance, les ajustements et
+la prédiction avec information partielle.
+
+En master, l'espérance conditionnelle sera définie pour des informations plus
+générales que des partitions finies. Dans l'espace $L^2$, elle conservera
+le sens de projection ; mesure, intégration et complétude seront alors nécessaires.
+\begin{retenir}
+Une information détermine les prédicteurs autorisés. L'espérance conditionnelle
+est le meilleur d'entre eux pour l'erreur quadratique. Variance totale et Pythagore expriment la même structure.
+\end{retenir}
+\end{finchapitre}
+\end{document}

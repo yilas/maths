@@ -1,0 +1,18 @@
+\chapter{Complément : convergence des algorithmes}
+\section*{Exercice 29.1 -- Contraction affine}
+$f$ est contractante de rapport $q=0{,}6$. Le point fixe satisfait $\ell=0{,}6\ell+2$, donc $\ell=5$. La formule explicite est $u_n=5-5(0{,}6)^n$, et l'erreur vaut $5(0{,}6)^n$. La borne générale donne aussi $(0{,}6)^n|2-0|/(1-0{,}6)=5(0{,}6)^n$.
+
+\section*{Exercice 29.2 -- Arrêt justifié}
+La borne a posteriori donne $|u_n-\ell|\le[q/(1-q)]|u_n-u_{n-1}|=(1/3)(0{,}003)=0{,}001$. La conclusion utilise le rapport de contraction démontré ; la petite différence entre itérés ne suffirait pas sans lui.
+
+\section*{Exercice 29.3 -- Newton et carré de l'erreur}
+Mettre sur le même dénominateur donne $(u_n^2+A-2ru_n)/(2u_n)$. Comme $A=r^2$, le numérateur est $(u_n-r)^2$. Pour $u_n>0$, le résultat est positif ou nul et montre l'approximation par excès après un pas.
+
+\section*{Exercice 29.4 -- Stabilité d'Euler}
+Le facteur est $1-4h$. La convergence vers $0$ pour toute valeur initiale exige $|1-4h|<1$, soit $0<h<1/2$. La non-négativité d'une valeur initiale positive est conservée si $1-4h\ge0$, soit $0<h\le1/4$. Au bord $h=1/4$, la suite devient nulle dès le premier pas.
+
+\section*{Exercice 29.5 -- Descente de gradient}
+$Q'(x)=6(x-2)$, donc $x_{n+1}-2=(1-6\alpha)(x_n-2)$. Pour tout départ, la convergence vers le minimum $2$ est obtenue lorsque $|1-6\alpha|<1$, soit $0<\alpha<1/3$. Pour $\alpha=1/6$, la solution est atteinte en un seul pas.
+
+\section*{Exercice 29.6 -- Convergence et vitesse}
+Pour $2^{-n}\le10^{-3}$, $n=10$ suffit. Pour $1/n\le10^{-3}$, il faut $n\ge1000$. Pour $1/\sqrt n\le10^{-3}$, il faut $n\ge10^6$. Ce calcul compare des bornes et non directement les coûts des algorithmes, qui dépendent aussi du travail d'une étape.

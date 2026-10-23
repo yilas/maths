@@ -1,0 +1,132 @@
+\documentclass[../cours_1re.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{15}
+\chapter{Produit scalaire et orthogonalité}
+\label{ch:16}
+\begin{objectif}
+Définir le produit scalaire par projection ; démontrer ses expressions et ses règles.
+Prérequis : vecteurs et coordonnées de seconde, Pythagore, cercle trigonométrique.
+\end{objectif}
+\section{Une mesure signée de l'alignement}
+Soient $\vec u=\overrightarrow{OA}$ et $\vec v=\overrightarrow{OB}$.
+Si $\vec u\ne\vec0$, on projette orthogonalement $B$ sur la droite $(OA)$ en $H$.
+La longueur algébrique $\overline{OH}$ est positive dans le sens de $\vec u$.
+\begin{definition}
+$\vec u\cdot\vec v=\|\vec u\|\overline{OH}$.
+Si $\vec u=\vec0$, on pose $\vec u\cdot\vec v=0$.
+Comme $\overline{OH}=\|\vec v\|\cos\theta$ pour l'angle non orienté entre
+les deux vecteurs non nuls, $\vec u\cdot\vec v=\|\vec u\|\|\vec v\|\cos\theta$.
+\end{definition}
+Ce résultat ne dépend pas du point $O$ choisi, mais des vecteurs.
+Il est positif pour un angle aigu, négatif pour un angle obtus, nul pour
+un angle droit. On convient que le vecteur nul est orthogonal à tout vecteur.
+
+\begin{center}
+\begin{tikzpicture}[scale=.85,>=Latex]
+\coordinate(O)at(0,0);\coordinate(A)at(5,0);\coordinate(B)at(3,2.2);\coordinate(H)at(3,0);
+\draw[->,thick,accent](O)--(A)node[right]{$A$};
+\draw[->,thick](O)--(B)node[above]{$B$};
+\draw[dashed](B)--(H)node[below]{$H$};
+\draw(3,.25)--(3.25,.25)--(3.25,0);
+\node[below left]at(O){$O$};
+\draw[->](.8,0)arc(0:36.25:.8);
+\node at(1.15,.36){$\theta$};
+\end{tikzpicture}
+\end{center}
+
+\section{La formule en coordonnées, sans circularité}
+\begin{propriete}
+Dans un repère orthonormé, si $\vec u=(x,y)$ et $\vec v=(x',y')$,
+\[
+\vec u\cdot\vec v=xx'+yy',\qquad
+\|\vec u\|=\sqrt{x^2+y^2}.
+\]
+\end{propriete}
+\begin{demonstration}
+Notons $a=OA$, $p=\overline{OH}$ et $h=BH$. Pythagore donne
+$OB^2=p^2+h^2$ et $AB^2=(a-p)^2+h^2$, même si $H$ est à
+l'extérieur du segment $[OA]$. Par soustraction,
+$AB^2=OA^2+OB^2-2ap$. Par la définition du produit scalaire,
+\[
+\vec u\cdot\vec v=\frac{\|\vec u\|^2+\|\vec v\|^2-\|\vec u-\vec v\|^2}{2}.
+\]
+Si $\vec u$ est nul, cette égalité reste vraie directement.
+Dans le repère initial, Pythagore donne les trois normes au carré ;
+leur développement donne $xx'+yy'$. Aucune bilinéarité n'a été supposée.
+\end{demonstration}
+La formule n'est pas valable sans modification dans un repère dont les axes
+ne sont pas perpendiculaires ou dont les vecteurs de base ne sont pas unitaires.
+Dans une base quelconque $(\vec e_1,\vec e_2)$, il faut développer
+$(x\vec e_1+y\vec e_2)\cdot(x'\vec e_1+y'\vec e_2)$ en tenant compte
+des produits $\vec e_i\cdot\vec e_j$.
+
+\section{Les règles de calcul deviennent des théorèmes}
+\begin{propriete}
+Le produit scalaire est symétrique et bilinéaire :
+\[
+\vec u\cdot\vec v=\vec v\cdot\vec u,\quad
+\vec u\cdot(\vec v+\vec w)=\vec u\cdot\vec v+\vec u\cdot\vec w,\quad
+\vec u\cdot(\lambda\vec v)=\lambda(\vec u\cdot\vec v).
+\]
+De plus $\vec u\cdot\vec u=\|\vec u\|^2$, et
+$\vec u\perp\vec v\iff\vec u\cdot\vec v=0$.
+\end{propriete}
+\begin{demonstration}
+La commutativité et la distributivité des réels appliquées à $xx'+yy'$
+donnent les trois premières règles. La formule de la norme donne la quatrième.
+Pour deux vecteurs non nuls, le produit s'annule exactement quand
+$\cos\theta=0$, donc quand $\theta=\pi/2$ ; le cas nul suit de la convention.
+\end{demonstration}
+Ainsi
+\[
+\|\vec u+\vec v\|^2=\|\vec u\|^2+2\vec u\cdot\vec v+\|\vec v\|^2,
+\qquad
+\|\vec u-\vec v\|^2=\|\vec u\|^2-2\vec u\cdot\vec v+\|\vec v\|^2.
+\]
+On les prouve en développant $(\vec u\pm\vec v)\cdot(\vec u\pm\vec v)$.
+Dans une base orthonormée $(\vec i,\vec j)$, si $\vec u=x\vec i+y\vec j$,
+alors $\vec u\cdot\vec i=x$ et $\vec u\cdot\vec j=y$.
+Les coordonnées sont donc elles-mêmes des projections.
+
+\begin{exemple}
+Pour $\vec u=(2,1)$ et $\vec v=(-1,3)$, le produit vaut $1$, les normes
+valent $\sqrt5$ et $\sqrt{10}$. L'angle est aigu et
+$\cos\theta=1/\sqrt{50}$. En revanche $(1,-2)$ est orthogonal à $\vec u$.
+\end{exemple}
+
+\section{Un premier résultat d'analyse : Cauchy--Schwarz}
+\approfondissement
+Pour tous vecteurs $\vec u,\vec v$,
+$|\vec u\cdot\vec v|\le\|\vec u\|\|\vec v\|$.
+Le cosinus donne déjà une preuve dans le plan. Voici une preuve qui
+fonctionnera dans des espaces beaucoup plus généraux.
+\begin{demonstration}
+Si $\vec v=\vec0$, l'égalité est immédiate. Sinon, pour tout réel $t$,
+\[
+0\le\|\vec u-t\vec v\|^2
+=\|\vec u\|^2-2t(\vec u\cdot\vec v)+t^2\|\vec v\|^2.
+\]
+En prenant $t=(\vec u\cdot\vec v)/\|\vec v\|^2$, on trouve
+$(\vec u\cdot\vec v)^2\le\|\vec u\|^2\|\vec v\|^2$.
+Il y a égalité exactement lorsque $\vec u=t\vec v$, donc lorsque
+les vecteurs sont colinéaires, y compris le cas nul.
+\end{demonstration}
+En développant $\|\vec u+\vec v\|^2$ puis en utilisant cette inégalité,
+on obtient $\|\vec u+\vec v\|\le\|\vec u\|+\|\vec v\|$ :
+c'est l'inégalité triangulaire.
+
+\begin{finchapitre}
+\section{Utilité et prolongements}
+Le produit scalaire remplace de nombreux calculs d'angles par des calculs
+algébriques. En mécanique, un travail s'écrit comme un produit scalaire
+force--déplacement lorsque la force est constante.
+
+Les chapitres 27 et 28 l'étendent aux listes de nombres et aux variables aléatoires.
+Les projections deviendront alors des approximations optimales, puis, en master,
+des outils d'analyse fonctionnelle et de statistique.
+\begin{retenir}
+Choisir entre projection, cosinus et coordonnées. Une base orthonormée
+est une hypothèse essentielle. Développer une norme au carré avec le terme croisé.
+\end{retenir}
+\end{finchapitre}
+\end{document}

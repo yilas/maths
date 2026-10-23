@@ -1,0 +1,100 @@
+\documentclass[../cours_1re.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{2}
+\chapter{Le second degré dans toutes ses formes}
+\label{ch:03}
+\begin{objectif}
+Passer entre les formes développée, canonique et factorisée ; démontrer la formule des racines ; résoudre équations, inéquations et problèmes. Prérequis : chapitre 2.
+\end{objectif}
+\section{Trois formes pour trois questions}
+Une fonction polynôme du second degré s'écrit $f(x)=ax^2+bx+c$ avec $a\ne0$. Sa forme développée donne immédiatement $f(0)=c$. Une forme factorisée $a(x-r_1)(x-r_2)$ montre les racines. Une forme canonique $a(x-\alpha)^2+\beta$ montre le sommet et l'extremum.
+\begin{demonstration}[Compléter le carré]
+En factorisant $a$ puis en utilisant une identité remarquable,
+\[
+ax^2+bx+c
+=a\left[\left(x+\frac b{2a}\right)^2-\frac{b^2}{4a^2}\right]+c
+=a(x-\alpha)^2+\beta,
+\]
+où $\alpha=-b/(2a)$ et $\beta=c-b^2/(4a)$.
+\end{demonstration}
+Le programme demande surtout de savoir compléter le carré dans les cas simples ; la démonstration générale explique la formule sans imposer de l'utiliser à chaque fois.
+\begin{exemple}
+$2x^2-12x+11=2[(x-3)^2-9]+11=2(x-3)^2-7$.
+Le minimum est $-7$, atteint seulement en $x=3$, car un carré est positif ou nul et s'annule exactement en zéro.
+\end{exemple}
+\section{Discriminant et résolution complète}
+\begin{theoreme}
+Soit $\Delta=b^2-4ac$. Les solutions réelles de $ax^2+bx+c=0$, pour $a\ne0$, sont :
+\begin{itemize}
+\item aucune si $\Delta<0$ ;
+\item $x=-b/(2a)$ si $\Delta=0$ ;
+\item deux solutions distinctes $r_1=(-b-\sqrt\Delta)/(2a)$ et $r_2=(-b+\sqrt\Delta)/(2a)$ si $\Delta>0$.
+\end{itemize}
+\end{theoreme}
+\begin{demonstration}
+La forme canonique donne l'équivalence
+\[
+ax^2+bx+c=0
+\quad\Longleftrightarrow\quad
+\left(x+\frac b{2a}\right)^2=\frac{\Delta}{4a^2}.
+\]
+Le dénominateur est strictement positif. Un carré ne peut pas être négatif. Si le membre droit est nul, le carré s'annule. S'il est positif, prendre les deux signes de sa racine carrée donne les deux solutions ; écrire $\sqrt{4a^2}=2|a|$ conduit au même ensemble que la formule annoncée, quitte à permuter les deux racines.
+\end{demonstration}
+\begin{attention}
+Les symboles $r_1,r_2$ de la formule ne sont pas automatiquement dans l'ordre croissant lorsque $a<0$. Trier les racines avant un tableau de signes. Si $a=0$, l'équation devient du premier degré, voire une identité ou une impossibilité.
+\end{attention}
+\section{Factorisation et signe}
+Pour $\Delta>0$, la forme canonique et $u^2-v^2=(u-v)(u+v)$ donnent
+$f(x)=a(x-r_1)(x-r_2)$.
+Pour $\Delta=0$, $f(x)=a(x-\alpha)^2$.
+Pour $\Delta<0$, le carré de la forme canonique augmenté de $-\Delta/(4a^2)>0$ est strictement positif : $f$ a partout le signe de $a$.
+\begin{propriete}
+Si les racines distinctes sont $r<s$, le trinôme a le signe de $a$ à l'extérieur de $[r;s]$, le signe opposé à l'intérieur, et vaut zéro aux bornes.
+\end{propriete}
+\begin{demonstration}
+Pour $x<r$, les deux facteurs $x-r,x-s$ sont négatifs, donc leur produit est positif. Pour $r<x<s$, un seul est négatif. Pour $x>s$, les deux sont positifs. Multiplier par $a$ donne les signes annoncés.
+\end{demonstration}
+\begin{exemple}
+$x^2-5x+6=(x-2)(x-3)$. Ainsi $x^2-5x+6\le0$ équivaut à $x\in[2;3]$.
+Pour $(x^2-5x+6)/(x-4)>0$, le domaine exclut $4$. Le tableau des trois facteurs donne $]2;3[\cup]4;+\infty[$.
+\end{exemple}
+\section{Somme et produit des racines}
+\begin{propriete}
+Si $r,s$ sont les racines, comptées avec répétition, alors
+$r+s=-b/a$ et $rs=c/a$.
+\end{propriete}
+\begin{demonstration}
+Développer $a(x-r)(x-s)=ax^2-a(r+s)x+ars$ puis identifier les coefficients.
+Réciproquement, si deux nombres ont somme $S$ et produit $P$, ils annulent $x^2-Sx+P$. Ils sont réels si et seulement si $S^2-4P\ge0$.
+\end{demonstration}
+\begin{exemple}
+Chercher deux nombres de somme $7$ et de produit $10$ revient à résoudre $x^2-7x+10=0$ : ce sont $2$ et $5$. Toute fonction du second degré s'annulant en deux réels distincts $r,s$ est de la forme $a(x-r)(x-s)$, $a\ne0$ ; les deux zéros ne déterminent donc pas à eux seuls une parabole.
+\end{exemple}
+\section{Parabole, translations et variations}
+Le graphe de $a(x-\alpha)^2+\beta$ s'obtient par translation du graphe de $ax^2$ du vecteur $(\alpha;\beta)$. En effet le point $(t;at^2)$ devient $(t+\alpha;at^2+\beta)$.
+Les points d'abscisses $\alpha-h$ et $\alpha+h$ ont même ordonnée : l'axe est $x=\alpha$.
+Si $a>0$, la fonction décroît jusqu'à $\alpha$, puis croît ; si $a<0$, les variations sont inversées. Cela découle des variations du carré, avant même de connaître la dérivée.
+\begin{center}
+\begin{tikzpicture}\begin{axis}[width=10cm,height=5cm,axis lines=middle,xmin=-1,xmax=5,ymin=-2,ymax=8,xlabel={$x$},ylabel={$y$},grid=major]
+\addplot[accent,thick,domain=-.5:4.5,samples=80]{(x-2)^2-1};
+\addplot[black,dashed] coordinates {(2,-2)(2,8)};
+\addplot[only marks]coordinates{(2,-1)(1,0)(3,0)};
+\end{axis}\end{tikzpicture}
+\end{center}
+\begin{finchapitre}
+\section{Un problème résolu et ses contraintes}
+Un rectangle a un périmètre de $20$ unités. Si un côté vaut $x$, l'autre vaut $10-x$ ; on impose $0<x<10$. Son aire vaut
+$A(x)=x(10-x)=25-(x-5)^2\le25$. L'égalité est atteinte en $x=5$ : le carré maximise l'aire.
+Le résultat exige le domaine physique ; on ne cherche pas une aire pour une longueur négative.
+\approfondissement L'erreur quadratique en statistique aura exactement cette forme après complétion du carré : une constante plus un carré. C'est la raison algébrique pour laquelle une moyenne minimise certaines erreurs.
+
+
+\section{Utilité et prolongements}
+Le second degré résout les intersections entre une droite et une parabole, les problèmes d'aire et les variations issues de dérivées simples. La complétion du carré évite souvent une formule mémorisée.
+
+Plus tard, une fonction de plusieurs variables peut être approchée par une forme quadratique. La matrice hessienne joue alors un rôle analogue au coefficient $a$ pour décider de la nature d'un point critique. Les chapitres 22 et 27 montreront déjà le lien entre carrés, variance et minimisation.
+\begin{retenir}
+Choisir la forme qui répond à la question. Le discriminant vient de la complétion du carré ; le tableau de signes vient du produit des facteurs, avec les domaines et les bornes correctement traités.
+\end{retenir}
+\end{finchapitre}
+\end{document}

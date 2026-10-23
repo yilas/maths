@@ -1,0 +1,18 @@
+\chapter{Relier les outils et construire le parcours vers le master}
+\section*{Exercice 30.1 -- Identifier une structure}
+Dans les deux cas, on projette sur un ensemble de prédicteurs autorisés. Le résidu est orthogonal à cet ensemble, et le développement d'un carré donne l'erreur minimale plus un carré supplémentaire. Les constantes forment une droite vectorielle dans l'espace des variables avec produit scalaire $\mathbb E(XY)$.
+
+\section*{Exercice 30.2 -- Deux directions propres}
+On décompose $(4,0)=2(1,1)+2(1,-1)$. Les deux vecteurs sont multipliés respectivement par $1$ et $1/2$. Donc $u_n=(2+2^{1-n},2-2^{1-n})$, de limite $(2,2)$. La somme des composantes est conservée ; leur différence décroît géométriquement.
+
+\section*{Exercice 30.3 -- Discret et continu}
+Il faut $e^a=1{,}1$, donc $a=\ln(1{,}1)$. Avec $y(0)=u_0$, on obtient $y(n)=u_0e^{n\ln(1{,}1)}=u_0(1{,}1)^n$. Prendre $a=0{,}1$ donnerait seulement une approximation.
+
+\section*{Exercice 30.4 -- Signal de quatre points}
+Les coefficients sont $(3+1-1+1)/4=1$, $(3-(-1))/2=2$, $(1-1)/2=0$, et $(3-1-1-1)/4=0$. Donc $x=v_0+2v_1$. On vérifie les quatre coordonnées : $(1,1,1,1)+(2,0,-2,0)=(3,1,-1,1)$.
+
+\section*{Exercice 30.5 -- Hypothèse manquante}
+Pour la première, il manque un domaine intervalle : $f(x)=-1/x$ a une dérivée positive sur $\R\setminus\{0\}$, mais $f(-1)=1>f(1)=-1$. Pour la seconde, $X$ uniforme sur $\{-1,0,1\}$ et $Y=X^2$ donnent une covariance nulle mais une dépendance, comme au chapitre 22.
+
+\section*{Exercice 30.6 -- Rédiger une preuve transférable}
+Par définition de $G$, $\sum_i(G-A_i)=0$. Écrire $M-A_i=(M-G)+(G-A_i)$ et développer donne $\sum_i\|M-A_i\|^2=n\|M-G\|^2+\sum_i\|G-A_i\|^2$. Le minimum unique est donc en $G$. Cette identité explique la moyenne comme centre d'un nuage de données et la mise à jour des centres dans un classement par distances quadratiques.

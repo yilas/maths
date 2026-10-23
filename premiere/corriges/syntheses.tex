@@ -1,0 +1,120 @@
+\chapter{Huit problèmes de synthèse}
+\section*{Problème S1 -- Une boîte et son coût}
+
+Le domaine est $0<x<6$ et $V(x)=x(12-2x)^2=4x(6-x)^2$.
+$V'(x)=12(x-2)(x-6)$, positive avant $2$ et négative après $2$ dans le domaine.
+Le maximum est $V(2)=128$ cm$^3$, avec base $8$ cm par $8$ cm et hauteur $2$ cm.
+La surface conservée est $144-4x^2$, donc $128$ cm$^2$ en $x=2$.
+Minimiser uniquement cette aire pousserait $x$ vers $6$, au détriment du volume ;
+le critère d'optimisation doit être annoncé.
+
+En développant $4(2+h)(4-h)^2$, on obtient
+$V(2+h)=128-24h^2+4h^3$. La perte est $24h^2-4h^3$,
+positive pour les petits $h$ considérés, et au plus
+$24(0{,}1)^2+4(0{,}1)^3=0{,}244$ cm$^3$.
+L'absence de terme linéaire correspond à $V'(2)=0$.
+
+\section*{Problème S2 -- Stock : temps discret et temps continu}
+
+L'équilibre vaut $150$ et $u_n=150-100(0{,}8)^n$.
+L'écart à l'équilibre est positif et décroît, donc $u_n$ croît vers $150$.
+La condition $u_n\ge140$ équivaut à $(0{,}8)^n\le0{,}1$.
+Or $(0{,}8)^{10}=0{,}1073741824>0{,}1$ et
+$(0{,}8)^{11}=0{,}08589934592<0{,}1$ ; le premier rang est $11$.
+
+Le modèle continu donne $y(t)=150-100e^{-0{,}2t}$.
+Il a le même équilibre, mais ses valeurs entières ne sont pas exactement
+celles de la suite car $e^{-0{,}2}\ne0{,}8$.
+Pour $z(t)=150-100e^{-kt}$, imposer $e^{-k}=0{,}8$ donne
+$k=-\ln(0{,}8)>0$. Le logarithme est utilisé ici comme complément.
+
+\section*{Problème S3 -- Projection et cercle}
+
+Le coefficient de projection vaut $(4+6-5)/5=1$,
+donc $H=(3,1)$ et $MH=\sqrt5<3$ : il y a deux intersections.
+Une direction de $d$ est $v=(-2,1)$, de norme $\sqrt5$.
+Tout point de $d$ s'écrit $P=H+tv$.
+Par orthogonalité, $MP^2=MH^2+HP^2=5+5t^2$.
+La condition $MP=3$ donne $t=\pm2/\sqrt5$.
+Les deux points sont donc
+$(3\mp4/\sqrt5,\,1\pm2/\sqrt5)$.
+
+Un centre doit être équidistant de ces deux points ; réciproquement toute
+équivalence de distances définit un cercle les contenant, puisque ces points
+sont distincts. Le lieu est leur médiatrice, passant par $H$ et normale à $d$ :
+$2x-y-5=0$. Cette dernière équation vient du vecteur normal $(-2,1)$
+de la médiatrice, ou de sa direction $(1,2)$.
+
+\section*{Problème S4 -- Contrôle et prédiction}
+
+$P(+)=\frac1{10}\frac45+\frac9{10}\frac15=\frac{13}{50}$.
+Ainsi $P_+(D)=(4/50)/(13/50)=4/13$ et
+$P_-(D)=(1/50)/(37/50)=1/37$.
+$X$ est Bernoulli de paramètre $1/10$, donc sa moyenne est $1/10$
+et sa variance $9/100$.
+
+Le prédicteur conditionnel $Y$ vaut $4/13$ sur $+$ et $1/37$ sur $-$.
+Son erreur est la moyenne des variances conditionnelles :
+\[
+\frac{13}{50}\frac4{13}\frac9{13}
++\frac{37}{50}\frac1{37}\frac{36}{37}
+=\frac{18}{325}+\frac{18}{925}=\frac{36}{481}.
+\]
+Cette erreur vaut environ $0{,}07484$.
+Elle est inférieure à $0{,}09$ ; l'information du test réduit l'erreur.
+La variance totale explique cette différence par la variance positive de $Y$.
+
+\section*{Problème S5 -- Un jeu, une loi et des moyennes}
+
+Pour $k=0,1,2,3,4$, les probabilités sont
+$81/256,108/256,54/256,12/256,1/256$.
+Leurs numérateurs totalisent $256$.
+$\mathbb E(X)=1$ et $\operatorname{Var}(X)=3/4$.
+Donc $\mathbb E(G)=5-m$ ; la mise équitable est $m=5$.
+La variance du gain est $25(3/4)=75/4$, et l'écart type $5\sqrt3/2$.
+
+Pour $100$ parties indépendantes, l'écart type de la moyenne est
+$\sqrt3/4$, et sa variance $3/16$.
+Tchebychev donne $P(|\overline G|\ge1)\le3/16$.
+La mise équitable signifie une moyenne théorique nulle, pas une certitude
+de retrouver sa mise sur une partie ou un nombre fini de parties.
+
+\section*{Problème S6 -- Approcher une racine et garantir l'erreur}
+
+$1<\sqrt3<2$ puisque $1<3<4$. La dichotomie conserve un intervalle
+où $x^2-3$ change de signe ; après $n$ divisions sa largeur est $2^{-n}$.
+Newton donne $u_1=(2+3/2)/2=7/4$ puis
+$u_2=(7/4+12/7)/2=97/56$.
+La formule d'erreur du cours donne $u_2\ge\sqrt3$.
+L'encadrement est donc
+$168/97=3/u_2\le\sqrt3\le97/56$,
+de largeur $(97^2-168\cdot56)/(56\cdot97)=1/5432$.
+Le milieu a une erreur au plus $1/10864$.
+Cet arrêt repose sur un intervalle prouvé. Une différence de termes petite
+ne contrôle la distance à la solution qu'avec une estimation supplémentaire.
+
+\section*{Problème S7 -- Une droite comme prédicteur}
+
+Le modèle vectoriel est $a(0,1,2)+b(1,1,1)$.
+Orthogonalité du résidu aux deux directions :
+$5a+3b=6$ et $3a+3b=5$, donc $a=1/2$, $b=7/6$.
+La somme des carrés résiduels vaut $1/6$.
+La meilleure constante est la moyenne $5/3$ ; son erreur totale vaut
+$(1-5/3)^2+2(2-5/3)^2=2/3$.
+Le modèle affine réduit donc l'erreur totale de $1/2$.
+L'orthogonalité au vecteur $(1,1,1)$ signifie que la somme des résidus est
+nulle : les deux moyennes sont égales. C'est une conséquence de la présence
+d'une constante dans la famille de modèles, pas un hasard numérique.
+
+\section*{Problème S8 -- Un algorithme de moyenne et sa limite}
+
+En ajoutant les récurrences, $s_{n+1}=s_n$, donc $s_n=x_0+y_0$.
+En les soustrayant, $d_{n+1}=d_n/2$, donc $d_n=2^{-n}(x_0-y_0)$.
+Ainsi $x_n=(s_0+2^{-n}d_0)/2$ et $y_n=(s_0-2^{-n}d_0)/2$.
+Les deux convergent vers $m=(x_0+y_0)/2$.
+Le vecteur $(m,m)$ est le projeté de $(x_0,y_0)$ sur la droite engendrée
+par $(1,1)$, puisque le résidu est proportionnel à $(1,-1)$.
+
+Avec $(10,2)$, $m=6$ et l'écart de chaque composante vaut $4/2^n$.
+Il faut $2^n\ge400$ ; $2^8=256$ et $2^9=512$ donnent le premier rang $9$.
+Ce problème relie suite géométrique, moyenne et projection.

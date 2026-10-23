@@ -1,0 +1,115 @@
+\documentclass[../cours_1re.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{17}
+\chapter{Droites, projections et cercles}
+\label{ch:18}
+\begin{objectif}
+Passer d'une figure à des équations ; construire un projeté orthogonal et reconnaître un cercle.
+Prérequis : équations de droites de seconde et produit scalaire.
+\end{objectif}
+\section{Équation cartésienne et vecteur normal}
+\begin{propriete}
+Si $(a,b)\ne(0,0)$, l'ensemble $d$ d'équation $ax+by+c=0$
+est une droite de vecteur normal $\vec n=(a,b)$ et de vecteur directeur
+$(-b,a)$.
+\end{propriete}
+\begin{demonstration}
+Il existe un point $A=(x_A,y_A)$ satisfaisant l'équation :
+si $a\ne0$, prendre $(-c/a,0)$ ; sinon prendre $(0,-c/b)$.
+Un point $M$ vérifie l'équation si et seulement si
+$a(x-x_A)+b(y-y_A)=0$, c'est-à-dire $\vec n\cdot\overrightarrow{AM}=0$.
+Les vecteurs perpendiculaires à $\vec n$ sont précisément les multiples de
+$(-b,a)$, ce qui se vérifie en résolvant cette équation linéaire.
+\end{demonstration}
+Une droite passant par $A$ et normale à $(a,b)$ a donc pour équation
+$a(x-x_A)+b(y-y_A)=0$. Multiplier tous les coefficients par un même
+nombre non nul ne change pas la droite.
+Deux droites sont perpendiculaires si et seulement si leurs vecteurs
+normaux sont orthogonaux.
+
+\section{Projection orthogonale et distance à une droite}
+\begin{theoreme}
+Pour $M=(x_0,y_0)$, le projeté orthogonal $H$ sur $d:ax+by+c=0$ est
+\[
+H=M-\frac{ax_0+by_0+c}{a^2+b^2}(a,b).
+\]
+La distance de $M$ à $d$ vaut
+$\displaystyle \frac{|ax_0+by_0+c|}{\sqrt{a^2+b^2}}$.
+\end{theoreme}
+\begin{demonstration}
+La droite passant par $M$ et normale à $d$ est paramétrée par $M-t(a,b)$.
+Substituer ses coordonnées dans l'équation de $d$ donne l'unique valeur
+$t=(ax_0+by_0+c)/(a^2+b^2)$. On a donc $H\in d$ et $MH\perp d$.
+La norme de $\overrightarrow{MH}=-t(a,b)$ donne la distance.
+Pour tout $P\in d$, Pythagore donne $MP^2=MH^2+HP^2\ge MH^2$ :
+le projeté est le point de $d$ le plus proche de $M$, et il est unique.
+\end{demonstration}
+\begin{exemple}
+Pour $d:3x+4y-5=0$ et $M=(3,4)$, le numérateur vaut $20$.
+$H=(3,4)-\frac45(3,4)=(3/5,4/5)$ ; on vérifie l'équation de $d$.
+La distance vaut $20/5=4$.
+\end{exemple}
+
+\section{Reconnaître un cercle}
+Le cercle de centre $\Omega=(a,b)$ et de rayon $r>0$ a pour équation
+\[
+(x-a)^2+(y-b)^2=r^2.
+\]
+C'est exactement la condition $\Omega M=r$, par la formule de la distance.
+Réciproquement, compléter les carrés dans
+$x^2+y^2+ux+vy+w=0$ donne
+\[
+(x+u/2)^2+(y+v/2)^2=(u^2+v^2)/4-w.
+\]
+Le membre de droite positif définit un cercle ; nul, il définit un point ;
+négatif, il n'y a aucun point réel.
+\begin{exemple}
+$x^2+y^2-4x+6y+9=0$ devient $(x-2)^2+(y+3)^2=4$ :
+centre $(2,-3)$, rayon $2$.
+\end{exemple}
+La tangente en $T$ au cercle est perpendiculaire à $\Omega T$.
+Elle a pour équation
+$(x_T-a)(x-x_T)+(y_T-b)(y-y_T)=0$.
+Pourquoi une seule intersection ? Pour un autre point $P$ de cette droite,
+$\Omega P^2=\Omega T^2+TP^2>r^2$. Elle touche donc seulement le point $T$.
+
+\section{Intersections et choix du calcul}
+Pour intersecter un cercle avec une droite non verticale, remplacer $y$
+par $mx+p$ dans son équation : on obtient un second degré en $x$.
+Pour une droite verticale $x=k$, remplacer directement $x$ par $k$.
+Le discriminant correspond à deux points, une tangence ou aucun point.
+On peut aussi comparer la distance du centre à la droite avec le rayon.
+\begin{exemple}
+$x^2+y^2=25$ et $y=3$ donnent $x^2=16$, donc $(-4,3)$ et $(4,3)$.
+Avec $y=5$, il reste seulement $(0,5)$ ; avec $y=6$, aucun point.
+\end{exemple}
+
+\section{Une parabole comme lieu géométrique}
+\approfondissement
+Fixons $p>0$, un foyer $F=(0,p)$ et une directrice $d:y=-p$.
+Les points équidistants de $F$ et de $d$ vérifient
+\[
+\sqrt{x^2+(y-p)^2}=|y+p|
+\iff x^2+(y-p)^2=(y+p)^2
+\iff y=\frac{x^2}{4p}.
+\]
+L'élévation au carré est réversible parce que les deux membres sont positifs
+ou nuls. On retrouve une parabole de sommet l'origine et d'axe vertical.
+La droite horizontale $y=k$ coupe cette parabole en deux points si $k>0$,
+un si $k=0$, aucun si $k<0$ ; une verticale la coupe toujours une fois.
+
+\begin{finchapitre}
+\section{Utilité et prolongements}
+Les équations permettent de vérifier une construction et de calculer
+des distances minimales. La normalité intervient aussi dans les tangentes
+à des courbes et dans les contraintes d'optimisation.
+
+En licence, le gradient généralisera le vecteur normal à des courbes et surfaces.
+Les projections sur des sous-espaces, étudiées au chapitre 27, reprendront
+exactement la preuve par Pythagore de la meilleure approximation.
+\begin{retenir}
+Une normale décrit une droite. Le projeté vérifie deux conditions :
+appartenir à la droite et donner une direction perpendiculaire. Compléter les carrés classe les lieux.
+\end{retenir}
+\end{finchapitre}
+\end{document}

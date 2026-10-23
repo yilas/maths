@@ -1,0 +1,18 @@
+\chapter{La fonction exponentielle}
+\section*{Exercice 12.1 -- Lois de calcul}
+La loi d'addition donne $e^{x+3}$ et $e^{3x-1}$ ; le quotient est toujours défini car l'exponentielle est positive. Son injectivité donne $2x-1=5$, donc $x=3$. On n'identifie les exposants que parce que la fonction est strictement croissante.
+
+\section*{Exercice 12.2 -- Dériver et varier}
+La règle du produit donne $f'(x)=e^{-x}-(x+1)e^{-x}=-xe^{-x}$. Comme le facteur exponentiel est positif, $f'$ est positif pour $x<0$, négatif pour $x>0$. La fonction croît puis décroît et possède un maximum global $f(0)=1$.
+
+\section*{Exercice 12.3 -- Tangente de l'exponentielle}
+La tangente est $y=1+x$. Poser $g(x)=e^x-1-x$ ; sa dérivée $e^x-1$ est négative avant $0$ et positive après $0$. Son minimum est $g(0)=0$. Donc $e^x\ge1+x$, avec égalité seulement en $0$.
+
+\section*{Exercice 12.4 -- Positivité sans présupposé}
+La dérivée du produit vaut $E(x)E(-x)-E(x)E(-x)=0$, donc le produit est constant et vaut $1$ en $0$. Ainsi $E$ ne s'annule jamais. Comme $E$ est continue et vaut $1$ en $0$, elle ne peut changer de signe sans s'annuler, par les valeurs intermédiaires ; elle est donc positive.
+
+\section*{Exercice 12.5 -- Unicité}
+Le quotient $g(x)=f(x)e^{-x}$ est défini sur $\R$ et a pour dérivée $(f'(x)-f(x))e^{-x}=0$. Il est donc constant ; $g(0)=1$ donne $f(x)=e^x$. Cette preuve distingue l'unicité de l'existence.
+
+\section*{Exercice 12.6 -- Suite et exponentielle}
+$u_n=e^2(e^{-0{,}3})^n$. La raison $q=e^{-0{,}3}$ appartient à $]0,1[$, donc la suite est positive, strictement décroissante et tend vers $0$. Le facteur multiplicatif par pas est $e^{-0{,}3}$, pas $1-0{,}3$.

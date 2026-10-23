@@ -1,0 +1,18 @@
+\chapter{Variations et limites de suites}
+\section*{Exercice 7.1 -- Différence de termes}
+$u_{n+1}-u_n=(n+1)/(n+2)-n/(n+1)=1/[(n+1)(n+2)]>0$. La suite croît. Comme $u_n=1-1/(n+1)$, elle tend vers $1$ ; ce calcul identifie la limite, que la seule croissance ne donnerait pas.
+
+\section*{Exercice 7.2 -- Contrôler une erreur}
+Il faut $2^n>300$. Or $2^8=256$ et $2^9=512$, donc le premier rang est $9$. La stricte inégalité est respectée, et la décroissance de $3/2^n$ garantit le résultat pour tous les rangs suivants.
+
+\section*{Exercice 7.3 -- Pas de limite}
+La sous-suite d'indices pairs est constante égale à $1$, celle d'indices impairs constante égale à $-1$. Si la suite convergeait, toutes ses sous-suites auraient la même limite. L'unicité de la limite rend cela impossible.
+
+\section*{Exercice 7.4 -- Racine emboîtée}
+Le chapitre 4 donne $1\le u_n\le2$. Pour $u\in[1,2]$, $2+u-u^2=(2-u)(u+1)\ge0$, donc $\sqrt{2+u}\ge u$. La suite est croissante majorée, donc converge vers $\ell\in[1,2]$. La continuité donne $\ell^2=2+\ell$, soit $(\ell-2)(\ell+1)=0$ ; seule $\ell=2$ appartient à l'intervalle.
+
+\section*{Exercice 7.5 -- Gendarmes}
+Le cercle donne $|\sin n|\le1$, donc $|u_n|\le1/(n+1)\to0$. L'encadrement prouve la convergence, quelle que soit l'oscillation du numérateur.
+
+\section*{Exercice 7.6 -- Définition formelle}
+L'écart vaut $1/(n+1)$. Choisir $N=\lceil1/\varepsilon\rceil$ convient : pour $n\ge N$, $n+1>1/\varepsilon$, donc l'écart est strictement inférieur à $\varepsilon$. Le rang dépend de la tolérance, ce que permet la définition de limite.

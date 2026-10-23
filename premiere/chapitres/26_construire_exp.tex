@@ -1,0 +1,126 @@
+\documentclass[../cours_1re.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{25}
+\chapter{Complément : construire exponentielle et logarithme}
+\label{ch:26}
+\begin{objectif}
+Complément : démontrer l'existence de l'exponentielle, puis construire son inverse logarithme.
+Prérequis : chapitre 25, sommes, factorielles. Ce chapitre ferme l'admission explicite du chapitre 12.
+\end{objectif}
+\section{Approcher par des polynômes}
+Posons $P_N(x)=\sum_{k=0}^N x^k/k!$.
+Leurs dérivées satisfont $P_N'=P_{N-1}$ pour $N\ge1$ et $P_N(0)=1$.
+Fixons $M>0$. Dès que $k+1\ge2M$,
+\[
+\frac{M^{k+1}/(k+1)!}{M^k/k!}=\frac M{k+1}\le\frac12.
+\]
+Les termes suivants sont donc dominés par une suite géométrique.
+Pour $N+2\ge2M$ et $|x|\le M$, la somme des termes d'indice au moins $N+1$
+est majorée en valeur absolue par
+$2M^{N+1}/(N+1)!$, qui tend vers $0$.
+Cela rend $(P_N(x))$ de Cauchy pour chaque $x$ et donne une limite
+\[
+E(x)=\sum_{k=0}^{\infty}\frac{x^k}{k!},
+\qquad
+\sup_{|x|\le M}|E(x)-P_N(x)|\le\frac{2M^{N+1}}{(N+1)!}.
+\]
+La convergence est \emph{uniforme} sur chaque segment $[-M,M]$ :
+un même rang contrôle toutes ses abscisses.
+
+\section{Pourquoi on peut passer à la limite}
+Une limite uniforme de fonctions continues est continue.
+En effet, pour un point $a$ et une tolérance $\varepsilon>0$, choisir $N$
+tel que $|E-P_N|<\varepsilon/3$ sur un voisinage fermé de $a$.
+La continuité de $P_N$ donne $|P_N(x)-P_N(a)|<\varepsilon/3$ pour $x$
+assez proche. Ajouter les trois différences donne $|E(x)-E(a)|<\varepsilon$.
+
+L'intégration des polynômes donne
+$P_N(x)=1+\int_0^xP_{N-1}(t)\,dt$.
+La borne
+\[
+\left|\int_0^x(P_{N-1}(t)-E(t))\,dt\right|
+\le |x|\sup_{|t|\le |x|}|P_{N-1}(t)-E(t)|
+\]
+permet de passer à la limite. Donc $E(x)=1+\int_0^xE(t)\,dt$.
+Comme $E$ est continue, le théorème fondamental du chapitre 25 donne
+$E'=E$ et $E(0)=1$.
+L'existence de l'exponentielle est maintenant démontrée. L'unicité,
+la positivité et la loi d'addition ont été prouvées au chapitre 12 à partir
+de cette seule équation différentielle.
+
+\begin{attention}
+On n'a pas simplement « dérivé une somme infinie ».
+La convergence uniforme et l'intégration ont justifié le passage à la limite.
+Une convergence seulement point par point ne suffit pas à préserver toutes
+les propriétés : $x^n$ sur $[0,1]$ converge vers une fonction discontinue.
+\end{attention}
+
+\section{Calculer le nombre \texorpdfstring{$e$}{e}}
+$e=E(1)=\sum_{k=0}^\infty1/k!$.
+Pour $N\ge1$,
+$0<e-\sum_{k=0}^N1/k!\le2/(N+1)!$.
+Par exemple, $N=9$ donne une erreur inférieure à
+$2/10!\simeq5{,}52\times10^{-7}$.
+La formule résulte de la même domination géométrique, et fournit
+une précision garantie en arithmétique exacte.
+
+\section{Définir le logarithme par une bijection}
+L'exponentielle est continue, strictement croissante, de limite $0$
+en $-\infty$ et $+\infty$ en $+\infty$ (chapitre 12).
+Le théorème des valeurs intermédiaires assure que chaque $y>0$
+a un unique antécédent. On le note $\ln y$ :
+\[
+\exp(\ln y)=y\quad(y>0),\qquad \ln(\exp x)=x\quad(x\in\R).
+\]
+L'inverse est strictement croissante. Elle est continue :
+si $y_0=e^{x_0}$ et $\varepsilon>0$, les nombres
+$e^{x_0-\varepsilon}<y_0<e^{x_0+\varepsilon}$ encadrent un voisinage
+de $y_0$ ; leurs images par $\ln$ encadrent $\ln y$ entre
+$x_0-\varepsilon$ et $x_0+\varepsilon$.
+
+\begin{demonstration}[dérivée du logarithme]
+Pour $y+h>0$, posons $x=\ln y$ et $k=\ln(y+h)-\ln y$.
+Si $h\ne0$, alors $k\ne0$ ; par continuité $k\to0$.
+Comme $h=e^{x+k}-e^x$,
+\[
+\frac{\ln(y+h)-\ln y}{h}
+=\frac1{(e^{x+k}-e^x)/k}\longrightarrow\frac1{e^x}=\frac1y.
+\]
+\end{demonstration}
+L'injectivité de l'exponentielle et sa loi d'addition donnent
+$\ln(ab)=\ln a+\ln b$, $\ln(1/a)=-\ln a$ pour $a,b>0$.
+On a $\ln1=0$, $\ln e=1$ et $\ln(a^r)=r\ln a$ en définissant
+$a^r=\exp(r\ln a)$ pour un réel $r$.
+Ce prolongement est cohérent avec les puissances entières et rationnelles.
+
+\section{Deux encadrements utiles}
+Pour $t>-1$, $\ln(1+t)\le t$ : la fonction
+$t-\ln(1+t)$ a pour dérivée $t/(1+t)$ et un minimum nul en $0$.
+Pour $t\ge0$, on a aussi $\ln(1+t)\ge t/(1+t)$ :
+la différence a pour dérivée $t/(1+t)^2\ge0$ et vaut $0$ en $0$.
+Avec $t=1/n$ :
+\[
+\frac{n}{n+1}\le n\ln(1+1/n)\le1.
+\]
+Les gendarmes puis la continuité de l'exponentielle prouvent
+$(1+1/n)^n\to e$. Ce n'est donc pas une définition concurrente non justifiée.
+
+Enfin $\int_1^xdt/t=\ln x$, car les deux fonctions ont la même dérivée
+et s'annulent en $1$. Le logarithme mesure ainsi une aire et transforme
+les produits en sommes : deux descriptions du même objet.
+
+\begin{finchapitre}
+\section{Utilité et prolongements}
+Les séries donnent des valeurs approchées avec contrôle d'erreur ;
+les fonctions inverses résolvent des équations, par exemple
+$e^{-kt}=1/2\iff t=\ln2/k$ pour $k>0$.
+
+La convergence uniforme sera centrale pour les séries de fonctions en licence.
+Les équations intégrales et les opérateurs de limite deviendront des outils
+de construction de solutions en analyse au niveau master.
+\begin{retenir}
+La série de l'exponentielle converge avec un contrôle uniforme sur chaque segment.
+L'intégration justifie sa dérivabilité. Le logarithme est l'inverse de l'exponentielle sur les réels positifs.
+\end{retenir}
+\end{finchapitre}
+\end{document}

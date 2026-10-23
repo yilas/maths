@@ -1,0 +1,88 @@
+\documentclass[../cours_1re.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{1}
+\chapter{Calcul algébrique et polynômes}
+\label{ch:02}
+\begin{objectif}
+Développer et factoriser avec un objectif ; comprendre les polynômes et justifier les factorisations. Prérequis : distributivité, identités remarquables et puissances entières.
+\end{objectif}
+\section{Expressions égales et domaines}
+Deux expressions peuvent prendre les mêmes valeurs sur leur domaine commun sans définir la même fonction.
+Ainsi $(x^2-1)/(x-1)=x+1$ pour $x\ne1$ ; la simplification ne rend pas l'expression initiale définie en $1$.
+\begin{methode}
+Avant de transformer une expression, noter les valeurs interdites. Développer pour identifier des coefficients ; factoriser pour chercher des zéros ou un signe ; compléter un carré pour chercher un extremum.
+\end{methode}
+\begin{demonstration}[Les trois identités de base]
+La distributivité donne
+$(a+b)^2=a^2+ab+ba+b^2=a^2+2ab+b^2$.
+Remplacer $b$ par $-b$ donne $(a-b)^2=a^2-2ab+b^2$.
+Enfin $(a-b)(a+b)=a^2+ab-ba-b^2=a^2-b^2$.
+\end{demonstration}
+La même règle donne $(a+b)^3=a^3+3a^2b+3ab^2+b^3$ en multipliant $(a+b)^2$ par $(a+b)$. Le coefficient $3$ compte les trois façons de choisir le facteur fournissant $b$.
+\section{Le langage des polynômes}
+\begin{definition}
+Un polynôme réel est une expression $P(X)=a_0+a_1X+\cdots+a_dX^d$ à coefficients réels. Si $a_d\ne0$, son degré est $d$. Le polynôme nul est traité séparément ; on ne lui attribue pas ici de degré.
+Une racine réelle est un réel $r$ tel que $P(r)=0$.
+\end{definition}
+On peut distinguer l'expression formelle $P$ de la fonction $x\mapsto P(x)$. Les majuscules facilitent cette distinction, sans être obligatoires.
+La somme s'effectue coefficient par coefficient ; le produit utilise la distributivité. Si $P,Q$ sont non nuls, leur produit a pour coefficient dominant le produit de leurs coefficients dominants, qui est non nul. Ainsi
+$\deg(PQ)=\deg P+\deg Q$.
+\begin{exemple}
+$(2X-1)(X^2+3)=2X^3-X^2+6X-3$. Le degré est $1+2=3$. Le terme $6X$ n'est pas $6X^2$ : chaque produit conserve les puissances réellement présentes.
+\end{exemple}
+\section{Une différence de puissances}
+\begin{theoreme}
+Pour $n\ge1$,
+\[
+X^n-a^n=(X-a)\bigl(X^{n-1}+aX^{n-2}+\cdots+a^{n-1}\bigr).
+\]
+\end{theoreme}
+\begin{demonstration}
+Multiplier la parenthèse par $X$, puis par $-a$. Tous les termes intermédiaires s'annulent deux à deux ; seuls $X^n$ et $-a^n$ restent. L'argument est valable aussi pour $a=0$.
+\end{demonstration}
+Pour $a=1$, on retrouve une somme géométrique. Pour $n=3$, $X^3-a^3=(X-a)(X^2+aX+a^2)$.
+Cette factorisation reste valable en $X=a$ ; seule la formule obtenue en divisant par $X-a$ exige $X\ne a$.
+\section{Pourquoi une racine permet de factoriser}
+\begin{theoreme}
+$P(r)=0$ si et seulement s'il existe un polynôme $Q$ tel que $P(X)=(X-r)Q(X)$.
+\end{theoreme}
+\begin{demonstration}
+Écrire $P(X)-P(r)=\sum_{k=1}^d a_k(X^k-r^k)$. Chaque différence est divisible par $X-r$ grâce à l'identité précédente. Si $P(r)=0$, cela donne la factorisation. Réciproquement, substituer $X=r$ dans $(X-r)Q(X)$ donne zéro.
+\end{demonstration}
+\begin{exemple}[Un troisième degré]
+$P(X)=X^3-2X^2-X+2$ possède la racine $1$. Regrouper donne
+$X^2(X-2)-(X-2)=(X-2)(X^2-1)=(X-2)(X-1)(X+1)$.
+Les solutions de $P(x)=0$ sont donc $-1,1,2$.
+\end{exemple}
+\approfondissement Plus généralement, on peut retrancher successivement les termes dominants pour diviser $P$ par $X-r$. Le degré du reste diminue à chaque étape, ce qui assure la terminaison. Le reste final constant vaut $P(r)$.
+\section{Combien de racines ?}
+\begin{theoreme}[Complément]
+Un polynôme non nul de degré $d$ possède au plus $d$ racines réelles distinctes.
+\end{theoreme}
+\begin{demonstration}
+Pour $d=0$, une constante non nulle ne s'annule pas. Supposons le résultat connu au degré $d-1$. S'il n'y a aucune racine, la conclusion est immédiate. Sinon, factoriser $P=(X-r)Q$, avec $\deg Q=d-1$. Toute racine de $P$ différente de $r$ annule $Q$ ; il y en a au plus $d-1$. Avec $r$, cela fait au plus $d$.
+\end{demonstration}
+Conséquence : deux polynômes de degré au plus $d$ prenant les mêmes valeurs en $d+1$ points distincts sont égaux. Leur différence possède trop de racines pour être non nulle. On peut alors identifier les coefficients.
+\begin{attention}
+Trois tests ne prouvent pas une identité entre fonctions quelconques. L'argument précédent exige une borne connue sur le degré et des points distincts.
+\end{attention}
+\begin{finchapitre}
+\section{Une identité utile à l'analyse}
+\begin{demonstration}
+Pour $x\ne a$ et $n\ge1$,
+\[
+\frac{x^n-a^n}{x-a}=x^{n-1}+ax^{n-2}+\cdots+a^{n-1}.
+\]
+Quand $x$ se rapproche de $a$, chacun des $n$ termes se rapproche de $a^{n-1}$. Cette identité expliquera pourquoi la dérivée de $x^n$ vaut $nx^{n-1}$ : la règle de dérivation vient d'une annulation algébrique.
+\end{demonstration}
+
+
+\section{Utilité et prolongements}
+La factorisation transforme une question globale sur un polynôme en questions sur ses facteurs : zéros, signe, singularités d'un quotient. Elle servira immédiatement au second degré et au calcul des taux de variation.
+
+En licence, les polynômes constituent un espace vectoriel et un anneau ; en algèbre linéaire, un polynôme caractéristique sert à chercher les valeurs propres d'une matrice. En master, l'approximation polynomiale intervient dans les éléments finis et les méthodes spectrales. Le lien concret est déjà présent : remplacer une fonction compliquée par un polynôme dont on contrôle l'erreur.
+\begin{retenir}
+Factoriser s'appuie sur des identités valables pour toutes les valeurs autorisées. Une racine donne un facteur ; le degré contrôle le nombre de racines distinctes.
+\end{retenir}
+\end{finchapitre}
+\end{document}

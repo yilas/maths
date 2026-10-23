@@ -1,0 +1,18 @@
+\chapter{Complément : fonder les outils d'analyse}
+\section*{Exercice 25.1 -- Une limite quantifiée}
+Imposer $|x-2|<1$ assure $|x+2|<5$. Alors $|x^2-4|=|x-2||x+2|<5|x-2|$. Pour une tolérance $\varepsilon>0$, choisir $\delta=\min(1,\varepsilon/5)$ convient.
+
+\section*{Exercice 25.2 -- Hypothèses des bornes atteintes}
+$f(x)=x$ convient. Son infimum est $0$, son supremum $1$, mais aucun n'est une valeur prise sur le domaine. Le domaine borné n'est pas fermé ; la fermeture du segment est une hypothèse importante du théorème.
+
+\section*{Exercice 25.3 -- Valeurs intermédiaires}
+Le polynôme est continu, vaut $-1$ en $0$ et $1$ en $1$. Les valeurs intermédiaires donnent au moins une racine. Sa dérivée $3x^2+1>0$ le rend strictement croissant, donc il ne peut en avoir deux. Existence et unicité utilisent deux arguments distincts.
+
+\section*{Exercice 25.4 -- Dichotomie}
+Après $n$ divisions, la longueur est $2^{-n}$ et l'erreur du milieu au plus $2^{-n-1}$. Comme $2^{-10}=1/1024<10^{-3}$ et $2^{-9}>10^{-3}$, $n=9$ divisions suffisent, en conservant à chaque étape un intervalle contenant une racine.
+
+\section*{Exercice 25.5 -- Intégrale par sommes}
+La somme à gauche vaut $n^{-2}\sum_{k=0}^{n-1}k=(n-1)/(2n)$ ; celle à droite vaut $n^{-2}\sum_{k=1}^nk=(n+1)/(2n)$. Elles tendent toutes deux vers $1/2$ et encadrent l'intégrale, donc celle-ci vaut $1/2$.
+
+\section*{Exercice 25.6 -- Cauchy}
+Pour $m>n$, l'inégalité triangulaire donne $|u_m-u_n|\le\sum_{k=n}^{m-1}3^{-k}\le(3/2)3^{-n}$. Cette borne tend vers $0$ indépendamment de $m$. La suite est donc de Cauchy et converge par complétude de $\R$. La convergence des différences vers $0$ seule ne suffirait pas.

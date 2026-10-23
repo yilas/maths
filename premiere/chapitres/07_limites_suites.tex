@@ -1,0 +1,87 @@
+\documentclass[../cours_1re.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{6}
+\chapter{Variations et limites de suites}
+\label{ch:07}
+\begin{objectif}
+Étudier les variations d'une suite et distinguer convergence, divergence et oscillation. Le programme exige une approche intuitive des limites ; les définitions formelles ci-dessous sont un approfondissement.
+\end{objectif}
+\section{Comparer deux termes consécutifs}
+Une suite est croissante si $u_{n+1}\ge u_n$ pour tout rang, décroissante si l'inégalité est inversée. Elle est majorée s'il existe un même réel $M$ tel que $u_n\le M$ pour tous les rangs ; minorée de même ; bornée si les deux propriétés sont réunies.
+\begin{methode}
+Étudier $u_{n+1}-u_n$. Pour des termes strictement positifs, comparer $u_{n+1}/u_n$ à $1$ est aussi possible. Une formule $u_n=f(n)$ permet d'utiliser les variations de $f$ sur un intervalle contenant les indices.
+\end{methode}
+\begin{exemple}
+Pour $u_n=n/(n+1)$,
+$u_{n+1}-u_n=1/((n+1)(n+2))>0$ et $0\le u_n<1$.
+Pour $v_n=(-1)^n$, les valeurs restent entre $-1$ et $1$, mais alternent : être bornée ne signifie pas converger.
+\end{exemple}
+\section{Ce que signifie se rapprocher}
+$1/n$ se rapproche de zéro : on peut rendre tous les termes à partir d'un certain rang aussi petits qu'on le souhaite.
+$n^2$ dépasse durablement n'importe quelle borne fixée.
+La suite $(-1)^n$ ne se rapproche d'aucun nombre ; elle ne tend pas non plus vers $+\infty$ ou $-\infty$.
+\begin{definition}[Complément : limite finie]
+La suite $(u_n)$ tend vers $\ell$ si, pour tout $\varepsilon>0$, il existe un rang $N$ tel que, pour tout $n\ge N$, $|u_n-\ell|<\varepsilon$.
+On écrit $u_n\to\ell$.
+\end{definition}
+Le rang $N$ peut dépendre de la précision $\varepsilon$, mais ne dépend pas de $n$ après son choix.
+\begin{demonstration}[Deux exemples]
+Pour $u_n=1/n$, choisir $N>1/\varepsilon$ suffit.
+Pour $u_n=n/(n+1)=1-1/(n+1)$, le même raisonnement prouve la limite $1$. L'identité donne l'erreur exacte, pas seulement une intuition graphique.
+\end{demonstration}
+\section{Unicité et suites extraites}
+\begin{theoreme}[Complément]
+Une suite convergente a une seule limite et elle est bornée. Toute suite extraite $(u_{n_k})$, avec $n_k$ strictement croissant, converge vers la même limite.
+\end{theoreme}
+\begin{demonstration}
+Si $\ell\ne m$ étaient deux limites, prendre $\varepsilon=|\ell-m|/3$. Pour un rang assez grand,
+$|\ell-m|\le|\ell-u_n|+|u_n-m|<2|\ell-m|/3$, contradiction.
+Pour la borne, tous les termes assez avancés sont à distance inférieure à $1$ de $\ell$ ; les premiers termes sont en nombre fini, donc bornés.
+Enfin $n_k\ge k+n_0$ finit par dépasser tout rang fixé : la condition de convergence s'applique aux termes extraits.
+\end{demonstration}
+Les sous-suites de rangs pairs et impairs de $(-1)^n$ ont les limites distinctes $1$ et $-1$ : la suite complète ne converge pas.
+\section{Une preuve du comportement géométrique}
+Pour $0<q<1$, écrire $1/q=1+t$ avec $t>0$. L'inégalité de Bernoulli donne
+\[
+0<q^n=\frac1{(1+t)^n}\le\frac1{1+nt}.
+\]
+Le membre de droite devient arbitrairement petit : $q^n\to0$.
+Pour $-1<q<0$, $|q^n|=|q|^n\to0$, donc la limite est encore zéro.
+Pour $q>1$, $q^n\ge1+n(q-1)$ dépasse toute borne ; pour $q\le-1$, les signes alternent avec amplitude constante ou croissante.
+\begin{attention}
+Une suite croissante peut converger : $n/(n+1)\to1$. Une suite non monotone peut converger : $(-1/2)^n\to0$. « Augmenter » et « tendre vers l'infini » ne sont pas synonymes.
+\end{attention}
+\section{Passer à une limite : justification}
+\approfondissement Si $u_n\to u$ et $v_n\to v$, alors $u_n+v_n\to u+v$ :
+$|(u_n+v_n)-(u+v)|\le|u_n-u|+|v_n-v|$, et chaque erreur peut être rendue inférieure à $\varepsilon/2$.
+Pour le produit,
+$u_nv_n-uv=u_n(v_n-v)+v(u_n-u)$ ; la suite $u_n$ est bornée et les deux erreurs tendent vers zéro.
+Pour le quotient, il faut $v\ne0$ : pour $n$ assez grand, $|v_n|\ge|v|/2$, puis
+$|1/v_n-1/v|=|v_n-v|/(|v_nv|)\to0$.
+\begin{demonstration}[Encadrement]
+Si $|u_n-\ell|\le a_n$ à partir d'un rang et $a_n\to0$ avec $a_n\ge0$, choisir un rang où $a_n<\varepsilon$ donne directement $u_n\to\ell$.
+\end{demonstration}
+\begin{finchapitre}
+\section{Monotonie et complétude}
+\begin{theoreme}[Complément]
+Toute suite croissante et majorée converge.
+\end{theoreme}
+\begin{demonstration}
+On utilise la propriété de borne supérieure des réels : l'ensemble non vide et majoré $\{u_n:n\in\N\}$ possède une borne supérieure $\ell$. Pour $\varepsilon>0$, $\ell-\varepsilon$ n'est pas un majorant ; il existe donc $N$ tel que $\ell-\varepsilon<u_N$. La croissance donne, pour $n\ge N$,
+$\ell-\varepsilon<u_N\le u_n\le\ell$. C'est la convergence.
+\end{demonstration}
+La propriété de borne supérieure est un fondement admis de $\R$, pas une conséquence de quelques essais numériques.
+Pour $u_{n+1}=\sqrt{2+u_n}$, $u_0=1$, la stabilité de $[1;2]$ et
+$\sqrt{2+x}\ge x$ sur cet intervalle donnent croissance et convergence. En passant à la limite, $\ell^2=2+\ell$ ; les solutions sont $-1$ et $2$, mais $\ell\in[1;2]$ impose $\ell=2$.
+Résoudre l'équation du point fixe seul n'aurait pas prouvé l'existence de la limite.
+
+
+\section{Utilité et prolongements}
+Les limites servent à certifier qu'un calcul itératif approche réellement une valeur. Le contrôle $|u_n-\ell|\le Cq^n$ fournit aussi un critère d'arrêt.
+
+En licence, la complétude distingue $\R$ de $\Q$ et fonde les théorèmes d'existence. En master, on étudie des suites de fonctions ou d'opérateurs : il faut préciser la notion de distance et le mode de convergence. Le schéma « majorer une erreur par une quantité qui tend vers zéro » restera central.
+\begin{retenir}
+Une équation de limite ne prouve pas la convergence. Séparer observation, existence de la limite, identification de sa valeur et estimation de l'erreur.
+\end{retenir}
+\end{finchapitre}
+\end{document}

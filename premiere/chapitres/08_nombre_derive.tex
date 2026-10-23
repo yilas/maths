@@ -1,0 +1,97 @@
+\documentclass[../cours_1re.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{7}
+\chapter{Nombre dérivé, tangente et approximation}
+\label{ch:08}
+\begin{objectif}
+Comprendre le nombre dérivé comme limite de taux de variation ; construire une tangente et contrôler une approximation affine. Prérequis : fonctions de référence et calcul de limites simples.
+\end{objectif}
+\section{Variation moyenne et unités}
+Pour $a\ne b$, le taux de variation de $f$ entre $a$ et $b$ est
+$[f(b)-f(a)]/(b-a)$.
+C'est la pente de la sécante joignant $(a;f(a))$ à $(b;f(b))$.
+Si $f(t)$ est une distance en mètres et $t$ un temps en secondes, le taux est une vitesse moyenne en mètres par seconde.
+\begin{exemple}
+Pour $f(t)=t^2$, entre $t=2$ et $t=2+h$ avec $h\ne0$,
+\[
+\frac{(2+h)^2-4}{h}=4+h.
+\]
+Le taux dépend de la durée ; il se rapproche de $4$ quand $h$ se rapproche de zéro.
+\end{exemple}
+\section{Définir le nombre dérivé}
+\begin{definition}
+La fonction $f$ est dérivable en un point intérieur $a$ de son domaine si le quotient
+$[f(a+h)-f(a)]/h$ possède une limite réelle finie lorsque $h\to0$, $h\ne0$.
+Cette limite est $f'(a)$.
+\end{definition}
+On considère des accroissements positifs et négatifs. La définition formelle des limites de fonctions est donnée au chapitre 25 ; les règles utilisées dans les calculs simples se justifient comme au chapitre 7.
+\begin{demonstration}[Fonction carré]
+$[(a+h)^2-a^2]/h=2a+h\to2a$. Donc $f'(a)=2a$. On simplifie pour $h\ne0$, puis on passe à la limite ; on ne remplace pas $h$ par zéro dans un quotient $0/0$.
+\end{demonstration}
+\begin{demonstration}[Fonction inverse]
+Pour $a\ne0$ et $h$ assez petit,
+\[
+\frac{1/(a+h)-1/a}{h}=-\frac1{a(a+h)}\longrightarrow-\frac1{a^2}.
+\]
+La condition $a\ne0$ est essentielle : la fonction n'existe pas en zéro.
+\end{demonstration}
+\section{Tangente et approximation linéaire}
+\begin{theoreme}
+Si $f$ est dérivable en $a$, la tangente est
+$y=f(a)+f'(a)(x-a)$.
+De plus $f(a+h)=f(a)+hf'(a)+h\varepsilon(h)$ avec $\varepsilon(h)\to0$.
+\end{theoreme}
+\begin{demonstration}
+La sécante de pente $T(h)$ passant par $(a;f(a))$ a l'équation $y=f(a)+T(h)(x-a)$. Sa pente tend vers $f'(a)$, ce qui donne la droite tangente.
+Poser $\varepsilon(h)=T(h)-f'(a)$ puis multiplier par $h$ donne l'identité avec reste.
+\end{demonstration}
+La différence entre la fonction et son approximation est petite \emph{par rapport à $h$}. Cette précision est plus forte que dire seulement que l'erreur tend vers zéro.
+\begin{center}
+\begin{tikzpicture}\begin{axis}[width=10cm,height=5cm,axis lines=middle,xmin=0,xmax=3,ymin=-1,ymax=8,xlabel={$x$},ylabel={$y$},legend pos=north west]
+\addplot[accent,thick,domain=0:2.8]{x^2};\addlegendentry{$x^2$}
+\addplot[black,dashed,domain=0:3]{2*x-1};\addlegendentry{tangente en $1$}
+\addplot[only marks]coordinates{(1,1)};
+\end{axis}\end{tikzpicture}
+\end{center}
+Ici $(1+h)^2=1+2h+h^2$ : l'erreur de l'approximation $1+2h$ vaut exactement $h^2$. Pour $h=0{,}01$, elle vaut $10^{-4}$.
+\section{Racine carrée et rationalisation}
+\begin{demonstration}
+Pour $a>0$,
+\[
+\frac{\sqrt{a+h}-\sqrt a}{h}
+=\frac1{\sqrt{a+h}+\sqrt a}\longrightarrow\frac1{2\sqrt a}.
+\]
+On a multiplié par le conjugué. La continuité de la racine en $a>0$ se contrôle par
+$|\sqrt{a+h}-\sqrt a|=|h|/(\sqrt{a+h}+\sqrt a)\le|h|/\sqrt a$.
+\end{demonstration}
+En zéro, le quotient à droite vaut $\sqrt h/h=1/\sqrt h$, qui dépasse toute borne quand $h\to0^+$. Il n'y a pas de nombre dérivé fini, même à droite. On peut parler d'une demi-tangente verticale, mais pas d'une dérivée réelle égale à l'infini.
+\begin{exemple}
+Au voisinage de $4$, $\sqrt{4+h}\simeq2+h/4$.
+L'erreur exacte est
+\[
+\sqrt{4+h}-2-\frac h4
+=-\frac{h^2}{4(\sqrt{4+h}+2)^2}.
+\]
+Cette identité découle deux fois de la rationalisation. Pour $h=0{,}04$, sa valeur absolue est au plus $h^2/64=0{,}000025$.
+\end{exemple}
+\section{Valeur absolue : deux côtés incompatibles}
+Pour $f(x)=|x|$, le taux en zéro est $|h|/h$, égal à $1$ pour $h>0$ et à $-1$ pour $h<0$. Les limites latérales diffèrent : $f$ n'est pas dérivable en zéro.
+Une fonction continue peut donc ne pas être dérivable.
+\begin{demonstration}[Dérivable implique continue]
+L'identité avec reste donne
+$f(a+h)-f(a)=h(f'(a)+\varepsilon(h))\to0$. La continuité est nécessaire à la dérivabilité, mais la valeur absolue prouve qu'elle n'est pas suffisante.
+\end{demonstration}
+\section{Lire et interpréter}
+Une tangente passant par deux points lisibles $(1;3)$ et $(4;9)$ a pour pente $2$ : c'est le nombre dérivé au point de contact, qui n'est pas forcément l'un de ces deux points.
+Pour un coût $C(q)$, $C'(q)$ approxime le coût supplémentaire d'une petite augmentation de quantité. Il ne donne pas exactement $C(q+1)-C(q)$ ; pour $C(q)=q^2$, ces valeurs sont $2q$ et $2q+1$.
+
+\begin{finchapitre}
+\section{Utilité et prolongements}
+La dérivée remplace localement une fonction par une fonction affine dont les calculs sont simples. C'est l'outil de base pour les variations, l'optimisation, la sensibilité et la méthode de Newton.
+
+En plusieurs variables, le nombre dérivé devient une application linéaire : la différentielle. En master, linéariser une équation ou un système dynamique utilise la même idée, avec une estimation explicite du reste. L'identité $f(a+h)=f(a)+hf'(a)+o(h)$ en est le premier modèle.
+\begin{retenir}
+Un nombre dérivé est une limite finie, avec des hypothèses de domaine. Une tangente peut traverser la courbe. Une approximation doit être distinguée d'une égalité et, si possible, assortie d'une borne d'erreur.
+\end{retenir}
+\end{finchapitre}
+\end{document}

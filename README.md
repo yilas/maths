@@ -4,9 +4,38 @@ Une collection de cours en français, écrite en LaTeX : définitions, exemples
 expliqués, démonstrations, exercices et corrigés. Le fichier
 [`mathscommun.sty`](mathscommun.sty) définit la présentation de tous les documents.
 
-L'objectif à terme est un parcours vers des mathématiques universitaires :
+L'objectif à terme est un **niveau master de mathématiques**, construit
+progressivement après la terminale par la licence puis le master :
 calcul maîtrisé, définitions précises, preuves, contre-exemples et autonomie.
 Les compléments avancés restent distingués du programme obligatoire.
+
+## Première générale, spécialité mathématiques : rentrée 2026
+
+Le nouveau volume suit le programme publié au **BO du 2 avril 2026**, applicable
+en **2026–2027**. [Texte officiel et annexe](https://www.education.gouv.fr/bo/2026/Hebdo14/MENE2602917A).
+Il comprend **30 chapitres, 180 exercices corrigés, huit problèmes de synthèse
+corrigés et 80 automatismes avec réponses**.
+
+| Document | PDF | Source LaTeX |
+| --- | --- | --- |
+| Cours et démonstrations | [Lire le cours](pdf/premiere/cours_1re.pdf) | [cours_1re.tex](premiere/cours_1re.tex) |
+| Exercices et problèmes | [Lire les exercices](pdf/premiere/exercices_1re.pdf) | [exercices_1re.tex](premiere/exercices_1re.tex) |
+| Corrigés expliqués | [Lire les corrigés](pdf/premiere/corriges_1re.pdf) | [corriges_1re.tex](premiere/corriges_1re.tex) |
+| Guide, couverture et révisions | [Lire le guide](pdf/premiere/guide_1re.pdf) | [guide_1re.tex](premiere/guide_1re.tex) |
+
+Algèbre et suites, dérivation, exponentielle, trigonométrie, produit scalaire,
+géométrie repérée, probabilités, statistiques et algorithmique sont accompagnés
+de preuves et de leur table de couverture dans le guide.
+
+Chaque chapitre explique des réemplois concrets dans la suite du parcours.
+Les compléments construisent les fondements d'analyse, l'exponentielle et le
+logarithme, les projections et moindres carrés, l'espérance conditionnelle finie
+et la convergence de Newton et d'Euler. Ils sont signalés **hors programme**
+et ne constituent pas une équivalence avec un niveau universitaire déjà acquis.
+
+- [Plan détaillé, périmètre et dépendances des preuves](premiere/README.md).
+- [Algorithmes exécutables et 18 vérifications](premiere/python/README.md).
+- Le style commun est conservé ; le volume peut se lire avec les prérequis de seconde.
 
 ## Seconde générale et technologique : rentrée 2026
 
@@ -68,7 +97,7 @@ l'objet d'une vérification spécifique. Sa couverture n'est pas revendiquée ic
 ## Organisation
 
 - `mathscommun.sty` : style et environnements pédagogiques communs.
-- `troisieme/` et `seconde/` : quatre maîtres par niveau, chapitres, exercices et corrigés.
+- `troisieme/`, `seconde/` et `premiere/` : quatre maîtres par niveau, chapitres, exercices et corrigés.
 - `modeles/modele_nouveau_cours.tex` : modèle de départ pour les prochains niveaux.
 - `pdf/<niveau>/` : les PDF prêts à lire, suivis dans Git.
 - `compiler.py` : compilation avec pdfLaTeX ; fichiers temporaires dans `build/`.
@@ -99,6 +128,9 @@ Pour compiler uniquement un chapitre ou essayer le modèle :
 python3 compiler.py --niveau seconde
 python3 compiler.py --niveau seconde --chapitre 9
 python3 seconde/python/verifier.py
+python3 compiler.py --niveau premiere
+python3 compiler.py --niveau premiere --chapitre 16
+python3 premiere/python/verifier.py
 python3 compiler.py --document modeles/modele_nouveau_cours.tex
 ```
 
@@ -121,11 +153,11 @@ elles ne signifient pas nécessairement qu'un glyphe est absent du PDF.
 
 ## Suite de la collection et contributions
 
-La troisième et la seconde sont rédigées. La première et la terminale
-seront ajoutées dans des PR distinctes, avec une orientation vers la spécialité
-mathématiques et les compléments utiles au supérieur. Pour la première et la terminale, chaque
-dossier devra préciser la voie, l'enseignement (commun ou spécialité), les options
-éventuelles et l'année d'application du programme avant d'en annoncer la couverture.
+La troisième, la seconde et la première spécialité sont rédigées. La terminale,
+puis les volumes de licence et de master, seront ajoutés dans des PR distinctes.
+Chaque dossier précisera son périmètre, ses prérequis, les programmes de référence
+et les compléments avant d'en annoncer la couverture. Les parcours de master
+diffèrent selon les spécialités : le choix sera précisé au cours de la progression.
 
 Tout ajout ou correction passe par une branche et une **pull request**. Une PR
 décrit le périmètre traité, les documents modifiés et les vérifications effectuées.

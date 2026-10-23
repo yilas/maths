@@ -1,0 +1,80 @@
+\documentclass[../cours_1re.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{12}
+\chapter{Modèles continus et méthode d'Euler}
+\label{ch:13}
+\begin{objectif}
+Relier suites géométriques, exponentielles et modèles d'évolution ; construire une approximation d'Euler. Les équations différentielles générales de ce chapitre sont des compléments.
+\end{objectif}
+\section{Taux discret et taux instantané}
+Un taux de $r$ par période donne $u_n=u_0(1+r)^n$, pour $r>-1$.
+Un taux relatif instantané constant $a$ conduit à $y'(t)=ay(t)$ et au modèle
+$y(t)=y_0e^{at}$.
+Sur une durée $\Delta t$, son coefficient multiplicateur exact est $e^{a\Delta t}$, donc son taux discret est $e^{a\Delta t}-1$, et non exactement $a\Delta t$.
+\begin{demonstration}[Solutions du modèle homogène]
+La fonction $y_0e^{at}$ vérifie l'équation et la condition initiale. Réciproquement, si $y'=ay$, la dérivée de $y(t)e^{-at}$ est nulle. Ce produit est constant sur l'intervalle étudié, donc $y(t)=y_0e^{at}$ lorsque $y(0)=y_0$.
+\end{demonstration}
+Si $y_0=0$, la solution est identiquement nulle. La quantité $y'/y=a$ n'est interprétable comme taux relatif que là où $y\ne0$.
+\section{Une décroissance et un temps caractéristique}
+Pour $y(t)=y_0e^{-kt}$, avec $y_0,k>0$, la quantité reste positive et décroît.
+Le temps caractéristique $\tau=1/k$ donne $y(\tau)=y_0/e$.
+La demi-vie $T$ vérifie $e^{-kT}=1/2$.
+\approfondissement Avec le logarithme construit au chapitre 26,
+$T=\ln 2/k$.
+Sans cet outil, on peut encadrer $T$ par balayage ou dichotomie puisque l'exponentielle est continue et strictement décroissante.
+\begin{exemple}
+Si la quantité est divisée par deux toutes les $3$ unités de temps, alors
+$y(t+3)=y(t)/2$. Aux dates $3n$, on retrouve $y(3n)=y_0/2^n$.
+Deux périodes divisent par quatre, et non par trois.
+\end{exemple}
+\section{Un équilibre avec apport constant}
+\approfondissement Pour $y'=ay+b$ et $a\ne0$, l'équilibre est $\ell=-b/a$.
+La fonction $z=y-\ell$ vérifie $z'=az$, donc
+\[
+y(t)=\ell+(y_0-\ell)e^{at}.
+\]
+Si $a=0$, $y'=b$ et $y(t)=y_0+bt$, car la différence avec cette fonction a une dérivée nulle.
+Si $a<0$, l'écart à l'équilibre décroît en valeur absolue. Un modèle de refroidissement
+$T'=-k(T-T_{\mathrm{amb}})$ suppose notamment une température ambiante constante et un coefficient $k$ constant.
+\section{Construire l'exponentielle avec Euler}
+La relation locale $y(t+h)\simeq y(t)+hy'(t)$ donne, pour $y'=y$,
+$Y_{j+1}=(1+h)Y_j$ avec $Y_0=1$.
+Sur $[0;T]$ découpé en $n$ pas, $h=T/n$, on obtient
+$Y_n=(1+T/n)^n$. Pour $T=1$, cette suite approche $e$ ; le résultat de convergence est justifié au chapitre 29.
+\begin{lstlisting}[language=Python]
+def euler_exp(T, n):
+    h = T / n
+    y = 1.0
+    valeurs = [y]
+    for j in range(n):
+        y = y + h * y
+        valeurs.append(y)
+    return valeurs
+\end{lstlisting}
+Il faut $n$ entier strictement positif. La liste comporte $n+1$ valeurs, associées aux instants $jT/n$.
+\begin{center}\begin{tikzpicture}
+\begin{axis}[width=10cm,height=5cm,axis lines=left,xmin=0,xmax=1,ymin=1,ymax=2.8,xlabel={$t$},ylabel={valeur},legend pos=north west]
+\addplot[accent,thick,domain=0:1]{exp(x)};\addlegendentry{$e^t$}
+\addplot[black,mark=*]coordinates{(0,1)(.25,1.25)(.5,1.5625)(.75,1.953125)(1,2.44140625)};\addlegendentry{Euler, $n=4$}
+\end{axis}\end{tikzpicture}\end{center}
+\section{Erreur locale et erreur accumulée}
+Sur un pas, Taylor donne $e^h=1+h+R$ avec $|R|\le e^{|h|}h^2/2$.
+Cette erreur locale est d'ordre $h^2$. Mais il y a environ $1/h$ pas sur une durée fixée : on attend une erreur globale d'ordre $h$, à justifier par une somme des erreurs propagées.
+Le chapitre 29 établit précisément cette estimation.
+\begin{attention}
+Pour $y'=-ky$, Euler multiplie par $1-kh$. Si $kh>1$, il peut produire des valeurs négatives, alors que la solution positive exacte ne change jamais de signe. Le pas est une partie du choix numérique.
+\end{attention}
+\section{Valider un modèle}
+Une courbe exponentielle peut bien ajuster quelques observations sans expliquer leur mécanisme. Il faut préciser unités, intervalle temporel, hypothèses d'évolution et incertitude des paramètres.
+Si un modèle de population ignore les ressources, sa croissance exponentielle ne décrit pas nécessairement un avenir lointain. Le calcul résout le modèle ; les observations et les hypothèses en déterminent la pertinence.
+
+\begin{finchapitre}
+\section{Utilité et prolongements}
+Le passage discret-continu permet de comprendre à la fois une suite géométrique et une équation différentielle. Euler traduit une dérivée en un algorithme de récurrence.
+
+En licence, l'analyse des équations différentielles traitera existence, unicité et dépendance aux données. En master, les schémas numériques pour les équations aux dérivées partielles devront aussi être consistants, stables et convergents. Ici, ces mots prennent un premier sens concret : petite erreur sur un pas, contrôle de son amplification, puis convergence globale.
+\begin{retenir}
+Un taux instantané et un taux par période sont différents. Pour une simulation, vérifier aussi le pas, la positivité, la stabilité et les unités ; une courbe lisse ne constitue pas une garantie.
+\end{retenir}
+\end{finchapitre}
+\end{document}

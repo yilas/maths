@@ -1,0 +1,147 @@
+\documentclass[../cours_1re.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{24}
+\chapter{Complément : fonder les outils d'analyse}
+\label{ch:25}
+\begin{objectif}
+Complément exigeant, à relire progressivement : justifier les théorèmes d'analyse utilisés auparavant.
+Prérequis : raisonnement quantifié, limites de suites et dérivation. La complétude de $\R$ est le fondement admis.
+\end{objectif}
+\section{Ce que l'on admet au départ}
+On utilise les propriétés de corps ordonné des réels et leur
+\emph{complétude} : toute partie non vide majorée de $\R$ possède une borne
+supérieure. Le chapitre 7 en déduit la convergence des suites croissantes majorées.
+On ne construit pas ici $\R$ à partir de $\Q$ ; cette construction appartient
+à un cours de fondements. La récurrence sur $\N$ est également un principe de base.
+
+Dire que $f(x)\to L$ lorsque $x\to a$ signifie :
+pour tout $\varepsilon>0$, il existe $\delta>0$ tel que
+$0<|x-a|<\delta$, avec $x$ dans le domaine, implique $|f(x)-L|<\varepsilon$.
+La continuité en $a$ signifie $f(x)\to f(a)$. Aux extrémités d'un intervalle,
+la limite est prise dans cet intervalle.
+Les règles de somme et produit se prouvent comme pour les suites :
+pour un produit, écrire
+$fg-LM=(f-L)g+L(g-M)$ et borner $g$ près de $a$.
+Pour l'inverse, $f\to L\ne0$ donne $|f|\ge|L|/2$ près de $a$, puis
+$|1/f-1/L|\le2|f-L|/|L|^2$.
+
+\section{Extraire une sous-suite convergente}
+\begin{theoreme}
+Toute suite à valeurs dans un intervalle fermé borné $[a,b]$
+possède une sous-suite convergeant vers un point de $[a,b]$.
+\end{theoreme}
+\begin{demonstration}
+Couper l'intervalle en deux moitiés fermées. L'une contient une infinité
+de termes ; la retenir, puis recommencer. On obtient des intervalles emboîtés
+$[a_k,b_k]$ de longueurs $(b-a)/2^k$. Les $a_k$ croissent et sont majorés ;
+leur limite $\ell$ existe par complétude. Pour tout $k$, on a
+$a_k\le\ell\le b_k$ (les bornes supérieures sont respectées).
+Choisir dans le $k$-ième intervalle un terme d'indice $n_k>n_{k-1}$,
+ce qui est possible puisqu'il en contient une infinité.
+Alors $|u_{n_k}-\ell|\le(b-a)/2^k\to0$.
+\end{demonstration}
+Une fonction continue conserve les limites de suites :
+la définition en $\varepsilon,\delta$ s'applique dès que $u_n$ est assez
+proche de sa limite. Réciproquement, si la continuité échoue, un
+$\varepsilon_0>0$ permet de choisir $u_n$ à moins de $1/n$ de $a$
+mais avec $|f(u_n)-f(a)|\ge\varepsilon_0$.
+Ce critère séquentiel caractérise donc la continuité.
+
+\section{Une fonction continue atteint ses bornes}
+\begin{theoreme}[bornes atteintes]
+Une fonction continue sur $[a,b]$ est bornée et atteint son minimum et son maximum.
+\end{theoreme}
+\begin{demonstration}
+Si elle n'était pas bornée, on pourrait choisir $x_n\in[a,b]$ avec
+$|f(x_n)|>n$. Une sous-suite $x_{n_k}$ convergerait vers $\ell\in[a,b]$ ;
+par continuité $f(x_{n_k})\to f(\ell)$, contradiction.
+La borne supérieure $M$ de ses valeurs existe donc.
+Pour chaque $n\ge1$, choisir $x_n$ tel que $M-1/n<f(x_n)\le M$.
+Une sous-suite converge vers $c\in[a,b]$ ; la continuité donne $f(c)=M$.
+Appliquer ce raisonnement à $-f$ pour le minimum.
+\end{demonstration}
+C'est exactement le résultat utilisé dans la preuve de Rolle au chapitre 10.
+L'intervalle fermé borné et la continuité sont nécessaires :
+$1/x$ n'est pas bornée sur $]0,1]$ ; $x$ n'y atteint pas son infimum.
+
+\section{Valeurs intermédiaires et dichotomie}
+Si $f$ est continue sur $[a,b]$ et $f(a)<y<f(b)$, elle prend la valeur $y$.
+Pour le prouver, poser $S=\{x\in[a,b]:f(x)\le y\}$ et $c=\sup S$.
+Il existe une suite de points de $S$ tendant vers $c$ ; par continuité
+$f(c)\le y$. Comme $f(b)>y$, $c<b$.
+Si $f(c)<y$, la continuité donnerait encore $f(x)<y$ pour un $x>c$
+assez proche, contredisant la définition de $c$. Donc $f(c)=y$.
+Le cas des valeurs aux extrémités est immédiat ; inverser les signes
+traite $f(a)>f(b)$.
+La dichotomie conserve un intervalle où $f-y$ change de signe et le
+divise par deux. Après $n$ étapes, le milieu approche une racine avec
+erreur au plus $(b-a)/2^{n+1}$. L'unicité exige une hypothèse supplémentaire,
+par exemple la stricte monotonie.
+
+\section{Continuité uniforme}
+Sur $[a,b]$, une fonction continue est uniformément continue :
+pour tout $\varepsilon>0$, un même $\delta>0$ convient à tous les points,
+$|x-y|<\delta\Rightarrow|f(x)-f(y)|<\varepsilon$.
+Sinon, on pourrait choisir $x_n,y_n$ tels que $|x_n-y_n|<1/n$
+mais $|f(x_n)-f(y_n)|\ge\varepsilon_0$.
+Une sous-suite $x_{n_k}$ converge vers $\ell$ ; alors $y_{n_k}$ aussi,
+et la continuité force la différence des images à tendre vers $0$,
+contradiction.
+
+\section{Construire une intégrale et retrouver une dérivée}
+Pour une subdivision $a=t_0<\cdots<t_n=b$, les sommes inférieure et supérieure
+sont $\sum_i m_i(t_i-t_{i-1})$ et $\sum_i M_i(t_i-t_{i-1})$,
+où $m_i,M_i$ sont les minimum et maximum de $f$ sur le petit intervalle.
+Toute somme inférieure est inférieure à toute somme supérieure :
+passer à une subdivision commune augmente les premières et diminue les secondes.
+Par complétude, le supremum des sommes inférieures et l'infimum des
+sommes supérieures existent. Si la maille est inférieure au $\delta$
+de continuité uniforme, leur différence est au plus $\varepsilon(b-a)$.
+Ils sont donc égaux : leur valeur commune définit $\int_a^b f(t)\,dt$.
+Cette construction prouve l'intégrabilité de toute fonction continue.
+Pour $b<a$, poser $\int_a^b=-\int_b^a$.
+
+La linéarité, l'additivité sur les intervalles et la préservation de l'ordre
+se déduisent des sommes et de leurs limites. En particulier,
+$|\int_a^b f|\le(b-a)\sup|f|$ pour $a\le b$.
+Si $F(x)=\int_a^x f(t)\,dt$, alors, pour $h\ne0$ petit,
+\[
+\left|\frac{F(x+h)-F(x)}h-f(x)\right|
+\le\sup_{t\text{ entre }x\text{ et }x+h}|f(t)-f(x)|\longrightarrow0.
+\]
+Donc $F'=f$. Si $G'=f$, la fonction $G-F$ a une dérivée nulle,
+donc est constante par Rolle et les accroissements finis déjà démontrés :
+$\int_a^b f=G(b)-G(a)$.
+Le raisonnement n'est pas circulaire : Rolle utilise les bornes atteintes,
+prouvées avant l'intégration.
+
+Pour $f(x)=x^2$ sur $[0,1]$, les sommes à droite valent
+$n^{-3}\sum_{k=1}^nk^2=(n+1)(2n+1)/(6n^2)\to1/3$.
+Les sommes à gauche ont la même limite : l'aire vaut $1/3$.
+
+\begin{finchapitre}
+\section{Suites de Cauchy}
+Une suite est de Cauchy si, pour tout $\varepsilon>0$, ses termes $u_n,u_m$
+sont à distance inférieure à $\varepsilon$ dès que $n,m$ sont assez grands.
+Une suite convergente a cette propriété par l'inégalité triangulaire.
+Réciproquement, une suite de Cauchy est bornée (fixer $\varepsilon=1$,
+puis inclure les premiers termes). Elle possède une sous-suite convergente
+vers $\ell$. Pour $n$ grand, choisir un terme de cette sous-suite
+d'indice assez grand et à distance $<\varepsilon/2$ de $\ell$ ;
+la propriété de Cauchy donne $|u_n-\ell|<\varepsilon$.
+Ainsi, dans $\R$, toute suite de Cauchy converge.
+
+
+\section{Utilité et prolongements}
+Ces preuves expliquent pourquoi continuité, intervalle fermé et borne
+sont des hypothèses utiles, et non des formalités.
+
+La licence développera limites, topologie et intégration ; le master les
+étendra à des espaces de fonctions. La compacité, illustrée par l'extraction
+d'une sous-suite, permettra encore de prouver l'existence d'optima et de solutions.
+\begin{retenir}
+La complétude de $\R$ fonde les convergences. Sur un segment, la continuité
+donne bornes atteintes, valeurs intermédiaires, continuité uniforme et intégrabilité.
+\end{retenir}
+\end{finchapitre}
+\end{document}
