@@ -1,0 +1,62 @@
+\documentclass[../cours_tle.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{0}
+\chapter{Langage, fonctions et calcul : les bases}
+\label{ch:1}
+\begin{objectif}
+Spécialité. Revoir ensembles, équations et fonctions avant toute étude de limite. Prérequis : calcul littéral et fonctions de seconde, chapitres 1 à 3 de première.
+\end{objectif}
+\section{Définir les objets avant de calculer}
+\begin{definition}
+Un ensemble rassemble des objets appelés éléments. $x\in E$ exprime l'appartenance ; $A\subset E$ signifie que tout élément de $A$ appartient à $E$.
+Une fonction $f:E\to F$ associe à chaque $x\in E$ une unique image $f(x)\in F$.
+Un antécédent de $y$ est un $x$ tel que $f(x)=y$ : il peut n'y en avoir aucun, un ou plusieurs.
+\end{definition}
+$\N=\{0,1,2,\ldots\}$, $\Z$ contient aussi les entiers négatifs, $\Q$ les quotients d'entiers de dénominateur non nul ; $\R$ contient notamment $\sqrt2$ et $\pi$.
+Un intervalle contient tous les réels situés entre deux de ses éléments. $[a,b]$ inclut ses bornes ; $]a,b[$ les exclut. L'infini n'est pas un réel et ne se met jamais entre crochets fermés.
+
+$A\cap B$ exige les deux appartenances, $A\cup B$ au moins une. Le complémentaire est pris dans un ensemble de référence fixé. Le produit cartésien $A\times B$ est l'ensemble des couples ordonnés $(a,b)$ : $(1,2)\ne(2,1)$.
+\section{Logique et négation}
+$P\Rightarrow Q$ affirme que $P$ suffit pour $Q$ ; $Q$ est nécessaire à $P$.
+La réciproque $Q\Rightarrow P$ n'est pas automatique. La contraposée $\neg Q\Rightarrow\neg P$ est équivalente à l'implication initiale : toutes deux excluent le cas $P$ vrai et $Q$ faux.
+$P\Leftrightarrow Q$ exige deux implications.
+
+\begin{exemple}
+$x=2\Rightarrow x^2=4$ mais $x^2=4$ permet aussi $x=-2$.
+Pour prouver que $n^2$ impair entraîne $n$ impair, on prouve la contraposée : si $n=2k$, alors $n^2=4k^2$ est pair.
+\end{exemple}
+Les symboles $\forall$ (« pour tout ») et $\exists$ (« il existe »), non exigibles au lycée, rendent les phrases plus courtes. Leur ordre importe : $\forall x\,\exists y:y>x$ est vrai avec $y=x+1$ ; $\exists y\,\forall x:y>x$ est faux.
+Nier $\forall x\in E,P(x)$ donne $\exists x\in E,\neg P(x)$.
+Nier « il existe $x$ tel que $P$ et $Q$ » donne « pour tout $x$, non $P$ ou non $Q$ ».
+Un seul contre-exemple réfute une affirmation universelle ; de nombreux exemples ne la démontrent pas.
+\section{Domaine, équivalences et pièges de calcul}
+Avant une équation, imposer dénominateurs non nuls, radicandes positifs ou nuls et arguments des logarithmes strictement positifs.
+Multiplier une inégalité par un nombre négatif renverse son sens. Élever au carré est réversible pour deux membres positifs ou nuls, mais pas sans condition de signe.
+\begin{exemple}
+Résoudre $\sqrt{x+2}=x$ impose $x\ge0$. Le carré donne $x^2-x-2=0$, donc $x=2$ ou $-1$ ; seul $2$ convient.
+Pour $(x-1)/(x+2)\ge0$, les points critiques sont $-2$ (interdit) et $1$ (autorisé). Le tableau des signes donne $]-\infty,-2[\cup[1,+\infty[$.
+\end{exemple}
+\begin{propriete}
+Pour tout réel $x$, $\sqrt{x^2}=|x|$. Pour $a,b\in\R$, $|a+b|\le|a|+|b|$.
+\end{propriete}
+\begin{demonstration}
+La racine carrée est la solution positive ou nulle de $t^2=x^2$, donc $|x|$.
+Comme $-|a|\le a\le|a|$ et de même pour $b$, leur somme est comprise entre $-(|a|+|b|)$ et $|a|+|b|$.
+\end{demonstration}
+\section{Composition, images et réciproques}
+$(g\circ f)(x)=g(f(x))$ n'a de sens que si $f(x)$ appartient au domaine de $g$.
+Une fonction est injective si deux images égales imposent deux antécédents égaux ; surjective si chaque élément de l'ensemble d'arrivée possède un antécédent ; bijective si les deux conditions sont réunies.
+Alors $f^{-1}$ associe à $y$ son unique antécédent. Ne pas confondre $f^{-1}$ et $1/f$.
+Ainsi $x\mapsto x^2$ est bijective de $[0,+\infty[$ sur lui-même, mais pas de $\R$ sur $\R$.
+
+\begin{methode}
+Pour une preuve, écrire les données, le résultat visé, puis choisir : calcul direct, distinction de cas, contraposée ou contradiction. Pour une égalité d'ensembles, prouver les deux inclusions en suivant un élément arbitraire.
+\end{methode}
+\begin{finchapitre}
+\section{Utilité et suite du parcours}
+La même définition de fonction servira aux suites, aux variables aléatoires et aux applications linéaires. Les domaines et quantificateurs conditionneront toutes les preuves de licence.
+\begin{retenir}
+Un calcul correct ne suffit pas : préciser les objets, les domaines et le sens de chaque implication.
+\end{retenir}
+\end{finchapitre}
+\end{document}

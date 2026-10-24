@@ -1,0 +1,18 @@
+\chapter{Fondements pour la licence : complétude, intégration et abstraction}
+\section*{Exercice 36.1 -- Supremum et maximum}
+Tous les éléments sont strictement inférieurs à $1$, donc $1$ majore $A$. Si $M<1$, choisir $n>1/(1-M)$ donne $1-1/n>M$ ; aucun tel $M$ ne majore $A$. Le supremum est $1$, mais il n'appartient pas à $A$ : ce n'est pas un maximum.
+
+\section*{Exercice 36.2 -- Une hypothèse indispensable}
+Non. $f(x)=1/x$ sur $]0,1]$ est continue et non bornée. $g(x)=x$ sur $]0,1[$ est bornée mais n'atteint ni son infimum $0$ ni son supremum $1$. Le théorème du cours exige un segment fermé et borné.
+
+\section*{Exercice 36.3 -- Convergence uniforme}
+Sur $[0,1]$, $\sup|f_n|=1/n\to0$ : convergence uniforme. Sur $\R$, pour tout $n$, choisir $x=n$ donne $|f_n(x)|=1$, donc aucune uniformité vers zéro. Pourtant pour chaque réel $x$ fixé, $x/n\to0$ : convergence ponctuelle.
+
+\section*{Exercice 36.4 -- Noyau d’une dérivation}
+Les images des trois vecteurs de base sont $0,1,2X$. Les colonnes de la matrice sont donc $(0,0,0)$, $(1,0,0)$, $(0,2,0)$, soit $\begin{pmatrix}0&1&0\\0&0&2\\0&0&0\end{pmatrix}$. Le noyau est l'ensemble des polynômes constants, car $b+2cX=0$ impose $b=c=0$.
+
+\section*{Exercice 36.5 -- Échange limite–intégrale}
+La positivité et l'inégalité triangulaire intégrale donnent $|\int_a^b(f_n-f)|\le\int_a^b|f_n-f|\le(b-a)\sup_{[a,b]}|f_n-f|\to0$. L'uniformité fournit une même borne d'erreur sur tout le segment, précisément ce qui manque à une convergence seulement ponctuelle.
+
+\section*{Exercice 36.6 -- Audit d’une preuve}
+Il faut d'abord montrer existence des termes, bornes et convergence. L'intervalle $[0,2]$ est stable par $f(x)=\sqrt{2+x}$. Comme $u_1\ge u_0$ et $f$ est croissante, une récurrence donne $u_{n+1}\ge u_n$. La suite croissante majorée converge. La continuité autorise alors le passage à la limite. $L\ge0$ et $L^2-L-2=0$ imposent $L=2$, la racine $-1$ étant exclue.

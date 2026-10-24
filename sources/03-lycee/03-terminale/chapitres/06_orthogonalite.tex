@@ -1,0 +1,80 @@
+\documentclass[../cours_tle.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{5}
+\chapter{Produit scalaire, orthogonalité et projections}
+\label{ch:6}
+\begin{objectif}
+Spécialité. Calculer distances et angles, démontrer une propriété de minimum. Prérequis : chapitre 5 et produit scalaire du plan.
+\end{objectif}
+\section{Produit scalaire dans un repère orthonormé}
+Une base orthonormée comporte des vecteurs unitaires deux à deux orthogonaux. Pour $\vec u=(x,y,z)$ et $\vec v=(x',y',z')$, on définit
+\[
+\vec u\cdot\vec v=xx'+yy'+zz',\qquad \|\vec u\|=\sqrt{x^2+y^2+z^2}.
+\]
+Pythagore, appliqué deux fois, identifie cette norme à la longueur. La formule coordonnée du produit scalaire prolonge celle du plan.
+Symétrie et bilinéarité résultent de la commutativité et de la distributivité des réels. En développant les carrés,
+\[
+\|\vec u+\vec v\|^2=\|\vec u\|^2+2\vec u\cdot\vec v+\|\vec v\|^2,
+\quad \vec u\cdot\vec v=\frac{\|\vec u+\vec v\|^2-\|\vec u-\vec v\|^2}{4}.
+\]
+Dans le plan engendré par deux vecteurs non nuls, la formule du plan donne $\vec u\cdot\vec v=\|\vec u\|\|\vec v\|\cos\theta$. L'indépendance vis-à-vis du repère orthonormé choisi découle aussi de la polarisation : les longueurs qui y figurent sont géométriques.
+Ainsi $\vec u\perp\vec v\Leftrightarrow\vec u\cdot\vec v=0$ ; le vecteur nul est orthogonal à tout vecteur.
+\section{De vecteurs aux droites et aux plans}
+Deux droites sont orthogonales si leurs directions le sont, même si elles sont gauches. Elles sont perpendiculaires si elles sont en outre sécantes.
+Une droite est orthogonale à un plan si sa direction est orthogonale à toutes les directions du plan.
+\begin{propriete}
+Il suffit d'être orthogonal à deux directions non colinéaires du plan.
+\end{propriete}
+\begin{demonstration}
+Toute direction du plan s'écrit $a\vec u+b\vec v$. Par bilinéarité, son produit avec $\vec n$ vaut $a(\vec n\cdot\vec u)+b(\vec n\cdot\vec v)=0$.
+La réciproque découle de la définition.
+\end{demonstration}
+Un vecteur normal à un plan est un tel $\vec n\ne0$.
+Deux plans sont perpendiculaires exactement lorsque leurs vecteurs normaux sont orthogonaux. En effet, dans une section perpendiculaire à leur droite d'intersection, leurs traces et leurs normales se correspondent par une rotation de $\pi/2$ : l'angle droit est conservé. Ce résultat est explicitement au programme de spécialité à partir de 2027.
+\section{Projeter sur une droite}
+Pour $d=A+\R\vec u$, le projeté de $M$ est
+\[
+H=A+\frac{\overrightarrow{AM}\cdot\vec u}{\|\vec u\|^2}\vec u.
+\]
+\begin{demonstration}
+Écrire $H=A+t\vec u$ et imposer $\overrightarrow{MH}\cdot\vec u=0$ donne
+$-\overrightarrow{AM}\cdot\vec u+t\|\vec u\|^2=0$, d'où l'unique valeur de $t$.
+Pour tout $K\in d$, $MK^2=MH^2+HK^2$ par Pythagore. La distance minimale est donc $MH$, atteinte uniquement en $H$.
+\end{demonstration}
+\begin{center}
+\begin{tikzpicture}[scale=1.1]
+\fill[accent!7] (-1,-.65)--(2.5,-.65)--(3.3,.65)--(-.2,.65)--cycle;
+\draw[gray] (-1,-.65)--(2.5,-.65)--(3.3,.65)--(-.2,.65)--cycle;
+\coordinate (H) at (0,0);\coordinate (M) at (0,2);\coordinate (K) at (2,0);
+\draw[accent,thick] (M)--(H);\draw (H)--(K)--(M);
+\draw (.16,0)--(.16,.16)--(0,.16);
+\fill (M) circle(1.3pt) node[above]{$M$};
+\fill (H) circle(1.3pt) node[below]{$H$};
+\fill (K) circle(1.3pt) node[right]{$K$};
+\node at (2.4,-.4){$\mathcal P$};
+\node[anchor=west] at (3.4,1){$MK^2=MH^2+HK^2$};
+\end{tikzpicture}
+\end{center}
+Le triangle rectangle résume la preuve du minimum, sur une droite comme sur un plan. Le dessin en perspective ne conserve pas tous les angles ; l'orthogonalité est une hypothèse établie par le calcul.
+\section{Projeter sur un plan}
+Si $\mathcal P$ passe par $A$ et a pour normale $\vec n$, poser
+$H=M-\lambda\vec n$ et imposer $\overrightarrow{AH}\cdot\vec n=0$ donne
+$\lambda=(\overrightarrow{AM}\cdot\vec n)/\|\vec n\|^2$.
+Pour tout $K\in\mathcal P$, $\overrightarrow{MH}\perp\overrightarrow{HK}$, donc encore $MK^2=MH^2+HK^2$. Cela démontre que le projeté est l'unique point le plus proche.
+\begin{exemple}
+Pour $M=(1,2,3)$ et le plan $z=0$, $H=(1,2,0)$ et la distance vaut $3$.
+Pour $\vec u=(1,1,0)$, $\vec v=(1,0,1)$, $\cos\theta=1/2$ : l'angle vaut $\pi/3$.
+\end{exemple}
+\section{Cauchy--Schwarz, outil de contrôle}
+Pour $\vec v\ne0$, développer $\|\vec u-t\vec v\|^2\ge0$ en
+$t=(\vec u\cdot\vec v)/\|\vec v\|^2$ donne
+$|\vec u\cdot\vec v|\le\|\vec u\|\|\vec v\|$. Le cas $\vec v=0$ est direct.
+Il y a égalité exactement pour des vecteurs colinéaires. Un cosinus calculé hors de $[-1,1]$ révèle une erreur de calcul ou un arrondi inadéquat.
+\begin{finchapitre}
+\section{Utilité et suite du parcours}
+La projection est le premier exemple d'approximation optimale. Elle réapparaîtra dans les moindres carrés, les espaces euclidiens et les espaces de Hilbert.
+\begin{retenir}
+La distance est un minimum démontré par Pythagore. Les formules coordonnées supposent un repère orthonormé.
+\end{retenir}
+\end{finchapitre}
+\end{document}

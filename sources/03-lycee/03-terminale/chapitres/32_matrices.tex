@@ -1,0 +1,53 @@
+\documentclass[../cours_tle.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{31}
+\chapter{Matrices, applications linéaires et systèmes}
+\label{ch:32}
+\begin{objectif}
+Mathématiques expertes. Donner un sens au produit matriciel avant de le calculer. Prérequis : systèmes du chapitre 7.
+\end{objectif}
+\section{Définition et dimensions}
+Une matrice $A=(a_{ij})$ de taille $m\times n$ est un tableau de $m$ lignes et $n$ colonnes. Une matrice colonne représente un vecteur de coordonnées.
+L'addition et la multiplication par un scalaire s'effectuent coefficient par coefficient, à dimensions égales.
+Si $A$ est $m\times n$ et $B$ est $n\times p$, définir
+$(AB)_{ij}=\sum_{k=1}^n a_{ik}b_{kj}$ : le produit a taille $m\times p$.
+\section{Pourquoi cette multiplication ?}
+Si $Y=BX$ puis $Z=AY$, substituer les coordonnées de $Y$ dans celles de $Z$ donne $Z=(AB)X$. Le produit représente donc la composition de transformations linéaires.
+La distributivité et l'associativité découlent des sommes finies ; en particulier
+$((AB)C)_{ij}=\sum_{k,l}a_{il}b_{lk}c_{kj}=(A(BC))_{ij}$.
+La matrice identité $I$ possède des $1$ sur la diagonale et $0$ ailleurs : $AI=IA=A$.
+
+Le produit n'est généralement pas commutatif. Pour
+$A=\begin{pmatrix}1&1\\0&1\end{pmatrix}$ et
+$B=\begin{pmatrix}1&0\\1&1\end{pmatrix}$,
+$AB=\begin{pmatrix}2&1\\1&1\end{pmatrix}$ alors que
+$BA=\begin{pmatrix}1&1\\1&2\end{pmatrix}$.
+Il existe aussi des matrices non nulles dont le produit est nul, comme les matrices diagonales $\operatorname{diag}(1,0)$ et $\operatorname{diag}(0,1)$.
+\section{Inverse et systèmes}
+Une matrice carrée $A$ est inversible s'il existe $B$ avec $AB=BA=I$. L'inverse est unique : si $B$ et $C$ conviennent, $B=B(AC)=(BA)C=C$.
+Alors $AX=Y\Leftrightarrow X=A^{-1}Y$.
+Pour $A=\begin{pmatrix}a&b\\c&d\end{pmatrix}$, poser $\Delta=ad-bc$.
+Si $\Delta\ne0$,
+$A^{-1}=\Delta^{-1}\begin{pmatrix}d&-b\\-c&a\end{pmatrix}$ : les deux produits se vérifient directement.
+Si $\Delta=0$, les colonnes sont dépendantes (traiter une colonne nulle puis le cas non nul) ; il existe $X\ne0$ avec $AX=0$, impossible pour une matrice inversible.
+\section{Pivot de Gauss}
+Pour résoudre un système, appliquer les opérations réversibles du chapitre 7 à la matrice augmentée $[A\mid Y]$. Choisir un pivot non nul, échanger des lignes si nécessaire, éliminer les coefficients situés dans sa colonne, puis remonter.
+Pour inverser une matrice d'ordre $3$, transformer $[A\mid I]$ en $[I\mid B]$ ; les opérations correspondent à des multiplications par des matrices inversibles, donc $B=A^{-1}$. Si l'on ne peut obtenir un pivot dans chaque colonne de $A$, elle n'est pas inversible.
+\begin{exemple}
+$x+y=3$, $2x-y=0$ donne, en ajoutant les deux équations, $3x=3$, puis $x=1$, $y=2$.
+Pour une matrice triangulaire $\begin{pmatrix}1&2&0\\0&1&3\\0&0&1\end{pmatrix}$, remonter le système donne l'inverse
+$\begin{pmatrix}1&-2&6\\0&1&-3\\0&0&1\end{pmatrix}$ ; vérifier le produit protège contre les erreurs de signe.
+\end{exemple}
+\section{Transformations du plan}
+La rotation d'angle $\theta$ est représentée par
+$R_\theta=\begin{pmatrix}\cos\theta&-\sin\theta\\\sin\theta&\cos\theta\end{pmatrix}$,
+car les colonnes sont les images des deux vecteurs de base. Les formules d'addition donnent $R_\alpha R_\beta=R_{\alpha+\beta}$.
+La projection sur l'axe horizontal est $\operatorname{diag}(1,0)$ : elle n'est pas inversible car elle perd l'information verticale.
+\begin{finchapitre}
+\section{Utilité et suite du parcours}
+Les matrices représentent les applications linéaires une fois les bases choisies. La licence distinguera soigneusement l'objet géométrique de sa matrice, qui dépend des bases.
+\begin{retenir}
+Vérifier les dimensions, l'ordre des facteurs et l'existence de l'inverse. On ne divise pas librement par une matrice.
+\end{retenir}
+\end{finchapitre}
+\end{document}

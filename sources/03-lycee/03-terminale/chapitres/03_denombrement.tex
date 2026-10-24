@@ -1,0 +1,62 @@
+\documentclass[../cours_tle.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{2}
+\chapter{Dénombrer sans compter deux fois}
+\label{ch:3}
+\begin{objectif}
+Spécialité. Choisir un modèle de comptage. Prérequis : ensembles et produits cartésiens, chapitre 1.
+\end{objectif}
+\section{Deux principes élémentaires}
+Pour un ensemble fini $A$, $\operatorname{Card}(A)$ est son nombre d'éléments.
+Si $A$ et $B$ sont disjoints, la réunion contient $|A|+|B|$ éléments : les listes des deux ensembles se juxtaposent sans répétition.
+Dans le cas général, décomposer en $A\setminus B$, $A\cap B$, $B\setminus A$ donne
+$|A\cup B|=|A|+|B|-|A\cap B|$.
+
+Pour $|A|=a$ et $|B|=b$, chaque choix du premier élément d'un couple permet $b$ choix du second : $|A\times B|=ab$.
+En répétant ce raisonnement, le nombre de listes de longueur $k$ sur un alphabet de $n$ éléments est $n^k$.
+\begin{exemple}
+Un code de quatre chiffres, zéros initiaux autorisés, a $10^4$ possibilités.
+Un nombre entier de quatre chiffres a $9\times10^3$ possibilités : la première position ne peut être nulle.
+\end{exemple}
+\section{Avec ou sans ordre, avec ou sans répétition}
+\begin{definition}
+Une permutation d'un ensemble de $n$ éléments est une liste de tous ses éléments sans répétition. On note $n!=n(n-1)\cdots1$ et $0!=1$.
+Une combinaison de $k$ éléments est une partie de taille $k$ ; l'ordre n'y intervient pas.
+\end{definition}
+Pour choisir successivement $k$ éléments distincts parmi $n$, on dispose de $n$, puis $n-1$, jusqu'à $n-k+1$ choix : il y a $n!/(n-k)!$ listes.
+Pour $k=n$, cela donne les $n!$ permutations.
+
+\begin{theoreme}
+Pour $0\le k\le n$, le nombre de parties de taille $k$ est
+$\displaystyle\binom nk=\frac{n!}{k!(n-k)!}$.
+\end{theoreme}
+\begin{demonstration}
+Chaque partie de taille $k$ est représentée par exactement $k!$ listes ordonnées de ses éléments. Les $n!/(n-k)!$ listes se répartissent donc en groupes disjoints de $k!$ listes.
+Le cas $k=0$ correspond à l'unique partie vide et à l'unique liste vide.
+\end{demonstration}
+Ainsi $\binom n0=1$, $\binom n1=n$, $\binom n2=n(n-1)/2$.
+\section{Parties, mots binaires et arbre}
+À chaque partie $B$ de $\{1,\ldots,n\}$ associons le mot $(b_1,\ldots,b_n)$ où $b_i=1$ si $i\in B$ et $0$ sinon. C'est une bijection : le mot permet de reconstruire $B$.
+Il y a donc $2^n$ parties. Les mots ayant $k$ chiffres $1$ correspondent aux parties de taille $k$.
+Un arbre à deux branches par étape décrit les mêmes choix.
+
+\begin{methode}
+Définir ce qu'est une issue. Demander si l'ordre change l'issue et si la répétition est possible. Séparer les cas disjoints, ou compter le complément lorsque la contrainte « au moins un » devient encombrante.
+\end{methode}
+\begin{exemple}
+Parmi $8$ personnes dont Alice, former un groupe de $3$ contenant Alice laisse $\binom72=21$ choix.
+Sans condition : $\binom83=56$. Les $35$ autres groupes évitent Alice.
+Un président, un secrétaire et un trésorier distincts donneraient $8\times7\times6=336$ choix.
+\end{exemple}
+\section{Complément : choix avec répétition}
+Choisir $k$ objets parmi $n$ types avec répétition et sans ordre revient à trouver des entiers $x_i\ge0$ de somme $k$.
+Aligner $k$ étoiles et $n-1$ séparateurs ; les nombres d'étoiles dans les $n$ zones donnent les $x_i$.
+Cette bijection prouve qu'il y a $\binom{k+n-1}{n-1}$ choix, pour $n\ge1$.
+\begin{finchapitre}
+\section{Utilité et suite du parcours}
+Compter les issues prépare les lois de probabilité et l'analyse des algorithmes. Les bijections et doubles comptages seront des méthodes de preuve en mathématiques discrètes.
+\begin{retenir}
+Les formules dépendent du sens donné à une issue. Une combinaison est une partie, pas une liste.
+\end{retenir}
+\end{finchapitre}
+\end{document}

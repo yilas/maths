@@ -1,0 +1,68 @@
+\documentclass[../cours_tle.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{9}
+\chapter{Opérations sur les limites et suites géométriques}
+\label{ch:10}
+\begin{objectif}
+Spécialité. Calculer avec les limites sans transformer une forme indéterminée en résultat. Prérequis : chapitres 2 et 9.
+\end{objectif}
+\section{Les limites finies : preuves des règles}
+Si $u_n\to a$ et $v_n\to b$, alors $u_n+v_n\to a+b$ et $u_nv_n\to ab$.
+\begin{demonstration}
+Pour la somme, $|(u_n+v_n)-(a+b)|\le|u_n-a|+|v_n-b|$ ; rendre chaque terme inférieur à $\varepsilon/2$.
+Pour le produit, écrire $u_nv_n-ab=u_n(v_n-b)+b(u_n-a)$. La suite $u_n$ est bornée par $M$ ; le module est au plus $M|v_n-b|+|b||u_n-a|$, qui tend vers zéro par le contrôle précédent.
+\end{demonstration}
+Si $b\ne0$, pour les grands indices $|v_n|\ge |b|/2$, et
+$|1/v_n-1/b|\le2|v_n-b|/|b|^2$. Cela prouve la règle du quotient. On ne divise donc pas par une limite nulle.
+Les règles à l'infini suivent de comparaisons de seuils : par exemple la somme de deux suites tendant vers $+\infty$ tend vers $+\infty$, et le produit d'une suite tendant vers un réel positif par une suite tendant vers $+\infty$ tend vers $+\infty$.
+\section{Règles à l'infini : le signe compte}
+Voici les principaux cas déterminés ; les versions négatives se déduisent en multipliant par $-1$.
+\begin{center}\begin{tabular}{lll}\toprule
+Limites des termes & Opération & Conclusion\\\midrule
+$a\in\R$, $+\infty$ & somme & $+\infty$\\
+$+\infty$, $+\infty$ & somme ou produit & $+\infty$\\
+$a>0$, $+\infty$ & produit & $+\infty$\\
+$a<0$, $+\infty$ & produit & $-\infty$\\
+$|v_n|\to+\infty$ & $1/v_n$ & $0$\\
+$u_n\to a$, $|v_n|\to+\infty$ & $u_n/v_n$ & $0$\\
+$u_n\to a>0$, $v_n\to0^+$ & quotient & $+\infty$\\
+$u_n\to a>0$, $v_n\to0^-$ & quotient & $-\infty$\\\bottomrule
+\end{tabular}\end{center}
+Pour justifier la somme avec un terme fini, ce terme est borné en valeur absolue par $M$ ; demander à l'autre de dépasser $A+M$ suffit. Pour un produit avec limite $a>0$, on a $u_n\ge a/2$ à partir d'un rang, puis $u_nv_n\ge(a/2)v_n$ si $v_n>0$. Pour l'inverse, $|v_n|>1/\varepsilon$ donne $|1/v_n|<\varepsilon$. Enfin, si $v_n\to0^+$ et $u_n\to a>0$, rendre $u_n\ge a/2$ et $0<v_n<a/(2A)$ donne $u_n/v_n>A$ pour $A>0$. Les règles se déduisent ainsi de seuils et ne consistent pas à calculer avec un nombre nommé « infini ».
+
+\section{Quatre formes indéterminées}
+$\infty-\infty$, $0\times\infty$, $0/0$, $\infty/\infty$ désignent une impossibilité de conclure avec les seules limites des morceaux. Ce ne sont pas des nombres.
+Ainsi $(n^2-n)\to+\infty$, $(n-n)=0$, $(n-n^2)\to-\infty$ ont tous la forme $\infty-\infty$.
+\begin{methode}
+Factoriser le terme dominant pour un quotient de polynômes ; utiliser le conjugué pour une différence de racines ; simplifier une expression avant de prendre sa limite, sur son domaine de définition.
+\end{methode}
+\begin{exemple}
+$\dfrac{3n^2-n+1}{2n^2+4}\to3/2$ en divisant par $n^2$.
+$\sqrt{n^2+n}-n=\dfrac{n}{\sqrt{n^2+n}+n}=\dfrac1{\sqrt{1+1/n}+1}\to1/2$.
+\end{exemple}
+\section{Tous les cas de la suite géométrique}
+\begin{theoreme}
+Si $|q|<1$, $q^n\to0$. Si $q=1$, la limite vaut $1$. Si $q>1$, $q^n\to+\infty$.
+Si $q=-1$, la suite oscille entre $1$ et $-1$ ; si $q<-1$, les sous-suites paire et impaire tendent respectivement vers $+\infty$ et $-\infty$.
+\end{theoreme}
+\begin{demonstration}
+Pour $q>1$, Bernoulli donne $q^n\ge1+n(q-1)\to+\infty$.
+Pour $0<q<1$, appliquer cela à $1/q$, puis prendre l'inverse.
+Le cas $q=0$ est nul pour $n\ge1$. Si $-1<q<0$, $|q^n|=|q|^n\to0$.
+Les deux derniers cas suivent des puissances paires et impaires.
+\end{demonstration}
+Pour $|q|<1$, la somme partielle géométrique tend vers $1/(1-q)$. Une somme infinie est ici une limite de sommes finies, et non une addition effectuée en une seule étape.
+\section{Modèle affine et seuil}
+Pour $u_{n+1}=au_n+b$, $a\ne1$, le point fixe est $L=b/(1-a)$.
+La suite $v_n=u_n-L$ vérifie $v_{n+1}=av_n$, donc $u_n=L+a^n(u_0-L)$.
+Si $|a|<1$, le modèle converge vers $L$ ; une raison négative produit une oscillation amortie.
+Pour $u_{n+1}=0{,}8u_n+6$, $u_0=0$, $u_n=30(1-0{,}8^n)$.
+Trouver quand $u_n>29$ revient à $0{,}8^n<1/30$ ; le logarithme du chapitre 16 ou une boucle contrôlée fournit le premier rang.
+\begin{finchapitre}
+\section{Utilité et suite du parcours}
+Les suites géométriques décrivent les erreurs d'algorithmes contractants et les modes propres des matrices. Les formes indéterminées conduiront aux équivalents et développements limités.
+\begin{retenir}
+Une règle de calcul doit avoir ses hypothèses : notamment une limite de dénominateur non nulle pour la règle simple du quotient.
+\end{retenir}
+\end{finchapitre}
+\end{document}

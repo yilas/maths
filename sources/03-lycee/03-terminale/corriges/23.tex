@@ -1,0 +1,18 @@
+\chapter{Concentration et loi des grands nombres}
+\section*{Exercice 23.1 -- Bienaymé--Tchebychev}
+L'inégalité donne $9/6^2=1/4$. Il s'agit d'une majoration universelle, non de la probabilité exacte. Elle utilise la variance $9$, pas l'écart type $3$.
+
+\section*{Exercice 23.2 -- Taille d’échantillon}
+Comme $p(1-p)\le1/4$, la probabilité est au plus $1/(4n\times0{,}05^2)=100/n$. Il suffit donc de $n\ge10000$. Cette garantie peut être prudente ; elle ne suppose pas une approximation normale.
+
+\section*{Exercice 23.3 -- Rôle de l’indépendance}
+La moyenne vaut toujours $X$ et reste à distance $1/2$ de son espérance. Pour $\varepsilon=1/4$, la probabilité d'écart vaut $1$, quel que soit $n$. Les variables ne sont pas indépendantes ; la variance de leur moyenne ne décroît pas.
+
+\section*{Exercice 23.4 -- Convergence en probabilité}
+Pour tout $\varepsilon>0$ fixé, $P(|X_n-m|\ge\varepsilon)\le C/(n^2\varepsilon^2)\to0$. C'est exactement la définition de convergence en probabilité vers la constante $m$. Cela ne dit pas que chaque réalisation est toujours proche de $m$.
+
+\section*{Exercice 23.5 -- Intervalle aléatoire}
+L'événement « $p$ appartient à l'intervalle » est $|F_n-p|\le\varepsilon$. Son complément est inclus dans $\{|F_n-p|\ge\varepsilon\}$, majoré par la concentration. C'est l'intervalle qui varie avant observation ; $p$ est un paramètre fixe. On peut intersecter l'intervalle avec $[0,1]$.
+
+\section*{Exercice 23.6 -- Attente géométrique}
+$T>n$ signifie $n$ échecs : probabilité $(1-p)^n$. La conditionnelle vaut $(1-p)^{m+n}/(1-p)^m=(1-p)^n=P(T>n)$. C'est la propriété sans mémoire de la loi géométrique ; le rang commence ici à $1$.

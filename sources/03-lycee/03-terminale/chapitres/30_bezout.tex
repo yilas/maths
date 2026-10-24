@@ -1,0 +1,62 @@
+\documentclass[../cours_tle.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{29}
+\chapter{Bézout, Gauss et équations diophantiennes}
+\label{ch:30}
+\begin{objectif}
+Mathématiques expertes. Résoudre des équations dans les entiers et comprendre l'inversibilité modulaire. Prérequis : chapitre 29.
+\end{objectif}
+\section{Remonter l'algorithme d'Euclide}
+Chaque reste est une combinaison entière des deux nombres de départ. Par récurrence sur les divisions, le dernier reste non nul, $d=\PGCD(a,b)$, s'écrit $d=au+bv$ avec $u,v\in\Z$.
+Dans l'exemple $252,198$,
+$18=54-36=4\times54-198=4\times252-5\times198$.
+\begin{theoreme}[Bézout]
+$a$ et $b$ sont premiers entre eux si et seulement s'il existe des entiers $u,v$ avec $au+bv=1$.
+\end{theoreme}
+\begin{demonstration}
+Si leur PGCD vaut $1$, l'algorithme fournit la combinaison.
+Réciproquement, tout diviseur commun divise $au+bv=1$, donc le PGCD vaut $1$.
+\end{demonstration}
+Deux nombres premiers entre eux ne sont pas nécessairement premiers : $8$ et $9$ en sont un exemple.
+\section{Le théorème de Gauss}
+\begin{theoreme}
+Si $a\mid bc$ et $\PGCD(a,b)=1$, alors $a\mid c$.
+\end{theoreme}
+\begin{demonstration}
+Bézout donne $au+bv=1$. Multiplier par $c$ : $c=auc+bvc$. Les deux termes du membre de droite sont divisibles par $a$.
+\end{demonstration}
+L'hypothèse est nécessaire : $6\mid2\times3$, mais $6$ ne divise ni $2$ ni $3$.
+Si deux entiers premiers entre eux divisent $c$, leur produit divise $c$ : écrire $c=ak$, puis appliquer Gauss à $b\mid ak$.
+\section{Équations $ax+by=c$}
+Une solution entière impose $d=\PGCD(a,b)\mid c$. Cette condition suffit : multiplier une identité de Bézout pour $d$ par $c/d$ donne une solution $(x_0,y_0)$.
+Si $a,b\ne0$ et $d\mid c$, toutes les solutions sont
+\[
+x=x_0+(b/d)t,\qquad y=y_0-(a/d)t,\qquad t\in\Z.
+\]
+\begin{demonstration}
+Soustraire deux solutions et diviser par $d$ donne
+$(a/d)(x-x_0)=-(b/d)(y-y_0)$.
+Les deux coefficients sont premiers entre eux ; Gauss impose $b/d\mid x-x_0$. Écrire ce quotient $t$ donne la formule, qui se vérifie réciproquement.
+Si un coefficient est nul, résoudre directement l'équation restante.
+\end{demonstration}
+\begin{exemple}
+$7x+5y=1$ possède $(x_0,y_0)=(-2,3)$ : toutes les solutions sont $(-2+5t,3-7t)$.
+Pour imposer $x,y\ge0$ à un problème de quantités, traduire ces deux contraintes en bornes sur l'entier $t$ ; une solution entière ne suffit pas à répondre à un problème de nombres d'objets.
+\end{exemple}
+\section{Inverse et congruence linéaire}
+$a$ possède un inverse modulo $m\ge2$ exactement lorsque $\PGCD(a,m)=1$, puisque $au\equiv1$ signifie $au+mv=1$ pour un entier $v$.
+Pour $ax\equiv b\pmod m$, c'est l'équation $ax+my=b$.
+Elle est soluble si et seulement si $d=\PGCD(a,m)$ divise $b$ ; après division par $d$, on trouve une classe de solutions modulo $m/d$, donc $d$ classes modulo $m$.
+Ainsi $6x\equiv8\pmod{14}$ donne $3x\equiv4\pmod7$, puis $x\equiv6\pmod7$ : classes $6$ et $13$ modulo $14$.
+\section{Complément : théorème chinois}
+Si $m,n$ sont premiers entre eux, le système $x\equiv a\pmod m$, $x\equiv b\pmod n$ possède une solution unique modulo $mn$.
+Écrire $um+vn=1$ : $x=a(vn)+b(um)$ convient. La différence de deux solutions est divisible par $m$ et $n$, donc par $mn$ d'après Gauss.
+Par exemple $x\equiv2\pmod3$, $x\equiv3\pmod5$ donne $x\equiv8\pmod{15}$.
+\begin{finchapitre}
+\section{Utilité et suite du parcours}
+Bézout exprime l'inversibilité dans une arithmétique modulaire. Les mêmes idées conduisent aux idéaux, aux anneaux et aux codes correcteurs.
+\begin{retenir}
+Vérifier la divisibilité par le PGCD avant de chercher des solutions ; distinguer une solution particulière de toute la famille.
+\end{retenir}
+\end{finchapitre}
+\end{document}

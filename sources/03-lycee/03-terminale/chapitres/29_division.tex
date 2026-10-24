@@ -1,0 +1,55 @@
+\documentclass[../cours_tle.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{28}
+\chapter{Divisibilité, congruences et algorithme d’Euclide}
+\label{ch:29}
+\begin{objectif}
+Mathématiques expertes. Retrouver les fondements du calcul entier. Prérequis : entiers, récurrence et calcul littéral.
+\end{objectif}
+\section{Divisibilité dans les entiers}
+Pour $a,b\in\Z$, $a\mid b$ signifie qu'il existe $k\in\Z$ avec $b=ak$.
+Si $a\mid b$ et $a\mid c$, alors $a\mid(ub+vc)$ pour tous entiers $u,v$, par factorisation.
+Si $a\mid b$ et $b\mid c$, alors $a\mid c$. Tout entier divise $0$ ; $0$ ne divise que $0$.
+\begin{theoreme}[Division euclidienne]
+Pour $a\in\Z$ et $b\in\N^*$, il existe un unique couple $(q,r)\in\Z^2$ tel que $a=bq+r$ et $0\le r<b$.
+\end{theoreme}
+\begin{demonstration}
+Choisir $q=\lfloor a/b\rfloor$ donne $q\le a/b<q+1$, donc $0\le a-bq<b$.
+Si $bq+r=bq'+r'$, alors $b(q-q')=r'-r$. Le membre de droite est strictement entre $-b$ et $b$ ; son seul multiple de $b$ possible est $0$. D'où $q=q'$, $r=r'$.
+\end{demonstration}
+Par exemple $-17=5(-4)+3$ ; le reste n'est pas $-2$.
+\section{Congruences et opérations}
+Pour $m\ge1$, $a\equiv b\pmod m$ signifie $m\mid(a-b)$, ou que les restes de $a$ et $b$ modulo $m$ sont égaux.
+C'est une relation réflexive, symétrique et transitive, directement par divisibilité.
+Si $a\equiv b$ et $c\equiv d\pmod m$, alors $a+c\equiv b+d$ et $ac\equiv bd$ :
+$ac-bd=(a-b)c+b(c-d)$ est divisible par $m$.
+Par récurrence, $a^n\equiv b^n$ pour $n\ge0$.
+\begin{attention}
+On ne simplifie pas librement un facteur dans une congruence. Modulo $6$, $2\times1\equiv2\times4$ mais $1\not\equiv4$. Le chapitre 30 donnera la condition d'inversibilité.
+\end{attention}
+\section{Tests de divisibilité}
+En base dix, $N=\sum a_k10^k$. Puisque $10\equiv1\pmod9$ et modulo $3$, $N$ a le même reste que la somme de ses chiffres.
+Comme $10\equiv-1\pmod{11}$, utiliser la somme alternée des chiffres pour le test par $11$.
+Comme $100\equiv0\pmod4$, les deux derniers chiffres déterminent la divisibilité par $4$.
+Ces preuves expliquent les tests au lieu de demander seulement leur mémorisation.
+\section{PGCD et invariant d'Euclide}
+Pour $a,b$ non tous deux nuls, leur PGCD est le plus grand diviseur commun positif. On peut remplacer $a,b$ par leurs valeurs absolues.
+\begin{propriete}
+Si $a=bq+r$, les diviseurs communs de $a,b$ sont exactement ceux de $b,r$. Donc $\PGCD(a,b)=\PGCD(b,r)$.
+\end{propriete}
+\begin{demonstration}
+Tout diviseur commun de $a,b$ divise $r=a-bq$. Tout diviseur commun de $b,r$ divise $a=bq+r$.
+\end{demonstration}
+Les restes non nuls diminuent strictement, donc l'algorithme termine. Le dernier reste non nul est le PGCD, car $\PGCD(d,0)=d$ pour $d>0$.
+\begin{exemple}
+$252=198+54$, $198=3\times54+36$, $54=36+18$, $36=2\times18$ : le PGCD vaut $18$.
+L'invariant est le PGCD du couple courant ; la quantité qui décroît assure la terminaison. Les deux notions sont différentes.
+\end{exemple}
+\begin{finchapitre}
+\section{Utilité et suite du parcours}
+Le calcul modulo prépare les anneaux quotients, le codage et la cryptographie. Euclide est un exemple central d'algorithme dont on prouve résultat et terminaison.
+\begin{retenir}
+Une congruence est une divisibilité de différence. Le reste euclidien est positif ou nul, même lorsque le dividende est négatif.
+\end{retenir}
+\end{finchapitre}
+\end{document}

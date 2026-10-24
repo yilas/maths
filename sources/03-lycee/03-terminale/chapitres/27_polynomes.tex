@@ -1,0 +1,56 @@
+\documentclass[../cours_tle.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{26}
+\chapter{Polynômes, racines et factorisation dans le plan complexe}
+\label{ch:27}
+\begin{objectif}
+Mathématiques expertes. Démontrer ce que le degré permet d'affirmer. Prérequis : chapitres 4 et 25.
+\end{objectif}
+\section{Une racine produit un facteur}
+Un polynôme non nul $P(z)=a_0+a_1z+\cdots+a_nz^n$, $a_n\ne0$, a degré $n$. Une racine est un $a$ tel que $P(a)=0$.
+\begin{propriete}
+Pour $n\ge1$,
+$z^n-a^n=(z-a)\sum_{k=0}^{n-1}z^{n-1-k}a^k$.
+Si $P(a)=0$, il existe un polynôme $Q$ tel que $P(z)=(z-a)Q(z)$.
+\end{propriete}
+\begin{demonstration}
+Développer le produit de la première formule : tous les termes intermédiaires s'annulent.
+Puis écrire $P(z)-P(a)=\sum_{j=1}^n a_j(z^j-a^j)$ ; chacun des termes est divisible par $z-a$.
+\end{demonstration}
+\begin{theoreme}
+Un polynôme non nul de degré $n$ a au plus $n$ racines distinctes.
+\end{theoreme}
+\begin{demonstration}
+Un polynôme constant non nul n'a pas de racine. Si $P$ de degré $n$ possède une racine $a$, factoriser $P=(z-a)Q$, avec $Q$ de degré $n-1$. Toute racine différente de $a$ est racine de $Q$, puisque $\mathbb C$ est un corps. Conclure par récurrence.
+\end{demonstration}
+Ainsi un polynôme nul en tous les points a tous ses coefficients nuls. Une infinité de vérifications exactes peut forcer cette conclusion ; quelques valeurs numériques ne suffisent pas sans borne sur le degré.
+\section{Second degré à coefficients réels}
+Pour $az^2+bz+c=0$, $a\ne0$, poser $\Delta=b^2-4ac$.
+La forme canonique donne $(2az+b)^2=\Delta$.
+Si $\Delta\ge0$, les solutions réelles usuelles restent valables. Si $\Delta<0$, les racines sont
+$(-b\pm i\sqrt{-\Delta})/(2a)$, conjuguées l'une de l'autre.
+Si $\Delta=0$, il y a une racine double.
+\begin{exemple}
+$z^2-2z+5=0$ a pour racines $1\pm2i$.
+Pour $P(z)=z^3-z^2+z-1$, $P(1)=0$ et
+$P(z)=(z-1)(z^2+1)$, donc les racines sont $1,i,-i$.
+\end{exemple}
+\section{Racines carrées complexes et coefficients complexes}
+Pour résoudre $w^2=a+ib$, poser $w=x+iy$. On obtient
+$x^2-y^2=a$, $2xy=b$, et $x^2+y^2=\sqrt{a^2+b^2}$.
+Donc $x^2=(|z|+a)/2$, $y^2=(|z|-a)/2$, avec signes choisis pour respecter $2xy=b$.
+Pour $3+4i$, les racines carrées sont $\pm(2+i)$.
+La forme canonique du second degré reste valable pour des coefficients complexes ; choisir une racine carrée $\delta$ de $\Delta$ donne $(-b\pm\delta)/(2a)$.
+\section{Somme, produit et multiplicité}
+Si $P=a\prod_{j=1}^n(z-r_j)$, le coefficient de $z^{n-1}$ vaut $-a\sum r_j$ et le terme constant vaut $a(-1)^n\prod r_j$ : choisir les termes appropriés dans le développement. Ce sont les premières formules de Viète.
+Une racine de multiplicité $m$ signifie que $(z-a)^m$ divise $P$ mais pas $(z-a)^{m+1}$.
+Pour un polynôme à coefficients réels, $P(\overline z)=\overline{P(z)}$ ; les racines non réelles vont donc par paires conjuguées.
+Le théorème affirmant qu'un polynôme complexe de degré $n\ge1$ possède exactement $n$ racines avec multiplicité est le théorème fondamental de l'algèbre, admis ici et réservé à une preuve universitaire. La borne « au plus $n$ » ci-dessus ne suffit pas à le démontrer.
+\begin{finchapitre}
+\section{Utilité et suite du parcours}
+Les polynômes relient équations, interpolation, valeurs propres et structures algébriques. La multiplicité prépare l'étude fine des racines et des matrices.
+\begin{retenir}
+Distinguer racines distinctes et racines comptées avec multiplicité. Toujours exclure le polynôme nul dans une borne fondée sur le degré.
+\end{retenir}
+\end{finchapitre}
+\end{document}

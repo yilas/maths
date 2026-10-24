@@ -1,0 +1,18 @@
+\chapter{Intégrale et théorème fondamental de l’analyse}
+\section*{Exercice 19.1 -- Aire signée}
+L'intégrale vaut $[x^2/2]_{-1}^1=0$. L'aire vaut $\int_{-1}^0(-x)\,dx+\int_0^1x\,dx=1$. Les deux triangles ont aires $1/2$ ; leur compensation concerne l'intégrale, pas l'aire géométrique.
+
+\section*{Exercice 19.2 -- Borne variable}
+Poser $G(u)=\int_1^ue^{-t^2}\,dt$. L'intégrande est continue, donc $G'(u)=e^{-u^2}$. Par composition, $F'(x)=2xe^{-x^4}$. Aucune primitive élémentaire explicite n'est nécessaire.
+
+\section*{Exercice 19.3 -- Valeur moyenne}
+La moyenne vaut $(1/3)\int_0^3t^2\,dt=3$. La valeur est atteinte en $t=\sqrt3\in[0,3]$. Ce n'est ni la valeur au milieu $9/4$, ni la moyenne des valeurs extrêmes $9/2$.
+
+\section*{Exercice 19.4 -- Positivité stricte}
+Supposons $f(c)>0$. Par continuité, $f$ reste au moins $f(c)/2$ sur un petit intervalle de longueur positive contenu dans $[a,b]$ (unilatéral si $c$ est une extrémité). Son intégrale sur cet intervalle est strictement positive, et le reste contribue positivement ou par zéro : contradiction.
+
+\section*{Exercice 19.5 -- Orientation}
+Chasles donne $\int_2^5f=1-5=-4$. Le changement d'orientation donne $\int_5^2f=4$. Une intégrale négative n'implique pas que la fonction soit négative en chaque point.
+
+\section*{Exercice 19.6 -- Comparaison}
+$e^{-1}\le e^{-x^2}\le1$ donne $e^{-1}\le I\le1$. La tangente à l'exponentielle donne $e^{-x^2}\ge1-x^2$, donc $I\ge2/3$, meilleur que $e^{-1}$. La comparaison porte sur un intervalle orienté de gauche à droite.

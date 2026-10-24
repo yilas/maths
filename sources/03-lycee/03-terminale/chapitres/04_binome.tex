@@ -1,0 +1,59 @@
+\documentclass[../cours_tle.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{3}
+\chapter{Coefficients binomiaux et formule du binôme}
+\label{ch:4}
+\begin{objectif}
+Spécialité. Démontrer les identités combinatoires et les utiliser. Prérequis : chapitres 2 et 3.
+\end{objectif}
+\section{Symétrie et relation de Pascal}
+Prendre le complémentaire établit une bijection entre parties de taille $k$ et parties de taille $n-k$, donc $\binom nk=\binom n{n-k}$.
+\begin{theoreme}[Pascal]
+Pour $1\le k\le n$, $\binom{n+1}k=\binom nk+\binom n{k-1}$.
+\end{theoreme}
+\begin{demonstration}[Combinatoire]
+Fixer un élément d'un ensemble de taille $n+1$. Les parties de taille $k$ qui l'évitent sont comptées par $\binom nk$. Celles qui le contiennent nécessitent $k-1$ choix parmi les $n$ autres. Les deux catégories sont disjointes et exhaustives.
+\end{demonstration}
+\begin{demonstration}[Algébrique]
+Au même dénominateur $k!(n+1-k)!$, les numérateurs sont $n!(n+1-k)$ et $n!k$. Leur somme $(n+1)!$ donne le résultat.
+\end{demonstration}
+Les extrémités de chaque ligne du triangle valent $1$ ; chaque coefficient intérieur est la somme des deux situés au-dessus. Par exemple les lignes $n=0,1,2,3$ sont $(1)$, $(1,1)$, $(1,2,1)$, $(1,3,3,1)$.
+\section{Deux identités fondamentales}
+En classant les $2^n$ parties par leur taille, on obtient
+$\sum_{k=0}^n\binom nk=2^n$.
+\begin{theoreme}[Binôme de Newton]
+Pour $a,b\in\R$ (ou $\mathbb C$) et $n\in\N$,
+\[
+(a+b)^n=\sum_{k=0}^n\binom nk a^{n-k}b^k.
+\]
+\end{theoreme}
+\begin{demonstration}
+Développer les $n$ facteurs $(a+b)$ revient à choisir $b$ dans un sous-ensemble des positions et $a$ ailleurs. Pour $k$ choix de $b$, on obtient $a^{n-k}b^k$ de $\binom nk$ façons. La distributivité donne la somme. La commutativité est utilisée pour regrouper les termes ; avec des matrices qui ne commutent pas, cette formule est généralement fausse.
+\end{demonstration}
+Une autre preuve part du rang $0$, multiplie la formule par $a+b$ et regroupe les coefficients grâce à Pascal.
+Prendre $(a,b)=(1,-1)$ donne $\sum(-1)^k\binom nk=0$ si $n\ge1$ : il y a autant de parties de taille paire que de taille impaire.
+\section{Choisir une identité utile}
+\begin{exemple}
+$(1+x)^4=1+4x+6x^2+4x^3+x^4$.
+Le coefficient de $x^3$ dans $(2+x)^5$ est $\binom53 2^2=40$.
+Pour une pièce équilibrée lancée cinq fois, les mots contenant exactement deux succès sont au nombre de $\binom52=10$ ; chacun a probabilité $1/32$.
+\end{exemple}
+Le double comptage des couples $(B,b)$, avec $|B|=k$ et $b\in B$, donne
+$k\binom nk=n\binom{n-1}{k-1}$ : compter d'abord $B$, ou d'abord son élément distingué.
+\section{Construire le triangle par programme}
+À partir d'une ligne $L$, ajouter des zéros à ses deux extrémités et sommer les voisins donne la ligne suivante. Les calculs restent entiers ; aucune factorielle énorme n'est nécessaire.
+\begin{lstlisting}[language=Python]
+ligne = [1]
+for rang in range(n):
+    ligne = [1] + [ligne[k-1] + ligne[k]
+                   for k in range(1, len(ligne))] + [1]
+\end{lstlisting}
+L'invariant est : après $r$ passages, la liste contient les $\binom rk$. Le chapitre 24 et le dossier Python proposent aussi permutations et parties sans doublons.
+\begin{finchapitre}
+\section{Utilité et suite du parcours}
+Le binôme mène à la loi binomiale, aux développements limités et aux séries. Le choix entre calcul et dénombrement développe la souplesse nécessaire aux preuves universitaires.
+\begin{retenir}
+Justifier le domaine des indices et distinguer une identité sur des nombres d'une identité sur des objets non commutatifs.
+\end{retenir}
+\end{finchapitre}
+\end{document}

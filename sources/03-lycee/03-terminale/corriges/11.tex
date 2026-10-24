@@ -1,0 +1,18 @@
+\chapter{Suites monotones, points fixes et suites adjacentes}
+\section*{Exercice 11.1 -- Suite racine}
+Le point fixe positif est $L=(1+\sqrt{13})/2$. L'intervalle $[1,L]$ est stable car la racine est croissante et $f(L)=L$. Sur cet intervalle, $3+x-x^2\ge0$, donc $f(x)\ge x$. La suite croît et est majorée par $L$ ; sa limite vérifie l'équation et vaut $L$.
+
+\section*{Exercice 11.2 -- Erreur contractante}
+Il suffit de $2^n\ge800$. Comme $2^9=512$ et $2^{10}=1024$, $n\ge10$ convient. La borne ne prétend pas que l'erreur réelle atteint ce maximum.
+
+\section*{Exercice 11.3 -- Point fixe trompeur}
+L'équation $L=-L$ donne $L=0$, mais $u_n=(-1)^n$ ne converge pas. Un passage à la limite supposant une convergence non prouvée ne peut pas établir celle-ci.
+
+\section*{Exercice 11.4 -- Adjacentes}
+$a_n$ croît, $b_n$ décroît, $a_n\le b_n$ et $b_n-a_n=2/(n+1)\to0$. Elles convergent donc vers une même limite, ici $1$. À chaque rang, cette limite est dans $[a_n,b_n]$.
+
+\section*{Exercice 11.5 -- Héron pour 3}
+$u_1=(2+3/2)/2=7/4$, puis $u_2=(7/4+12/7)/2=97/56$. La preuve générale donne $u_n\ge\sqrt3$, décroissance et limite $\sqrt3$. L'erreur suivante vaut l'erreur actuelle au carré divisée par $2u_n$.
+
+\section*{Exercice 11.6 -- Limite ou majorant}
+Non. On conclut seulement à une limite réelle inférieure ou égale à $100$. La suite constante égale à $1$ fournit un contre-exemple. La limite est la borne supérieure de l'ensemble des termes, pas un majorant arbitraire.

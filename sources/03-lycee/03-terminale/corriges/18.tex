@@ -1,0 +1,18 @@
+\chapter{Primitives et équations différentielles}
+\section*{Exercice 18.1 -- Primitives et domaines}
+Sur les positifs : $x^3-2\ln x+C$. Sur les négatifs : $x^3-2\ln(-x)+D$, car la dérivée de $\ln(-x)$ vaut $1/x$. Les constantes sont indépendantes sur ces deux intervalles disjoints.
+
+\section*{Exercice 18.2 -- Condition initiale}
+Le point d'équilibre est $3$. Poser $z=y-3$ donne $z'=2z$, donc $z=Ce^{2x}$. La condition initiale impose $C=2$ : $y=3+2e^{2x}$. La substitution vérifie à la fois l'équation et la valeur initiale.
+
+\section*{Exercice 18.3 -- Second membre}
+Pour $y_p=ax+b$, l'équation impose $a=ax+b+x$, donc $a=-1$, $b=-1$. La différence $y-y_p$ vérifie $z'=z$. Toutes les solutions sont $y(x)=Ce^x-x-1$.
+
+\section*{Exercice 18.4 -- Refroidissement fictif}
+$T(t)=20+60e^{-0{,}2t}$. L'équation $60e^{-0{,}2t}=10$ donne $t=5\ln6\simeq8{,}96$ minutes. Le coefficient $0{,}2$ a l'unité minute inverse ; le modèle suppose une température ambiante constante et un échange proportionnel à l'écart.
+
+\section*{Exercice 18.5 -- Euler instable}
+Euler donne $y_{n+1}=(1-4)y_n=-3y_n$, donc $y_n=(-3)^n$ diverge en oscillant. La solution exacte $e^{-4t}$ tend vers zéro. Pour que l'erreur homogène décroisse, il faut $|1-4h|<1$, soit $0<h<1/2$.
+
+\section*{Exercice 18.6 -- Logistique}
+En notant $q=Ae^{-rt}$, $y'=Krq/(1+q)^2$. D'autre part $ry(1-y/K)=r[K/(1+q)][q/(1+q)]$, même expression. Comme $q\to0$, $y\to K$ ; $K$ est une capacité limite dans ce modèle. Ce calcul vérifie une famille de solutions ; il ne prouve pas à lui seul l'unicité de toutes les solutions.

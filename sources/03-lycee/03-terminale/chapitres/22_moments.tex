@@ -1,0 +1,57 @@
+\documentclass[../cours_tle.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{21}
+\chapter{Espérance, variance et sommes de variables}
+\label{ch:22}
+\begin{objectif}
+Spécialité. Démontrer les règles de calcul et repérer l'effet des dépendances. Prérequis : chapitre 21.
+\end{objectif}
+\section{Une variable aléatoire est une fonction}
+Sur un univers fini, $X:\Omega\to\R$ associe un nombre à chaque issue. Sa loi regroupe les issues donnant la même valeur.
+Son espérance est $E(X)=\sum_x xP(X=x)=\sum_{\omega}X(\omega)P(\{\omega\})$.
+Sa variance est $V(X)=E((X-E(X))^2)$, son écart-type $\sigma(X)=\sqrt{V(X)}$.
+L'espérance conserve l'unité de $X$, la variance possède l'unité au carré.
+\section{Linéarité sans indépendance}
+\begin{theoreme}
+$E(aX+bY+c)=aE(X)+bE(Y)+c$, quelles que soient les dépendances.
+\end{theoreme}
+\begin{demonstration}
+Sommer $aX(\omega)+bY(\omega)+c$ avec les poids $P(\{\omega\})$ et distribuer la somme. Les poids totalisent $1$.
+\end{demonstration}
+Ainsi l'espérance d'un nombre de succès est la somme des probabilités de succès, même si les succès sont dépendants.
+Développer le carré autour de la moyenne donne la formule de Huygens :
+$V(X)=E(X^2)-E(X)^2$. Elle implique $V(aX+b)=a^2V(X)$.
+Si $V(X)=0$, $X$ vaut sa moyenne sur toutes les issues de probabilité non nulle, car une somme de carrés pondérés ne peut s'annuler autrement.
+\section{Indépendance de variables et covariance}
+Deux variables finies sont indépendantes si, pour toutes leurs valeurs $x,y$,
+$P(X=x,Y=y)=P(X=x)P(Y=y)$.
+\begin{demonstration}
+Sous cette hypothèse,
+$E(XY)=\sum_{x,y}xyP(X=x)P(Y=y)=(\sum_xxP(X=x))(\sum_yyP(Y=y))$.
+\end{demonstration}
+Définir $\operatorname{Cov}(X,Y)=E(XY)-E(X)E(Y)$ donne, par développement,
+$V(X+Y)=V(X)+V(Y)+2\operatorname{Cov}(X,Y)$.
+Pour des variables indépendantes, la covariance est nulle, donc les variances s'ajoutent. Une covariance nulle n'implique pas l'indépendance : si $X$ est uniforme sur $\{-1,0,1\}$ et $Y=X^2$, $E(XY)=E(X)=0$, mais $Y$ dépend de $X$.
+\section{Bernoulli, binomiale et moyenne d'échantillon}
+Pour $B\sim\mathcal B(1,p)$, $B^2=B$, donc $E(B)=p$, $V(B)=p-p^2=p(1-p)$.
+Si $X=B_1+\cdots+B_n$ avec Bernoulli indépendantes de même paramètre,
+$E(X)=np$ et $V(X)=np(1-p)$.
+
+Un échantillon de taille $n$ d'une loi est ici une famille de variables indépendantes de cette même loi. Si elles ont moyenne $\mu$ et variance $\sigma^2$, leur moyenne $M_n$ vérifie
+\[
+E(M_n)=\mu,\qquad V(M_n)=\frac{\sigma^2}{n},\qquad \sigma(M_n)=\frac{\sigma}{\sqrt n}.
+\]
+La première formule vient de la linéarité ; la seconde de l'indépendance et du facteur $1/n^2$ appliqué à la variance de la somme.
+\section{Exemples et erreurs à détecter}
+La somme de deux dés indépendants a espérance $7$, même sans écrire toute sa loi.
+Pour un dé uniforme, $E(D^2)=91/6$, donc $V(D)=35/12$ et la variance de la somme vaut $35/6$.
+Si l'on utilise deux fois le même résultat, la variable $2D$ a aussi espérance $7$ mais variance $4V(D)=35/3$ : la dépendance change la dispersion.
+Pour une moyenne, quadrupler $n$ divise l'écart-type par $2$, pas par $4$.
+\begin{finchapitre}
+\section{Utilité et suite du parcours}
+Les variances et covariances forment une géométrie des variables aléatoires. Elles conduisent aux projections statistiques, aux moindres carrés et à l'étude des estimateurs.
+\begin{retenir}
+L'espérance est toujours linéaire. L'addition des variances exige une justification de l'absence de termes de covariance.
+\end{retenir}
+\end{finchapitre}
+\end{document}

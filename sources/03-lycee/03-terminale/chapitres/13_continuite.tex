@@ -1,0 +1,50 @@
+\documentclass[../cours_tle.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{12}
+\chapter{Continuité, valeurs intermédiaires et équations}
+\label{ch:13}
+\begin{objectif}
+Spécialité. Prouver qu'une solution existe puis établir son unicité. Prérequis : chapitres 9 à 12.
+\end{objectif}
+\section{Continuité en un point}
+\begin{definition}
+Une fonction $f$ définie en $a$ est continue en $a$ si $f(x)\to f(a)$ quand $x\to a$ dans son domaine. Elle est continue sur un intervalle si elle l'est en chacun de ses points, avec une limite unilatérale aux extrémités.
+\end{definition}
+Les sommes, produits, composées de fonctions continues sont continus là où ils sont définis ; les quotients le sont lorsque le dénominateur ne s'annule pas, par les règles de limites.
+Un saut est une discontinuité. Une fonction peut aussi ne pas être définie en un point mais y posséder une limite finie : définir la valeur manquante égale à cette limite réalise un prolongement par continuité.
+\begin{theoreme}
+Si $f$ est continue en $\ell$ et $u_n\to\ell$, alors $f(u_n)\to f(\ell)$, pourvu que les $u_n$ soient dans son domaine.
+\end{theoreme}
+\begin{demonstration}
+Fixer $\varepsilon>0$. La continuité fournit $\delta>0$ tel que $|x-\ell|<\delta$ implique $|f(x)-f(\ell)|<\varepsilon$. La convergence de $u_n$ assure la première inégalité à partir d'un rang ; on obtient alors la seconde.
+\end{demonstration}
+\section{Le théorème des valeurs intermédiaires}
+\begin{theoreme}
+Si $f$ est continue sur $[a,b]$, tout nombre $k$ entre $f(a)$ et $f(b)$ est l'image d'au moins un $c\in[a,b]$.
+Si $f$ est en outre strictement monotone, cet antécédent est unique.
+\end{theoreme}
+\begin{demonstration}[Par dichotomie, approfondissement]
+Considérons $g=f-k$, avec $g(a)\le0\le g(b)$ ; les autres sens se traitent en remplaçant $g$ par $-g$. Si une borne est racine, terminer. Sinon couper l'intervalle au milieu et conserver une moitié dont les bornes ont des signes opposés (ou terminer si le milieu est racine).
+Les bornes $a_n$ croissent, les $b_n$ décroissent et $b_n-a_n=(b-a)/2^n\to0$. Elles tendent donc vers un même $c$. Par continuité, $g(a_n)\to g(c)$ et $g(b_n)\to g(c)$ ; leurs signes imposent $g(c)=0$.
+Une fonction strictement monotone est injective, ce qui donne l'unicité.
+\end{demonstration}
+Sans continuité, une fonction qui vaut $-1$ à gauche de $0$ et $1$ à partir de $0$ n'atteint pas $0$. Sans monotonie stricte, une valeur peut être atteinte plusieurs fois.
+\section{Résoudre : existence, unicité, approximation}
+Pour $f(x)=x^3+x-1$ sur $[0,1]$, $f(0)=-1$, $f(1)=1$. La continuité donne une racine ; $f'(x)=3x^2+1>0$ donne son unicité. Puis $f(0{,}68)<0<f(0{,}69)$ donne un encadrement.
+Après $n$ dichotomies, choisir le milieu garantit une erreur au plus $(b-a)/2^{n+1}$.
+On ne remplace pas la preuve par la valeur affichée par une calculatrice.
+\section{Complément : réciproque d'une fonction monotone}
+Une fonction continue strictement croissante sur un intervalle est une bijection sur son image, par le théorème précédent. Sa réciproque est continue : pour un point intérieur $x_0$, choisir $x_-<x_0<x_+$ aussi proches que souhaité ;
+$f(x_-)<f(x_0)<f(x_+)$ encadre les images, et l'ordre inverse encadre les antécédents de tout $y$ assez proche de $f(x_0)$. Aux extrémités, utiliser un encadrement unilatéral.
+Cette preuve servira au logarithme, sans admettre sa continuité séparément.
+\section{Complément : une équation fonctionnelle}
+Si $f:\R\to\R$ est continue et $f(x+y)=f(x)+f(y)$, alors $f(x)=cx$, où $c=f(1)$.
+En effet $f(0)=0$, $f(-x)=-f(x)$, puis par addition $f(n)=nc$ et $f(p/q)=pc/q$ pour $q>0$. Tout réel est limite de rationnels ; la continuité étend la formule à $\R$. La continuité est une hypothèse essentielle à cette extension.
+\begin{finchapitre}
+\section{Utilité et suite du parcours}
+Le théorème des valeurs intermédiaires est un théorème d'existence. La distinction entre existence, unicité et calcul approché se retrouve dans les équations différentielles et les problèmes de recherche.
+\begin{retenir}
+Pour une équation, annoncer l'intervalle et vérifier continuité, encadrement de la valeur cible et monotonie pour l'unicité.
+\end{retenir}
+\end{finchapitre}
+\end{document}

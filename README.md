@@ -13,6 +13,29 @@ Le référentiel [OBJECTIFS.md](OBJECTIFS.md) guide toute création et révision
 Les PDF sont disponibles dans les [releases](https://github.com/yilas/maths/releases)
 après la première publication sur tag contenant ce workflow.
 
+## Terminale générale : spécialité et mathématiques expertes
+
+Le volume couvre la spécialité de **2026–2027**, le nouveau programme applicable
+en **2027–2028**, et l'option **mathématiques expertes**. Il comprend **36 chapitres,
+216 exercices corrigés, huit synthèses corrigées et 72 automatismes avec réponses**.
+
+| Document | PDF après publication d'un tag contenant ce niveau | Source LaTeX |
+| --- | --- | --- |
+| Cours et démonstrations | [Lire le cours](https://github.com/yilas/maths/releases/latest/download/terminale-cours.pdf) | [cours_tle.tex](sources/03-lycee/03-terminale/cours_tle.tex) |
+| Exercices et problèmes | [Lire les exercices](https://github.com/yilas/maths/releases/latest/download/terminale-exercices.pdf) | [exercices_tle.tex](sources/03-lycee/03-terminale/exercices_tle.tex) |
+| Corrigés expliqués | [Lire les corrigés](https://github.com/yilas/maths/releases/latest/download/terminale-corriges.pdf) | [corriges_tle.tex](sources/03-lycee/03-terminale/corriges_tle.tex) |
+| Guide et couverture | [Lire le guide](https://github.com/yilas/maths/releases/latest/download/terminale-guide.pdf) | [guide_tle.tex](sources/03-lycee/03-terminale/guide_tle.tex) |
+
+Dénombrement, géométrie dans l'espace, analyse, intégration et probabilités sont
+complétés par les complexes, l'arithmétique, les matrices, les graphes et Markov.
+Les preuves rappellent leurs prérequis ; les prolongements expliquent les usages
+futurs en licence puis dans les spécialisations de master.
+
+- [Plan, sources officielles et fondements](sources/03-lycee/03-terminale/README.md).
+- [Algorithmes exécutables et 24 contrôles](sources/03-lycee/03-terminale/python/README.md).
+- Le guide distingue les programmes, les compléments et les résultats admis.
+  Les mathématiques complémentaires et les voies technologiques sont hors périmètre.
+
 ## Première générale, spécialité mathématiques : rentrée 2026
 
 Le nouveau volume suit le programme publié au **BO du 2 avril 2026**, applicable

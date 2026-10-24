@@ -1,0 +1,18 @@
+\chapter{Dénombrer sans compter deux fois}
+\section*{Exercice 3.1 -- Codes}
+Codes : $10\times9\times8\times7=5040$. Nombres : $9\times9\times8\times7=4536$, car la première position exclut zéro mais les suivantes peuvent l'utiliser. Les choix successifs se multiplient.
+
+\section*{Exercice 3.2 -- Comité}
+Les deux places restantes forment une partie de taille $2$ des huit autres personnes : $\binom82=28$. L'ordre dans le comité n'intervient pas.
+
+\section*{Exercice 3.3 -- Au moins un}
+Compter tous les groupes puis enlever ceux formés uniquement d'hommes : $\binom93-\binom43=84-4=80$. Les deux catégories sont complémentaires et le comptage ne répète aucun groupe.
+
+\section*{Exercice 3.4 -- Réunion}
+Exactement une : $(22-9)+(18-9)=22$. Au moins une : $22+18-9=31$. Aucune : $40-31=9$. Retirer une seule fois l'intersection dans la réunion, deux fois dans « exactement une ».
+
+\section*{Exercice 3.5 -- Étoiles et séparateurs}
+Les six étoiles et deux séparateurs donnent $\binom82=28$ triplets. Les zones vides correspondent aux composantes nulles, donc doivent être autorisées ; l'ordre des trois composantes compte.
+
+\section*{Exercice 3.6 -- Sous-ensembles}
+Choisir librement une partie des $n-1$ autres éléments puis ajouter l'élément fixé donne une bijection avec leurs $2^{n-1}$ parties. La moitié de toutes les parties contient donc cet élément.

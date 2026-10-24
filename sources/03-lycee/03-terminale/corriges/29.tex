@@ -1,0 +1,18 @@
+\chapter{Divisibilité, congruences et algorithme d’Euclide}
+\section*{Exercice 29.1 -- Division euclidienne}
+$-17=5(-4)+3$, avec $0\le3<5$. Le quotient est $-4$ et le reste $3$. L'écriture $-17=5(-3)-2$ n'est pas une division euclidienne, car le reste est négatif.
+
+\section*{Exercice 29.2 -- Dernier chiffre}
+Modulo $10$, les puissances de $7$ suivent $7,9,3,1$ puis recommencent puisque $7^4\equiv1$. Or $2026\equiv2\pmod4$, donc $7^{2026}\equiv7^2\equiv9\pmod{10}$.
+
+\section*{Exercice 29.3 -- Euclide}
+$252=198+54$, $198=3\times54+36$, $54=36+18$, $36=2\times18$. Le dernier reste non nul est $18$. L'identité des diviseurs communs à chaque division justifie l'algorithme.
+
+\section*{Exercice 29.4 -- Divisibilité par 9}
+Si $N=\sum a_k10^k$, alors $10\equiv1\pmod9$, donc $N\equiv\sum a_k\pmod9$. Ainsi $9$ divise $N$ exactement lorsque $9$ divise la somme de ses chiffres. Le même raisonnement vaut pour $3$.
+
+\section*{Exercice 29.5 -- Simplification interdite}
+Non : $x=1,y=4$ donnent $2x=2\equiv8=2y\pmod6$ mais $1\not\equiv4\pmod6$. La simplification conduirait seulement à $x\equiv y\pmod3$. Pour simplifier modulo $6$ sans changer le module, le facteur devrait être premier avec $6$.
+
+\section*{Exercice 29.6 -- Carrés modulo 4}
+Un entier pair s'écrit $2a$, carré $4a^2$ ; un impair s'écrit $2a+1$, carré $4a(a+1)+1$. La somme de deux restes dans $\{0,1\}$ vaut $0,1$ ou $2$ modulo $4$, jamais $3$.

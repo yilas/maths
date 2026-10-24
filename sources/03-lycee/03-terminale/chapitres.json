@@ -1,0 +1,218 @@
+{
+  "1": {
+    "titre": "Langage, fonctions et calcul : les bases",
+    "fichier": "01_langage.tex",
+    "statut": "Spécialité",
+    "prerequis": "Revoir ensembles, équations et fonctions avant toute étude de limite. Prérequis : calcul littéral et fonctions de seconde, chapitres 1 à 3 de première."
+  },
+  "2": {
+    "titre": "Récurrence et sommes",
+    "fichier": "02_recurrence.tex",
+    "statut": "Spécialité",
+    "prerequis": "Prouver une affirmation pour tous les entiers. Prérequis : chapitre 1 et suites de première."
+  },
+  "3": {
+    "titre": "Dénombrer sans compter deux fois",
+    "fichier": "03_denombrement.tex",
+    "statut": "Spécialité",
+    "prerequis": "Choisir un modèle de comptage. Prérequis : ensembles et produits cartésiens, chapitre 1."
+  },
+  "4": {
+    "titre": "Coefficients binomiaux et formule du binôme",
+    "fichier": "04_binome.tex",
+    "statut": "Spécialité",
+    "prerequis": "Démontrer les identités combinatoires et les utiliser. Prérequis : chapitres 2 et 3."
+  },
+  "5": {
+    "titre": "Vecteurs, bases et repères de l’espace",
+    "fichier": "05_vecteurs.tex",
+    "statut": "Spécialité",
+    "prerequis": "Décrire des configurations en trois dimensions. Prérequis : vecteurs du plan et chapitre 1."
+  },
+  "6": {
+    "titre": "Produit scalaire, orthogonalité et projections",
+    "fichier": "06_orthogonalite.tex",
+    "statut": "Spécialité",
+    "prerequis": "Calculer distances et angles, démontrer une propriété de minimum. Prérequis : chapitre 5 et produit scalaire du plan."
+  },
+  "7": {
+    "titre": "Droites, plans et systèmes linéaires",
+    "fichier": "07_equations_espace.tex",
+    "statut": "Spécialité",
+    "prerequis": "Passer d'une configuration à des équations et interpréter les solutions. Prérequis : chapitres 5 et 6."
+  },
+  "8": {
+    "titre": "Sphères, barycentres et mesures",
+    "fichier": "08_geometrie_complements.tex",
+    "statut": "Spécialité et approfondissements de géométrie",
+    "prerequis": "Approfondissement. Consolider les lieux géométriques et préparer l'algèbre affine. Prérequis : chapitres 5 à 7."
+  },
+  "9": {
+    "titre": "Comprendre la limite d’une suite",
+    "fichier": "09_limites_suites.tex",
+    "statut": "Spécialité",
+    "prerequis": "Passer de l'intuition à une définition exploitable. Prérequis : chapitres 1 et 2."
+  },
+  "10": {
+    "titre": "Opérations sur les limites et suites géométriques",
+    "fichier": "10_operations_limites.tex",
+    "statut": "Spécialité",
+    "prerequis": "Calculer avec les limites sans transformer une forme indéterminée en résultat. Prérequis : chapitres 2 et 9."
+  },
+  "11": {
+    "titre": "Suites monotones, points fixes et suites adjacentes",
+    "fichier": "11_convergence.tex",
+    "statut": "Spécialité",
+    "prerequis": "Distinguer existence de la limite et calcul de sa valeur. Prérequis : chapitres 9 et 10."
+  },
+  "12": {
+    "titre": "Limites de fonctions et croissances comparées",
+    "fichier": "12_limites_fonctions.tex",
+    "statut": "Spécialité",
+    "prerequis": "Étudier le comportement près d'un point et à l'infini. Prérequis : limites de suites et exponentielle de première."
+  },
+  "13": {
+    "titre": "Continuité, valeurs intermédiaires et équations",
+    "fichier": "13_continuite.tex",
+    "statut": "Spécialité",
+    "prerequis": "Prouver qu'une solution existe puis établir son unicité. Prérequis : chapitres 9 à 12."
+  },
+  "14": {
+    "titre": "Dériver, composer et contrôler les variations",
+    "fichier": "14_derivation.tex",
+    "statut": "Spécialité",
+    "prerequis": "Retrouver les règles de dérivation et comprendre leur portée. Prérequis : dérivation de première et chapitre 13."
+  },
+  "15": {
+    "titre": "Convexité, tangentes et inégalités",
+    "fichier": "15_convexite.tex",
+    "statut": "Spécialité",
+    "prerequis": "Relier courbure, dérivée seconde et encadrements. Prérequis : chapitre 14."
+  },
+  "16": {
+    "titre": "Logarithme, puissances et modèles multiplicatifs",
+    "fichier": "16_logarithme.tex",
+    "statut": "Spécialité",
+    "prerequis": "Construire le logarithme et justifier ses règles. Prérequis : exponentielle, continuité et dérivation."
+  },
+  "17": {
+    "titre": "Sinus, cosinus et oscillations",
+    "fichier": "17_trigonometrie.tex",
+    "statut": "Spécialité",
+    "prerequis": "Relier cercle, courbes, équations et dérivées. Prérequis : radians et cercle de première, chapitres 12 et 14."
+  },
+  "18": {
+    "titre": "Primitives et équations différentielles",
+    "fichier": "18_primitives_ed.tex",
+    "statut": "Spécialité",
+    "prerequis": "Comprendre une équation dont l'inconnue est une fonction. Prérequis : chapitres 14, 16 et 17."
+  },
+  "19": {
+    "titre": "Intégrale et théorème fondamental de l’analyse",
+    "fichier": "19_integrale.tex",
+    "statut": "Spécialité",
+    "prerequis": "Relier aire, accumulation et primitive. Prérequis : continuité et primitives."
+  },
+  "20": {
+    "titre": "Calcul intégral, encadrements et suites d’intégrales",
+    "fichier": "20_calcul_integral.tex",
+    "statut": "Spécialité",
+    "prerequis": "Choisir une méthode de calcul ou d'approximation justifiée. Prérequis : chapitre 19."
+  },
+  "21": {
+    "titre": "Expériences aléatoires et loi binomiale",
+    "fichier": "21_binomiale.tex",
+    "statut": "Spécialité",
+    "prerequis": "Construire le modèle avant d'utiliser une formule. Prérequis : dénombrement et probabilités de première."
+  },
+  "22": {
+    "titre": "Espérance, variance et sommes de variables",
+    "fichier": "22_moments.tex",
+    "statut": "Spécialité",
+    "prerequis": "Démontrer les règles de calcul et repérer l'effet des dépendances. Prérequis : chapitre 21."
+  },
+  "23": {
+    "titre": "Concentration et loi des grands nombres",
+    "fichier": "23_concentration.tex",
+    "statut": "Spécialité",
+    "prerequis": "Passer de la variance à une garantie probabiliste. Prérequis : chapitre 22 et limites de suites."
+  },
+  "24": {
+    "titre": "Algorithmes : calculer, prouver et contrôler l’erreur",
+    "fichier": "24_algorithmes.tex",
+    "statut": "Spécialité",
+    "prerequis": "Exécuter les méthodes du cours et comprendre leurs limites. Prérequis : Python de première, chapitres 2, 11, 13 et 20."
+  },
+  "25": {
+    "titre": "Construire et calculer les nombres complexes",
+    "fichier": "25_complexes.tex",
+    "statut": "Mathématiques expertes",
+    "prerequis": "Étendre les réels sans perdre les règles de calcul. Prérequis : calcul algébrique, binôme et repère du plan."
+  },
+  "26": {
+    "titre": "Arguments, exponentielle imaginaire et trigonométrie",
+    "fichier": "26_complexes_trigo.tex",
+    "statut": "Mathématiques expertes",
+    "prerequis": "Choisir la représentation adaptée à un produit ou une puissance. Prérequis : chapitres 17 et 25."
+  },
+  "27": {
+    "titre": "Polynômes, racines et factorisation dans le plan complexe",
+    "fichier": "27_polynomes.tex",
+    "statut": "Mathématiques expertes",
+    "prerequis": "Démontrer ce que le degré permet d'affirmer. Prérequis : chapitres 4 et 25."
+  },
+  "28": {
+    "titre": "Géométrie complexe et racines de l’unité",
+    "fichier": "28_geometrie_complexe.tex",
+    "statut": "Mathématiques expertes",
+    "prerequis": "Résoudre des configurations par les affixes. Prérequis : chapitres 25 à 27."
+  },
+  "29": {
+    "titre": "Divisibilité, congruences et algorithme d’Euclide",
+    "fichier": "29_division.tex",
+    "statut": "Mathématiques expertes",
+    "prerequis": "Retrouver les fondements du calcul entier. Prérequis : entiers, récurrence et calcul littéral."
+  },
+  "30": {
+    "titre": "Bézout, Gauss et équations diophantiennes",
+    "fichier": "30_bezout.tex",
+    "statut": "Mathématiques expertes",
+    "prerequis": "Résoudre des équations dans les entiers et comprendre l'inversibilité modulaire. Prérequis : chapitre 29."
+  },
+  "31": {
+    "titre": "Nombres premiers, Fermat et chiffrement",
+    "fichier": "31_premiers.tex",
+    "statut": "Mathématiques expertes",
+    "prerequis": "Démontrer les théorèmes structurants de l'arithmétique. Prérequis : chapitres 29 et 30."
+  },
+  "32": {
+    "titre": "Matrices, applications linéaires et systèmes",
+    "fichier": "32_matrices.tex",
+    "statut": "Mathématiques expertes",
+    "prerequis": "Donner un sens au produit matriciel avant de le calculer. Prérequis : systèmes du chapitre 7."
+  },
+  "33": {
+    "titre": "Puissances de matrices et suites couplées",
+    "fichier": "33_puissances.tex",
+    "statut": "Mathématiques expertes",
+    "prerequis": "Calculer une évolution répétée et identifier ses modes. Prérequis : chapitres 10 et 32."
+  },
+  "34": {
+    "titre": "Graphes, chemins et matrices d’adjacence",
+    "fichier": "34_graphes.tex",
+    "statut": "Mathématiques expertes",
+    "prerequis": "Modéliser des relations et compter des parcours. Prérequis : dénombrement et multiplication matricielle."
+  },
+  "35": {
+    "titre": "Chaînes de Markov et distributions invariantes",
+    "fichier": "35_markov.tex",
+    "statut": "Mathématiques expertes",
+    "prerequis": "Étudier une dépendance au dernier état. Prérequis : probabilités conditionnelles, matrices et graphes."
+  },
+  "36": {
+    "titre": "Fondements pour la licence : complétude, intégration et abstraction",
+    "fichier": "36_fondements.tex",
+    "statut": "Passerelle vers la licence",
+    "prerequis": "Approfondissement de transition. Rendre visibles les fondements utilisés et les compétences à développer. Prérequis : chapitres 1, 9, 13, 14 et 19."
+  }
+}

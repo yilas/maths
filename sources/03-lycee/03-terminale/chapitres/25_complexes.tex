@@ -1,0 +1,55 @@
+\documentclass[../cours_tle.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{24}
+\chapter{Construire et calculer les nombres complexes}
+\label{ch:25}
+\begin{objectif}
+Mathématiques expertes. Étendre les réels sans perdre les règles de calcul. Prérequis : calcul algébrique, binôme et repère du plan.
+\end{objectif}
+\section{Pourquoi introduire un nouveau nombre ?}
+L'équation $x^2=-1$ n'a pas de solution réelle. On construit $\mathbb C$ comme l'ensemble des couples $(a,b)\in\R^2$ avec
+$(a,b)+(c,d)=(a+c,b+d)$ et $(a,b)(c,d)=(ac-bd,ad+bc)$.
+Identifier $(a,0)$ à $a$ et poser $i=(0,1)$ donne $i^2=-1$ et $(a,b)=a+ib$.
+Cette construction fournit un objet, et non une simple formule symbolique.
+La commutativité, la distributivité et l'associativité se vérifient en développant les coordonnées avec les règles des réels ; $0$ et $1$ conservent leurs rôles.
+\begin{definition}
+Pour $z=a+ib$, $a=\operatorname{Re}(z)$ est la partie réelle, $b=\operatorname{Im}(z)$ la partie imaginaire, toutes deux réelles.
+Deux complexes sont égaux exactement lorsque leurs deux parties sont égales.
+\end{definition}
+\section{Conjugaison et inverse}
+Le conjugué est $\overline z=a-ib$. Il vérifie
+$\overline{z+w}=\overline z+\overline w$, $\overline{zw}=\overline z\,\overline w$, $\overline{\overline z}=z$.
+La formule du produit se prouve en développant : les parties réelles coïncident et les parties imaginaires sont opposées.
+Comme $z\overline z=a^2+b^2$, tout $z\ne0$ admet l'inverse
+$1/z=\overline z/(a^2+b^2)$.
+\begin{demonstration}
+Multiplier cette expression par $z$ donne $1$. En conjuguant $z(1/z)=1$, on obtient $\overline{1/z}=1/\overline z$. Par récurrence et la formule du produit, $\overline{z^n}=\overline z^{\,n}$ pour $n\ge0$, puis pour tout $n\in\Z$ si $z\ne0$.
+\end{demonstration}
+Ainsi $\mathbb C$ est un corps : les opérations sont stables et tout élément non nul est inversible. On ne peut pas y définir un ordre compatible avec celui des réels et les règles d'un corps ordonné : les carrés seraient positifs ou nuls, alors que $i^2=-1$.
+\section{Calculs et équations}
+\begin{exemple}
+$\dfrac{1+2i}{2-i}=\dfrac{(1+2i)(2+i)}5=i$.
+Résoudre $(2-i)z=3+i$ donne $z=(3+i)(2+i)/5=1+i$.
+Pour une équation faisant intervenir $z$ et $\overline z$, poser $z=x+iy$ :
+$z+2\overline z=3-i$ donne $3x-iy=3-i$, donc $z=1+i$.
+\end{exemple}
+La formule du binôme du chapitre 4 reste valable dans $\mathbb C$, car les produits y commutent.
+Les puissances de $i$ se répètent tous les quatre rangs : $1,i,-1,-i$. Réduire l'exposant modulo $4$ simplifie les calculs.
+\section{Module et inégalité triangulaire}
+Le module est $|z|=\sqrt{a^2+b^2}$, distance à l'origine du point d'affixe $z$.
+$|z|^2=z\overline z$ donne
+$|zw|^2=zw\overline z\overline w=|z|^2|w|^2$, puis $|zw|=|z||w|$ puisque les modules sont positifs ou nuls.
+Ainsi $|1/z|=1/|z|$ et $|z^n|=|z|^n$.
+
+En identifiant les complexes aux vecteurs du plan, Cauchy--Schwarz donne
+$\operatorname{Re}(z\overline w)\le|z||w|$ ; donc
+$|z+w|^2=|z|^2+2\operatorname{Re}(z\overline w)+|w|^2\le(|z|+|w|)^2$.
+Il y a égalité dans $|z+w|\le|z|+|w|$ lorsque les vecteurs sont de même sens, ou l'un nul.
+\begin{finchapitre}
+\section{Utilité et suite du parcours}
+Les complexes permettent de traiter rotations et oscillations par le même calcul. La construction par couples prépare l'étude des structures algébriques ; le module annonce les normes.
+\begin{retenir}
+La partie imaginaire de a+ib est b, pas ib. On ne compare pas deux complexes avec les signes < ou >.
+\end{retenir}
+\end{finchapitre}
+\end{document}

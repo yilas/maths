@@ -1,0 +1,57 @@
+\documentclass[../cours_tle.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{16}
+\chapter{Sinus, cosinus et oscillations}
+\label{ch:17}
+\begin{objectif}
+Spécialité. Relier cercle, courbes, équations et dérivées. Prérequis : radians et cercle de première, chapitres 12 et 14.
+\end{objectif}
+\section{Le cercle comme définition}
+Sur le cercle unité orienté, le point d'angle $x$ radians a pour coordonnées $(\cos x,\sin x)$. Un tour vaut $2\pi$ radians ; $180\degre=\pi$ radians.
+Pythagore donne $\cos^2x+\sin^2x=1$ et $|\sin x|,|\cos x|\le1$.
+La symétrie par rapport à l'axe horizontal donne $\cos(-x)=\cos x$ et $\sin(-x)=-\sin x$. Un tour ne change pas le point : les fonctions sont $2\pi$-périodiques.
+Les angles $0,\pi/6,\pi/4,\pi/3,\pi/2$ ont pour sinus $0,1/2,\sqrt2/2,\sqrt3/2,1$ ; les cosinus s'obtiennent en inversant cette liste. Les triangles rectangle isocèle et demi-équilatéral justifient ces valeurs.
+\section{Addition des angles}
+Le produit scalaire des vecteurs unitaires d'angles $a,b$ vaut à la fois $\cos(a-b)$ et $\cos a\cos b+\sin a\sin b$. Cela prouve la formule de différence.
+Remplacer $b$ par $-b$ puis utiliser $\sin t=\cos(\pi/2-t)$ donne
+\[
+\cos(a+b)=\cos a\cos b-\sin a\sin b,\qquad
+\sin(a+b)=\sin a\cos b+\cos a\sin b.
+\]
+En particulier $\sin2x=2\sin x\cos x$ et $\cos2x=2\cos^2x-1=1-2\sin^2x$.
+\section{Pourquoi les dérivées exigent des radians}
+Pour $0<h<\pi/2$, comparer le triangle inscrit, le secteur circulaire et le triangle tangent donne $\sin h<h<\tan h$ (aire du secteur unité : $h/2$, fondement géométrique admis).
+Donc $\cos h<\sin h/h<1$. La continuité géométrique du cercle donne $\sin h/h\to1$ ; la parité étend la limite à gauche.
+De plus $(\cos h-1)/h=-\sin^2h/[h(1+\cos h)]\to0$.
+\begin{demonstration}[Dérivées]
+Par addition des angles,
+$\dfrac{\sin(x+h)-\sin x}{h}=\sin x\dfrac{\cos h-1}{h}+\cos x\dfrac{\sin h}{h}\to\cos x$.
+De même, $(\cos x)'=-\sin x$. En degrés, un facteur $\pi/180$ apparaîtrait.
+\end{demonstration}
+Ainsi $\sin$ croît sur $[-\pi/2,\pi/2]$ et décroît sur $[\pi/2,3\pi/2]$ ; $\cos$ décroît sur $[0,\pi]$. Par périodicité on retrouve toutes les variations.
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[width=.85\linewidth,height=5cm,axis lines=middle,xmin=-6.5,xmax=6.5,ymin=-1.3,ymax=1.3,xtick={-6.283,-3.142,0,3.142,6.283},xticklabels={$-2\pi$,$-\pi$,$0$,$\pi$,$2\pi$},ytick={-1,1},legend pos=north east]
+\addplot[accent,thick,domain=-6.283:6.283,samples=150]{sin(deg(x))};\addlegendentry{$\sin x$}
+\addplot[black,dashed,domain=-6.283:6.283,samples=150]{cos(deg(x))};\addlegendentry{$\cos x$}
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\section{Résoudre puis restreindre à l'intervalle}
+Si $\cos\alpha=a$, les solutions de $\cos x=a$ sont $x=2k\pi\pm\alpha$, $k\in\Z$ ; aucune si $|a|>1$.
+Si $\sin\alpha=a$, celles de $\sin x=a$ sont $x=\alpha+2k\pi$ ou $x=\pi-\alpha+2k\pi$.
+Ces descriptions résultent des symétries du cercle.
+Sur $[-\pi,\pi]$, $\cos x\le1/2$ donne $[-\pi,-\pi/3]\cup[\pi/3,\pi]$.
+Pour une inéquation, dessiner l'arc admissible puis vérifier les bornes ; les seules valeurs d'égalité ne suffisent pas.
+\section{Modéliser une oscillation et introduire la tangente}
+$A\sin(\omega t+\varphi)+m$ a une amplitude $|A|$, une valeur centrale $m$ et, pour $A\omega\ne0$, une période $2\pi/|\omega|$.
+Sa dérivée est $A\omega\cos(\omega t+\varphi)$ ; ses extrema sont $m\pm|A|$.
+En complément, $\tan x=\sin x/\cos x$ pour $x\ne\pi/2+k\pi$. Le quotient donne $\tan'=1/\cos^2x=1+\tan^2x$ ; la fonction est strictement croissante sur chaque intervalle entre deux pôles, et $\pi$-périodique.
+\begin{finchapitre}
+\section{Utilité et suite du parcours}
+Les oscillations conduisent aux équations différentielles du second ordre et à l'analyse de Fourier. Les nombres complexes donneront une autre lecture des additions d'angles.
+\begin{retenir}
+Un angle doit être exprimé en radians pour les formules de dérivation. Toujours distinguer solution générale et restriction à un intervalle.
+\end{retenir}
+\end{finchapitre}
+\end{document}

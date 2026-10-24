@@ -1,0 +1,56 @@
+\documentclass[../cours_tle.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{6}
+\chapter{Droites, plans et systèmes linéaires}
+\label{ch:7}
+\begin{objectif}
+Spécialité. Passer d'une configuration à des équations et interpréter les solutions. Prérequis : chapitres 5 et 6.
+\end{objectif}
+\section{Représentation paramétrique d'une droite}
+Pour $A=(a,b,c)$ et $\vec u=(u,v,w)\ne0$,
+$d:\ (x,y,z)=(a+tu,b+tv,c+tw)$, $t\in\R$.
+Changer de point de départ sur la droite ou multiplier le directeur par un scalaire non nul décrit la même droite.
+\begin{attention}
+Pour comparer deux droites, utiliser deux paramètres indépendants $t$ et $s$. Exiger le même paramètre ferait perdre des intersections. Un seul point commun ne prouve pas que deux droites sont confondues.
+\end{attention}
+\section{Équation cartésienne d'un plan}
+\begin{theoreme}
+Si $(a,b,c)\ne(0,0,0)$, $ax+by+cz+d=0$ définit un plan de normale $(a,b,c)$.
+Le plan normal à $\vec n=(a,b,c)$ passant par $A=(x_A,y_A,z_A)$ a pour équation
+$a(x-x_A)+b(y-y_A)+c(z-z_A)=0$.
+\end{theoreme}
+\begin{demonstration}
+L'équation exprime exactement $\overrightarrow{AM}\cdot\vec n=0$.
+Réciproquement, si par exemple $c\ne0$, choisir librement $x,y$ détermine
+$z=(-d-ax-by)/c$ : l'ensemble est engendré par les directions non colinéaires $(1,0,-a/c)$ et $(0,1,-b/c)$ à partir de $(0,0,-d/c)$.
+\end{demonstration}
+Si tous les coefficients de $x,y,z$ sont nuls, l'équation définit tout l'espace ($d=0$) ou l'ensemble vide ($d\ne0$), jamais un plan.
+\section{Intersections : un protocole fiable}
+Substituer les coordonnées de $A+t\vec u$ dans l'équation du plan donne une équation $\alpha t+\beta=0$.
+Si $\alpha\ne0$, une seule intersection ; si $\alpha=0=\beta$, la droite est contenue dans le plan ; si $\alpha=0\ne\beta$, elle est parallèle et disjointe.
+\begin{exemple}
+Pour $d:(x,y,z)=(1+t,2-t,t)$ et $\mathcal P:x+y+z=5$, la substitution donne $3+t=5$. Donc $t=2$ et l'intersection est $(3,0,2)$.
+\end{exemple}
+Deux plans de normales non colinéaires se coupent suivant une droite. Par exemple
+$x+y+z=1$, $x-y+z=3$ donnent $y=-1$ et $x+z=2$ ; la droite est $(2-t,-1,t)$.
+Si les normales sont colinéaires, comparer les constantes pour distinguer plans parallèles distincts et confondus.
+\section{Résoudre sans perdre l'information}
+Échanger des équations, multiplier une équation par une constante non nulle et ajouter un multiple d'une équation à une autre sont des opérations réversibles. Elles conservent donc exactement les solutions : c'est le principe du pivot de Gauss.
+
+Pour décomposer $\vec w$ dans une famille de trois vecteurs, écrire les trois équations de coordonnées. Une solution unique pour chaque $\vec w$ caractérise une base. Une ligne $0=1$ signifie impossibilité ; une variable libre signifie plusieurs solutions. Le chapitre 32 systématise la méthode.
+\section{Distance à un plan : formule et preuve}
+Pour $\mathcal P:ax+by+cz+d=0$, la projection du chapitre 6 donne
+\[
+H=M-\frac{ax_M+by_M+cz_M+d}{a^2+b^2+c^2}(a,b,c),\qquad
+ d(M,\mathcal P)=\frac{|ax_M+by_M+cz_M+d|}{\sqrt{a^2+b^2+c^2}}.
+\]
+Le numérateur mesure le défaut de satisfaction de l'équation ; diviser par la norme de la normale rend la distance indépendante du choix d'un multiple de l'équation.
+Pour $M=(1,2,3)$ et $x+2y+2z-2=0$, ce défaut vaut $9$, la norme vaut $3$, la distance vaut $3$ et $H=(0,0,1)$.
+\begin{finchapitre}
+\section{Utilité et suite du parcours}
+Les systèmes linéaires relient géométrie et algèbre. Le nombre de paramètres libres conduira à la dimension ; les conditions de compatibilité à la notion d'image d'une application linéaire.
+\begin{retenir}
+Une équation doit être interprétée : zéro, une ou une infinité de solutions n'ont pas le même sens géométrique.
+\end{retenir}
+\end{finchapitre}
+\end{document}

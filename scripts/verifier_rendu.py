@@ -28,6 +28,13 @@ def main():
     destination.mkdir(parents=True, exist_ok=True)
     rapport = {}
     mots = {
+        "cours_tle": ["Un cube pour voir", "Projeter sur une droite", "Lire les graphiques",
+                      "Pourquoi les dérivées exigent", "Barycentres", "Le tableau se lit",
+                      "Aire entre courbes", "polygone régulier", "Le lemme des poignées de main",
+                      "Construire rigoureusement", "Graphe pondéré"],
+        "guide_tle": ["Table de couverture", "Registre des admissions", "Réponses et contrôles"],
+        "exercices_tle": ["Problèmes de synthèse", "Trois états et convergence"],
+        "corriges_tle": ["Surbooking", "RSA", "Trois états et convergence"],
         "cours_2de": ["Distance entre deux points", "lecture graphique", "fonction inverse",
                      "Boîte à moustaches", "Classes de même amplitude",
                      "Un arbre pondéré", "Un tableau réel", "Concours des trois hauteurs"],

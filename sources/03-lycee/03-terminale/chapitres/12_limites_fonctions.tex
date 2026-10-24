@@ -1,0 +1,46 @@
+\documentclass[../cours_tle.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{11}
+\chapter{Limites de fonctions et croissances comparées}
+\label{ch:12}
+\begin{objectif}
+Spécialité. Étudier le comportement près d'un point et à l'infini. Prérequis : limites de suites et exponentielle de première.
+\end{objectif}
+\section{Voisinages et limites latérales}
+$\lim_{x\to a}f(x)=L$ signifie : pour toute précision $\varepsilon>0$, les valeurs de $f(x)$ sont à moins de $\varepsilon$ de $L$ dès que $x$ appartient au domaine, $0<|x-a|<\delta$, pour un $\delta>0$ convenable.
+La valeur éventuelle $f(a)$ n'intervient pas. Une limite à droite restreint à $x>a$, une limite à gauche à $x<a$. Si les deux côtés existent dans le domaine, la limite globale existe exactement quand leurs limites coïncident.
+À $+\infty$, remplacer « $x$ proche de $a$ » par « $x>A$ ». Une limite infinie exige que $f(x)$ dépasse tout seuil fixé, avec le signe demandé.
+\begin{exemple}
+$1/x\to+\infty$ quand $x\to0^+$ et $1/x\to-\infty$ quand $x\to0^-$. Il n'y a pas de limite globale en $0$ dans la droite réelle complétée.
+$\sin(1/x)$ n'a pas de limite en $0$ : les suites $x_n=1/(\pi/2+2n\pi)$ et $y_n=1/(3\pi/2+2n\pi)$ tendent vers $0$ mais donnent $1$ et $-1$.
+\end{exemple}
+\section{Calculer et comparer}
+Les règles de somme, produit, quotient et encadrement se prouvent comme au chapitre 10 en remplaçant le rang par un voisinage. Une composition est autorisée lorsque la fonction extérieure possède la limite requise le long des valeurs prises par la fonction intérieure.
+Les polynômes sont dominés à l'infini par leur terme de plus haut degré. La racine carrée tend vers $+\infty$ à $+\infty$ et vers $0$ à droite de $0$.
+\begin{exemple}
+$\sqrt{x^2+1}/x\to1$ à $+\infty$, mais tend vers $-1$ à $-\infty$, car $\sqrt{x^2}=|x|$.
+$\sqrt{x^2+1}-x=1/(\sqrt{x^2+1}+x)\to0$ à $+\infty$.
+\end{exemple}
+\section{Exponentielle : les preuves de croissance}
+On reprend de première : $e^x>0$, $(e^x)'=e^x$, $e^{x+y}=e^xe^y$, $e^0=1$. Une construction est donnée au chapitre 26 de première.
+Pour $x\ge0$, la dérivée de $e^x-1-x$ est $e^x-1\ge0$, donc $e^x\ge1+x$. Ainsi $e^x\to+\infty$ à $+\infty$ et $e^x=1/e^{-x}\to0$ à $-\infty$.
+\begin{theoreme}
+Pour tout entier $m\ge0$, $x^m/e^x\to0$ à $+\infty$.
+\end{theoreme}
+\begin{demonstration}
+Montrons $e^x\ge\sum_{k=0}^r x^k/k!$ pour $x\ge0$. Pour $r=0$, c'est la croissance de l'exponentielle. La dérivée de la différence au rang $r+1$ est la différence au rang $r$, positive par hypothèse, et la différence s'annule en $0$ : récurrence.
+Avec $r=m+1$, $0\le x^m/e^x\le(m+1)!/x$ pour $x>0$. L'encadrement conclut.
+\end{demonstration}
+En remplaçant $x$ par $-x$, $x^me^x\to0$ à $-\infty$. Les cas faisant intervenir $\ln$ seront déduits au chapitre 16.
+\section{Asymptotes et position relative}
+Si $f(x)\to L$ à un infini, $y=L$ est une asymptote horizontale. Si $f(x)\to\pm\infty$ en $a$ d'un côté, $x=a$ est une asymptote verticale.
+En complément, $y=mx+p$ est asymptote oblique si $f(x)-(mx+p)\to0$.
+Pour $f(x)=(x^2+1)/(x-1)$, la division donne $f(x)=x+1+2/(x-1)$ : asymptote oblique $y=x+1$ et verticale $x=1$. Le signe de $2/(x-1)$ précise de quel côté de l'oblique se trouve la courbe.
+\begin{finchapitre}
+\section{Utilité et suite du parcours}
+Les estimations de croissance préparent la convergence des séries et intégrales, la complexité algorithmique et les approximations asymptotiques. Une asymptote est une différence qui tend vers zéro, pas une simple ressemblance visuelle.
+\begin{retenir}
+Séparer les côtés d'un point interdit ; conserver les signes ; traiter les formes indéterminées par une transformation justifiée.
+\end{retenir}
+\end{finchapitre}
+\end{document}

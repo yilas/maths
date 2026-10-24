@@ -1,0 +1,18 @@
+\chapter{Chaînes de Markov et distributions invariantes}
+\section*{Exercice 35.1 -- Convention de transition}
+$\mu_1=\mu_0P=(0{,}8,0{,}2)$, puis $\mu_2=(0{,}8^2+0{,}2\times0{,}3,0{,}8\times0{,}2+0{,}2\times0{,}7)=(0{,}7,0{,}3)$. Les lignes de $P$ donnent les probabilités de départ vers arrivée.
+
+\section*{Exercice 35.2 -- Distribution invariante}
+Si $p_n$ est la probabilité du premier état, $p_{n+1}=0{,}8p_n+0{,}3(1-p_n)=0{,}5p_n+0{,}3$. Le point fixe vaut $0{,}6$ et $p_n=0{,}6+(p_0-0{,}6)0{,}5^n$. Donc $\mu_n\to(0{,}6,0{,}4)$ pour toute distribution initiale ; c'est l'unique distribution invariante.
+
+\section*{Exercice 35.3 -- Périodicité}
+$(1/2,1/2)$ est invariante. Mais les distributions issues de $(1,0)$ alternent $(1,0),(0,1)$ : elles ne convergent pas. L'existence, même unique, d'une distribution invariante ne suffit pas à garantir la convergence.
+
+\section*{Exercice 35.4 -- Trois états}
+Chaque colonne somme à $1$, donc le produit de la distribution uniforme par $P$ est uniforme. Depuis $(1,0,0)$, un pas donne $(1/2,1/2,0)$ puis deux donnent $(1/4,1/2,1/4)$. L'invariance est une équation, pas une simple observation de symétrie.
+
+\section*{Exercice 35.5 -- Probabilité d’un trajet}
+La règle des probabilités conditionnelles et la propriété de Markov donnent $P_{12}P_{22}P_{21}=0{,}2\times0{,}7\times0{,}3=0{,}042$. Il s'agit d'un trajet particulier ; la probabilité d'être en état 1 après trois pas somme tous les trajets possibles.
+
+\section*{Exercice 35.6 -- État absorbant}
+Pour rester au premier état, il faut y rester à chaque pas, donc probabilité $q^n$. Le premier passage au second état suit une loi géométrique de paramètre $1-q$, sur $\{1,2,\ldots\}$, de moyenne $1/(1-q)$. La formule de moyenne est un prolongement signalé au chapitre 23 ; la limite de distribution est $(0,1)$.

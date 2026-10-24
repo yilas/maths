@@ -1,0 +1,18 @@
+\chapter{Puissances de matrices et suites couplées}
+\section*{Exercice 33.1 -- Nilpotence}
+Au rang zéro, la formule donne $I$. Si elle est vraie au rang $n$, $(I+nN)(I+N)=I+(n+1)N+nN^2=I+(n+1)N$. La récurrence conclut. Le binôme fonctionnerait aussi car $I$ commute avec $N$.
+
+\section*{Exercice 33.2 -- Puissance par diagonalisation}
+Ces vecteurs propres ont valeurs propres $3$ et $1$. Avec $P=\begin{pmatrix}1&1\\1&-1\end{pmatrix}$, $P^{-1}=P/2$ et $A=P\operatorname{diag}(3,1)P^{-1}$. Ainsi $A^n=\frac12\begin{pmatrix}3^n+1&3^n-1\\3^n-1&3^n+1\end{pmatrix}$.
+
+\section*{Exercice 33.3 -- Suites couplées}
+Le vecteur colonne au rang $n$ est $A^n\binom10$, où $A$ est la matrice de l'exercice précédent. Donc $u_n=(3^n+1)/2$, $v_n=(3^n-1)/2$. On peut aussi étudier la somme, multipliée par $3$, et la différence, constante.
+
+\section*{Exercice 33.4 -- Récurrence affine vectorielle}
+Le point fixe est $L=2B=\binom24$. La différence vérifie $U_{n+1}-L=\frac12(U_n-L)$, donc $U_n=L-2^{-n}L=(1-2^{-n})\binom24$. Elle converge vers $L$.
+
+\section*{Exercice 33.5 -- Fibonacci}
+$\binom{F_{n+2}}{F_{n+1}}=\begin{pmatrix}1&1\\1&0\end{pmatrix}\binom{F_{n+1}}{F_n}$. Les termes successifs sont $0,1,1,2,3,5,8$, donc $F_6=8$. Les valeurs propres de la matrice résolvent $\lambda^2-\lambda-1=0$, ce qui conduit plus tard à la formule fermée.
+
+\section*{Exercice 33.6 -- Binôme matriciel}
+La distributivité donne $A^2+AB+BA+B^2$. Le regroupement en $2AB$ exige $AB=BA$. Les matrices de l'exercice 32.1 fournissent un contre-exemple explicite puisque leurs deux produits diffèrent.

@@ -1,0 +1,60 @@
+\documentclass[../cours_tle.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{1}
+\chapter{Récurrence et sommes}
+\label{ch:2}
+\begin{objectif}
+Spécialité. Prouver une affirmation pour tous les entiers. Prérequis : chapitre 1 et suites de première.
+\end{objectif}
+\section{Du calcul à la preuve}
+Une suite est une fonction de $\N$ (ou d'une partie de $\N$) dans $\R$. Une formule explicite donne $u_n$ directement ; une relation de récurrence exige aussi une ou plusieurs valeurs initiales.
+\begin{theoreme}[Principe de récurrence]
+Si $P(n_0)$ est vraie et si, pour tout $n\ge n_0$, $P(n)\Rightarrow P(n+1)$, alors $P(n)$ est vraie pour tout $n\ge n_0$.
+\end{theoreme}
+C'est un fondement des entiers naturels, admis ici. L'hérédité seule ne suffit pas : « tous les entiers sont supérieurs à $100$ » se transmet d'un entier au suivant mais ne s'initialise pas à $0$.
+\begin{exemple}[Une suite définie par itération]
+$u_0=0$ et $u_{n+1}=\sqrt{2+u_n}$. Montrons $0\le u_n\le2$.
+C'est vrai au rang $0$. Sous cette hypothèse, $2\le2+u_n\le4$, donc $0\le u_{n+1}\le2$.
+Cela prouve à la fois que chaque terme existe et qu'il est borné.
+\end{exemple}
+Une récurrence forte suppose $P(n_0),\ldots,P(n)$ pour établir $P(n+1)$. Elle se ramène à la récurrence ordinaire appliquée à leur conjonction.
+Pour une relation d'ordre $2$, deux valeurs initiales sont généralement nécessaires.
+\section{Sommes arithmétiques, géométriques et télescopiques}
+\begin{propriete}
+Pour $n\ge1$, $\sum_{k=1}^n k=n(n+1)/2$. Pour $q\ne1$,
+$\sum_{k=0}^n q^k=(1-q^{n+1})/(1-q)$ ; pour $q=1$, la somme vaut $n+1$.
+\end{propriete}
+\begin{demonstration}
+Pour la première somme, initialiser à $1$ ; ajouter $n+1$ à $n(n+1)/2$ donne $(n+1)(n+2)/2$.
+Pour la seconde, noter $S=1+q+\cdots+q^n$. Soustraire $qS$ à $S$ annule tous les termes intermédiaires et donne $(1-q)S=1-q^{n+1}$.
+\end{demonstration}
+Le symbole $\sum$ comporte une variable muette : $\sum_{k=1}^n k=\sum_{j=1}^n j$. Il faut compter les termes : de $k=0$ à $n$, il y en a $n+1$.
+Une somme télescopique annule des termes successifs :
+\[
+\sum_{k=1}^n\frac1{k(k+1)}=\sum_{k=1}^n\left(\frac1k-\frac1{k+1}\right)=1-\frac1{n+1}.
+\]
+\section{L'inégalité de Bernoulli}
+\begin{theoreme}
+Pour $x\ge-1$ et $n\in\N$, $(1+x)^n\ge1+nx$.
+\end{theoreme}
+\begin{demonstration}
+Au rang $0$, égalité. Multiplier l'hypothèse par $1+x\ge0$ conserve le sens :
+$(1+x)^{n+1}\ge(1+nx)(1+x)=1+(n+1)x+nx^2\ge1+(n+1)x$.
+\end{demonstration}
+Cette preuve explique la restriction sur $x$ et servira à étudier $q^n$ sans supposer déjà la limite de l'exponentielle.
+\section{Une recherche guidée et un invariant}
+Pour conjecturer $\sum_{k=1}^n k^2$, calculer les premiers cas peut suggérer une formule ; cela ne la prouve pas. La formule
+$n(n+1)(2n+1)/6$ se vérifie à $n=1$ ; sa différence entre les rangs $n+1$ et $n$ vaut $(n+1)^2$ après développement, ce qui établit l'hérédité.
+
+Dans une boucle qui additionne $1,\ldots,n$, l'invariant « après $k$ passages, la somme vaut $k(k+1)/2$ » est une récurrence sur les passages. Initialisation, conservation et terminaison constituent une preuve du programme.
+\begin{attention}
+Ne pas supposer la conclusion pour tous les rangs lors de l'hérédité. On la suppose à un rang arbitraire fixé, puis on la démontre au rang suivant. Ne pas remplacer la preuve par une capture d'écran des premiers termes.
+\end{attention}
+\begin{finchapitre}
+\section{Utilité et suite du parcours}
+Les récurrences structurent les preuves sur les matrices, les graphes et les algorithmes. Les sommes télescopiques deviendront des outils de séries et de calcul intégral.
+\begin{retenir}
+Initialiser, formuler une hypothèse précise, prouver la transmission, conclure avec le bon rang de départ.
+\end{retenir}
+\end{finchapitre}
+\end{document}
