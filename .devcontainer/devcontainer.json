@@ -1,0 +1,11 @@
+{
+  "name": "Mathématiques — LaTeX et Python",
+  "build": {"dockerfile": "Dockerfile"},
+  "remoteUser": "vscode",
+  "customizations": {
+    "vscode": {
+      "extensions": ["James-Yu.latex-workshop", "ms-python.python"]
+    }
+  },
+  "postCreateCommand": "python3 compiler.py --help"
+}

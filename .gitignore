@@ -1,4 +1,6 @@
-# Produits de compilation temporaires. Les PDF publiés sont dans pdf/.
+# Les PDF sont publiés uniquement dans les releases GitHub.
+*.pdf
+*.zip
 /build/
 *.aux
 *.log

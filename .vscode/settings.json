@@ -1,0 +1,12 @@
+{
+  "latex-workshop.latex.autoBuild.run": "never",
+  "latex-workshop.latex.outDir": "%WORKSPACE_FOLDER%/build/editeur/%RELATIVE_DIR%",
+  "latex-workshop.latex.tools": [{
+    "name": "latexmk-commun",
+    "command": "latexmk",
+    "args": ["-pdf", "-cd", "-interaction=nonstopmode", "-halt-on-error", "-file-line-error", "-outdir=%OUTDIR%", "%DOC%"],
+    "env": {"TEXINPUTS": "%WORKSPACE_FOLDER%/commun//:"}
+  }],
+  "latex-workshop.latex.recipes": [{"name": "pdfLaTeX avec style commun", "tools": ["latexmk-commun"]}],
+  "latex-workshop.view.pdf.viewer": "tab"
+}
