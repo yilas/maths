@@ -1,0 +1,68 @@
+\documentclass[../cours_tle.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{35}
+\chapter{Fondements pour la licence : complétude, intégration et abstraction}
+\label{ch:36}
+\begin{objectif}
+Passerelle vers la licence. Approfondissement de transition. Rendre visibles les fondements utilisés et les compétences à développer. Prérequis : chapitres 1, 9, 13, 14 et 19.
+\end{objectif}
+\section{La complétude des réels, fondement assumé}
+Une partie $A\subset\R$ est majorée s'il existe $M$ avec $a\le M$ pour tout $a\in A$. Sa borne supérieure est son plus petit majorant ; elle n'appartient pas nécessairement à $A$.
+\begin{propriete}[Axiome de complétude]
+Toute partie non vide majorée de $\R$ possède une borne supérieure réelle.
+\end{propriete}
+Cet axiome caractérise une propriété fondamentale des réels ; on ne le prouve pas à partir des seuls calculs de lycée. Une construction de $\R$ à partir de $\Q$ en licence permettra de le démontrer pour l'objet construit.
+Dans $\Q$, l'ensemble des rationnels positifs dont le carré est inférieur à $2$ n'a pas de borne supérieure rationnelle.
+Pour le justifier, un éventuel supremum rationnel $r$ serait au moins $1$ et ne pourrait satisfaire $r^2=2$ (irrationalité de $\sqrt2$, démontrée dans les niveaux précédents). Poser $r'=(2r+2)/(r+2)$ donne
+$r'-r=(2-r^2)/(r+2)$ et $(r')^2-2=2(r^2-2)/(r+2)^2$.
+Si $r^2<2$, $r'$ serait un élément de l'ensemble plus grand que $r$. Si $r^2>2$, $r'$ serait un majorant plus petit que $r$. Les deux cas contredisent la définition du supremum.
+Cet axiome donne la convergence monotone du chapitre 11.
+Il implique aussi la propriété d'Archimède : si $\N$ était majoré et avait pour borne supérieure $s$, un entier $n>s-1$ donnerait $n+1>s$, contradiction.
+\section{Sous-suites et compacité d'un segment}
+Une sous-suite est $(u_{\varphi(n)})$, où $\varphi:\N\to\N$ est strictement croissante.
+\begin{theoreme}
+Toute suite dans un segment $[a,b]$ possède une sous-suite convergente vers un point de ce segment.
+\end{theoreme}
+\begin{demonstration}
+Couper le segment en deux : une moitié contient une infinité de termes. Recommencer dans cette moitié. Les segments emboîtés ont des longueurs $(b-a)/2^n$ ; leurs bornes sont adjacentes et déterminent un point commun $c$.
+Choisir dans chaque segment un terme d'indice strictement supérieur au précédent. La distance de ce terme à $c$ est au plus la longueur du segment, donc tend vers zéro.
+\end{demonstration}
+\section{Bornes atteintes et continuité uniforme}
+Une fonction continue sur $[a,b]$ est bornée. Sinon choisir $x_n$ avec $|f(x_n)|>n$, extraire une sous-suite convergente, puis utiliser la continuité : contradiction avec la divergence des images.
+Pour atteindre le supremum $M$ de ses valeurs, choisir $x_n$ avec $f(x_n)>M-1/n$, extraire encore une sous-suite et passer à la limite. Le minimum se traite avec $-f$.
+Cela justifie le résultat utilisé dans la preuve des accroissements finis.
+
+La continuité uniforme signifie : pour tout $\varepsilon>0$, un même $\delta>0$ fonctionne pour tous les $x,y$ du segment avec $|x-y|<\delta$.
+Si elle échouait, il existerait $\varepsilon_0>0$ et des couples $x_n,y_n$ avec $|x_n-y_n|<1/n$ mais $|f(x_n)-f(y_n)|\ge\varepsilon_0$.
+Extraire une sous-suite de $x_n$ convergeant vers $c$ ; la sous-suite correspondante de $y_n$ converge aussi vers $c$. La continuité contredit l'écart imposé. Donc toute fonction continue sur un segment est uniformément continue.
+\section{Construire rigoureusement l'intégrale}
+Pour une subdivision $a=x_0<\cdots<x_n=b$, noter $m_i$ et $M_i$ les minimum et maximum de $f$ sur le sous-intervalle. Les sommes inférieure et supérieure sont
+$L=\sum m_i(x_{i+1}-x_i)$ et $U=\sum M_i(x_{i+1}-x_i)$.
+Raffiner une subdivision augmente $L$ et diminue $U$. En passant à un raffinement commun, toute somme inférieure est au-dessous de toute somme supérieure.
+Par complétude, leurs supremum et infimum existent. Pour un pas assez petit, la continuité uniforme donne $M_i-m_i\le\varepsilon$, donc $U-L\le\varepsilon(b-a)$.
+Les deux bornes sont donc égales ; leur valeur commune définit l'intégrale de Riemann. Toute somme utilisant un point dans chaque sous-intervalle est coincée entre $L$ et $U$ et converge vers cette intégrale quand le pas tend vers zéro.
+Cette construction donne linéarité, additivité et positivité sans supposer d'abord l'existence d'une primitive : il n'y a pas de circularité dans le chapitre 19.
+\section{Du fini à l'infini : prudence sur les échanges}
+Une série $\sum u_n$ est la limite de ses sommes partielles, si elle existe. La convergence de $u_n$ vers zéro est nécessaire (différence de deux sommes partielles convergentes), mais non suffisante : la série harmonique diverge (chapitre 20).
+Une fonction limite peut perdre la continuité : $f_n(x)=x^n$ sur $[0,1]$ tend ponctuellement vers $0$ pour $x<1$ et vers $1$ en $1$.
+La convergence uniforme impose $\sup_x|f_n(x)-f(x)|\to0$ ; elle permet notamment de conserver la continuité. Pour le prouver, décomposer $f(x)-f(a)$ en trois différences via un $f_N$ continu et rendre chacune petite.
+Les échanges limite–dérivée, limite–intégrale et somme–intégrale ne sont jamais automatiques ; leurs théorèmes seront étudiés en licence.
+\section{Des exemples aux structures}
+Un espace vectoriel rassemble des objets que l'on peut additionner et multiplier par des scalaires avec les règles usuelles. $\R^3$, les polynômes de degré au plus $2$ et les solutions de $y'=ay$ en sont des exemples.
+Une application linéaire préserve ces deux opérations. La dérivation est linéaire ; le carré ne l'est pas. Le noyau est l'ensemble des objets envoyés sur $0$ ; pour la dérivation sur les polynômes, ce sont les constantes.
+Les groupes décrivent des compositions réversibles (rotations, racines de l'unité), les anneaux le calcul avec addition et multiplication (entiers, polynômes), les corps ajoutent l'inversion de chaque élément non nul (rationnels, réels, complexes).
+Ces mots organisent les exemples ; leur théorie et leurs preuves générales ne sont pas réputées acquises à la lecture de ce chapitre.
+\section{Feuille de route exigeante}
+En L1 : logique, preuves, algèbre linéaire, suites, limites, dérivation et intégration approfondies.
+En L2 : séries, plusieurs variables, équations différentielles, algèbre et probabilités.
+En L3 : topologie, mesure, intégration, structures algébriques et méthodes numériques selon le parcours.
+En master : spécialisation annoncée (analyse, algèbre, géométrie, probabilités ou calcul scientifique), lecture de textes avancés et projets autonomes.
+Avant de poursuivre, savoir reconstruire une preuve, donner un contre-exemple à une hypothèse supprimée, résoudre une synthèse sans modèle et expliquer un outil à l'oral. Le guide propose des bilans dans ce but.
+\begin{finchapitre}
+\section{Utilité et suite du parcours}
+Ce chapitre ferme certaines dépendances des preuves de terminale et ouvre un parcours universitaire. La maturité mathématique consiste notamment à savoir exactement ce qui a été défini, prouvé ou admis.
+\begin{retenir}
+La complétude est le fondement assumé ; les autres résultats d'analyse présentés ici en sont déduits. Un aperçu du master ne remplace pas les années de formation intermédiaires.
+\end{retenir}
+\end{finchapitre}
+\end{document}

@@ -1,0 +1,66 @@
+\documentclass[../cours_tle.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{17}
+\chapter{Primitives et équations différentielles}
+\label{ch:18}
+\begin{objectif}
+Spécialité. Comprendre une équation dont l'inconnue est une fonction. Prérequis : chapitres 14, 16 et 17.
+\end{objectif}
+\section{Définir une primitive}
+Une primitive de $f$ sur un intervalle $I$ est une fonction dérivable $F$ telle que $F'=f$ sur $I$.
+\begin{theoreme}
+Deux primitives de $f$ sur un intervalle diffèrent d'une constante.
+\end{theoreme}
+\begin{demonstration}
+Si $F'=G'$, alors $(F-G)'=0$. Le théorème des accroissements finis donne $F(b)-G(b)=F(a)-G(a)$ entre deux points quelconques de l'intervalle.
+\end{demonstration}
+L'existence d'une primitive pour toute fonction continue sera démontrée au chapitre 19. Il est inutile de la supposer pour vérifier une primitive explicitement donnée.
+\section{Le tableau se lit à l'envers}
+\begin{center}
+\begin{tabular}{lll}\toprule
+Fonction & Une primitive & Domaine\\\midrule
+$x^n$, $n\in\Z\setminus\{-1\}$ & $x^{n+1}/(n+1)$ & intervalle de définition\\
+$1/x$ & $\ln|x|$ & intervalle sans $0$\\
+$1/\sqrt x$ & $2\sqrt x$ & $x>0$\\
+$e^x$ & $e^x$ & $\R$\\
+$\cos x$ & $\sin x$ & $\R$\\
+$\sin x$ & $-\cos x$ & $\R$\\\bottomrule
+\end{tabular}
+\end{center}
+Chaque ligne se prouve en dérivant. La linéarité donne les primitives de sommes et multiples. Une primitive de $u'v'(u)$ est $v(u)$.
+Par exemple $2x/(1+x^2)$ a pour primitive $\ln(1+x^2)$, et $xe^{x^2}$ a pour primitive $e^{x^2}/2$.
+Ne pas transformer une primitive de produit en produit de primitives.
+\section{Résoudre toutes les solutions de $y'=ay$}
+\begin{theoreme}
+Les solutions sur un intervalle de $y'=ay$, $a\in\R$, sont $y(x)=Ce^{ax}$, $C\in\R$.
+La condition $y(x_0)=y_0$ donne l'unique solution $y_0e^{a(x-x_0)}$.
+\end{theoreme}
+\begin{demonstration}
+Si $y'=ay$, alors $(e^{-ax}y)'=e^{-ax}(y'-ay)=0$, donc $e^{-ax}y=C$.
+Réciproquement, dériver $Ce^{ax}$ vérifie l'équation. Cette preuve inclut la solution nulle ; diviser par $y$ l'aurait perdue.
+\end{demonstration}
+Pour $y'=ay+b$, $a\ne0$, la solution constante $-b/a$ permet de poser $z=y+b/a$, d'où $y=Ce^{ax}-b/a$.
+Si $a=0$, l'équation est $y'=b$ et donne $y=bx+C$.
+Pour $y'=ay+f(x)$, si $y_p$ est une solution particulière, toutes les solutions sont $y_p+Ce^{ax}$ : la différence de deux solutions résout l'équation homogène.
+\section{Modèle et vérification}
+Une température vérifiant $T'=-k(T-T_e)$, avec $k>0$ et température extérieure constante $T_e$, a pour solution
+$T(t)=T_e+(T(0)-T_e)e^{-kt}$. Elle se rapproche de $T_e$ sans le dépasser dans ce modèle.
+Les unités de $k$ sont l'inverse d'une durée. Le modèle suppose des conditions physiques stables ; une solution mathématique ne valide pas à elle seule ces hypothèses.
+\section{Compléments : forçage, oscillateur et logistique}
+Le facteur intégrant donne
+$y(x)=e^{ax}\bigl(C+\int_{x_0}^x e^{-at}f(t)\,dt\bigr)$ pour $f$ continue.
+Cela se vérifie en dérivant au chapitre 19.
+
+Pour $y''+\omega^2y=0$, $\omega>0$, les fonctions $A\cos(\omega x)+B\sin(\omega x)$ sont solutions.
+Elles sont toutes les solutions : soustraire celle qui a les mêmes données initiales ; pour la différence $z$, $(z'^2+\omega^2z^2)'=0$ et l'énergie initiale nulle impose $z=0$.
+
+Pour $y'=ry(1-y/K)$, $r,K>0$, $0$ et $K$ sont solutions constantes ;
+$K/(1+Ce^{-rt})$ est une famille de solutions, vérifiable par dérivation sur tout intervalle où le dénominateur est non nul. Pour $0<y(0)<K$, $C=K/y(0)-1>0$ et la solution croît vers $K$. La théorie générale d'existence des équations différentielles est réservée au supérieur.
+\begin{finchapitre}
+\section{Utilité et suite du parcours}
+Les équations différentielles relient un mécanisme local à une évolution globale. Le facteur intégrant et l'espace des solutions homogènes annoncent l'algèbre linéaire et l'analyse des systèmes dynamiques.
+\begin{retenir}
+Vérifier l'équation, le domaine et la condition initiale. Une solution particulière n'est pas la solution générale.
+\end{retenir}
+\end{finchapitre}
+\end{document}

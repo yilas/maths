@@ -1,0 +1,18 @@
+\chapter{Récurrence et sommes}
+\section*{Exercice 2.1 -- Somme impaire}
+Au rang $1$, $1=1^2$. Si la somme vaut $n^2$, ajouter $2n+1$ donne $(n+1)^2$. Initialisation et hérédité établissent la formule. On peut aussi sommer $2k-1$ en utilisant la somme des entiers.
+
+\section*{Exercice 2.2 -- Somme géométrique}
+Factoriser $3^2$ donne $9(1+3+3^2+3^3+3^4)=9(3^5-1)/2=1089$. Il y a cinq termes ; utiliser six termes produirait une erreur de borne.
+
+\section*{Exercice 2.3 -- Télescopage}
+Chaque terme vaut $1/(k+1)-1/(k+2)$. Après annulations, il reste $1/2-1/(n+2)$. Vérifier au rang $1$ donne $1/6$, ce qui confirme les bornes.
+
+\section*{Exercice 2.4 -- Une récurrence fausse}
+L'hérédité est vraie mais l'initialisation est fausse : $u_0=2$. La vraie formule est $u_n=2^{2^n}$, vérifiée au rang $0$ puis en élevant au carré. Une implication peut être vraie sans que son hypothèse soit réalisée.
+
+\section*{Exercice 2.5 -- Bernoulli appliqué}
+Bernoulli avec $x=0{,}01$ et $n=100$ donne $1{,}01^{100}\ge1+100\times0{,}01=2$. C'est une borne, pas une valeur approchée garantie à une précision donnée.
+
+\section*{Exercice 2.6 -- Divisibilité par récurrence}
+Au rang $0$, $4^0-1=0$ est divisible par $3$. Si $4^n-1=3k$, alors $4^{n+1}-1=4(4^n-1)+3=3(4k+1)$. Le résultat suit. Le langage des congruences donnera ensuite une preuve plus courte.

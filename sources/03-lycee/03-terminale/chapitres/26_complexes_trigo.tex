@@ -1,0 +1,60 @@
+\documentclass[../cours_tle.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{25}
+\chapter{Arguments, exponentielle imaginaire et trigonométrie}
+\label{ch:26}
+\begin{objectif}
+Mathématiques expertes. Choisir la représentation adaptée à un produit ou une puissance. Prérequis : chapitres 17 et 25.
+\end{objectif}
+\section{Argument et forme trigonométrique}
+Pour $z\ne0$, le point $z/|z|$ est sur le cercle unité. Il existe donc $\theta$ tel que
+$z=|z|(\cos\theta+i\sin\theta)$.
+Un argument est un tel $\theta$ ; tous les arguments diffèrent d'un multiple de $2\pi$. Le nombre $0$ n'a pas d'argument.
+Ainsi $1+i=\sqrt2(\cos(\pi/4)+i\sin(\pi/4))$.
+Le quotient partie imaginaire/partie réelle ne suffit pas à choisir le quadrant : $1+i$ et $-1-i$ ont le même quotient mais des arguments différents modulo $2\pi$.
+\section{Définir l'exponentielle imaginaire}
+\begin{definition}
+Pour $\theta\in\R$, $e^{i\theta}=\cos\theta+i\sin\theta$.
+C'est ici une définition sur l'axe imaginaire ; son lien avec les séries exponentielles sera approfondi en licence.
+\end{definition}
+Les formules d'addition du chapitre 17 prouvent par multiplication que
+$e^{i\alpha}e^{i\beta}=e^{i(\alpha+\beta)}$.
+L'ensemble $\mathbb U=\{z:|z|=1\}$ est stable par produit et inverse ; $\overline{e^{i\theta}}=e^{-i\theta}=1/e^{i\theta}$.
+Si $z=re^{i\theta}$ et $w=se^{i\varphi}$ sont non nuls,
+$zw=rse^{i(\theta+\varphi)}$ et $z/w=(r/s)e^{i(\theta-\varphi)}$.
+\section{Euler et Moivre, preuves}
+Additionner et soustraire $e^{i\theta}=\cos\theta+i\sin\theta$ et son conjugué donne
+\[
+\cos\theta=\frac{e^{i\theta}+e^{-i\theta}}2,\qquad
+\sin\theta=\frac{e^{i\theta}-e^{-i\theta}}{2i}.
+\]
+Par récurrence sur la relation multiplicative, puis par inverse pour les entiers négatifs,
+$(e^{i\theta})^n=e^{in\theta}$ pour $n\in\Z$.
+C'est la formule de Moivre : $(\cos\theta+i\sin\theta)^n=\cos(n\theta)+i\sin(n\theta)$.
+\begin{exemple}
+$(1+i)^8=(\sqrt2)^8 e^{2i\pi}=16$.
+Développer $(\cos x+i\sin x)^3$ et comparer les parties réelles donne
+$\cos3x=4\cos^3x-3\cos x$.
+Donc $\cos^3x=(3\cos x+\cos3x)/4$, et une primitive est
+$3\sin x/4+\sin3x/12$.
+\end{exemple}
+\section{Linéariser et factoriser}
+Les formules d'Euler transforment une puissance trigonométrique en somme d'exponentielles. Par exemple
+$\cos^2x=(1+\cos2x)/2$ et
+$\sin^2x=(1-\cos2x)/2$.
+En additionnant les formules de cosinus pour $(a+b)$ et $(a-b)$,
+$\cos a\cos b=(\cos(a+b)+\cos(a-b))/2$.
+Ces transformations sont utiles pour intégrer ou étudier une somme d'oscillations.
+\section{Un exemple de somme finie}
+Si $e^{it}\ne1$, la somme géométrique donne
+$\sum_{k=0}^{n-1}e^{ikt}=(1-e^{int})/(1-e^{it})$.
+Prendre les parties réelle et imaginaire fournit des sommes de cosinus et de sinus.
+Si $t$ est multiple de $2\pi$, la somme vaut directement $n$ : on ne divise pas par zéro pour obtenir ce cas.
+\begin{finchapitre}
+\section{Utilité et suite du parcours}
+Les exponentielles imaginaires sont les briques des séries de Fourier et de l'analyse du signal. Les rotations du plan seront représentées aussi par des matrices.
+\begin{retenir}
+Les arguments s'additionnent modulo $2\pi$. Pour une somme, préférer souvent la forme algébrique ; pour un produit, quotient ou puissance, la forme exponentielle.
+\end{retenir}
+\end{finchapitre}
+\end{document}

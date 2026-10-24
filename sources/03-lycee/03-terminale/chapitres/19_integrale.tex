@@ -1,0 +1,76 @@
+\documentclass[../cours_tle.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{18}
+\chapter{Intégrale et théorème fondamental de l’analyse}
+\label{ch:19}
+\begin{objectif}
+Spécialité. Relier aire, accumulation et primitive. Prérequis : continuité et primitives.
+\end{objectif}
+\section{De rectangles à l'aire}
+Pour $f$ continue positive sur $[a,b]$, l'intégrale $\int_a^b f(x)\,dx$ représente l'aire sous la courbe, en unités d'aire du repère.
+Une construction précise encadre cette aire par des rectangles inférieurs et supérieurs. La continuité uniforme sur un segment garantit que leur différence tend vers zéro lorsque le pas tend vers zéro ; cette propriété et la construction sont démontrées au chapitre 36.
+Ainsi, pour une subdivision régulière de pas $h=(b-a)/n$,
+$h\sum_{k=0}^{n-1}f(a+kh)\to\int_a^b f$.
+La variable $x$ est muette ; le symbole $dx$ indique la variable et rappelle la largeur élémentaire.
+\section{Le théorème fondamental}
+\begin{theoreme}
+Si $f$ est continue sur $[a,b]$, la fonction $F(x)=\int_a^x f(t)\,dt$ est une primitive de $f$ sur l'intérieur du segment, avec dérivées unilatérales aux bornes, et $F(a)=0$.
+\end{theoreme}
+\begin{demonstration}
+Pour $h$ tel que $x+h\in[a,b]$,
+$F(x+h)-F(x)=\int_x^{x+h}f(t)\,dt$.
+Le quotient par $h$ est une moyenne de valeurs de $f$ entre $x$ et $x+h$, même si $h<0$. Sa différence avec $f(x)$ est en valeur absolue au plus
+$\sup_{t\text{ entre }x\text{ et }x+h}|f(t)-f(x)|$, qui tend vers zéro par continuité.
+Pour une fonction croissante positive et $h>0$, on retrouve directement
+$f(x)\le(F(x+h)-F(x))/h\le f(x+h)$ : c'est la preuve géométrique attendue au lycée.
+\end{demonstration}
+On en déduit l'existence des primitives sur tout intervalle en fixant un point de base et en intégrant sur chaque segment qui le joint à $x$.
+\begin{theoreme}
+Pour toute primitive $G$ de $f$ continue,
+$\displaystyle\int_a^b f(x)\,dx=G(b)-G(a)=[G(x)]_a^b$.
+\end{theoreme}
+\begin{demonstration}
+$G-F$ est constante d'après le chapitre 18. Évaluer en $a$ et $b$ donne l'identité.
+\end{demonstration}
+\section{Signe, orientation et propriétés}
+Pour une fonction de signe quelconque, l'intégrale est l'aire positive au-dessus de l'axe moins l'aire sous l'axe. Poser $\int_b^a f=-\int_a^b f$ et $\int_a^a f=0$.
+La construction par sommes de rectangles donne la linéarité et l'additivité des intervalles ; on les retrouve avec les primitives :
+\[
+\int_a^b(\lambda f+\mu g)=\lambda\int_a^bf+\mu\int_a^bg,\qquad
+\int_a^cf=\int_a^bf+\int_b^cf.
+\]
+Si $a\le b$ et $f\ge0$, l'intégrale est positive ou nulle. Si $f\le g$, intégrer $g-f\ge0$ donne $\int f\le\int g$.
+En particulier $m\le f\le M$ entraîne $m(b-a)\le\int_a^bf\le M(b-a)$.
+\begin{attention}
+Une intégrale nulle n'implique pas une fonction nulle : $\int_{-1}^1 x\,dx=0$.
+Si $f$ est continue et positive ou nulle, en revanche, une intégrale nulle sur $[a,b]$, $a<b$, impose $f=0$ : une valeur strictement positive créerait par continuité un petit rectangle d'aire positive.
+\end{attention}
+\section{Aire entre courbes et valeur moyenne}
+Pour $f\ge g$ sur $[a,b]$, l'aire entre les courbes est $\int_a^b(f-g)$. Si elles se croisent, découper aux intersections ou intégrer $|f-g|$.
+La valeur moyenne est $\frac1{b-a}\int_a^bf$ pour $a<b$. Elle a les mêmes unités que $f$.
+Par continuité, cette moyenne est atteinte : elle est entre le minimum et le maximum, et le théorème des valeurs intermédiaires s'applique.
+Entre $x$ et $x^2$ sur $[0,1]$, l'aire est $\int_0^1(x-x^2)dx=1/6$.
+Une vitesse intégrée sur une durée donne un déplacement ; la distance parcourue utilise la valeur absolue de la vitesse.
+\begin{center}
+\begin{tikzpicture}[xscale=5,yscale=3]
+\fill[accent!18] plot[domain=0:1,samples=40] (\x,{\x}) -- plot[domain=1:0,samples=40] (\x,{\x*\x}) --cycle;
+\draw[->] (-.08,0)--(1.12,0) node[right]{$x$};
+\draw[->] (0,-.1)--(0,1.18) node[above]{$y$};
+\draw[accent,thick,domain=0:1] plot (\x,{\x});
+\draw[black,thick,domain=0:1,samples=40] plot (\x,{\x*\x});
+\node[above left] at (.6,.6){$y=x$};
+\node[below right] at (.65,.4225){$y=x^2$};
+\draw[dashed] (1,0)--(1,1)--(0,1);
+\node[below] at (1,0){$1$};\node[left] at (0,1){$1$};
+\node[below left] at (0,0){$0$};
+\end{tikzpicture}
+\end{center}
+La zone colorée représente $\int_0^1(x-x^2)\,dx$ ; son signe et ses bornes sont justifiés avant le calcul.
+\begin{finchapitre}
+\section{Utilité et suite du parcours}
+L'intégrale est une accumulation contrôlée. Elle servira aux probabilités continues, aux équations différentielles et, plus tard, à la mesure et à l'analyse fonctionnelle.
+\begin{retenir}
+Une intégrale orientée peut être négative ; une aire géométrique ne l'est pas. Le théorème fondamental exige ici la continuité.
+\end{retenir}
+\end{finchapitre}
+\end{document}

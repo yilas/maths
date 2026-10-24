@@ -1,0 +1,60 @@
+\documentclass[../cours_tle.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{13}
+\chapter{Dériver, composer et contrôler les variations}
+\label{ch:14}
+\begin{objectif}
+Spécialité. Retrouver les règles de dérivation et comprendre leur portée. Prérequis : dérivation de première et chapitre 13.
+\end{objectif}
+\section{La dérivée est une approximation locale}
+$f$ est dérivable en $a$ si $(f(a+h)-f(a))/h$ tend vers un réel $f'(a)$.
+Cela équivaut à
+$f(a+h)=f(a)+hf'(a)+h\varepsilon(h)$ avec $\varepsilon(h)\to0$.
+La droite $y=f(a)+f'(a)(x-a)$ est la tangente.
+Cette écriture prouve que la dérivabilité entraîne la continuité. La réciproque est fausse : $|x|$ est continue en $0$, mais ses pentes à gauche et à droite sont $-1$ et $1$.
+\section{Règles de calcul, avec leurs justifications}
+La linéarité découle de celle des limites. Pour le produit, écrire
+\[
+\frac{u(a+h)v(a+h)-u(a)v(a)}h
+=u(a+h)\frac{v(a+h)-v(a)}h+v(a)\frac{u(a+h)-u(a)}h.
+\]
+En passant à la limite, $(uv)'=u'v+uv'$. Pour $v\ne0$, le taux d'accroissement de $1/v$ donne $-(v')/v^2$ ; on en déduit $(u/v)'=(u'v-uv')/v^2$.
+Par récurrence sur la règle du produit, $(x^n)'=nx^{n-1}$ pour $n\ge1$, puis pour les entiers négatifs avec l'inverse, sur $x\ne0$.
+Pour $x>0$, le conjugué donne $(\sqrt x)'=1/(2\sqrt x)$.
+\section{Dérivée d'une composition}
+\begin{theoreme}
+Si $u$ est dérivable en $a$ et $v$ dérivable en $u(a)$, alors
+$(v\circ u)'(a)=v'(u(a))u'(a)$.
+\end{theoreme}
+\begin{demonstration}
+Écrire $u(a+h)-u(a)=h(u'(a)+\eta(h))$, avec $\eta(h)\to0$.
+Pour $k$ proche de $0$, $v(u(a)+k)-v(u(a))=k(v'(u(a))+\varepsilon(k))$ ; poser $\varepsilon(0)=0$.
+En remplaçant $k$ par $u(a+h)-u(a)$ et divisant par $h$, on obtient la limite annoncée, même si $k=0$ pour certains $h$.
+\end{demonstration}
+Ainsi $(e^{u})'=u'e^u$, $(u^n)'=nu'u^{n-1}$ et, si $u>0$, $(\sqrt u)'=u'/(2\sqrt u)$.
+Par exemple $(e^{-x^2})'=-2xe^{-x^2}$ : oublier la dérivée intérieure changerait les variations.
+\section{Pourquoi le signe de la dérivée commande les variations}
+\approfondissement
+Si $f$ est continue sur $[a,b]$ et dérivable sur $]a,b[$, il existe $c\in]a,b[$ tel que
+$f(b)-f(a)=f'(c)(b-a)$ : théorème des accroissements finis.
+\begin{demonstration}
+Soustraire à $f$ sa droite sécante donne $g(a)=g(b)$. Une fonction continue atteint ses bornes sur un segment (preuve au chapitre 36). Si $g$ n'est pas constante, un maximum ou minimum est intérieur. À un extremum intérieur dérivable, les taux d'accroissement de signes opposés imposent $g'=0$ ; donc $f'(c)$ est la pente de la sécante. Si $g$ est constante, tout point convient.
+\end{demonstration}
+Si $f'\ge0$ sur un intervalle, appliquer ce théorème entre deux points donne $f(b)\ge f(a)$ ; si $f'>0$, l'inégalité est stricte.
+Réciproquement, les quotients d'une fonction croissante dérivable sont positifs ou nuls, donc sa dérivée l'est aussi.
+Une dérivée nulle sur un intervalle donne une constante. L'hypothèse d'intervalle est nécessaire : sur $\R\setminus\{0\}$, on peut avoir deux constantes différentes.
+\section{Optimiser et étudier une fonction}
+Pour un rectangle de périmètre $20$, les côtés sont $x$ et $10-x$, $0<x<10$. Son aire $A(x)=10x-x^2$ a dérivée $10-2x$ ; le maximum est $25$, atteint pour le carré $x=5$.
+Un point où $f'=0$ n'est pas forcément un extremum : $x^3$ en $0$.
+Pour une étude complète : domaine, limites, dérivée, signe, variations, valeurs remarquables, puis graphique cohérent. Sur un segment, comparer aussi les valeurs aux bornes.
+\section{Complément : dériver plusieurs fois}
+On note $f^{(0)}=f$, $f^{(1)}=f'$ et $f^{(n+1)}=(f^{(n)})'$ lorsque ces fonctions existent. Pour $f(x)=e^{ax}$, une récurrence utilisant la chaîne donne $f^{(n)}(x)=a^ne^{ax}$. Pour $x^m$, les dérivations successives donnent $m(m-1)\cdots(m-n+1)x^{m-n}$ si $n\le m$, puis zéro si $n>m$. Pour le sinus, le cycle des quatre dérivées donne $\sin^{(n)}x=\sin(x+n\pi/2)$.
+Ces calculs prépareront les développements de Taylor ; aucune approximation par un polynôme d'ordre élevé ne sera utilisée sans un contrôle de son reste.
+\begin{finchapitre}
+\section{Utilité et suite du parcours}
+La formule de composition deviendra la règle de chaîne pour des applications de plusieurs variables. Les accroissements finis donnent des bornes d'erreur et la condition de contraction.
+\begin{retenir}
+Une dérivée exprime une propriété locale. Pour conclure sur un intervalle entier, contrôler son signe partout et vérifier les bornes.
+\end{retenir}
+\end{finchapitre}
+\end{document}

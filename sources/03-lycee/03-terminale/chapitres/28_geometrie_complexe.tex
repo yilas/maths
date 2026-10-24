@@ -1,0 +1,58 @@
+\documentclass[../cours_tle.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{27}
+\chapter{Géométrie complexe et racines de l’unité}
+\label{ch:28}
+\begin{objectif}
+Mathématiques expertes. Résoudre des configurations par les affixes. Prérequis : chapitres 25 à 27.
+\end{objectif}
+\section{Distance, angle et quotient}
+Le point $A$ d'affixe $a$ et le point $B$ d'affixe $b$ déterminent un vecteur d'affixe $b-a$. Sa longueur est $|b-a|$.
+Pour $A\ne B$ et $A\ne C$,
+$\left|(c-a)/(b-a)\right|=AC/AB$ et
+$\arg((c-a)/(b-a))$ représente l'angle orienté de $\overrightarrow{AB}$ vers $\overrightarrow{AC}$ modulo $2\pi$.
+Cela découle du module et de l'argument d'un quotient.
+Ainsi $A,B,C$ sont alignés si et seulement si ce quotient est réel ; les deux directions sont orthogonales si et seulement s'il est imaginaire pur. Les cas où les points coïncident doivent être traités avant de former le quotient.
+\section{Lieux et transformations}
+$|z-a|=R$ décrit un cercle ; $|z-a|=|z-b|$ une médiatrice pour $a\ne b$, car ce sont des égalités de distances.
+L'application $z\mapsto z+b$ est une translation. Si $a=re^{i\theta}\ne0$, $z\mapsto az$ multiplie les distances par $r$ et tourne les directions de $\theta$.
+Pour $z\mapsto az+b$, $a\ne1$, le point fixe est $\omega=b/(1-a)$ et
+$z'-\omega=a(z-\omega)$ : c'est une similitude directe de centre $\omega$.
+La conjugaison est la symétrie par rapport à l'axe réel.
+\begin{exemple}
+$z'=iz+1$ a pour point fixe $(1+i)/2$ et décrit une rotation d'angle $\pi/2$ autour de ce point.
+La suite $z_{n+1}=az_n+b$ vérifie $z_n=\omega+a^n(z_0-\omega)$ ; si $|a|<1$, sa distance à $\omega$ tend vers zéro, avec rotation éventuelle.
+\end{exemple}
+\section{Toutes les racines de l'unité}
+\begin{theoreme}
+Pour $n\ge1$, les solutions de $z^n=1$ sont
+$\zeta_k=e^{2ik\pi/n}$, $k=0,\ldots,n-1$.
+\end{theoreme}
+\begin{demonstration}
+Si $z^n=1$, alors $|z|^n=1$, donc $|z|=1$ et $z=e^{i\theta}$.
+L'égalité $e^{in\theta}=1$ impose $n\theta\in2\pi\Z$.
+Deux indices donnent la même racine exactement lorsqu'ils sont congrus modulo $n$ ; les $n$ indices choisis sont donc distincts et donnent toutes les solutions.
+\end{demonstration}
+Pour $n=2$, $\{1,-1\}$ ; pour $n=3$, $\{1,j,j^2\}$ avec $j=-1/2+i\sqrt3/2$ et $1+j+j^2=0$ ; pour $n=4$, $\{1,i,-1,-i\}$.
+Ces points sont les sommets d'un polygone régulier inscrit dans le cercle unité.
+\begin{center}
+\begin{tikzpicture}[scale=1.3]
+\draw[gray](0,0)circle(1.4);\draw[->](-1.7,0)--(1.8,0);\draw[->](0,-1.6)--(0,1.7);
+\draw[accent,thick](0:1.4)--(72:1.4)--(144:1.4)--(216:1.4)--(288:1.4)--cycle;
+\foreach \a/\k in {0/0,72/1,144/2,216/3,288/4}\fill(\a:1.4)circle(1.3pt)node[above right]{$\zeta_{\k}$};
+\end{tikzpicture}
+\end{center}
+\section{Sommes et équations générales}
+Pour $n\ge2$, la somme de toutes les racines n-ièmes vaut $0$ par la somme géométrique de raison $e^{2i\pi/n}\ne1$. Leur barycentre est donc l'origine.
+Pour $w=\rho e^{i\varphi}\ne0$, les solutions de $z^n=w$ sont
+$\rho^{1/n}e^{i(\varphi+2k\pi)/n}$, $0\le k<n$, par le même raisonnement.
+Le cas $w=0$ donne seulement $z=0$.
+En particulier, les racines de $z^4=-4$ sont $\sqrt2 e^{i(\pi/4+k\pi/2)}$, donc $1+i,-1+i,-1-i,1-i$.
+\begin{finchapitre}
+\section{Utilité et suite du parcours}
+Les racines de l'unité annoncent les groupes cycliques et la transformée de Fourier discrète. Le passage affixes–vecteurs illustre le choix d'un langage efficace pour un problème.
+\begin{retenir}
+Un quotient d'affixes n'est licite que si son dénominateur est non nul. Les racines de l'unité se distinguent modulo le nombre de côtés.
+\end{retenir}
+\end{finchapitre}
+\end{document}

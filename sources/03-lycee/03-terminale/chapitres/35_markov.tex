@@ -1,0 +1,65 @@
+\documentclass[../cours_tle.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{34}
+\chapter{Chaînes de Markov et distributions invariantes}
+\label{ch:35}
+\begin{objectif}
+Mathématiques expertes. Étudier une dépendance au dernier état. Prérequis : probabilités conditionnelles, matrices et graphes.
+\end{objectif}
+\section{Un modèle à mémoire courte}
+Une chaîne de Markov est une succession d'états aléatoires telle que, conditionnellement à l'état présent, la loi du prochain état ne dépend pas des états antérieurs. On étudie ici des chaînes homogènes : les probabilités de transition ne dépendent pas du temps.
+La matrice $P=(p_{ij})$ contient $p_{ij}=P(X_{n+1}=j\mid X_n=i)$ ; ses coefficients sont positifs ou nuls et chaque ligne somme à $1$.
+Pour un état de probabilité nulle à un instant donné, la transition reste une donnée du modèle ; on ne la calcule pas en divisant par cette probabilité nulle.
+La distribution $\pi_n$ est une matrice ligne de probabilités, dont la somme vaut $1$.
+\begin{theoreme}
+$\pi_{n+1}=\pi_nP$, donc $\pi_n=\pi_0P^n$. Le coefficient $(P^n)_{ij}$ est la probabilité d'arriver en $j$ après $n$ transitions en partant de $i$.
+\end{theoreme}
+\begin{demonstration}
+Les probabilités totales donnent $P(X_{n+1}=j)=\sum_iP(X_n=i)p_{ij}$, exactement le produit ligne-matrice.
+Pour les transitions en $n+1$ pas, conditionner par l'état après $n$ pas donne la même récurrence que la multiplication par $P$. Initialiser à $P^0=I$ puis raisonner par récurrence.
+\end{demonstration}
+\section{Graphe pondéré et matrice : deux représentations}
+Le graphe possède un sommet par état. Un arc de $i$ vers $j$ porte le poids $p_{ij}$ ; les arcs de poids zéro peuvent être omis. La somme des poids sortant d'un sommet vaut $1$. Une boucle représente la possibilité de rester dans le même état.
+\begin{center}
+\begin{tikzpicture}[>=Stealth]
+\node[draw,circle,minimum size=9mm] (A) at (0,0) {$1$};
+\node[draw,circle,minimum size=9mm] (B) at (4,0) {$2$};
+\draw[->] (A) to[bend left=25] node[above] {$0{,}2$} (B);
+\draw[->] (B) to[bend left=25] node[below] {$0{,}3$} (A);
+\draw[->] (A) to[loop left] node[left] {$0{,}8$} (A);
+\draw[->] (B) to[loop right] node[right] {$0{,}7$} (B);
+\end{tikzpicture}
+\end{center}
+Dans l'ordre $(1,2)$, le graphe donne $P=\begin{pmatrix}0{,}8&0{,}2\\0{,}3&0{,}7\end{pmatrix}$. Pour trois états, le principe reste identique : trois lignes de probabilités décrivent les arcs sortants. La probabilité d'un trajet fixé est le produit de ses poids, puis on additionne les trajets distincts ayant le même départ et la même arrivée.
+\section{Deux états : formule complète}
+Posons $P=\begin{pmatrix}1-a&a\\b&1-b\end{pmatrix}$, $0\le a,b\le1$, et $x_n=P(X_n=1)$.
+Alors $x_{n+1}=(1-a)x_n+b(1-x_n)=b+(1-a-b)x_n$.
+Si $a+b>0$, le point fixe est $x_*=b/(a+b)$ et
+$x_n=x_*+(1-a-b)^n(x_0-x_*)$.
+Si $0<a+b<2$, toutes les distributions convergent vers $(b/(a+b),a/(a+b))$.
+Si $a=b=0$, chaque état reste fixe et toutes les distributions sont invariantes.
+Si $a=b=1$, la chaîne alterne ; l'invariante $(1/2,1/2)$ existe mais les autres distributions ne convergent pas.
+\section{Invariance n'est pas convergence}
+Une distribution invariante $\pi$ satisfait $\pi P=\pi$, avec coefficients positifs ou nuls et somme $1$.
+Pour $P=\begin{pmatrix}0{,}8&0{,}2\\0{,}3&0{,}7\end{pmatrix}$, l'invariante est $(0{,}6,0{,}4)$ et
+$x_n=0{,}6+0{,}5^n(x_0-0{,}6)$. Cela prouve aussi une vitesse de convergence.
+Une solution du système $\pi P=\pi$ qui n'est pas une probabilité n'est pas une distribution invariante.
+\section{Trois états : un calcul transparent}
+Soit $J$ la matrice $3\times3$ dont tous les coefficients valent $1/3$ et $P=(I+J)/2$.
+Comme $J^2=J$, on a $J(I-J)=(I-J)J=0$, donc
+$P^n=J+2^{-n}(I-J)$ pour $n\ge0$, par récurrence.
+La distribution uniforme $(1/3,1/3,1/3)$ est invariante et $\pi_0P^n$ converge vers elle pour toute distribution initiale.
+En revanche, la rotation déterministe $1\to2\to3\to1$ possède une distribution uniforme invariante mais fait cycler une distribution initiale concentrée en un état.
+Les théorèmes généraux de convergence des chaînes finies demanderont en licence les notions d'irréductibilité et de périodicité ; on ne les suppose pas vérifiés automatiquement.
+\section{Modèle d'Ehrenfest à deux objets, complément}
+Deux objets se répartissent entre deux urnes. À chaque étape, choisir un objet uniformément et changer son urne. L'état est le nombre d'objets dans la première urne : $0,1,2$.
+La matrice est $\begin{pmatrix}0&1&0\\1/2&0&1/2\\0&1&0\end{pmatrix}$.
+La distribution $(1/4,1/2,1/4)$ est invariante par multiplication directe. Pourtant la parité de l'état alterne à chaque pas, ce qui empêche la convergence depuis un état fixé. Ce modèle montre concrètement pourquoi une invariante ne suffit pas.
+\begin{finchapitre}
+\section{Utilité et suite du parcours}
+Les chaînes de Markov relient probabilités, graphes et valeurs propres. Elles conduisent à la modélisation stochastique et aux méthodes de simulation utilisées au niveau master.
+\begin{retenir}
+Avec des distributions lignes, la transition est $\pi P$. Vérifier les sommes des lignes et distinguer distribution invariante et limite d'une évolution.
+\end{retenir}
+\end{finchapitre}
+\end{document}

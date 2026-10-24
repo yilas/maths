@@ -1,0 +1,57 @@
+\documentclass[../cours_tle.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{19}
+\chapter{Calcul intégral, encadrements et suites d’intégrales}
+\label{ch:20}
+\begin{objectif}
+Spécialité. Choisir une méthode de calcul ou d'approximation justifiée. Prérequis : chapitre 19.
+\end{objectif}
+\section{Intégration par parties}
+\begin{theoreme}
+Pour $u,v$ de classe $\mathcal C^1$ sur $[a,b]$,
+$\displaystyle\int_a^b u(x)v'(x)dx=[u(x)v(x)]_a^b-\int_a^b u'(x)v(x)dx$.
+\end{theoreme}
+\begin{demonstration}
+Intégrer $(uv)'=u'v+uv'$ et appliquer le théorème fondamental. La classe $\mathcal C^1$ signifie que la dérivée existe et est continue, ce qui assure ici l'intégrabilité des termes.
+\end{demonstration}
+Prendre $u=x$, $v'=e^x$ donne
+$\int_0^1xe^x dx=[xe^x]_0^1-\int_0^1e^x dx=1$.
+Pour $\int_1^e\ln x\,dx$, prendre $u=\ln x$, $v'=1$ donne $[x\ln x-x]_1^e=1$.
+Choisir $u$ pour que sa dérivée simplifie l'expression ; toujours écrire le terme aux bornes.
+\section{Changement de variable simple, complément}
+Si $f$ est continue et $\varphi$ de classe $\mathcal C^1$ avec des valeurs dans son domaine,
+$\int_a^b f(\varphi(t))\varphi'(t)dt=\int_{\varphi(a)}^{\varphi(b)}f(x)dx$.
+La preuve consiste à choisir une primitive $F$ de $f$ et dériver $F\circ\varphi$.
+Ainsi $\int_0^1 2t e^{t^2}dt=e-1$. Les nouvelles bornes sont indispensables.
+\section{Suites d'intégrales}
+Posons $I_n=\int_0^1x^ne^x dx$. Comme $0\le x^{n+1}\le x^n$ et $e^x>0$, $(I_n)$ est décroissante positive.
+En outre $0\le I_n\le e\int_0^1x^n dx=e/(n+1)$, donc $I_n\to0$.
+Une intégration par parties donne $I_n=e-nI_{n-1}$ pour $n\ge1$ et $I_0=e-1$.
+Le calcul exact et le comportement asymptotique sont deux questions différentes ; cette récurrence peut amplifier les erreurs d'arrondi et n'est pas nécessairement une bonne méthode numérique pour les grands $n$.
+\section{Rectangles, milieux et trapèzes}
+Pour un pas $h=(b-a)/n$, les rectangles à gauche et à droite utilisent les valeurs aux bornes des sous-intervalles. Si $f$ croît, ils encadrent l'intégrale, avec un écart exact $h(f(b)-f(a))$.
+La méthode du milieu utilise $h\sum f(a+(k+1/2)h)$ ; celle des trapèzes utilise
+$h\bigl(f(a)/2+\sum_{k=1}^{n-1}f(a+kh)+f(b)/2\bigr)$.
+Pour une fonction convexe, milieu $\le$ intégrale $\le$ trapèzes : intégrer les inégalités de tangente et de corde sur chaque intervalle, les parties linéaires se compensant autour du milieu.
+Si $|f'|\le L$, l'erreur des rectangles à gauche est au plus $L(b-a)^2/(2n)$, car sur chaque sous-intervalle $|f(x)-f(x_k)|\le L(x-x_k)$ ; intégrer puis sommer.
+\section{Harmonique, logarithme et Brouncker}
+La décroissance de $1/x$ donne
+$\ln(n+1)\le H_n=\sum_{k=1}^n1/k\le1+\ln n$ en comparant rectangles et aire.
+Ainsi $H_n$ diverge, mais lentement.
+
+Les sommes paires $S_{2n}=\sum_{k=1}^{2n}(-1)^{k-1}/k$ regroupées donnent
+$S_{2n}=\sum_{j=1}^n1/((2j-1)2j)$ ; les sommes impaires sont au-dessus et l'écart vaut $1/(2n+1)$.
+Pour identifier la limite, intégrer l'identité géométrique
+$1/(1+x)=\sum_{k=0}^{m-1}(-x)^k+(-x)^m/(1+x)$ sur $[0,1]$.
+Le reste a un module au plus $1/(m+1)$ ; donc $S_m\to\ln2$.
+Les sommes regroupées donnent une méthode de Brouncker pour $\ln2$, avec encadrement explicite.
+\section{Lire une aire dans un modèle}
+Pour une courbe de Lorenz $L$ normalisée, l'indice $G=1-2\int_0^1L(x)dx$ compare l'aire sous $L$ à celle sous la diagonale. Pour $L(x)=x^2$, $G=1/3$ ; pour des données polygonales, la méthode des trapèzes est exacte. Cette valeur dépend du modèle et de la population étudiée.
+\begin{finchapitre}
+\section{Utilité et suite du parcours}
+Encadrer une intégrale est souvent plus utile que trouver une primitive. Les suites d'intégrales préparent les échanges limite–intégrale, qui demanderont des hypothèses nouvelles en licence.
+\begin{retenir}
+Choisir une méthode, justifier son domaine et contrôler le résultat par le signe, les unités ou un encadrement indépendant.
+\end{retenir}
+\end{finchapitre}
+\end{document}

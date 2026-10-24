@@ -1,0 +1,56 @@
+\documentclass[../cours_tle.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{30}
+\chapter{Nombres premiers, Fermat et chiffrement}
+\label{ch:31}
+\begin{objectif}
+Mathématiques expertes. Démontrer les théorèmes structurants de l'arithmétique. Prérequis : chapitres 29 et 30.
+\end{objectif}
+\section{Existence et infinité des nombres premiers}
+Un entier $p\ge2$ est premier si ses seuls diviseurs positifs sont $1$ et $p$.
+Tout entier $n\ge2$ possède un diviseur premier : son plus petit diviseur $d>1$ ne peut être composé, sinon un facteur plus petit diviserait $n$.
+\begin{theoreme}
+Il existe une infinité de nombres premiers.
+\end{theoreme}
+\begin{demonstration}
+Supposer leur liste finie $p_1,\ldots,p_r$. L'entier $N=p_1\cdots p_r+1>1$ possède un diviseur premier. Aucun $p_i$ ne le divise car le reste vaut $1$, contradiction.
+On n'a pas affirmé que $N$ était lui-même premier.
+\end{demonstration}
+Si $n$ est composé, $n=ab$ avec $1<a\le b$, donc $a\le\sqrt n$. Tester les diviseurs premiers jusqu'à $\sqrt n$ suffit pour prouver la primalité ; un test qui s'arrête avant doit être justifié autrement.
+\section{Décomposition en facteurs premiers}
+\begin{theoreme}
+Tout entier $n\ge2$ s'écrit comme produit de nombres premiers, de façon unique à l'ordre des facteurs près.
+\end{theoreme}
+\begin{demonstration}
+Existence par récurrence forte : si $n$ n'est pas premier, écrire $n=ab$ avec $2\le a,b<n$ et décomposer $a,b$.
+Pour l'unicité, un premier $p$ divisant un produit divise l'un des facteurs : sinon il serait premier avec chacun, et Gauss donnerait une contradiction. Comparer deux décompositions, apparier un facteur premier puis le simplifier ; répéter.
+\end{demonstration}
+Pour des décompositions sur les mêmes premiers, le PGCD prend les exposants minimaux, le PPCM les maximaux. Pour $a,b>0$, cela prouve $ab=\PGCD(a,b)\PPCM(a,b)$.
+Si $n=\prod p_i^{\alpha_i}$, choisir indépendamment chaque exposant de diviseur entre $0$ et $\alpha_i$ donne $\prod(\alpha_i+1)$ diviseurs positifs.
+\section{Petit théorème de Fermat}
+\begin{theoreme}
+Si $p$ est premier et $p\nmid a$, alors $a^{p-1}\equiv1\pmod p$. Pour tout entier $a$, $a^p\equiv a\pmod p$.
+\end{theoreme}
+\begin{demonstration}
+La multiplication par $a$ permute les classes non nulles modulo $p$ : si $ax\equiv ay$, Gauss permet de simplifier $a$, donc $x\equiv y$.
+Multiplier toutes les classes donne $a^{p-1}(p-1)!\equiv(p-1)!$.
+Aucun facteur de $(p-1)!$ n'est divisible par $p$, donc cette factorielle est inversible modulo $p$ ; simplifier. Le cas $p\mid a$ de la seconde assertion est direct.
+\end{demonstration}
+La réciproque est fausse : un entier composé peut satisfaire une congruence de Fermat. Par exemple $2^{10}\equiv1\pmod{341}$ car $341=11\times31$ et $1024=3\times341+1$ ; donc $2^{340}\equiv1$ aussi.
+Le crible d'Ératosthène élimine les multiples des premiers successifs ; pour prouver qu'un entier restant est premier, il suffit d'avoir éliminé les facteurs jusqu'à sa racine carrée.
+\section{Chiffrement affine et RSA pédagogique}
+Un chiffrement affine $x\mapsto ax+b\pmod m$ est réversible exactement quand $a$ est inversible modulo $m$. La formule inverse est $a^{-1}(y-b)$.
+Pour RSA, choisir deux premiers distincts $p,q$, $N=pq$, et $e$ premier avec $(p-1)(q-1)$. Choisir $d$ avec $ed\equiv1\pmod{(p-1)(q-1)}$.
+Chiffrer $c\equiv m^e\pmod N$, déchiffrer $c^d$.
+\begin{demonstration}
+Modulo $p$, si $p\mid m$, les deux côtés $m^{ed}$ et $m$ valent zéro ; sinon Fermat et $ed=1+k(p-1)(q-1)$ donnent $m^{ed}\equiv m$. Même raisonnement modulo $q$ ; le théorème chinois donne l'égalité modulo $N$.
+\end{demonstration}
+Avec $p=5,q=11$, prendre $e=3,d=27$ car $81\equiv1\pmod{40}$. C'est une illustration mathématique : ces nombres minuscules et le RSA sans protocole de remplissage ne fournissent pas un chiffrement sûr.
+\begin{finchapitre}
+\section{Utilité et suite du parcours}
+L'arithmétique conduit à la théorie des nombres et à l'algèbre abstraite. La cryptographie montre aussi qu'une preuve de réversibilité ne constitue pas une preuve de sécurité.
+\begin{retenir}
+Fermat exige un module premier ; un test de Fermat réussi ne suffit pas à prouver la primalité.
+\end{retenir}
+\end{finchapitre}
+\end{document}

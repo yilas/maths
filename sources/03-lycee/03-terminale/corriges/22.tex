@@ -1,0 +1,18 @@
+\chapter{Espérance, variance et sommes de variables}
+\section*{Exercice 22.1 -- Calcul direct}
+$E(X)=-1/4+2/4=1/4$. $E(X^2)=1/4+4/4=5/4$, donc $V(X)=5/4-(1/4)^2=19/16$. La variance est positive et exprimée dans l'unité de $X$ au carré.
+
+\section*{Exercice 22.2 -- Transformation affine}
+$E(Y)=5-2\times3=-1$. $V(Y)=(-2)^2V(X)=16$ et $\sigma(Y)=4$. L'écart type est multiplié par $|-2|$, jamais par un facteur négatif.
+
+\section*{Exercice 22.3 -- Somme dépendante}
+$X+Y=1$ est constante, donc sa variance est nulle. Chaque variable a variance $1/4$, donc la somme des variances vaut $1/2$. Leur covariance vaut $-1/4$ ; le terme $2\operatorname{Cov}(X,Y)$ rétablit l'égalité générale.
+
+\section*{Exercice 22.4 -- Binomiale}
+$E(X)=30$, $V(X)=100\times0{,}3\times0{,}7=21$. Pour la fréquence, $V(X/100)=21/10000=0{,}0021$. La division par $100$ divise la variance par $100^2$.
+
+\section*{Exercice 22.5 -- Sans indépendance}
+Poser $I_i=1$ si l'élève $i$ oublie, $0$ sinon. Le nombre est $S=\sum I_i$ et la linéarité donne $E(S)=\sum E(I_i)=20/5=4$. Aucune indépendance n'est nécessaire pour cette espérance ; elle serait nécessaire à la formule binomiale de variance.
+
+\section*{Exercice 22.6 -- Moindres carrés}
+Écrire $X-a=(X-E(X))+(E(X)-a)$, développer le carré et prendre l'espérance. Le terme croisé disparaît car $E(X-E(X))=0$. Le dernier carré est minimal et nul pour l'unique choix $a=E(X)$. La moyenne est ainsi la meilleure constante pour l'erreur quadratique.

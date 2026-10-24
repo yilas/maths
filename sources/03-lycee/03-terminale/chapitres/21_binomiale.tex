@@ -1,0 +1,60 @@
+\documentclass[../cours_tle.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{20}
+\chapter{Expériences aléatoires et loi binomiale}
+\label{ch:21}
+\begin{objectif}
+Spécialité. Construire le modèle avant d'utiliser une formule. Prérequis : dénombrement et probabilités de première.
+\end{objectif}
+\section{Rappels : univers, événements et conditionnement}
+Un univers fini $\Omega$ rassemble les issues ; un événement est une partie de $\Omega$. Une probabilité attribue des masses positives ou nulles de somme $1$ aux issues.
+$P(A\cup B)=P(A)+P(B)-P(A\cap B)$ ; $P(\overline A)=1-P(A)$.
+Si $P(A)>0$, $P(B\mid A)=P(A\cap B)/P(A)$. Cette probabilité décrit une information nouvelle, pas une causalité.
+Pour une partition $(A_i)$ avec $P(A_i)>0$, les parties disjointes $B\cap A_i$ donnent
+$P(B)=\sum_iP(A_i)P(B\mid A_i)$.
+Si $P(B)>0$, $P(A_i\mid B)=P(A_i)P(B\mid A_i)/P(B)$ (formule de Bayes).
+\section{Indépendance et arbres}
+$A$ et $B$ sont indépendants si $P(A\cap B)=P(A)P(B)$. Si $P(A)>0$, cela équivaut à $P(B\mid A)=P(B)$.
+L'incompatibilité signifie $A\cap B=\varnothing$ ; deux événements incompatibles de probabilités non nulles ne sont pas indépendants.
+
+Une famille d'événements $A_1,\ldots,A_n$ est \emph{mutuellement indépendante} si, pour toute partie non vide $J$ de $\{1,\ldots,n\}$,
+$P(\bigcap_{j\in J}A_j)=\prod_{j\in J}P(A_j)$.
+L'indépendance deux à deux ne vérifie que les parties de taille 2 et ne suffit pas pour trois événements ou plus (exercice 21.5).
+On peut remplacer certains événements par leurs complémentaires : pour une intersection $B$ des autres,
+$P(B\cap\overline A)=P(B)-P(B\cap A)=P(B)(1-P(A))$ ; répéter cet argument.
+
+Dans une succession d'expériences indépendantes, la probabilité d'une liste d'issues est le produit de leurs probabilités. Un arbre représente les choix successifs ; on multiplie le long d'un chemin et on additionne des chemins distincts conduisant à l'événement.
+Sans indépendance, les probabilités des branches sont conditionnelles et peuvent varier suivant le chemin.
+\section{Du schéma de Bernoulli à sa loi}
+Une variable de Bernoulli de paramètre $p\in[0,1]$ vaut $1$ avec probabilité $p$ et $0$ avec probabilité $1-p$.
+Un schéma de Bernoulli répète $n$ épreuves identiques et mutuellement indépendantes.
+\begin{theoreme}
+Le nombre $X$ de succès suit la loi binomiale $\mathcal B(n,p)$ :
+$P(X=k)=\binom nk p^k(1-p)^{n-k}$ pour $k=0,\ldots,n$.
+\end{theoreme}
+\begin{demonstration}
+Pour un choix fixé de $k$ positions de succès, l'indépendance donne $p^k(1-p)^{n-k}$. Il y a $\binom nk$ choix de positions, correspondant à des issues disjointes.
+La somme des probabilités vaut $(p+(1-p))^n=1$ par le binôme.
+Aux extrêmes $p=0$ ou $1$, utiliser directement les lois constantes pour éviter les ambiguïtés de notation $0^0$.
+\end{demonstration}
+Un tirage sans remise ne relève généralement pas de cette loi. Les probabilités de succès évoluent avec les tirages et les résultats sont dépendants.
+\section{Calculer des événements et des seuils}
+Pour $X\sim\mathcal B(5,0{,}2)$, $P(X=2)=10\times0{,}2^2\times0{,}8^3=0{,}2048$.
+$P(X\ge1)=1-0{,}8^5=0{,}67232$.
+Pour $0\le a\le b\le n$ entiers,
+$P(a\le X\le b)=\sum_{k=a}^bP(X=k)$ ; avec la fonction cumulative $F(k)=P(X\le k)$, cela vaut $F(b)-F(a-1)$.
+
+Le plus petit $k$ tel que $P(X>k)\le\alpha$ est le premier $k$ avec $F(k)\ge1-\alpha$. Il faut distinguer $>$ et $\ge$ : $P(X\ge k)=1-F(k-1)$.
+Dans une surréservation, si chaque client se présente indépendamment avec probabilité $p$ et si $n$ réservations ont été prises pour $c$ places, le risque de dépassement est $P(X>c)$. Ce modèle dépend de l'hypothèse d'indépendance des présences.
+\section{Concevoir une expérience et une simulation}
+Une planche de Galton idéale ajoute $n$ choix droite/gauche indépendants de probabilité $1/2$. Le numéro du compartiment suit $\mathcal B(n,1/2)$.
+Simuler un échantillon consiste à répéter ce mécanisme ; les fréquences obtenues fluctuent autour des probabilités théoriques. Une simulation n'établit ni l'indépendance réelle du dispositif ni une égalité exacte de probabilités.
+Pour comparer plusieurs valeurs de $n$, calculer le risque pour chacune et justifier le choix minimal ou maximal sous la contrainte, sans seulement afficher une valeur trouvée.
+\begin{finchapitre}
+\section{Utilité et suite du parcours}
+Les lois discrètes sont la base de l'inférence statistique. La factorisation des probabilités prépare les modèles produits et les chaînes de Markov, où l'indépendance sera remplacée par une dépendance contrôlée.
+\begin{retenir}
+Vérifier nombre d'épreuves fixé, même probabilité et indépendance. Traduire précisément « au moins », « au plus » et « strictement plus ».
+\end{retenir}
+\end{finchapitre}
+\end{document}

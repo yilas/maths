@@ -1,0 +1,18 @@
+\chapter{Algorithmes : calculer, prouver et contrôler l’erreur}
+\section*{Exercice 24.1 -- Invariant de boucle}
+Initialiser \texttt{p=1}, puis pour \texttt{k} de $1$ à $n$ remplacer \texttt{p} par \texttt{p*k}. Après le passage $k$, l'invariant est $p=k!$, établi par récurrence. La boucle possède $n$ passages ; pour $n=0$ elle n'en possède aucun et renvoie bien $0!=1$.
+
+\section*{Exercice 24.2 -- Coût de la dichotomie}
+Il faut $3/2^{n+1}\le10^{-6}$, donc $2^{n+1}\ge3\times10^6$. Comme $2^{21}=2097152$ et $2^{22}=4194304$, $n=21$ convient. Le coût croît logarithmiquement avec la précision demandée.
+
+\section*{Exercice 24.3 -- Newton cyclique}
+$f(0)=2$, $f'(0)=-2$, donc $x_1=1$. Puis $f(1)=1$, $f'(1)=1$, donc $x_2=0$. Le cycle se répète. Fixer un nombre maximal d'itérations, contrôler la dérivée et signaler l'absence de convergence ; comparer à une dichotomie lorsque ses hypothèses sont disponibles.
+
+\section*{Exercice 24.4 -- Erreur des rectangles}
+La fonction décroît. Avec $h=1/n$, $R_n=h\sum_{k=1}^n(1+k/n)^{-1}\le\ln2\le L_n=h\sum_{k=0}^{n-1}(1+k/n)^{-1}$. Les termes se compensent dans $L_n-R_n=h(1-1/2)=1/(2n)$.
+
+\section*{Exercice 24.5 -- Monte-Carlo et erreur}
+Chaque indicatrice a paramètre $p=\pi/4$ ; la variance de $\widehat\pi_n$ vaut $16p(1-p)/n\le4/n$. Tchebychev donne $P(|\widehat\pi_n-\pi|\ge\varepsilon)\le4/(n\varepsilon^2)$. Le modèle uniforme dans le carré relève du prolongement continu précisé au cours.
+
+\section*{Exercice 24.6 -- Résidu et erreur}
+Non : la racine vaut $1000$, donc l'erreur est $1000$. La dérivée a module $10^{-9}$ ; le contrôle $|x-\alpha|\le|f(x)|/10^{-9}$ donne ici exactement $1000$. La petite échelle de la fonction rend le résidu trompeur sans contrôle de pente.

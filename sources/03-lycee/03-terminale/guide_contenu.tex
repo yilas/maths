@@ -1,0 +1,404 @@
+\chapter{Périmètre, sources et ambition}
+\section{Le parcours retenu}
+Ce niveau prépare une poursuite d'études exigeante : terminale générale, spécialité mathématiques, complétée par l'option mathématiques expertes. La collection vise à terme un niveau master, en construisant ensuite une licence et un parcours de master annoncé. Les présents volumes ne remplacent ni ces étapes ni leur pratique autonome.
+
+Les sources officielles ont été vérifiées le 24 octobre 2026 :
+\begin{itemize}
+\item \href{https://eduscol.education.gouv.fr/sites/default/files/document/spe246annexe1158907pdf-84159.pdf}{Spécialité : programme de 2019}, BO spécial du 25 juillet 2019, applicable à la terminale en 2026--2027 ;
+\item \href{https://www.education.gouv.fr/bo/2026/Hebdo14/MENE2602919A}{Spécialité : arrêté du 26 février 2026 et son annexe}, BO du 2 avril 2026, application à la rentrée 2027--2028 ;
+\item \href{https://eduscol.education.gouv.fr/sites/default/files/document/spe264annexe1158825pdf-84165.pdf}{Option mathématiques expertes : programme de 2019}, BO spécial du 25 juillet 2019 ;
+\item \href{https://eduscol.education.gouv.fr/5817/programmes-et-ressources-en-mathematiques-voie-gt}{Portail Éduscol des programmes}, pour leur calendrier et les ressources d'accompagnement.
+\end{itemize}
+La couverture vise les contenus et capacités obligatoires de ces parcours. Les mathématiques complémentaires et les voies technologiques sont exclues. Une sélection des approfondissements et problèmes facultatifs est rédigée ; leurs variantes ne sont pas toutes traitées.
+
+Les tableaux croisent les deux programmes de spécialité. La perpendicularité de deux plans, explicitement inscrite pour 2027, figure au chapitre 6. Logique, algorithmique, automatismes, oral et histoire accompagnent tout le parcours.
+\section{Quatre documents cohérents}
+Le cours comprend 36 chapitres. Le recueil d'exercices contient 216 exercices de chapitre et huit synthèses. Le recueil de corrigés conserve leurs identifiants. Ce guide fournit diagnostic, table de couverture, registre des fondements, automatismes et bilans.
+Les numéros de chapitre cités dans ce guide désignent toujours le \textbf{cours}, même si les chapitres propres au guide ont d'autres numéros. L'exercice 14.5 est le cinquième du chapitre 14 dans les deux recueils. S1 à S8 désignent les synthèses finales.
+
+Le socle spécialité correspond aux chapitres 1 à 24, en distinguant les compléments signalés. Au chapitre 8, le plan médiateur et les mesures participent au socle ; sphères et barycentres sont des approfondissements. Les chapitres 25 à 35 couvrent expertes ; le chapitre 36 ferme des dépendances de preuves et prépare la licence.
+\section{Ce que signifie comprendre}
+Savoir reconnaître une formule n'est qu'un début. On attend ensuite de savoir l'appliquer seul, la justifier avec ses hypothèses, puis la transférer à une situation nouvelle. Un contre-exemple correctement choisi est une production mathématique complète pour réfuter une affirmation universelle.
+Pour chaque résultat, préciser les objets, les hypothèses et la conclusion ; tester ce qui change si une hypothèse disparaît.
+\chapter{Diagnostic initial et remise à niveau}
+\small
+\section{Douze questions, sans consulter le cours}
+\begin{enumerate}
+\item Factoriser $x^2-5x+6$ et résoudre l'inéquation $x^2-5x+6\le0$.
+\item Résoudre $(x-1)/(x+2)=2$ en précisant le domaine.
+\item Donner $u_n$ pour $u_0=3$, $u_{n+1}=2u_n$ et calculer $\sum_{k=0}^4u_k$.
+\item Étudier les variations de $f(x)=x^3-3x$.
+\item Simplifier $e^{2x}e^{-x}$ et résoudre $e^{2x}=e^6$.
+\item Donner $\sin(\pi/6)$, $\cos(\pi/3)$, $\cos(-x)$.
+\item Pour $u=(1,2)$ et $v=(2,-1)$, calculer le produit scalaire et interpréter.
+\item Pour $A=(1,0)$, $B=(3,4)$, trouver milieu et distance.
+\item Si $P(A)=0{,}4$ et $P(B\mid A)=0{,}3$, calculer $P(A\cap B)$.
+\item Une variable vaut $0$ ou $2$ avec probabilités $3/4$ et $1/4$ : calculer espérance et variance.
+\item Nier « tout réel $x$ vérifie $x^2>x$ » et donner un témoin.
+\item Que renvoie \texttt{[k*k for k in range(4)]} ? Pourquoi le dernier indice vaut-il 3 ?
+\end{enumerate}
+\section{Correction et chemins de reprise}
+\begin{enumerate}
+\item $(x-2)(x-3)$ ; le produit est négatif ou nul entre les racines : $[2,3]$. Revoir première, chapitres 2 et 3.
+\item $x\ne-2$. L'équation équivaut à $x-1=2x+4$, d'où $x=-5$, admissible. Revoir seconde, équations et fractions.
+\item $u_n=3\times2^n$ ; la somme vaut $3(2^5-1)/(2-1)=93$. Revoir première, chapitres 4 à 7.
+\item $f'=3(x^2-1)$ : croissance sur $]-\infty,-1]$, décroissance sur $[-1,1]$, croissance sur $[1,+\infty[$. Revoir première, chapitres 8 à 11.
+\item Produit $e^x$ ; l'injectivité de l'exponentielle donne $2x=6$, donc $x=3$. Revoir première, chapitre 12.
+\item Les deux valeurs valent $1/2$ et $\cos(-x)=\cos x$. Revoir première, chapitres 14 et 15.
+\item $1\times2+2(-1)=0$ : les vecteurs non nuls sont orthogonaux. Revoir première, chapitre 16.
+\item Milieu $(2,2)$ ; distance $\sqrt{2^2+4^2}=2\sqrt5$. Revoir seconde, géométrie repérée.
+\item $P(A\cap B)=P(A)P(B\mid A)=0{,}12$. Revoir première, chapitres 19 et 20.
+\item $E(X)=1/2$, $E(X^2)=1$, donc $V(X)=1-1/4=3/4$. Revoir première, chapitres 21 et 22.
+\item « Il existe un réel $x$ tel que $x^2\le x$ » ; $x=0$ convient. Revoir première, chapitre 1, puis terminale, chapitre 1.
+\item La liste est \texttt{[0,1,4,9]} ; \texttt{range(4)} exclut sa borne supérieure. Revoir première, chapitre 24.
+\end{enumerate}
+Ne pas transformer ce diagnostic en simple note. Une erreur de signe appelle des exercices de calcul ; une erreur de quantificateur appelle une reformulation ; une formule correcte sans justification appelle une reprise de preuve. Refaire les questions après une semaine avec des données modifiées.
+\normalsize
+\chapter{Progression et habitudes de travail}
+\section{Un ordre de lecture souple}
+\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{.14\textwidth}>{\raggedright\arraybackslash}p{.37\textwidth}>{\raggedright\arraybackslash}p{.41\textwidth}@{}}
+\toprule Bloc & Chapitres & Critère pour avancer \\ \midrule\endhead
+Langage et discret & 1--4, puis 21 & Distinguer ordre, répétition et choix ; rédiger une récurrence.\\
+Espace & 5--8 & Passer d'une figure aux équations et justifier une distance.\\
+Analyse des suites & 9--11, exercices de 24 & Démontrer convergence avant de calculer une limite candidate.\\
+Analyse des fonctions & 12--17 & Articuler domaine, continuité, dérivation et convexité.\\
+Accumulation et dynamique & 18--20, puis 24 & Relier primitive, intégrale, équation différentielle et erreur numérique.\\
+Aléatoire & 21--23 & Séparer modèle, loi exacte, simulation et garantie d'écart.\\
+Expertes en parallèle & 25--28 ; 29--31 ; 32--35 & Calculer dans plusieurs représentations et expliquer leurs correspondances.\\
+Passerelle & 36 et S1--S8 & Reconstituer les dépendances et chercher une synthèse sans modèle.\\
+\bottomrule
+\end{longtable}
+\normalsize
+La numérotation sert de repère, pas de calendrier imposé. Les matrices se lisent après les vecteurs ; Markov après les probabilités et les matrices ; les complexes après la trigonométrie. L'arithmétique peut se travailler en parallèle de l'analyse.
+\section{Une séance et une semaine efficaces}
+Commencer une séance par quelques automatismes. Lire une définition et produire un exemple et un non-exemple. Chercher une preuve avant de la lire ; la reformuler ensuite sans support. Résoudre un exercice direct puis un exercice de choix de méthode. Terminer par une phrase décrivant l'erreur à éviter.
+
+Chaque semaine, revenir sur un chapitre ancien, rédiger intégralement une preuve et expliquer une solution à l'oral. Tenir un carnet d'erreurs avec l'énoncé fautif, le diagnostic, la correction et un nouvel exemple. Une réponse retrouvée immédiatement après lecture ne suffit pas : vérifier à nouveau quelques jours plus tard.
+\section{Chercher les synthèses}
+Avant tout calcul, dresser la liste des objets, inconnues, hypothèses et résultats disponibles. Essayer un petit cas ou une figure, puis choisir entre raisonnement direct, contraposée, contradiction, récurrence, encadrement ou changement de représentation.
+Les corrigés donnent une stratégie. Ne les ouvrir qu'après avoir écrit une tentative, même incomplète. Une fois la solution lue, la refermer et la reconstruire. Pour une modélisation, préciser les unités et ce que le modèle laisse de côté.
+\chapter{Table de couverture du programme}
+Les lignes ci-dessous relient les contenus et capacités obligatoires aux chapitres et à des tâches vérifiables. « S » désigne le socle commun aux programmes de spécialité de 2019 et 2026 ; « N » un point explicitement ajouté en 2027 ; « E » l'option expertes ; « C » un complément ou une justification renforcée. Les lignes S et E peuvent aussi contenir des preuves plus avancées que les attendus scolaires.
+\section{Langage, dénombrement et géométrie}
+\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{.065\textwidth}>{\raggedright\arraybackslash}p{.47\textwidth}>{\raggedright\arraybackslash}p{.10\textwidth}>{\raggedright\arraybackslash}p{.27\textwidth}@{}}
+\toprule Statut & Notions et capacités & Cours & Vérification \\ \midrule\endhead
+S & Ensembles, inclusion, réunion, intersection, complémentaire ; couples, produits cartésiens, applications et bijections. & 1, 3 & 1.1--1.6 ; 3.1--3.6\\
+S & Implication, équivalence, réciproque, contraposée, quantificateurs et négation ; contre-exemple et raisonnement par cas. & 1 & 1.2, 1.4--1.6 ; 9.6\\
+S & Récurrence ; sommes, produit, indices et contrôle des premiers rangs. & 2 & 2.1--2.6 ; 33.1\\
+S & Principes additif et multiplicatif ; listes avec ou sans répétition ; parties, mots et permutations. & 3 & 3.1--3.6\\
+S & Combinaisons ; factorielle ; cas k=0,1,2 ; symétrie, relation et triangle de Pascal. & 4 & 4.1--4.6 ; 21.2\\
+S & Vecteurs, translations, combinaisons linéaires ; droites, plans, bases, repères et décomposition. & 5 & 5.1--5.6\\
+S & Positions relatives, alignement, colinéarité, coplanarité et parallélisme. & 5, 7 & 5.2--5.6 ; 7.1--7.6\\
+S & Produit scalaire, bilinéarité, symétrie, norme, polarisation, angles et orthonormalité. & 6 & 6.1--6.6\\
+S & Orthogonalité de droites, droite et plan ; vecteur normal ; projection et distance minimale. & 6, 7 & 6.2--6.5 ; 7.3 ; S2\\
+N & Perpendicularité de plans caractérisée par leurs normales. & 6 & 6.4\\
+S & Paramétrage des droites, équations de plans, intersections et systèmes ; coordonnées des projetés. & 7 & 7.1--7.6 ; S2\\
+S & Lieux géométriques simples dont le plan médiateur ; longueurs, angles, aires et volumes. & 6--8 & 8.1, 8.5 ; S2\\
+C & Sphères, sections, tangence ; barycentres, associativité et identités de Leibniz. & 8 & 8.1--8.4, 8.6 ; S2\\
+\bottomrule\end{longtable}\normalsize
+\needspace{10\baselineskip}
+\section{Analyse}
+\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{.065\textwidth}>{\raggedright\arraybackslash}p{.47\textwidth}>{\raggedright\arraybackslash}p{.10\textwidth}>{\raggedright\arraybackslash}p{.27\textwidth}@{}}
+\toprule Statut & Notions et capacités & Cours & Vérification \\ \midrule\endhead
+S & Limites finies et infinies de suites ; comparaison, encadrement, opérations et limites géométriques. & 9, 10 & 9.1--9.6 ; 10.1--10.6\\
+S & Convergence monotone ; suites définies par récurrence, stabilité, limite candidate et seuil. & 11, 24 & 11.1--11.6 ; 24.1--24.3 ; S1\\
+S & Limites de fonctions en un point ou à l’infini ; asymptotes ; compositions et croissances comparées. & 12, 16 & 12.1--12.6 ; 16.3, 16.6\\
+S & Continuité ; image d’une suite ; valeurs intermédiaires, unicité monotone ; résolution approchée. & 13, 24 & 13.1--13.6 ; 24.2\\
+S & Dérivation d’une composée ; dérivée seconde ; variations, tangentes et optimisation. & 14 & 14.1--14.6 ; 17.4\\
+S & Convexité et concavité ; cordes, tangentes, croissance de la dérivée, signe de la dérivée seconde ; inflexion. & 15 & 15.1--15.6 ; 20.5 ; S8\\
+S & Logarithme réciproque de l’exponentielle ; règles algébriques, dérivée, limites, équations et seuils. & 16 & 16.1--16.6\\
+S & Sinus et cosinus : parité, périodicité, dérivées, variations, courbes ; équations et inéquations. & 17 & 17.1--17.6\\
+S & Primitives ; familles différant d’une constante ; formes usuelles et fonctions composées. & 18 & 18.1 ; 19.2 ; 20.1\\
+S & Équations y'=ay, y'=ay+b, condition initiale ; solution particulière de y'=ay+f ; Euler. & 18, 24 & 18.2--18.5 ; 24.3\\
+S & Intégrale d’une fonction positive et aire ; théorème fondamental, primitives et intégrale générale. & 19 & 19.1--19.6 ; S8\\
+S & Orientation, linéarité, Chasles, positivité, comparaison, valeur moyenne ; aires entre courbes. & 19, 20 & 19.1, 19.3--19.6 ; 20.2\\
+S & Intégration par parties ; encadrement d’intégrales ; suites d’intégrales ; calcul approché. & 20, 24 & 20.1--20.6 ; 24.4 ; S3\\
+C & Adjacentes, Héron, contraction ; accroissements finis, puissances réelles, tangente ; Riemann et séries. & 11, 14, 16, 17, 36 & S1, S3, S8 ; 36.1--36.6\\
+\bottomrule\end{longtable}\normalsize
+\needspace{10\baselineskip}
+\section{Probabilités et algorithmique}
+\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{.065\textwidth}>{\raggedright\arraybackslash}p{.47\textwidth}>{\raggedright\arraybackslash}p{.10\textwidth}>{\raggedright\arraybackslash}p{.27\textwidth}@{}}
+\toprule Statut & Notions et capacités & Cours & Vérification \\ \midrule\endhead
+S & Univers produit, probabilités conditionnelles et totales ; indépendance mutuelle, schéma de Bernoulli. & 21 & 21.1, 21.3, 21.5\\
+S & Loi binomiale : justification de la formule, probabilité ponctuelle, cumul, intervalle et seuil. & 21 & 21.2--21.4 ; S4\\
+S & Optimisation de paramètres d’un modèle binomial ; simulations de Bernoulli et Galton. & 21, 24 & 21.6 ; S4 ; Python\\
+S & Variables aléatoires finies ; espérance, variance, écart type ; transformation affine et linéarité. & 22 & 22.1, 22.2, 22.5\\
+S & Sommes de variables indépendantes ; moyenne et variance binomiales ; échantillon et moyenne. & 22 & 22.3, 22.4, 22.6\\
+S & Bienaymé--Tchebychev, concentration, taille d’échantillon et loi faible des grands nombres. & 23 & 23.1--23.5 ; 24.5\\
+C & Covariance, moindres carrés ; géométrique, Poisson et discussion de l’inférence. & 22, 23 & 22.3, 22.6 ; 23.6 ; 35.6\\
+S & Python : variables, conditions, boucles, fonctions, listes et compréhensions ; simulation. & 24 & 24.1--24.6 ; Python\\
+S & Exemples algorithmiques : Pascal, permutations, parties à 2 ou 3 éléments ; seuils, dichotomie, Newton, sécante. & 4, 13, 24 & Python ; S1\\
+S & Exemples algorithmiques : constantes, Briggs, Brouncker, Euler, rectangles, milieux, trapèzes et Monte-Carlo. & 16, 18, 20, 24 & Python ; S1, S3, S8\\
+\bottomrule\end{longtable}\normalsize
+\needspace{10\baselineskip}
+\section{Mathématiques expertes}
+\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{.065\textwidth}>{\raggedright\arraybackslash}p{.47\textwidth}>{\raggedright\arraybackslash}p{.10\textwidth}>{\raggedright\arraybackslash}p{.27\textwidth}@{}}
+\toprule Statut & Notions et capacités & Cours & Vérification \\ \midrule\endhead
+E & Construction des complexes, forme algébrique, égalité, opérations, conjugué, inverse, binôme. & 25 & 25.1--25.6\\
+E & Module, argument et interprétation dans le plan ; produit, quotient, puissances, inégalité triangulaire. & 25, 26 & 25.3, 25.6 ; 26.1, 26.2, 26.6\\
+E & Forme trigonométrique, exponentielle imaginaire ; addition, Euler et Moivre ; linéarisation. & 26 & 26.1--26.5\\
+E & Équations quadratiques réelles dans les complexes ; factorisation, racine connue, nombre de racines. & 27 & 27.1--27.5\\
+E & Affixes, distances, angles et quotient ; alignement, orthogonalité, lieux et configurations. & 28 & 28.1--28.3 ; S5\\
+E & Racines n-ièmes de l’unité, cas 2,3,4 ; polygones réguliers. & 28 & 28.4, 28.6 ; S5\\
+E & Divisibilité dans les entiers, division euclidienne, congruences et compatibilité des opérations. & 29 & 29.1--29.6\\
+E & PGCD, Euclide, coprimalité ; Bézout, Gauss, inverses modulaires et congruences. & 29, 30 & 29.3 ; 30.1--30.5\\
+E & Équations diophantiennes simples ; divisibilité, primalité et chiffrement. & 30, 31 & 30.3, 30.4 ; 31.1--31.6 ; S6\\
+E & Infinité des nombres premiers, factorisation unique, petit théorème de Fermat ; crible et factorisation algorithmique. & 31 & 31.1--31.6 ; Python\\
+E & Matrices ligne, colonne, carrée ; opérations, identité, inverse, puissances d’ordre 2 ou 3. & 32, 33 & 32.1--32.6 ; 33.1--33.6 ; S7\\
+E & Matrices et transformations, systèmes ; suites colonnes linéaires ou affines. & 32, 33 & 32.2, 32.4--32.6 ; 33.3--33.5\\
+E & Graphes, sommets, arêtes, adjacence, degré, ordre, graphe complet, marches et connexité. & 34 & 34.1--34.6\\
+E & Matrice d’adjacence et nombre de marches d’une longueur donnée. & 34 & 34.2, 34.5, 34.6\\
+E & Markov à deux ou trois états ; graphe pondéré, transition, distribution initiale et après n pas ; invariance. & 35 & 35.1--35.6 ; S7\\
+C & Racines complexes générales, chinois, RSA, diagonalisation et convergence explicite de Markov. & 27, 28, 30--35 & 27.6 ; 28.5 ; 30.6 ; S5--S7\\
+\bottomrule\end{longtable}\normalsize
+\needspace{10\baselineskip}
+\section{Démonstrations repères des programmes}
+Les preuves suivantes sont rédigées, même quand le texte scolaire autorise une admission. Les renvois concernent le cours ; les corrigés offrent des variantes d'application.
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{.71\textwidth}>{\raggedright\arraybackslash}p{.21\textwidth}@{}}
+\toprule Résultat & Chapitre \\ \midrule\endhead
+Nombre de parties, somme des coefficients binomiaux, Pascal par calcul et par partition & 3, 4\\
+Projeté orthogonal comme unique point le plus proche & 6\\
+Équation d’un plan normal à un vecteur ; représentation d’une droite & 7\\
+Bernoulli, limites géométriques et croissance non majorée & 2, 9, 10\\
+Limite d’une suite monotone bornée, avec complétude explicite & 11, 36\\
+Croissances comparées de l’exponentielle et des puissances & 12\\
+Composition des dérivées, critère de convexité et position par rapport aux tangentes & 14, 15\\
+Continuité, valeurs intermédiaires et image d’une suite & 13\\
+Propriétés algébriques et dérivée du logarithme ; ses limites & 16\\
+Dérivées de sinus et cosinus à partir de la géométrie du cercle & 17\\
+Solutions des équations différentielles élémentaires ; familles de primitives & 18\\
+Primitive définie par une intégrale, intégration par parties & 19, 20\\
+Formule binomiale ; linéarité de l’espérance ; variance indépendante & 21, 22\\
+Espérance et variance binomiales, concentration et loi faible & 22, 23\\
+Conjugaison, module, Euler, Moivre et formules trigonométriques & 25, 26\\
+Factorisation par une racine, borne du nombre de racines, racines de l’unité & 27, 28\\
+Bézout constructif, Gauss, infinité des premiers, factorisation et Fermat & 29--31\\
+Marches comptées par puissances ; distributions de Markov & 34, 35\\
+\bottomrule\end{longtable}
+\section{Culture historique et regard critique}
+Les pistes historiques des textes officiels relient les problèmes aux outils : traditions combinatoires indiennes et chinoises avant Pascal ; forces et formalisation des vecteurs ; calcul infinitésimal chez Newton et Leibniz ; ponts de Königsberg et graphes chez Euler. Ces fils invitent à distinguer problème d'origine, notation ancienne et preuve moderne.
+
+À l'oral, présenter l'un de ces liens en s'appuyant sur le programme et une source historique identifiée. Expliquer une transformation des idées, sans attribuer toute une découverte à un seul nom.
+
+\chapter{Preuves, fondements et limites du volume}
+\section{Une chaîne de dépendances explicite}
+Le raisonnement sur les entiers utilise le principe de récurrence, considéré comme un fondement de leur construction. Pour les réels, la complétude est le point de départ assumé. Elle donne la convergence monotone et les suites adjacentes ; celles-ci donnent les extractions sur un segment, les bornes atteintes et la continuité uniforme. Ces résultats justifient ensuite les accroissements finis et la construction de l'intégrale.
+
+Le chapitre 19 ne définit pas l'intégrale en supposant déjà toute primitive existante : la construction par sommes est détaillée au chapitre 36. Le théorème fondamental donne alors l'existence des primitives continues, puis leur calcul. Pour les logarithmes, on part de l'exponentielle construite dans la première, chapitre 26, et on démontre l'existence de sa réciproque avant de dériver celle-ci.
+\section{Registre des admissions et reports}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{.28\textwidth}>{\raggedright\arraybackslash}p{.35\textwidth}>{\raggedright\arraybackslash}p{.29\textwidth}@{}}
+\toprule Objet ou résultat & Statut exact ici & Suite prévue \\ \midrule\endhead
+Entiers, récurrence, opérations et ordre & Fondements usuels ; récurrence expliquée au chapitre 2. & Construction axiomatique en licence.\\
+Réels complets & Axiome de borne supérieure admis ; conséquences démontrées, chapitres 11 et 36. & Construction à partir des rationnels.\\
+Géométrie euclidienne, Pythagore et similitudes & Acquis des niveaux précédents ; rappels au point d'usage. Les coordonnées supposent ce cadre. & Espaces euclidiens abstraits.\\
+Aire du secteur unité, mesure des angles, continuité du cercle & Fondements géométriques utilisés au chapitre 17 pour les dérivées trigonométriques. & Construction analytique de sinus et cosinus.\\
+Volume comme intégrale des sections & Interprétation admise au chapitre 8 ; facteur 1/3 ensuite calculé. & Intégrales multiples et Cavalieri.\\
+Existence de l’exponentielle & Construction et justification en première, chapitre 26 ; propriétés rappelées ici. & Séries entières et équations différentielles.\\
+Primitive de toute fonction continue & Démontrée par l’intégrale, chapitres 19 et 36 ; ce n’est pas une admission définitive. & Fonctions intégrables plus générales.\\
+Probabilités sur un univers fini & Axiomes de positivité et additivité ; moments et théorèmes limites finis démontrés. & Espaces probabilisés et mesure.\\
+Tirage uniforme continu et Monte-Carlo d’intégrale & Modèle et identité espérance--intégrale signalés au chapitre 24 ; justification de mesure reportée. & Densités et intégration probabiliste.\\
+Géométrique et Poisson & Prolongements au chapitre 23 ; limite ponctuelle démontrée. Échanges de séries pour les moments non établis en général. & Séries positives, dérivation terme à terme.\\
+Théorème fondamental de l’algèbre & Admis en complément du chapitre 27 ; la borne au plus n racines est, elle, prouvée. & Preuve en analyse ou topologie.\\
+Existence et unicité générales des équations différentielles & Non utilisées comme boîte noire pour les équations résolues ; logistique vérifiée comme exemple ; oscillateur résolu par une énergie. & Théorèmes généraux en licence.\\
+Convergence générale des chaînes de Markov & Non affirmée sans hypothèses ; exemples traités explicitement, contre-exemples périodiques. & Irréductibilité, périodicité et théorie spectrale.\\
+Loi forte, théorème central limite, intégrale gaussienne & Évoqués pour situer la suite ; aucune maîtrise ni preuve revendiquée. & Probabilités et analyse de licence.\\
+Structures : espaces vectoriels, groupes, anneaux, corps & Premières définitions motivées par des exemples au chapitre 36. & Théorie systématique en licence.\\
+\bottomrule\end{longtable}
+\section{Ce qui est facultatif sans être décoratif}
+Les quantificateurs formels de limite, les accroissements finis et la construction de Riemann rendent les preuves transparentes. Les barycentres préparent l'algèbre affine ; Cauchy--Schwarz et les projections préparent l'optimisation quadratique ; la covariance explique pourquoi une hypothèse d'indépendance est requise pour additionner des variances.
+Chaque complément doit être compris à partir de ses exemples. Il est possible de suivre le socle scolaire avant de revenir à ses fondements. Signaler une dépendance plus avancée est préférable à une justification circulaire ou à une preuve incomplète présentée comme achevée.
+\chapter{Automatismes et réponses}
+\section{Soixante-douze questions à répartir dans l'année}
+Ces questions entretiennent les prérequis et les gestes utiles. Les questions 49 à 70 relèvent d'expertes ; 71 et 72 de la passerelle. Chercher les réponses avant de lire la section suivante. Pour une erreur, revenir à la définition puis refaire une variante.
+\begin{enumerate}
+\item Nier « pour tout $x$, $f(x)>0$ ».
+\item Une fonction injective peut-elle prendre la même valeur en deux points distincts ?
+\item Calculer $\sum_{k=1}^{10}k$.
+\item Nommer les deux étapes d’une récurrence.
+\item Combien de mots de longueur 4 sur un alphabet de 3 lettres ?
+\item Combien de permutations de 5 objets distincts ?
+\item Calculer $\binom62$.
+\item Calculer $\sum_{k=0}^6\binom6k$.
+\item Combien de vecteurs non coplanaires forment une base de l’espace ?
+\item Un vecteur directeur d’une droite peut-il être nul ?
+\item Calculer $(1,2,-1)\cdot(3,0,2)$.
+\item Le projeté de $(2,3,4)$ sur $z=0$ ?
+\item Un normal au plan $2x-y+3z=7$ ?
+\item Le point $(1,2,3)$ est-il dans ce plan ?
+\item Rayon de la sphère $x^2+y^2+z^2=9$ ?
+\item Volume d’une pyramide d’aire de base 12 et de hauteur 5 ?
+\item Limite de $1/(n+1)$ ?
+\item La suite $(-1)^n$ est-elle convergente ?
+\item Limite de $(2n+1)/(3n-1)$ ?
+\item Limite de $(-1/2)^n$ ?
+\item Une suite croissante majorée converge-t-elle ?
+\item La seule équation $L=f(L)$ prouve-t-elle une convergence ?
+\item Limite de $x^2/e^x$ à $+\infty$ ?
+\item Limite de $1/x$ en $0$ à gauche ?
+\item Continuité et changement de signe sur un segment garantissent quoi ?
+\item Dérivable implique-t-il continu ?
+\item Dériver $e^{2x+1}$.
+\item Dériver $(x^2+1)^3$.
+\item Quel signe de $f^{\prime\prime}$ suffit pour la convexité ?
+\item $f^{\prime\prime}(a)=0$ suffit-il à une inflexion ?
+\item Calculer $\ln(e^3)$.
+\item Dériver $\ln(2x+1)$ sur son domaine.
+\item Dériver $\cos(3x)$.
+\item Résoudre $\sin x=0$ sur $\R$.
+\item Une primitive de $2xe^{x^2}$ ?
+\item Solution de $y^{\prime}=3y$, $y(0)=2$ ?
+\item Calculer $\int_0^1 3x^2\,dx$.
+\item Si $f\ge0$ sur $[a,b]$, $a<b$, le signe de $\int_a^bf$ ?
+\item Calculer $\int_0^\pi\sin x\,dx$.
+\item Une intégration par parties vient de quelle règle de dérivation ?
+\item Pour $X\sim\mathcal B(n,p)$, donner $P(X=0)$.
+\item Pour cette loi, donner $P(X=n)$.
+\item Pour $X\sim\mathcal B(20,1/4)$, donner moyenne et variance.
+\item Que vaut $V(3X+2)$ ?
+\item Si $V(X)=4$, majorer $P(|X-E(X)|\ge4)$.
+\item Variance de la moyenne de n variables indépendantes de variance $\sigma^2$ ?
+\item Quelle est l’erreur maximale du milieu d’un encadrement de largeur $h$ ?
+\item Une simulation répétée prouve-t-elle un théorème ?
+\item Calculer $i^7$.
+\item Conjugué et module de $3-4i$ ?
+\item Écrire $e^{i\pi/2}$.
+\item Calculer $(e^{it})^5$.
+\item Résoudre $z^2+1=0$ dans les complexes.
+\item Un polynôme non nul de degré 3 peut-il avoir quatre racines distinctes ?
+\item Combien de racines distinctes possède $z^5=1$ ?
+\item Quel lieu définit $|z-2|=1$ ?
+\item Reste de la division euclidienne de $-8$ par 3 ?
+\item Calculer $\operatorname{pgcd}(18,24)$.
+\item Inverse de 3 modulo 7 ?
+\item $6x+10y=3$ a-t-elle des solutions entières ?
+\item Plus petit diviseur premier possible de 91 ?
+\item Calculer $2^{10}$ modulo 11.
+\item Produit d’une matrice $2\times3$ par une $3\times4$ : taille ?
+\item $AB=BA$ pour toutes matrices carrées de même taille ?
+\item Que vaut $A^0$ pour une matrice carrée ?
+\item Si $A=PDP^{-1}$, donner $A^n$.
+\item Somme des degrés d’un graphe non orienté à 7 arêtes ?
+\item Que compte $(M^3)_{ij}$ pour une matrice d’adjacence ?
+\item Somme d’une ligne d’une matrice de transition ?
+\item Équation d’une distribution ligne invariante ?
+\item Le supremum appartient-il toujours à l’ensemble ?
+\item Le noyau d’une application linéaire contient-il zéro ?\end{enumerate}
+\section{Réponses et contrôles courts}\begin{enumerate}
+\item Il existe $x$ avec $f(x)\le0$.
+\item Non, par définition de l’injectivité.
+\item $55$.
+\item Initialisation et hérédité, puis conclusion sur les rangs.
+\item $3^4=81$.
+\item $5!=120$.
+\item $6\times5/2=15$.
+\item $2^6=64$.
+\item Trois.
+\item Non.
+\item $1$.
+\item $(2,3,0)$.
+\item $(2,-1,3)$.
+\item Non : $2-2+9=9\ne7$.
+\item $3$.
+\item $12\times5/3=20$ unités de volume.
+\item $0$.
+\item Non, ses sous-suites paires et impaires ont des limites différentes.
+\item $2/3$.
+\item $0$, par son module.
+\item Oui, vers la borne supérieure de ses termes.
+\item Non : il faut d’abord établir la convergence.
+\item $0$.
+\item $-\infty$.
+\item Au moins une racine par le TVI, pas forcément l’unicité.
+\item Oui ; la réciproque est fausse.
+\item $2e^{2x+1}$.
+\item $6x(x^2+1)^2$.
+\item $f^{\prime\prime}\ge0$ sur l’intervalle.
+\item Non, il faut un changement de convexité.
+\item $3$.
+\item $2/(2x+1)$ pour $x>-1/2$.
+\item $-3\sin(3x)$.
+\item $x=k\pi$, $k\in\Z$.
+\item $e^{x^2}$.
+\item $y(x)=2e^{3x}$.
+\item $1$.
+\item Positif ou nul.
+\item $[-\cos x]_0^\pi=2$.
+\item De $(uv)^{\prime}=u^{\prime}v+uv^{\prime}$.
+\item $(1-p)^n$.
+\item $p^n$.
+\item $5$ et $15/4$.
+\item $9V(X)$.
+\item $1/4$ par Tchebychev.
+\item $\sigma^2/n$.
+\item $h/2$.
+\item Non, elle expérimente un modèle.
+\item $-i$.
+\item $3+4i$ et $5$.
+\item $i$.
+\item $e^{5it}$.
+\item $z=i$ ou $z=-i$.
+\item Non.
+\item Cinq.
+\item Cercle de centre d’affixe $2$, rayon $1$.
+\item $1$, car $-8=3(-3)+1$.
+\item $6$.
+\item $5$, car $3\times5\equiv1$.
+\item Non, le pgcd $2$ ne divise pas $3$.
+\item $7$, puisque $91=7\times13$.
+\item $1$, par Fermat.
+\item $2\times4$.
+\item Non.
+\item La matrice identité de même taille.
+\item $PD^nP^{-1}$.
+\item $14$, avec boucles comptées deux fois le cas échéant.
+\item Les marches de longueur 3 de i à j.
+\item $1$.
+\item $\pi P=\pi$, avec coefficients positifs ou nuls et somme $1$.
+\item Non : $]0,1[$ a pour supremum $1$.
+\item Oui, car une application linéaire envoie zéro sur zéro.\end{enumerate}
+\chapter{Bilans et préparation au supérieur}
+\section{Évaluer des compétences observables}
+Pour chacune des tâches suivantes, noter séparément : reconnaissance avec aide, application autonome, justification, transfert. Conserver une production datée pour appuyer l'évaluation ; ne pas se contenter d'un sentiment de familiarité.
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{.23\textwidth}>{\raggedright\arraybackslash}p{.42\textwidth}>{\raggedright\arraybackslash}p{.27\textwidth}@{}}
+\toprule Domaine & Production attendue & Reprise si nécessaire \\ \midrule\endhead
+Raisonnement & Nier un énoncé, rédiger une récurrence, produire un contre-exemple à une réciproque. & 1.1--2.6, 9.6.\\
+Discret & Justifier le choix entre listes, permutations et combinaisons dans un problème inédit. & 3--4, puis 21.6.\\
+Géométrie & Trouver un projeté, une distance et un volume en expliquant les hypothèses du repère. & 5--8, S2.\\
+Convergence & Prouver stabilité, monotonie, bornes et identification de limite sans circularité. & 9--13, S1.\\
+Analyse & Étudier une fonction en articulant dérivée, convexité, asymptote et domaine. & 14--17, S8.\\
+Intégration & Démontrer une borne, choisir une primitive ou une méthode numérique et contrôler l'erreur. & 18--20, S3.\\
+Probabilités & Justifier un modèle, calculer une loi, choisir une borne de risque et en reconnaître la prudence. & 21--23, S4.\\
+Complexes & Choisir forme algébrique ou exponentielle et traduire une configuration géométrique. & 25--28, S5.\\
+Arithmétique & Construire Bézout, résoudre une congruence et vérifier un raisonnement de primalité. & 29--31, S6.\\
+Matrices & Traduire un système ou une dynamique en matrice, expliquer le sens du produit. & 32--35, S7.\\
+Programmation & Préciser contrat, invariant, arrêt et limites numériques d'une fonction. & 24 et fichiers Python.\\
+Fondements & Distinguer définition, axiome, théorème démontré, conjecture et approximation. & 36 et registre du guide.\\
+\bottomrule\end{longtable}
+\section{Des outils actuels aux cours futurs}
+La projection minimise une distance : en licence, les moindres carrés ajusteront une droite à de nombreuses observations en projetant un vecteur sur un sous-espace. L'identité de Leibniz et la minimisation de $E((X-a)^2)$ sont deux versions finies de cette idée.
+
+L'approximation $f(a+h)=f(a)+hf'(a)+o(h)$ prépare la différentielle. Avec plusieurs variables, le gradient décrit les variations directionnelles et les matrices jacobiennes remplacent les dérivées scalaires. Avant d'introduire ces objets, il faudra comprendre pourquoi une erreur doit être contrôlée dans toutes les directions.
+
+Les sommes de rectangles deviennent l'intégrale de Riemann ; les espaces probabilisés demanderont ensuite la mesure et l'intégrale de Lebesgue. La loi faible illustre déjà une convergence différente de celle d'une suite de nombres. Les échanges de limites exigent leurs propres théorèmes, comme l'exemple $x^n$ du chapitre 36 le montre.
+
+La multiplication par $e^{it}$ est une rotation et possède une matrice réelle. Les racines de l'unité organisent des oscillations périodiques ; la transformée de Fourier discrète combinera ces phases pour décomposer un signal en fréquences. La diagonale simplifie les puissances d'une matrice ; la théorie spectrale généralisera cette recherche de directions adaptées.
+
+Bézout ne se limite pas aux entiers : la division de polynômes permettra un algorithme analogue. Les congruences conduiront aux anneaux quotients ; on devra alors définir précisément ce qui reste vrai lorsque tout élément non nul n'est pas inversible.
+\section{Feuille de route après ce niveau}
+La première étape est un socle de licence : logique, ensembles et applications, algèbre linéaire abstraite, analyse réelle à une variable, séries, calcul multivariable, équations différentielles et probabilités. La suite organise topologie, mesure, algèbre générale, géométrie, statistique et calcul numérique selon le parcours choisi.
+
+Le master suppose ensuite une spécialisation explicite. Un parcours d'analyse peut approfondir espaces fonctionnels et équations aux dérivées partielles ; un parcours d'algèbre, structures et représentations ; un parcours probabiliste, processus stochastiques et statistique avancée. Ces exemples situent une destination ; ils ne constituent ni un programme universitaire universel ni des connaissances déjà acquises ici.
+
+Avant le volume suivant, savoir résoudre plusieurs synthèses sans lire les corrigés, expliquer une preuve à l'oral, tester les limites d'un énoncé et écrire un programme dont on comprend l'erreur. Revenir sur les lacunes précises est plus utile que lire rapidement des notions avancées sans pouvoir les utiliser.
+\section{Utiliser les fichiers Python}
+Depuis la racine du dépôt :
+\begin{lstlisting}[language=bash]
+python3 sources/03-lycee/03-terminale/python/verifier.py
+\end{lstlisting}
+Le fichier \texttt{python/README.md} détaille les fonctions et leurs limites. Les contrôles portent sur des cas connus, des frontières, des propriétés et la correspondance des documents. Une réussite de tests ne remplace ni la preuve d'un théorème ni la relecture d'un corrigé.
+Tous les exemples de population, température ou fréquentation sont pédagogiques et fictifs ; aucune donnée réelle non sourcée n'est utilisée.

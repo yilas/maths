@@ -1,0 +1,56 @@
+\documentclass[../cours_tle.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{22}
+\chapter{Concentration et loi des grands nombres}
+\label{ch:23}
+\begin{objectif}
+Spécialité. Passer de la variance à une garantie probabiliste. Prérequis : chapitre 22 et limites de suites.
+\end{objectif}
+\section{Markov puis Bienaymé--Tchebychev}
+Pour une variable $Y\ge0$ et $a>0$, la contribution des issues où $Y\ge a$ à l'espérance est au moins $aP(Y\ge a)$ ; les autres contributions sont positives. Donc $P(Y\ge a)\le E(Y)/a$.
+\begin{theoreme}[Bienaymé--Tchebychev]
+Pour $\delta>0$, $P(|X-E(X)|\ge\delta)\le V(X)/\delta^2$.
+\end{theoreme}
+\begin{demonstration}
+Appliquer l'inégalité précédente à $Y=(X-E(X))^2$ et au seuil $a=\delta^2$. Les événements sont identiques et $E(Y)=V(X)$.
+\end{demonstration}
+Une borne supérieure plus grande que $1$ reste vraie mais n'apporte aucune information ; on peut la remplacer par $1$.
+\section{Moyenne d'échantillon et taille nécessaire}
+Pour une moyenne $M_n$ de variables indépendantes de même moyenne $\mu$ et variance $\sigma^2$,
+$P(|M_n-\mu|\ge\delta)\le\sigma^2/(n\delta^2)$.
+Pour rendre ce risque au plus $\alpha\in]0,1[$, il suffit de choisir
+$n\ge\sigma^2/(\alpha\delta^2)$, arrondi à l'entier supérieur.
+Pour une proportion de Bernoulli, $p(1-p)\le1/4$ car $(p-1/2)^2\ge0$.
+Ainsi $n\ge1/(4\alpha\delta^2)$ suffit même si $p$ est inconnu.
+Avec $\alpha=0{,}05$ et $\delta=0{,}02$, la borne conservatrice donne $n\ge12500$.
+\section{La loi faible des grands nombres}
+\begin{theoreme}
+Pour tout $\delta>0$ fixé, $P(|M_n-\mu|\ge\delta)\to0$ quand $n\to+\infty$.
+\end{theoreme}
+\begin{demonstration}
+La probabilité est positive ou nulle et majorée par $\sigma^2/(n\delta^2)$, qui tend vers zéro. Appliquer l'encadrement.
+\end{demonstration}
+On parle de convergence en probabilité. Cela ne signifie pas que chaque réalisation se rapproche régulièrement de $\mu$, ni qu'une série de succès doit être compensée immédiatement par des échecs. La loi forte, qui concerne les trajectoires presque sûrement, est un autre théorème, non démontré ici.
+\section{Fluctuation et estimation}
+Si $p$ est connu, un intervalle centré en $p$ décrit les fluctuations possibles d'une fréquence. Si $p$ est inconnu, la procédure $[F_n-\delta,F_n+\delta]\cap[0,1]$ possède une couverture au moins $1-\alpha$ sous la borne précédente.
+Après observation, le paramètre $p$ reste fixe : dans cette interprétation fréquentiste, la probabilité décrit la procédure aléatoire avant l'observation, pas une loi de probabilité automatiquement attribuée à $p$.
+La normalité approchée des moyennes relève du théorème central limite ; elle n'est pas nécessaire à la preuve de concentration ci-dessus et n'est pas présentée comme exacte.
+\section{Compléments : géométrique et Poisson}
+Le rang $T$ du premier succès dans des essais indépendants de paramètre $0<p<1$ vérifie $P(T=k)=(1-p)^{k-1}p$, $k\ge1$. La somme géométrique donne une masse totale $1$. Pour $p=1$, le rang est constamment égal à $1$ ; pour $p=0$, aucun succès ne survient.
+La propriété $P(T>m+n\mid T>m)=(1-p)^n=P(T>n)$ exprime l'absence de mémoire.
+Par l'identité $E(T)=\sum_{k\ge0}P(T>k)$, obtenue en comptant les contributions positives terme à terme, $E(T)=1/p$ ; $V(T)=(1-p)/p^2$ découle des sommes géométriques dérivées, justification par séries réservée à la licence.
+
+Pour $X_n\sim\mathcal B(n,\lambda/n)$ et $k$ fixé,
+\[
+P(X_n=k)=\frac{\lambda^k}{k!}\prod_{j=0}^{k-1}(1-j/n)(1-\lambda/n)^n(1-\lambda/n)^{-k}
+\longrightarrow e^{-\lambda}\frac{\lambda^k}{k!}.
+\]
+On utilise $(1-\lambda/n)^n\to e^{-\lambda}$. Ces masses définissent la loi de Poisson ; leur somme vaut $1$ par la série exponentielle. C'est un modèle de comptage d'événements rares, pas une approximation justifiée pour n'importe quel choix de paramètres.
+\begin{finchapitre}
+\section{Utilité et suite du parcours}
+Cette preuve est une première rencontre avec un théorème limite. L'estimation statistique exige de distinguer modèle, observation, garantie théorique et approximation.
+\begin{retenir}
+La concentration contrôle une probabilité d'écart. Elle ne promet pas une trajectoire monotone, ni une erreur déterministe pour chaque échantillon.
+\end{retenir}
+\end{finchapitre}
+\end{document}

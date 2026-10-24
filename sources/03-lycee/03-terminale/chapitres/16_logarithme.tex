@@ -1,0 +1,58 @@
+\documentclass[../cours_tle.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{15}
+\chapter{Logarithme, puissances et modèles multiplicatifs}
+\label{ch:16}
+\begin{objectif}
+Spécialité. Construire le logarithme et justifier ses règles. Prérequis : exponentielle, continuité et dérivation.
+\end{objectif}
+\section{Inverser l'exponentielle}
+L'exponentielle est continue, strictement croissante et a pour limites $0$ et $+\infty$ aux deux infinis. Le théorème des valeurs intermédiaires montre qu'elle est une bijection de $\R$ sur $]0,+\infty[$.
+\begin{definition}
+Pour $x>0$, $\ln x$ est l'unique réel $y$ tel que $e^y=x$.
+Ainsi $\ln(e^y)=y$, $e^{\ln x}=x$, $\ln1=0$ et $\ln e=1$.
+\end{definition}
+Le logarithme est croissant et continu comme réciproque de cette bijection (chapitre 13). Les courbes de $\ln$ et de $\exp$ sont symétriques par rapport à $y=x$ car leurs coordonnées s'échangent.
+\section{Propriétés algébriques, sans règles inventées}
+Pour $a,b>0$, $e^{\ln a+\ln b}=ab$. Par unicité de l'antécédent,
+\[
+\ln(ab)=\ln a+\ln b,\quad \ln(a/b)=\ln a-\ln b,\quad \ln(a^n)=n\ln a\ (n\in\Z).
+\]
+La formule du quotient suit de $\ln(1/b)=-\ln b$ ; celle des puissances suit par récurrence puis par passage à l'inverse.
+Il n'existe pas de règle $\ln(a+b)=\ln a+\ln b$ : avec $a=b=1$, elle donnerait $\ln2=0$.
+\section{Dérivée, avec existence démontrée}
+\begin{theoreme}
+Pour $x>0$, $(\ln x)'=1/x$. Pour $u>0$ dérivable, $(\ln u)'=u'/u$.
+\end{theoreme}
+\begin{demonstration}
+Fixer $a>0$ et poser $k=\ln(a+h)-\ln a$. La continuité donne $k\to0$, et $h=a(e^k-1)$. Pour $h\ne0$, $k\ne0$, donc
+$\dfrac{\ln(a+h)-\ln a}{h}=\dfrac1a\dfrac{k}{e^k-1}\to1/a$, puisque $\exp'(0)=1$.
+La règle de composition donne la seconde formule.
+\end{demonstration}
+La dérivée est positive ; la dérivée seconde vaut $-1/x^2$, donc $\ln$ est concave.
+Sur un intervalle où $u$ ne s'annule pas, $(\ln|u|)'=u'/u$, en séparant les signes de $u$.
+\section{Limites et croissances comparées}
+Pour tout $A$, $x>e^A$ entraîne $\ln x>A$, donc $\ln x\to+\infty$.
+Pour $x\to0^+$, utiliser $\ln x=-\ln(1/x)$ : la limite est $-\infty$.
+Pour $m>0$, poser $t=\ln x$ : $(\ln x)/x^m=t/e^{mt}\to0$ quand $x\to+\infty$.
+À $0^+$, poser $x=e^{-t}$ : $x^m\ln x=-te^{-mt}\to0$. En particulier $x\ln x\to0$, malgré $\ln x\to-\infty$.
+\section{Équations, seuils et puissances réelles}
+$\ln(x-1)+\ln(x+1)=\ln3$ impose $x>1$. On obtient $x^2-1=3$, donc seulement $x=2$.
+Pour $0<q<1$, $q^n<\varepsilon$ équivaut à $n>\ln\varepsilon/\ln q$ : le sens se renverse car $\ln q<0$.
+
+En complément, pour $x>0$ et $\alpha\in\R$, définir $x^\alpha=e^{\alpha\ln x}$ donne
+$(x^\alpha)'=\alpha x^{\alpha-1}$ et les règles usuelles de puissances par celles de l'exponentielle.
+La définition exclut les bases négatives pour un exposant réel arbitraire.
+\section{Briggs et une limite remarquable}
+Prendre plusieurs racines carrées rapproche $x>0$ de $1$. Si $r_k=x^{1/2^k}$, alors
+$2^k\ln r_k=\ln x$ et $\ln(1+h)/h\to1$.
+Ainsi $2^k(r_k-1)\to\ln x$ : c'est une forme de la méthode de Briggs. Trop de racines provoquent une perte de précision en flottants.
+Enfin $n\ln(1+x/n)\to x$ pour tout réel fixé $x$ ; par continuité de l'exponentielle, $(1+x/n)^n\to e^x$, les bases étant positives pour les grands $n$.
+\begin{finchapitre}
+\section{Utilité et suite du parcours}
+Le logarithme transforme des produits en sommes : croissance composée, ordres de grandeur, vraisemblance statistique, entropie et analyse des algorithmes. Sa dérivée explique son lien avec les intégrales de 1/x.
+\begin{retenir}
+Toujours imposer un argument positif. Lors d'une division par un logarithme négatif, inverser le sens de l'inégalité.
+\end{retenir}
+\end{finchapitre}
+\end{document}

@@ -1,0 +1,53 @@
+\documentclass[../cours_tle.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{23}
+\chapter{Algorithmes : calculer, prouver et contrôler l’erreur}
+\label{ch:24}
+\begin{objectif}
+Spécialité. Exécuter les méthodes du cours et comprendre leurs limites. Prérequis : Python de première, chapitres 2, 11, 13 et 20.
+\end{objectif}
+\section{Variables, listes et fonctions}
+Une affectation remplace la valeur d'une variable ; une égalité mathématique affirme une relation. Une fonction informatique possède des paramètres et renvoie un résultat ; préciser son contrat (entrées admises, sortie, erreur éventuelle).
+Une liste Python est ordonnée, ses indices commencent à $0$ ; elle peut contenir des répétitions. Parcourir ses valeurs ou ses indices n'est pas la même opération.
+\begin{lstlisting}[language=Python]
+carres = [k*k for k in range(6)]
+carres.append(36)
+carres.pop()  # supprime le dernier element
+pairs = [x for x in carres if x % 2 == 0]
+\end{lstlisting}
+\section{Dichotomie, Newton et sécante}
+Pour $f$ continue avec $f(a)f(b)<0$, la dichotomie conserve l'invariant « une racine est dans $[a,b]$ et les signes aux bornes sont opposés ». La longueur est divisée par $2$ à chaque passage. Un nombre de passages fixé assure la terminaison et une borne d'erreur.
+
+Newton remplace localement la courbe par sa tangente :
+$x_{n+1}=x_n-f(x_n)/f'(x_n)$, si $f'(x_n)\ne0$.
+La sécante remplace la dérivée par une pente entre deux points :
+$x_{n+1}=x_n-f(x_n)(x_n-x_{n-1})/(f(x_n)-f(x_{n-1}))$.
+Les dénominateurs doivent être contrôlés. Ces méthodes peuvent sortir du domaine, diverger ou cycler : pour $f(x)=x^3-2x+2$, Newton partant de $0$ alterne $0,1$.
+Un petit résidu $|f(x)|$ ne garantit pas à lui seul une petite erreur sur $x$ ; si $|f'|\ge m>0$ entre $x$ et la racine, les accroissements finis donnent une erreur au plus $|f(x)|/m$.
+\section{Euler et calcul approché d'intégrales}
+Pour $y'=F(t,y)$, Euler explicite utilise $t_{k+1}=t_k+h$ et $y_{k+1}=y_k+hF(t_k,y_k)$.
+Cela remplace l'évolution par sa tangente sur chaque petit intervalle. Pour $y'=ay+b$, c'est une suite affine ; l'erreur et la stabilité dépendent du pas.
+Si $a<0$, l'erreur homogène est multipliée par $1+ah$ : un pas trop grand peut provoquer des oscillations divergentes alors que la solution exacte décroît.
+Les rectangles, milieux et trapèzes du chapitre 20 calculent des intégrales par sommes ; leur preuve de convergence doit accompagner la formule.
+\section{Approcher des constantes}
+Héron approche $\sqrt2$ ; résoudre $x^2-x-1=0$ sur $[1,2]$ par dichotomie approche le nombre d'or. Les sommes $\sum_{k=0}^n1/k!$ approchent $e$ (première, chapitre 26).
+L'aire d'un quart de disque unité donne $\pi=4\int_0^1\sqrt{1-x^2}\,dx$ ; des rectangles donnent un encadrement puisque la fonction décroît.
+Briggs et Brouncker approchent $\ln2$ (chapitres 16 et 20).
+Ces procédures ont des erreurs de troncature différentes et subissent aussi les arrondis informatiques.
+\section{Monte-Carlo et échantillonnage}
+Pour une fonction bornée sur $[a,b]$, tirer des $U_i$ uniformes indépendants puis calculer
+$(b-a)n^{-1}\sum_i f(U_i)$ estime l'intégrale. L'identité $E(f(U))=(b-a)^{-1}\int_a^bf$ appartient au prolongement des probabilités aux densités ; elle est signalée ici comme fondement supplémentaire.
+Pour l'aire d'un quart de disque, tirer $(x,y)$ uniformément dans le carré unité et compter $x^2+y^2\le1$. La proportion, multipliée par $4$, estime $\pi$ ; le chapitre 23 contrôle la fluctuation du comptage de Bernoulli.
+Une graine rend une expérience reproductible, pas plus exacte.
+\section{Les fichiers exécutables}
+Le sous-dossier \texttt{python/} contient des fonctions pour Pascal, permutations, combinaisons, seuils, dichotomie, Newton, sécante, Euler, quadratures, Briggs, Brouncker, binomiale, Galton, Euclide et matrices.
+Les tests comparent des cas exacts, des bornes d'erreur et des cas invalides. Ils ne constituent pas une preuve générale de la justesse mathématique.
+En flottants, $0{,}1+0{,}2$ n'est pas représenté exactement par $0{,}3$ : pour une approximation, utiliser une tolérance argumentée ; pour un calcul rationnel exact, utiliser des fractions.
+\begin{finchapitre}
+\section{Utilité et suite du parcours}
+La programmation permet d'expérimenter et d'évaluer le coût d'une méthode. En calcul scientifique, il faudra articuler preuve mathématique, erreur numérique et tests de logiciel.
+\begin{retenir}
+Un programme doit avoir une condition de terminaison et des entrées contrôlées. Une convergence observée n'est pas une garantie générale.
+\end{retenir}
+\end{finchapitre}
+\end{document}

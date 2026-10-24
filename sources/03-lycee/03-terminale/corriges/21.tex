@@ -1,0 +1,18 @@
+\chapter{Expériences aléatoires et loi binomiale}
+\section*{Exercice 21.1 -- Reconnaître le modèle}
+Non : les tirages ne sont pas indépendants et la proportion d'as change selon les résultats précédents. Avec remise et mélange, le nombre d'as suivrait $\mathcal B(5,1/8)$. Le modèle sans remise relève de la loi hypergéométrique, étudiée plus tard.
+
+\section*{Exercice 21.2 -- Probabilité exacte}
+$P(X=2)=\binom52(1/3)^2(2/3)^3=80/243$. Par complément, $P(X\ge1)=1-(2/3)^5=211/243$. Le calcul par complément évite quatre termes supplémentaires.
+
+\section*{Exercice 21.3 -- Atteindre une fiabilité}
+Il faut $1-0{,}8^n\ge0{,}95$, soit $n\ge\ln(0{,}05)/\ln(0{,}8)\simeq13{,}43$. Le plus petit entier est $14$. L'indépendance justifie la puissance représentant les échecs successifs.
+
+\section*{Exercice 21.4 -- Intervalle et quantiles discrets}
+Par symétrie, $P(2\le X\le8)=1-2[\binom{10}0+\binom{10}1]/2^{10}=501/512\simeq0{,}9785$. Pour le quantile, $P(X\le7)=968/1024=0{,}9453125<0{,}95$, tandis que $P(X\le8)=1013/1024>0{,}95$. Ainsi $b=8$. La masse discrète empêche en général d'obtenir exactement $0{,}95$.
+
+\section*{Exercice 21.5 -- Indépendance par paires}
+Sur les quatre couples équiprobables, chaque événement a probabilité $1/2$. Chaque intersection de deux vaut $\{(1,1)\}$ ou un ensemble singleton, donc a probabilité $1/4=(1/2)^2$. L'intersection des trois vaut $\{(1,1)\}$, de probabilité $1/4\ne1/8$. L'indépendance mutuelle exige aussi les intersections de trois événements.
+
+\section*{Exercice 21.6 -- Optimiser un paramètre}
+Le coefficient binomial est constant. Sur $]0,1[$, le logarithme de $p^k(1-p)^{n-k}$ a dérivée $k/p-(n-k)/(1-p)=(k-np)/(p(1-p))$. Il croît jusqu'à $p=k/n$ puis décroît. Aux extrémités, la probabilité vaut zéro ; le maximum unique est donc atteint en $k/n$.

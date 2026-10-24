@@ -1,0 +1,67 @@
+\documentclass[../cours_tle.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{14}
+\chapter{Convexité, tangentes et inégalités}
+\label{ch:15}
+\begin{objectif}
+Spécialité. Relier courbure, dérivée seconde et encadrements. Prérequis : chapitre 14.
+\end{objectif}
+\section{Une définition par les cordes}
+\begin{definition}
+$f$ est convexe sur un intervalle $I$ si, pour $x,y\in I$ et $t\in[0,1]$,
+$f((1-t)x+ty)\le(1-t)f(x)+tf(y)$.
+Sa courbe est au-dessous de chaque corde. Elle est concave si $-f$ est convexe.
+\end{definition}
+La dérivée seconde $f''$ est la dérivée de $f'$ lorsqu'elle existe. Elle mesure la variation de la pente, et non directement la variation de $f$.
+\begin{theoreme}
+Pour une fonction dérivable sur $I$, sont équivalents : convexité, croissance de $f'$, courbe au-dessus de toutes ses tangentes. Si $f$ est deux fois dérivable, cela équivaut à $f''\ge0$.
+\end{theoreme}
+\begin{demonstration}
+La convexité donne, pour $a<x<b$, la croissance des pentes des cordes :
+$(f(x)-f(a))/(x-a)\le(f(b)-f(a))/(b-a)\le(f(b)-f(x))/(b-x)$.
+En faisant tendre $x$ vers $a$, puis vers $b$, on obtient
+$f'(a)\le(f(b)-f(a))/(b-a)\le f'(b)$, donc $f'$ croît.
+
+Si $f'$ croît, les accroissements finis entre $a$ et $x$ montrent
+$f(x)\ge f(a)+f'(a)(x-a)$, en tenant compte du signe de $x-a$. C'est la position au-dessus des tangentes.
+Enfin, appliquer cette dernière inégalité à $x$ et $y$ avec tangente en $z=(1-t)x+ty$, multiplier par $1-t$ et $t$, puis additionner : les termes en $f'(z)$ s'annulent, donnant la convexité.
+L'équivalence entre croissance de $f'$ et $f''\ge0$ est le critère de variations du chapitre 14 appliqué à $f'$.
+\end{demonstration}
+\section{Lire les graphiques correctement}
+Si $f$ est convexe, ses pentes augmentent ; elle peut néanmoins décroître, comme $e^{-x}$. Si $f''<0$, les pentes diminuent.
+Un point d'inflexion est un point où la convexité change. Pour une dérivée seconde continue, un changement de signe de $f''$ fournit ce changement ; $f''(a)=0$ seul ne suffit pas : $x^4$ reste convexe autour de $0$.
+Pour $x^3$, $f''(x)=6x$ change de signe en $0$ : il y a inflexion et passage de part et d'autre de la tangente.
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[width=.78\linewidth,height=5.6cm,axis lines=middle,xmin=-.1,xmax=2.2,ymin=-1.2,ymax=4.5,xtick={0,1,2},ytick={-1,1,2,4},legend pos=north west,legend style={font=\small}]
+\addplot[accent,thick,domain=0:2,samples=60]{x*x};\addlegendentry{$x^2$}
+\addplot[black,dashed,domain=0:2]{2*x-1};\addlegendentry{Tangente en 1}
+\addplot[black,dotted,domain=0:2]{2*x};\addlegendentry{Corde de 0 à 2}
+\addplot[only marks,mark size=1.5pt] coordinates {(0,0) (1,1) (2,4)};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+La figure illustre deux inégalités prouvables : $x^2-(2x-1)=(x-1)^2\ge0$ et, sur $[0,2]$, $2x-x^2=x(2-x)\ge0$.
+\section{Démontrer une inégalité avec une tangente}
+L'exponentielle est convexe car sa dérivée seconde est positive. Sa tangente en $0$ est $1+x$ : $e^x\ge1+x$ pour tout réel $x$, avec égalité seulement en $0$ (étudier la dérivée de la différence).
+Le logarithme sera concave car $\ln''x=-1/x^2<0$ ; sa tangente en $1$ donnera $\ln x\le x-1$ pour $x>0$.
+
+\begin{exemple}[Inégalité arithmético-géométrique]
+Pour $a,b>0$, la concavité de $\ln$ donne
+$\ln((a+b)/2)\ge(\ln a+\ln b)/2=\ln\sqrt{ab}$.
+Comme $\ln$ croît, $(a+b)/2\ge\sqrt{ab}$.
+Une preuve purement algébrique est $(\sqrt a-\sqrt b)^2\ge0$ ; elle permet d'inclure les valeurs nulles.
+\end{exemple}
+\section{Complément : courbe de Lorenz}
+Pour $n$ revenus non négatifs ordonnés $r_1\le\cdots\le r_n$ de somme $S>0$, relier les points
+$(k/n,(r_1+\cdots+r_k)/S)$ donne une courbe de Lorenz polygonale.
+Ses pentes sont $nr_k/S$, donc croissantes : la courbe est convexe et reste sous la diagonale joignant $(0,0)$ à $(1,1)$.
+La convexité permet ici une lecture de la concentration ; le chapitre 20 relie l'aire sous la courbe à un indicateur synthétique. Les revenus négatifs exigeraient un autre traitement.
+\begin{finchapitre}
+\section{Utilité et suite du parcours}
+La convexité facilite les preuves d'inégalités et l'optimisation. En licence puis en master, elle servira à montrer l'unicité de minima et à analyser des méthodes d'apprentissage statistique.
+\begin{retenir}
+Convexe ne signifie pas croissante. Un zéro de la dérivée seconde ne suffit pas à prouver un point d'inflexion.
+\end{retenir}
+\end{finchapitre}
+\end{document}

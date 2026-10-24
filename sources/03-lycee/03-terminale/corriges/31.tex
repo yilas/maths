@@ -1,0 +1,18 @@
+\chapter{Nombres premiers, Fermat et chiffrement}
+\section*{Exercice 31.1 -- Tester un nombre premier}
+S'il était composé, il aurait un diviseur premier au plus $\sqrt{97}<10$. Il suffit de tester $2,3,5,7$. Il n'est divisible par aucun : impair, somme des chiffres $16$, dernier chiffre $7$, et $97=7\times13+6$. Il est donc premier.
+
+\section*{Exercice 31.2 -- Factorisation et pgcd}
+$360=2^3\times3^2\times5$, $252=2^2\times3^2\times7$. Le pgcd prend les exposants minimaux : $2^2\times3^2=36$. Le ppcm prend les maximaux : $2^3\times3^2\times5\times7=2520$. Le produit des deux vaut $360\times252$.
+
+\section*{Exercice 31.3 -- Fermat}
+Comme $7$ est premier et ne divise pas $3$, $3^6\equiv1\pmod7$. Or $100=6\times16+4$, donc $3^{100}\equiv3^4=81\equiv4\pmod7$.
+
+\section*{Exercice 31.4 -- Infinité des nombres premiers}
+$N=p_1\cdots p_r+1>1$ possède un diviseur premier $q$. Aucun $p_i$ ne divise $N$, puisque le reste est $1$. Donc $q$ n'est pas dans la liste. On ne prétend pas que $N$ lui-même soit toujours premier.
+
+\section*{Exercice 31.5 -- Chiffrement jouet}
+$ed=21\equiv1\pmod{20}$. Le chiffré est $c=2^3\bmod33=8$. Pour déchiffrer : $8^2\equiv31\equiv-2$, $8^4\equiv4$, donc $8^7\equiv4(-2)8=-64\equiv2\pmod{33}$. Les nombres sont volontairement petits et n'offrent aucune sécurité réelle.
+
+\section*{Exercice 31.6 -- Réciproque de Fermat}
+$2^{10}=1024=3\times341+1$, donc $(2^{10})^{34}\equiv1$. Pourtant $341$ est composé. La congruence de Fermat est nécessaire lorsque le nombre est premier et premier avec la base, mais cette seule vérification n'est pas suffisante.

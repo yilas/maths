@@ -10,5 +10,9 @@
   "premiere": {
     "source": "sources/03-lycee/02-premiere",
     "suffixe": "1re"
+  },
+  "terminale": {
+    "source": "sources/03-lycee/03-terminale",
+    "suffixe": "tle"
   }
 }

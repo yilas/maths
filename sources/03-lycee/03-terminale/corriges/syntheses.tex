@@ -1,0 +1,78 @@
+\chapter{Problèmes de synthèse}
+Les synthèses S1 à S4 et S8 mobilisent la spécialité et ses approfondissements signalés ; S5 à S7 mobilisent aussi les mathématiques expertes.
+\section{S1 -- Héron : convergence et efficacité}
+\textbf{Stratégie :} commencer par un invariant de positivité, puis utiliser l'ordre avant de résoudre l'équation de limite.
+Tous les termes sont positifs par récurrence. Pour $u>0$, $\frac12(u+a/u)-\sqrt a=(u-\sqrt a)^2/(2u)\ge0$ ; chaque terme après le premier majore donc la racine.
+Dès $n\ge1$, $u_{n+1}-u_n=(a-u_n^2)/(2u_n)\le0$. La suite décroît et est minorée par $\sqrt a>0$, donc converge vers $L>0$. La continuité sur $]0,+\infty[$ permet $L=(L+a/L)/2$, d'où $L^2=a$ et $L=\sqrt a$.
+
+L'identité du premier paragraphe donne aussi l'erreur exacte demandée. Pour $a=2$, les termes sont $u_1=3/2$, $u_2=17/12$, $u_3=577/408$. Comme $u_n\ge\sqrt a$, on a $a/u_n\le\sqrt a\le u_n$. Ainsi
+\[
+\frac{816}{577}\le\sqrt2\le\frac{577}{408},\qquad
+\frac{577}{408}-\frac{816}{577}=\frac1{235416}.
+\]
+Le milieu approche la racine avec erreur au plus $1/470832$. Arrêter lorsque $u_n-a/u_n\le2\varepsilon$ certifie une erreur de milieu au plus $\varepsilon$, sous calcul exact ou contrôle d'arrondi.
+
+Newton pour $f(x)=x^2-a$ donne $x-f(x)/f'(x)=(x+a/x)/2$. La positivité et la forme particulière ont permis la preuve ; d'autres fonctions peuvent produire des cycles, comme au chapitre 24. L'erreur au carré explique l'efficacité locale de Héron, mais les flottants finissent par limiter la précision.
+
+\section{S2 -- Géométrie d’un tétraèdre}
+Les intercepts donnent $x/2+y/3+z/6=1$, soit $3x+2y+z=6$. Les trois points satisfont cette équation et ne sont pas alignés ; elle définit donc leur plan. Un normal est $n=(3,2,1)$.
+La droite normale issue de $O$ est $(x,y,z)=(3t,2t,t)$. Dans le plan, $14t=6$, donc $H=(9/7,6/7,3/7)$ et $OH=6/\sqrt{14}$ cm. Le signe positif du paramètre correspond au plan situé dans la direction du normal choisi.
+
+Le triangle rectangle $OAB$ a aire $2\times3/2=3\,\mathrm{cm}^2$. La hauteur issue de $C$ vaut $6$ cm ; le volume vaut $3\times6/3=6\,\mathrm{cm}^3$. En prenant $ABC$ pour base, $6=\operatorname{aire}(ABC)\,OH/3$, donc l'aire vaut $3\sqrt{14}\,\mathrm{cm}^2$.
+
+La sphère a centre $(0,0,3)$ et rayon $3$ ; développer $x^2+y^2+(z-3)^2=9$ donne l'équation. Dans le plan $z=3$, elle devient $x^2+y^2=9$ : un cercle de centre $(0,0,3)$ et rayon $3$. Les équations établissent les appartenances et les distances ; une perspective peut les suggérer mais déforme angles et longueurs.
+
+\section{S3 -- Logarithme, intégrale et sommes}
+La fonction $x\mapsto1/(1+x)$ décroît sur $[0,1]$. Les rectangles à droite minorent son intégrale, ceux à gauche la majorent. Son intégrale vaut $[\ln(1+x)]_0^1=\ln2$. En soustrayant les sommes, les termes intérieurs disparaissent et $L_n-R_n=(1-1/2)/n=1/(2n)$.
+Le milieu a donc erreur au plus $1/(4n)$. Choisir $n=2500$ suffit pour $10^{-4}$ ; le programme calcule les deux sommes ou l'une puis ajoute leur écart. L'arrondi flottant doit être distingué de cette erreur théorique.
+
+Comme $0\le1/(1+x)\le1$, $0\le J_n\le\int_0^1x^n=1/(n+1)$. L'identité $x^n/(1+x)+x^{n+1}/(1+x)=x^n$ donne la récurrence. En partant de $J_0=\ln2$, elle conduit par récurrence à
+\[
+\ln2=\sum_{k=1}^{n}\frac{(-1)^{k-1}}k+(-1)^nJ_n.
+\]
+Le reste a module au plus $1/(n+1)$, et son signe est connu. La limite de la somme alternée vaut donc $\ln2$. Les rectangles fournissent ici une meilleure borne à nombre de termes comparable, mais d'autres algorithmes, dont Briggs, peuvent converger plus vite. Une impression décimale n'est un certificat que si l'erreur totale est contrôlée.
+
+\section{S4 -- Surbooking : modèle et décision}
+$X_n$ est somme de $n$ Bernoulli indépendantes : $X_n\sim\mathcal B(n,0{,}9)$, $E(X_n)=0{,}9n$, $V(X_n)=0{,}09n$. Le risque exact est
+$\sum_{k=101}^n\binom nk0{,}9^k0{,}1^{n-k}$, nul si $n=100$.
+Partir de $n=100$, calculer le risque pour $n+1$, avancer tant qu'il est au plus $0{,}05$, puis retourner le dernier entier admissible. Un calcul rationnel ou des probabilités numériques stables permettent de vérifier la frontière. Le programme livré trouve $n=106$ ; les risques pour $106$ et $107$ valent environ $0{,}0398$ et $0{,}0806$.
+
+Coupler les variables par $X_{n+1}=X_n+B_{n+1}$ avec $B_{n+1}\ge0$ montre l'inclusion $\{X_n>100\}\subset\{X_{n+1}>100\}$. Pour $0{,}9n>100$, Tchebychev donne $P(X_n\le100)\le0{,}09n/(0{,}9n-100)^2\to0$ ; la recherche finit donc par dépasser le seuil.
+Pour $n=105$, $E=94{,}5$, $V=9{,}45$. L'événement $X_n>100$ implique $X_n\ge101$, donc un écart au moins $6{,}5$. La borne est $9{,}45/6{,}5^2\simeq0{,}224$, trop grande pour décider la contrainte. Une borne supérieure au seuil ne prouve pas que le risque le dépasse.
+
+Le modèle suppose une probabilité identique et une indépendance entre personnes. Groupes, météo, annulations communes et estimation de $0{,}9$ peuvent invalider ces hypothèses. Le calcul n'inclut ni les conséquences du refus d'entrée ni les contraintes pratiques : il illustre un raisonnement, sans constituer une politique réelle.
+
+\section{S5 -- Complexes, rotations et polygones}
+Si $\omega^j=\omega^k$, alors $(j-k)/5$ est entier ; avec $0\le j,k<5$, cela impose $j=k$. Tous les points sont sur le cercle unité et les angles successifs valent $2\pi/5$ : le polygone est régulier. La somme géométrique est $(1-\omega^5)/(1-\omega)=0$, donc le barycentre est l'origine.
+
+$1-e^{it}=e^{it/2}(e^{-it/2}-e^{it/2})=-2ie^{it/2}\sin(t/2)$ ; prendre les modules donne la formule. Le côté vaut $2\sin(\pi/5)$, la diagonale $2\sin(2\pi/5)$.
+Diviser $1+\omega+\omega^2+\omega^3+\omega^4=0$ par $\omega^2$ donne $1+s+(s^2-2)=0$. Or $s=2\cos(2\pi/5)>0$, car $0<2\pi/5<\pi/2$. Donc $s=(-1+\sqrt5)/2$ et $\cos(2\pi/5)=(\sqrt5-1)/4$.
+
+La matrice est $R=\begin{pmatrix}\cos(2\pi/5)&-\sin(2\pi/5)\\\sin(2\pi/5)&\cos(2\pi/5)\end{pmatrix}$. Composer cinq rotations additionne les angles ; $R^5=R_{2\pi}=I$. C'est aussi la traduction de $\omega^5=1$ par l'identification du plan à $\mathbb C$.
+
+\section{S6 -- RSA : preuve et limites}
+Euclide donne $40=13\times3+1$, donc $1=40-13\times3$ et $d\equiv-13\equiv27\pmod{40}$. Ainsi $ed=81$.
+Le chiffré vaut $7^3=343\equiv13\pmod{55}$. Pour déchiffrer, les carrés successifs donnent $13^2\equiv4$, $13^4\equiv16$, $13^8\equiv36$, $13^{16}\equiv31$. Comme $27=16+8+2+1$, le produit $31\times36\times4\times13$ est congru à $7$ modulo $55$.
+
+Si $5\mid m$, $m^{81}\equiv m\equiv0\pmod5$. Sinon Fermat donne $m^4\equiv1\pmod5$, donc $m^{81}=m(m^4)^{20}\equiv m$. De même modulo $11$ : si $11\mid m$, résultat immédiat ; sinon $m^{10}\equiv1$ et $81=1+8\times10$. Ainsi $5$ et $11$ divisent $m^{81}-m$. Étant premiers entre eux, leur produit divise cette différence par Gauss.
+
+L'exponentiation rapide évite les puissances immenses ; la preuve de correction ne prouve pas la sécurité. Les facteurs minuscules sont immédiatement retrouvés, et le RSA brut sans encodage approprié possède d'autres faiblesses. L'exemple sert à relier congruences, Bézout et Fermat ; les protocoles cryptographiques réels demandent une étude spécialisée.
+
+\section{S7 -- Trois états et convergence}
+Les coefficients sont positifs et chaque ligne somme à $1$. Les colonnes somment aussi à $1$, donc $\pi P=\pi$. Chaque coefficient de $J^2$ vaut $3$, donc $J^2=3J$ et $Q^2=Q$. La décomposition annoncée donne des coefficients diagonaux $1/3+(1/4)(2/3)=1/2$ et hors diagonale $1/3-(1/4)(1/3)=1/4$.
+
+On a $Q(I-Q)=(I-Q)Q=0$ et $(I-Q)^2=I-Q$. Par récurrence, les produits mixtes s'annulent et $P^n=Q+4^{-n}(I-Q)$, y compris $n=0$ où la somme vaut $I$.
+Toute distribution ligne $\mu_0$ satisfait $\mu_0Q=\pi$ ; ainsi
+$\mu_n=\pi+4^{-n}(\mu_0-\pi)\to\pi$.
+Si $\nu$ est invariante, $\nu=\nu P^n$ pour tout $n$, donc le passage à la limite donne $\nu=\pi$ : unicité démontrée.
+
+Chaque coordonnée de $\mu_0$ appartient à $[0,1]$, donc son écart à $1/3$ est au plus $2/3$. Il suffit de $(2/3)4^{-n}\le10^{-3}$, soit $4^n\ge2000/3$. Comme $4^4=256$ et $4^5=1024$, $n=5$ convient. Ce contrôle quantifie la convergence ; il ne se limite pas à l'observer sur quelques itérations.
+
+\section{S8 -- Une fonction définie par une intégrale}
+L'intégrande est continue, donc le théorème fondamental donne $F'(x)=e^{-x^2}>0$ ; la fonction croît strictement. De plus $F''(x)=-2xe^{-x^2}\le0$ pour $x\ge0$, donc elle est concave.
+La tangente à l'exponentielle donne $e^{-u}\ge1-u$. Pour $0\le t\le x\le1$, $1-t^2\le e^{-t^2}\le1$. Intégrer donne $x-x^3/3\le F(x)\le x$.
+
+Pour $x\ge1$, $F(x)=F(1)+\int_1^xe^{-t^2}\,dt\le1+\int_1^xe^{-t}\,dt\le1+e^{-1}$. Une fonction croissante majorée possède une limite finie (prendre le supremum de ses valeurs et utiliser la même preuve que pour les suites). Cette limite est positive, puisque $F(1)\ge2/3$.
+Pour $y\ge x\ge1$, $0\le F(y)-F(x)\le\int_x^ye^{-t}\,dt\le e^{-x}$. Faire tendre $y$ vers l'infini donne le contrôle du reste.
+
+Une intégrale définit une fonction même lorsqu'aucune expression avec les fonctions élémentaires usuelles n'est disponible. Nous n'avons pas démontré ici une impossibilité d'expression, ni évalué $L$ : sa valeur $\sqrt\pi/2$ nécessite une méthode supplémentaire, étudiée en licence. Après normalisation, $e^{-t^2}$ intervient dans une densité gaussienne ; il faudra définir probabilités continues et intégrales impropres pour rendre ce lien complet.

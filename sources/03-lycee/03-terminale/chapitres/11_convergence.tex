@@ -1,0 +1,54 @@
+\documentclass[../cours_tle.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{10}
+\chapter{Suites monotones, points fixes et suites adjacentes}
+\label{ch:11}
+\begin{objectif}
+Spécialité. Distinguer existence de la limite et calcul de sa valeur. Prérequis : chapitres 9 et 10.
+\end{objectif}
+\section{Le théorème de convergence monotone}
+\begin{theoreme}
+Une suite croissante majorée converge vers un réel. Une suite décroissante minorée converge également.
+\end{theoreme}
+Ce théorème est admis dans le programme. Voici sa preuve à partir de la complétude de $\R$, expliquée au chapitre 36.
+\begin{demonstration}
+Soit $\ell=\sup\{u_n:n\in\N\}$, le plus petit majorant. Pour $\varepsilon>0$, $\ell-\varepsilon$ ne peut être un majorant : il existe $N$ tel que $u_N>\ell-\varepsilon$.
+Pour $n\ge N$, la croissance donne $\ell-\varepsilon<u_n\le\ell$. Donc $u_n\to\ell$.
+Le cas décroissant se ramène au précédent avec $-u_n$.
+\end{demonstration}
+Un majorant n'est pas nécessairement la limite : $1-1/(n+1)$ est majorée par $7$, mais converge vers $1$.
+\section{Itérer une fonction}
+Pour $u_{n+1}=f(u_n)$, vérifier d'abord que $f$ conserve un intervalle contenant $u_0$. Étudier ensuite $u_{n+1}-u_n$ ou utiliser la monotonie de $f$ pour propager une inégalité initiale. Prouver convergence et seulement ensuite passer à la limite, si $f$ est continue à cette limite.
+\begin{exemple}
+Reprenons $u_0=0$, $u_{n+1}=\sqrt{2+u_n}$. Le chapitre 2 donne $0\le u_n\le2$. Sur cet intervalle,
+$\sqrt{2+x}\ge x$ car $2+x-x^2=(2-x)(x+1)\ge0$.
+La suite est croissante majorée. Sa limite $\ell\in[0,2]$ vérifie $\ell=\sqrt{2+\ell}$ par continuité, donc $\ell=2$ (l'autre racine $-1$ est exclue).
+Résoudre seulement l'équation du point fixe n'aurait pas prouvé la convergence.
+\end{exemple}
+\section{Suites adjacentes}
+Deux suites sont adjacentes si l'une croît, l'autre décroît et leur différence tend vers zéro, avec la première au-dessous de la seconde.
+Elles convergent vers la même limite : chacune est bornée par un terme de l'autre ; appliquer le théorème monotone et passer à la limite dans la différence.
+Leur écart donne une borne d'erreur. C'est le mécanisme de la dichotomie et des sommes inférieures et supérieures d'intégration.
+\section{Héron : convergence et erreur}
+Pour approcher $\sqrt a$ avec $a>0$, prendre $u_0>0$ et
+$u_{n+1}=(u_n+a/u_n)/2$.
+\begin{demonstration}
+$u_{n+1}-\sqrt a=(u_n-\sqrt a)^2/(2u_n)\ge0$. À partir du rang $1$, $u_n\ge\sqrt a$ ; alors $u_{n+1}-u_n=(a-u_n^2)/(2u_n)\le0$.
+La suite décroît vers $\ell\ge\sqrt a>0$, et $\ell=(\ell+a/\ell)/2$ impose $\ell=\sqrt a$.
+L'identité d'erreur montre la convergence quadratique : près de la racine, la nouvelle erreur est proportionnelle au carré de l'ancienne.
+\end{demonstration}
+Pour $a=2$, $u_0=1$, les premiers termes sont $3/2$, $17/12$, $577/408$. Les fractions permettent ici un contrôle exact.
+\section{Complément : contraction et vitesse}
+Si $f$ conserve un intervalle fermé $I$, possède un point fixe $L$ et vérifie
+$|f(x)-f(y)|\le q|x-y|$, $0\le q<1$, alors
+$|u_n-L|\le q^n|u_0-L|$ par récurrence.
+Le point fixe est unique : deux points fixes auraient une distance $d\le qd$, donc $d=0$.
+L'existence générale, sans point fixe supposé, sera démontrée dans des espaces complets en licence ; ici on établit l'existence dans chaque problème étudié.
+\begin{finchapitre}
+\section{Utilité et suite du parcours}
+Les points fixes réunissent équations, algorithmes et modèles dynamiques. Distinguer existence, unicité, convergence et vitesse évite des erreurs jusque dans l'analyse numérique avancée.
+\begin{retenir}
+On ne suppose jamais la convergence pour la démontrer. Le point fixe n'est qu'un candidat tant que convergence et continuité ne sont pas établies.
+\end{retenir}
+\end{finchapitre}
+\end{document}

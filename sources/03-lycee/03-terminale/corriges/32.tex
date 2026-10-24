@@ -1,0 +1,18 @@
+\chapter{Matrices, applications linéaires et systèmes}
+\section*{Exercice 32.1 -- Produit non commutatif}
+$AB=\begin{pmatrix}2&1\\1&1\end{pmatrix}$ et $BA=\begin{pmatrix}1&1\\1&2\end{pmatrix}$. Ils diffèrent ; l'ordre du produit encode l'ordre de composition des applications.
+
+\section*{Exercice 32.2 -- Inverse et système}
+La matrice $A=\begin{pmatrix}2&1\\1&1\end{pmatrix}$ a déterminant $1$ et inverse $\begin{pmatrix}1&-1\\-1&2\end{pmatrix}$. Multiplier $\binom53$ donne $\binom21$. La substitution vérifie les deux équations.
+
+\section*{Exercice 32.3 -- Produit nul}
+$A=\begin{pmatrix}1&0\\0&0\end{pmatrix}$ et $B=\begin{pmatrix}0&0\\0&1\end{pmatrix}$ ont produit nul. Ainsi $AB=A0$ avec $B\ne0$ : la simplification échoue. Si $A$ est inversible, multiplier par $A^{-1}$ à gauche permet en revanche de conclure $B=C$.
+
+\section*{Exercice 32.4 -- Rotation matricielle}
+L'image de $(x,y)$ est $(x\cos t-y\sin t,x\sin t+y\cos t)$. La somme des carrés vaut $x^2(\cos^2t+\sin^2t)+y^2(\sin^2t+\cos^2t)=x^2+y^2$, les termes croisés s'annulant. C'est le même calcul que $|e^{i t}z|=|z|$.
+
+\section*{Exercice 32.5 -- Trois inconnues}
+Soustraire les deux premières équations donne $2y=4$, donc $y=2$. Alors $x+z=4$ et $2x-z=-1$. Leur somme donne $3x=3$, d'où $x=1,z=3$. Ces opérations sur les lignes sont réversibles ; la solution est unique et se vérifie directement.
+
+\section*{Exercice 32.6 -- Application linéaire}
+Chaque coordonnée de $T$ est une combinaison linéaire : $T(au+bv)=aT(u)+bT(v)$. Sa matrice a pour colonnes $T(1,0)$ et $T(0,1)$ : $\begin{pmatrix}1&2\\3&-1\end{pmatrix}$. En revanche $S(0,0)=(1,0)\ne(0,0)$ ; $S$ est affine mais non linéaire.
