@@ -297,7 +297,7 @@ Le script rend le style commun accessible à LaTeX, lance trois passages pour st
 \begin{lstlisting}
 python3 compiler.py --niveau troisieme --chapitre 14
 \end{lstlisting}
-Ce PDF ponctuel reste dans \texttt{build/}. Les chapitres utilisent \texttt{subfiles} : conserver le fichier maître et l'arborescence. Pour lancer directement pdfLaTeX, ajouter la racine du dépôt à \texttt{TEXINPUTS} et travailler dans le dossier du document. Le script évite cette configuration manuelle.
+Ce PDF ponctuel reste dans \texttt{build/}. Les chapitres utilisent \texttt{subfiles} : conserver le fichier maître et l'arborescence. Pour lancer directement pdfLaTeX, ajouter le dossier \texttt{commun/} du dépôt à \texttt{TEXINPUTS} et travailler dans le dossier du document. Le script évite cette configuration manuelle.
 \section{Ajouter les niveaux suivants}
 Conserver l'unique \texttt{mathscommun.sty} comme référence commune. Créer un dossier par niveau à partir du modèle, changer le niveau et le programme applicable, puis ajouter les chapitres et renseigner \texttt{niveaux.json} à la racine. Pour la première et la terminale, préciser le parcours visé avant de revendiquer une couverture exhaustive : voie générale ou technologique, spécialité et options éventuelles. Tous les ajouts et corrections du dépôt sont proposés par pull request, avec leurs sources et les contrôles de leurs PDF, sans versionner les PDF.
 \end{document}
