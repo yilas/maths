@@ -1,0 +1,18 @@
+\chapter{Complément : espaces vectoriels et projections}
+\section*{Exercice 27.1 -- Noyau et image}
+$T(x,y)=0$ équivaut à $x=y$, donc le noyau est la droite engendrée par $(1,1)$. Toute image est de la forme $(s,2s)$ et chaque $s$ est atteint en choisissant $(x,y)=(s,0)$. L'image est la droite engendrée par $(1,2)$.
+
+\section*{Exercice 27.2 -- Projection sur une droite}
+$\langle x,u\rangle=3$ et $\|u\|^2=3$, donc $p=x_{\rm proj}=u=(1,1,1)$. Le résidu $(1,-1,0)$ est orthogonal à $u$. La distance au carré vaut $2$, minimale par Pythagore.
+
+\section*{Exercice 27.3 -- Gram--Schmidt}
+$e_1=(1,1)/\sqrt2$. Le résidu $w=v-\langle v,e_1\rangle e_1=(1/2,-1/2)$, de norme $1/\sqrt2$. Donc $e_2=(1,-1)/\sqrt2$. Leurs produits scalaires donnent une base orthonormée.
+
+\section*{Exercice 27.4 -- Moindres carrés}
+L'orthogonalité du résidu aux vecteurs $(0,1,2)$ et $(1,1,1)$ donne $5a+3b=6$ et $3a+3b=5$. Ainsi $a=1/2$, $b=7/6$. Le résidu est $(-1/6,1/3,-1/6)$, de norme au carré $1/6$. Toute autre prédiction ajoute un carré positif par l'identité de projection ; le minimum est unique.
+
+\section*{Exercice 27.5 -- Polynômes orthogonaux}
+L'orthogonalité impose $\int_0^1(t-c)\,dt=1/2-c=0$, donc $c=1/2$. La norme au carré vaut $\int_0^1(t^2-t+1/4)\,dt=1/3-1/2+1/4=1/12$. La norme vaut $1/\sqrt{12}$.
+
+\section*{Exercice 27.6 -- Projection idempotente}
+Le vecteur $p_F(x)$ appartient déjà à $F$. Son meilleur approximant dans $F$ est lui-même, à distance nulle. Par unicité de la projection, le projeter une seconde fois ne le change pas. Algébriquement, ses coordonnées dans la base orthonormée sont conservées.

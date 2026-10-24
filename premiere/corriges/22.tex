@@ -1,0 +1,18 @@
+\chapter{Variance, covariance et erreur quadratique}
+\section*{Exercice 22.1 -- Moments}
+$\mathbb E(X)=2/3+5/6=3/2$ et $\mathbb E(X^2)=4/3+25/6=11/2$. Par König--Huygens, la variance vaut $11/2-9/4=13/4$, et l'écart type $\sqrt{13}/2$.
+
+\section*{Exercice 22.2 -- Changement d'unité}
+La moyenne vaut $2(10)-5=15$. La variance vaut $2^2(9)=36$, donc l'écart type $6$. La translation change la moyenne mais pas la dispersion ; la multiplication double l'écart type.
+
+\section*{Exercice 22.3 -- Somme indépendante}
+Chaque variable a moyenne $1/4$ et variance $(1/4)(3/4)=3/16$. La somme a moyenne $1$ et variance $4(3/16)=3/4$. L'écart type vaut $\sqrt3/2$. La somme des variances utilise l'indépendance.
+
+\section*{Exercice 22.4 -- Covariance non nulle}
+Après centrage, $Y-\mathbb E(Y)=2(X-\mathbb E(X))$, donc la covariance vaut $2\operatorname{Var}(X)$. Comme $X+Y=3X+1$, sa variance vaut $9\operatorname{Var}(X)$. La formule générale donne aussi $V+4V+2(2V)=9V$.
+
+\section*{Exercice 22.5 -- Meilleure constante}
+La décomposition donne $\mathbb E((X-a)^2)=2+(a-3)^2$. Les erreurs sont donc $11,2,6$. La constante $3$ est l'unique minimum sur tous les réels, pas seulement parmi les trois propositions.
+
+\section*{Exercice 22.6 -- Décorrélé et dépendant}
+$\mathbb E(X)=0$ et $\mathbb E(XY)=\mathbb E(X^3)=0$, donc la covariance est nulle. Cependant $P(X=0,Y=0)=1/3$, alors que $P(X=0)P(Y=0)=1/9$. La loi jointe ne se factorise pas : ils sont dépendants.

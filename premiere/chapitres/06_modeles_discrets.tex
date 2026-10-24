@@ -1,0 +1,82 @@
+\documentclass[../cours_1re.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{5}
+\chapter{Modèles discrets et suites affines}
+\label{ch:06}
+\begin{objectif}
+Modéliser un processus par une récurrence affine ; expliciter son évolution ; étudier un équilibre et un cumul. Les suites affines et les modèles financiers sont des approfondissements.
+\end{objectif}
+\section{Le sens du modèle}
+Une population fictive perd $20\,\%$ de ses individus à chaque période, puis reçoit $30$ nouveaux individus. Le modèle est $u_{n+1}=0{,}8u_n+30$.
+Si l'arrivée précède la perte, il devient $u_{n+1}=0{,}8(u_n+30)$. L'ordre des opérations appartient à la modélisation.
+Les valeurs non entières peuvent représenter un effectif moyen théorique ; elles ne sont pas des fractions d'individus observés.
+\section{Centrer autour d'un équilibre}
+\begin{theoreme}
+Pour $u_{n+1}=au_n+b$ avec $a\ne1$, poser $\ell=b/(1-a)$. Alors
+\[
+u_n=\ell+a^n(u_0-\ell).
+\]
+Si $a=1$, la suite est arithmétique : $u_n=u_0+nb$.
+\end{theoreme}
+\begin{demonstration}
+L'égalité $\ell=a\ell+b$ caractérise l'équilibre. En la soustrayant à la récurrence,
+$u_{n+1}-\ell=a(u_n-\ell)$. La suite $(u_n-\ell)$ est géométrique ; le chapitre 5 donne la formule. Le cas $a=1$ se lit directement dans la relation initiale.
+\end{demonstration}
+\begin{exemple}
+Pour $u_0=50$ et $u_{n+1}=0{,}8u_n+30$, $\ell=150$ et $u_n=150-100(0{,}8)^n$.
+La suite croît, reste inférieure à $150$ et s'en rapproche. Son écart à l'équilibre est exactement $100(0{,}8)^n$.
+\end{exemple}
+\section{Stabilité et oscillations}
+Si $|a|<1$, les écarts successifs sont multipliés en valeur absolue par un facteur inférieur à $1$ ; ils tendent vers zéro, comme démontré au chapitre 7.
+Pour $-1<a<0$, ils alternent de signe : convergence n'implique pas monotonie.
+Pour $|a|>1$, un écart initial non nul s'amplifie. Si $a=-1$, l'écart alterne sans diminuer ; sauf au point fixe, il n'y a pas de limite.
+
+Deux suites de même modèle et de conditions initiales $u_0,v_0$ vérifient
+$u_n-v_n=a^n(u_0-v_0)$. Cela mesure exactement la sensibilité à l'état initial.
+\section{Une récurrence affine sans point fixe}
+Une autre méthode donne, pour $n\ge1$,
+\[
+u_n=a^nu_0+b\sum_{k=0}^{n-1}a^k.
+\]
+\begin{demonstration}
+Au rang $1$, la formule donne $au_0+b$. Si elle est vraie au rang $n$, multiplier par $a$ et ajouter $b$ donne
+$a^{n+1}u_0+b\sum_{k=1}^{n}a^k+b$, soit la formule au rang $n+1$.
+\end{demonstration}
+Cette écriture reste correcte pour $a=1$. Chaque apport $b$ est pondéré par le nombre de périodes pendant lesquelles il a été multiplié par $a$.
+\section{Annuités constantes : un exemple mathématique}
+On modélise une dette initiale $D_0>0$, un taux périodique $i\ge0$ et un remboursement $A$ en fin de période, après application des intérêts :
+$D_{n+1}=(1+i)D_n-A$.
+Pour $i>0$,
+\[
+D_n=(1+i)^nD_0-A\,\frac{(1+i)^n-1}{i}.
+\]
+Imposer $D_N=0$ donne
+\[
+A=\frac{iD_0}{1-(1+i)^{-N}}.
+\]
+\begin{demonstration}
+Appliquer la formule précédente avec $a=1+i$, $b=-A$, puis isoler $A$ dans $D_N=0$. Pour $i=0$, revenir à $D_n=D_0-nA$, d'où $A=D_0/N$ ; la formule avec division par $i$ ne s'applique pas directement.
+\end{demonstration}
+\begin{exemple}
+Avec un taux nul, $D_0=1200$ et $N=12$, $A=100$. Avec un taux positif, une partie de chaque versement rémunère les intérêts : pour diminuer la dette dès le premier versement, il faut $A>iD_0$.
+Le modèle ignore frais, arrondis contractuels et variations de taux ; sa portée est algébrique.
+\end{exemple}
+\section{Tour de Hanoï et croissance exponentielle}
+\approfondissement Pour déplacer $n$ disques empilés entre trois tiges, sans jamais poser un grand disque sur un petit, noter $H_n$ le nombre minimal de mouvements.
+Avant de déplacer le plus grand disque, il faut libérer les $n-1$ autres ; après, il faut les replacer. Cela demande au moins $2H_{n-1}+1$ mouvements. La stratégie récursive réalise exactement ce nombre, donc
+$H_n=2H_{n-1}+1$, $H_0=0$.
+\begin{demonstration}
+$H_n+1=2(H_{n-1}+1)$, donc $H_n+1=2^n$ et $H_n=2^n-1$. Il s'agit bien d'un minimum : la borne inférieure et la stratégie réalisant cette borne ont toutes deux été établies.
+\end{demonstration}
+Le passage de $n$ à $n+1$ double presque le travail. Cette croissance explique pourquoi un algorithme correct peut devenir impraticable.
+
+\begin{finchapitre}
+\section{Utilité et prolongements}
+Soustraire un équilibre transforme une récurrence affine en multiplication. C'est une première technique de changement de variable, réutilisable lorsqu'une formule semble compliquée.
+
+En licence, une récurrence vectorielle s'écrit $U_{n+1}=AU_n+B$ ; le comportement des puissances de la matrice $A$ dépend de ses valeurs propres. En master, la stabilité de systèmes dynamiques et de schémas numériques généralise la condition $|a|<1$. Le calcul exact de l'écart constitue déjà une estimation d'erreur.
+\begin{retenir}
+Commencer par préciser l'ordre des événements. Chercher un équilibre puis étudier l'écart ; ne pas supposer qu'un équilibre est automatiquement attractif.
+\end{retenir}
+\end{finchapitre}
+\end{document}

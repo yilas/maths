@@ -1,0 +1,140 @@
+\documentclass[../cours_1re.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{16}
+\chapter{Longueurs, angles et lieux géométriques}
+\label{ch:17}
+\begin{objectif}
+Démontrer les relations métriques et les lieux géométriques ; choisir la représentation la plus courte.
+Prérequis : produit scalaire, milieu et coordonnées de seconde.
+\end{objectif}
+\section{Le théorème d'Al-Kashi}
+\begin{theoreme}
+Dans un triangle $ABC$, en notant $a=BC$, $b=CA$, $c=AB$,
+\[
+a^2=b^2+c^2-2bc\cos\widehat{BAC}.
+\]
+\end{theoreme}
+\begin{demonstration}
+$\overrightarrow{BC}=\overrightarrow{AC}-\overrightarrow{AB}$.
+La formule du carré d'une différence vectorielle donne
+$BC^2=AC^2+AB^2-2\overrightarrow{AC}\cdot\overrightarrow{AB}$ ;
+la définition par le cosinus termine le calcul.
+\end{demonstration}
+Pythagore est le cas $\widehat{BAC}=\pi/2$. Réciproquement,
+$a^2=b^2+c^2$ force le cosinus à être nul, donc l'angle à être droit.
+Si l'on connaît trois côtés d'un triangle non aplati,
+$\cos\widehat{BAC}=(b^2+c^2-a^2)/(2bc)$.
+
+\begin{exemple}
+Avec $AB=5$, $AC=7$ et $\widehat{BAC}=\pi/3$,
+$BC^2=25+49-35=39$, donc $BC=\sqrt{39}$.
+Les longueurs doivent être dans une même unité.
+\end{exemple}
+
+\section{Aires et loi des sinus}
+La hauteur relative au côté $AB$ mesure $AC\sin\widehat{BAC}$,
+y compris pour un angle obtus (on projette sur la droite).
+Ainsi $\aire=\frac12bc\sin A$ pour un triangle non aplati.
+Les trois expressions de l'aire donnent
+\[
+\frac{\sin A}{a}=\frac{\sin B}{b}=\frac{\sin C}{c}
+=\frac{2\aire}{abc}.
+\]
+\approfondissement
+Si $R$ est le rayon du cercle circonscrit, une corde de longueur $a$
+interceptée par l'angle inscrit $A$ vérifie $a=2R\sin A$.
+Voici une preuve qui ne suppose pas le théorème de l'angle inscrit.
+Plaçons $A=(0,0)$, $B=(c,0)$ et $C=(b\cos A,b\sin A)$,
+en choisissant $C$ au-dessus de l'axe. Le centre $\Omega$ du cercle a
+pour abscisse $c/2$, car $\Omega A=\Omega B$. Écrivons $\Omega=(c/2,t)$.
+L'égalité $\Omega A^2=\Omega C^2$ donne
+$cb\cos A+2tb\sin A=b^2$, d'où
+$t=(b-c\cos A)/(2\sin A)$. Alors
+\[
+4R^2\sin^2 A
+=c^2\sin^2 A+(b-c\cos A)^2
+=b^2+c^2-2bc\cos A=a^2.
+\]
+Comme $\sin A>0$, prendre les racines donne $2R\sin A=a$.
+Permuter les sommets fournit $a/\sin A=b/\sin B=c/\sin C=2R$.
+
+\section{La méthode du milieu}
+Soit $I$ le milieu de $[AB]$. Pour tout point $M$ :
+\[
+\overrightarrow{MA}\cdot\overrightarrow{MB}
+=MI^2-\frac{AB^2}{4},\qquad
+MA^2+MB^2=2MI^2+\frac{AB^2}{2}.
+\]
+\begin{demonstration}
+Posons $\vec u=\overrightarrow{MI}$ et $\vec v=\overrightarrow{IA}$.
+Comme $\overrightarrow{IB}=-\vec v$,
+$\overrightarrow{MA}=\vec u+\vec v$ et
+$\overrightarrow{MB}=\vec u-\vec v$.
+Le produit se développe en $\|\vec u\|^2-\|\vec v\|^2$.
+La somme des carrés des normes annule les termes croisés.
+Enfin $IA=AB/2$.
+\end{demonstration}
+\begin{theoreme}[cercle de diamètre]
+Si $A\ne B$, l'ensemble des points $M$ tels que
+$\overrightarrow{MA}\cdot\overrightarrow{MB}=0$ est le cercle
+de centre $I$ et de rayon $AB/2$, c'est-à-dire de diamètre $[AB]$.
+\end{theoreme}
+\begin{demonstration}
+La formule précédente transforme l'égalité en $MI^2=AB^2/4$,
+équivalente à $MI=AB/2$. Les étapes sont réversibles.
+Les points $A,B$ appartiennent au lieu ; pour eux on ne parle pas d'angle
+$AMB$, puisque l'un des vecteurs est nul.
+\end{demonstration}
+Si $A=B$, le lieu est le seul point $A$.
+Plus généralement, l'équation
+$\overrightarrow{MA}\cdot\overrightarrow{MB}=k$
+donne un cercle, un point ou l'ensemble vide selon le signe de $k+AB^2/4$.
+
+\section{Pourquoi les médianes sont concourantes}
+\approfondissement
+Dans un repère, définissons $G=(A+B+C)/3$ : cette notation représente
+la moyenne des coordonnées des trois points. Si $I=(B+C)/2$,
+$G=A+\frac23(I-A)$. Ainsi $G$ est sur la médiane issue de $A$,
+aux deux tiers depuis le sommet. Le même calcul aux autres sommets prouve
+la concurrence des trois médianes. La définition est indépendante du repère :
+$\overrightarrow{GA}+\overrightarrow{GB}+\overrightarrow{GC}=\vec0$.
+Pour tout $M$, le développement des carrés donne
+\[
+MA^2+MB^2+MC^2=3MG^2+GA^2+GB^2+GC^2.
+\]
+Les termes croisés s'annulent grâce à la somme vectorielle nulle.
+$G$ minimise donc la somme des trois distances au carré.
+
+\section{Pourquoi les hauteurs sont concourantes}
+\approfondissement
+Dans un triangle non aplati, les hauteurs issues de $A$ et de $B$ se coupent
+en un point $H$ : leurs directions ne sont pas parallèles puisque
+$(BC)$ et $(AC)$ ne le sont pas. Or, pour tout point $H$,
+\[
+\overrightarrow{HA}\cdot\overrightarrow{BC}
++\overrightarrow{HB}\cdot\overrightarrow{CA}
++\overrightarrow{HC}\cdot\overrightarrow{AB}=0.
+\]
+Pour le vérifier, poser $\vec a=\overrightarrow{HA}$,
+$\vec b=\overrightarrow{HB}$, $\vec c=\overrightarrow{HC}$ :
+l'expression devient
+$\vec a\cdot(\vec c-\vec b)+\vec b\cdot(\vec a-\vec c)
++\vec c\cdot(\vec b-\vec a)$, dont les termes s'annulent deux à deux.
+Les deux premières expressions sont nulles par définition de $H$ ;
+la troisième est donc nulle. $H$ est aussi sur la troisième hauteur.
+
+\begin{finchapitre}
+\section{Utilité et prolongements}
+Une équation vectorielle révèle souvent le bon centre d'un problème.
+La méthode du milieu et celle du centre de gravité annoncent la décomposition
+« dispersion autour du centre + distance au centre ».
+
+Cette même identité réapparaît pour la variance au chapitre 22 et pour
+les moindres carrés au chapitre 27. Les barycentres seront généralisés
+aux masses, aux intégrales et aux probabilités.
+\begin{retenir}
+Al-Kashi généralise Pythagore. Pour un lieu géométrique, établir
+une équivalence et traiter les cas vide, point et cercle. Les concours de droites se démontrent.
+\end{retenir}
+\end{finchapitre}
+\end{document}

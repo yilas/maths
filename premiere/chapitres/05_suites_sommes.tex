@@ -1,0 +1,91 @@
+\documentclass[../cours_1re.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{4}
+\chapter{Suites arithmétiques, géométriques et sommes}
+\label{ch:05}
+\begin{objectif}
+Reconnaître une progression arithmétique ou géométrique, démontrer les termes généraux et les sommes. Prérequis : indices et puissances ; complément sur la récurrence au chapitre 1.
+\end{objectif}
+\section{Suites arithmétiques}
+\begin{definition}
+Une suite est arithmétique de raison $r$ si $u_{n+1}=u_n+r$ à chaque rang. Ses accroissements sont constants.
+\end{definition}
+\begin{theoreme}
+Pour $n\ge p$, $u_n=u_p+(n-p)r$. En particulier $u_n=u_0+nr$.
+\end{theoreme}
+\begin{demonstration}
+Additionner les égalités $u_{p+1}-u_p=r,\ldots,u_n-u_{n-1}=r$ : les termes intermédiaires s'annulent, d'où $u_n-u_p=(n-p)r$. Si $n=p$, l'égalité est immédiate.
+\end{demonstration}
+Le signe de $u_{n+1}-u_n=r$ donne les variations : croissance stricte pour $r>0$, décroissance stricte pour $r<0$, constance pour $r=0$. Les points $(n;u_n)$ sont sur la droite $y=u_0+rx$.
+\begin{exemple}
+Si $u_3=11$ et $u_8=31$, alors $5r=20$, donc $r=4$ et $u_0=-1$. Attention au nombre d'intervalles : entre les rangs $3$ et $8$, il y a cinq accroissements, mais six termes.
+\end{exemple}
+\section{Sommer une progression arithmétique}
+\begin{theoreme}
+La somme des termes de rangs $p$ à $n$ vaut
+\[
+\sum_{k=p}^{n}u_k=(n-p+1)\frac{u_p+u_n}{2}.
+\]
+En particulier $1+2+\cdots+n=n(n+1)/2$.
+\end{theoreme}
+\begin{demonstration}
+Écrire la somme dans l'ordre croissant puis dans l'ordre décroissant. Dans leur addition, chaque paire a pour valeur $u_p+u_n$, car
+$u_{p+j}+u_{n-j}=u_p+jr+u_n-jr$. Il y a $n-p+1$ paires. Diviser par $2$ conclut, que le nombre de termes soit pair ou impair.
+\end{demonstration}
+\section{Suites géométriques}
+\begin{definition}
+Une suite est géométrique de raison $q$ si $u_{n+1}=qu_n$. La définition reste valable si un terme est nul ; la reconnaissance par quotient exige en revanche un dénominateur non nul.
+\end{definition}
+\begin{theoreme}
+Pour $n\ge p$, $u_n=u_pq^{n-p}$. On convient que $q^0=1$, y compris pour écrire le terme initial lorsque $q=0$ ; les termes de rang strictement supérieur à $p$ sont alors nuls.
+\end{theoreme}
+\begin{demonstration}
+Chaque passage d'un rang au suivant multiplie par $q$. Après $n-p$ passages, on a donc multiplié par $q^{n-p}$. Formellement, l'initialisation est $u_p=u_pq^0$ et l'hérédité est $q(u_pq^{n-p})=u_pq^{n+1-p}$.
+\end{demonstration}
+Si $u_0>0$ et $q>0$, alors $u_{n+1}-u_n=u_n(q-1)$ : la suite croît pour $q>1$, décroît pour $0<q<1$, est constante pour $q=1$. Si $u_0<0$, ces sens s'inversent. Pour $q<0$ et $u_0\ne0$, les signes alternent ; la suite n'est pas monotone. Si $u_0=0$, elle est nulle quelle que soit la raison.
+\section{Sommer une progression géométrique}
+\begin{theoreme}
+Pour $n\ge0$ et $q\ne1$,
+\[
+1+q+\cdots+q^n=\frac{1-q^{n+1}}{1-q}.
+\]
+Pour $q=1$, la somme vaut $n+1$. Plus généralement,
+$\sum_{k=p}^{n}u_k=u_p(1-q^{n-p+1})/(1-q)$.
+\end{theoreme}
+\begin{demonstration}
+Noter $S=1+q+\cdots+q^n$. Alors $qS=q+\cdots+q^{n+1}$.
+Soustraire donne $(1-q)S=1-q^{n+1}$. La division est licite pour $q\ne1$. Pour $q=1$, compter les termes. La formule générale s'obtient en factorisant $u_p$.
+\end{demonstration}
+\begin{exemple}
+$3+6+\cdots+3\cdot2^7=3(2^8-1)=765$.
+$1/2+1/4+\cdots+1/2^{10}=1-1/2^{10}$ : la somme est inférieure à $1$, et son écart exact à $1$ est connu.
+\end{exemple}
+\section{Sommes de carrés et de cubes}
+\approfondissement Les formules suivantes se déduisent d'identités, sans mémorisation isolée :
+\[
+\sum_{k=1}^n k^2=\frac{n(n+1)(2n+1)}6,\qquad
+\sum_{k=1}^n k^3=\left(\frac{n(n+1)}2\right)^2.
+\]
+\begin{demonstration}[Carrés]
+Sommer $(k+1)^3-k^3=3k^2+3k+1$ de $k=1$ à $n$ donne
+$(n+1)^3-1=3\sum k^2+3n(n+1)/2+n$. Isoler $\sum k^2$ et développer conduit à la formule.
+\end{demonstration}
+\begin{demonstration}[Cubes]
+Poser $T_k=k(k+1)/2$ et $T_0=0$. Alors
+$T_k-T_{k-1}=k$ et $T_k+T_{k-1}=k^2$ ; donc
+$T_k^2-T_{k-1}^2=k^3$. Sommer télescope les carrés et donne $\sum_{k=1}^n k^3=T_n^2$.
+\end{demonstration}
+\section{Seuils et modèles}
+Une augmentation annuelle fictive de $3\,\%$ donne $C_n=C_0(1{,}03)^n$, tandis qu'un ajout annuel fixe donne une suite arithmétique.
+Pour trouver le premier rang dépassant un seuil, tester successivement les termes. La monotonie justifie le mot « premier » ; une preuve de dépassement futur justifie la terminaison. On ne divise jamais un indice par le taux d'évolution comme si la croissance était additive.
+
+\begin{finchapitre}
+\section{Utilité et prolongements}
+Ces sommes permettent de calculer un cumul, un coût total ou une erreur accumulée. La somme géométrique contrôle les restes d'approximation des chapitres 7 et 26 ; la somme des carrés calculera une aire au chapitre 25.
+
+En licence, les séries prolongent les sommes finies. En master, les mêmes majorations géométriques apparaissent dans les méthodes itératives et les développements en fonctions propres. Savoir compter les termes et borner le reste est plus utile que reconnaître seulement une formule.
+\begin{retenir}
+Une raison arithmétique est une différence ; une raison géométrique est un multiplicateur. Dans une somme, compter les termes, traiter $q=1$ et distinguer rang final et nombre de termes.
+\end{retenir}
+\end{finchapitre}
+\end{document}

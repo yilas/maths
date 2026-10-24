@@ -1,0 +1,89 @@
+\chapter{Huit problèmes de synthèse}
+\section*{Problème S1 -- Une boîte et son coût}
+
+Une feuille carrée de côté $12$ cm est découpée aux quatre coins en carrés
+de côté $x$, puis repliée en boîte sans couvercle.
+\begin{enumerate}
+\item Définir le domaine physique et le volume $V(x)$.
+\item Déterminer les dimensions donnant le volume maximal.
+\item La surface conservée est facturée à un prix proportionnel à son aire.
+Calculer cette aire au maximum et distinguer cette optimisation de celle du coût seul.
+\item Une machine choisit $x=2+h$. Donner exactement $V(2+h)-V(2)$,
+puis borner la perte de volume pour $|h|\le0{,}1$.
+\end{enumerate}
+
+\section*{Problème S2 -- Stock : temps discret et temps continu}
+
+Un stock idéal évolue selon $u_{n+1}=0{,}8u_n+30$, $u_0=50$.
+\begin{enumerate}
+\item Trouver son équilibre, sa formule explicite et ses variations.
+\item Déterminer le premier rang où $u_n\ge140$, par calcul ou programme borné.
+\item Comparer avec le modèle continu $y'=-0{,}2y+30$, $y(0)=50$.
+\item Trouver le coefficient $k>0$ pour que la solution de
+$z'=-k(z-150)$, $z(0)=50$, reproduise exactement $u_n$ aux temps entiers.
+\end{enumerate}
+
+\section*{Problème S3 -- Projection et cercle}
+
+On donne $M=(4,3)$ et la droite $d:x+2y-5=0$.
+\begin{enumerate}
+\item Calculer le projeté $H$ de $M$ et la distance à $d$.
+\item Déterminer les points communs à $d$ et au cercle de centre $M$, rayon $3$.
+\item Justifier géométriquement leur nombre avant de résoudre les équations.
+\item Déterminer le lieu des centres des cercles passant par ces deux points.
+\end{enumerate}
+
+\section*{Problème S4 -- Contrôle et prédiction}
+
+Une pièce est défectueuse avec probabilité $1/10$. Un test est positif
+avec probabilité $4/5$ en cas de défaut et $1/5$ sinon. Les données sont fictives.
+\begin{enumerate}
+\item Calculer $P(+)$, $P_+(D)$ et $P_-(D)$.
+\item Pour $X=\mathbf1_D$, donner l'espérance et la variance.
+\item Si l'on connaît seulement le résultat du test, donner la meilleure
+prédiction de $X$ au sens de l'erreur quadratique.
+\item Vérifier que son erreur est plus faible que celle de la prédiction constante.
+\end{enumerate}
+
+\section*{Problème S5 -- Un jeu, une loi et des moyennes}
+
+Quatre essais indépendants réussissent avec probabilité $1/4$.
+Le nombre de réussites est $X$ ; le gain net est $G=5X-m$.
+\begin{enumerate}
+\item Donner la loi de $X$ et vérifier sa somme.
+\item Déterminer la mise équitable et l'écart type du gain.
+\item Pour $100$ parties indépendantes avec cette mise, donner l'écart type du gain moyen.
+\item Majorer la probabilité que ce gain moyen s'écarte de $0$ d'au moins $1$.
+\end{enumerate}
+
+\section*{Problème S6 -- Approcher une racine et garantir l'erreur}
+
+On veut approcher $\sqrt3$.
+\begin{enumerate}
+\item Donner un encadrement initial et une méthode de dichotomie.
+\item Partir de $u_0=2$ avec Newton. Calculer $u_1,u_2$ exactement.
+\item Construire un encadrement avec $u_2$ et sa largeur.
+\item Comparer la preuve d'arrêt à une simple règle $|u_{n+1}-u_n|<\varepsilon$.
+\end{enumerate}
+
+\section*{Problème S7 -- Une droite comme prédicteur}
+
+Pour les données $(0,1),(1,2),(2,2)$, on cherche un modèle affine.
+\begin{enumerate}
+\item Établir les équations normales par orthogonalité.
+\item Résoudre et calculer l'erreur quadratique totale.
+\item Comparer au meilleur modèle constant.
+\item Prouver que la moyenne des valeurs prédites égale celle des observations.
+\end{enumerate}
+
+\section*{Problème S8 -- Un algorithme de moyenne et sa limite}
+
+Deux quantités suivent
+$x_{n+1}=(3x_n+y_n)/4$ et $y_{n+1}=(x_n+3y_n)/4$.
+\begin{enumerate}
+\item Étudier $s_n=x_n+y_n$ et $d_n=x_n-y_n$.
+\item En déduire des formules explicites et les limites.
+\item Interpréter la limite comme projection dans $\R^2$.
+\item Pour $(x_0,y_0)=(10,2)$, déterminer un rang garantissant que les
+deux composantes diffèrent de leur limite d'au plus $0{,}01$.
+\end{enumerate}

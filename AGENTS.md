@@ -14,9 +14,13 @@
 
 - Construire une collection de la troisième à la terminale, exhaustive par
   rapport au programme et au parcours explicitement annoncés.
-- L'objectif final est un niveau permettant d'étudier les mathématiques universitaires.
+- L'objectif final est un niveau master de mathématiques, construit progressivement
+  après la terminale par des volumes de licence puis de master.
   Renforcer progressivement la précision des définitions, la rédaction de preuves,
   les contre-exemples et l'autonomie ; signaler clairement les compléments hors programme.
+- Expliquer dans chaque chapitre l'utilité présente des outils et leur réemploi
+  ultérieur, avec des exemples précis et des dépendances explicites. Ne pas confondre
+  une introduction à un objet avancé avec sa maîtrise au niveau universitaire.
 - Vérifier les textes officiels applicables avant de rédiger un nouveau niveau.
   Recenser toutes les notions dans une table de couverture avec leurs chapitres.
 - Écrire comme un professeur pédagogue : objectifs, prérequis, définitions

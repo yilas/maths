@@ -1,0 +1,79 @@
+\documentclass[../cours_1re.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{9}
+\chapter{Dérivées, variations et extrémums}
+\label{ch:10}
+\begin{objectif}
+Relier le signe d'une dérivée aux variations ; traiter les extrémums et les symétries. Les preuves par Rolle et accroissements finis sont des approfondissements explicitant les résultats admis au lycée.
+\end{objectif}
+\section{Parité et symétries}
+Sur un domaine symétrique par rapport à zéro, $f$ est paire si $f(-x)=f(x)$, impaire si $f(-x)=-f(x)$.
+Dans le premier cas, $(x;f(x))$ et $(-x;f(x))$ sont symétriques par rapport à l'axe des ordonnées ; dans le second, $(x;f(x))$ et $(-x;-f(x))$ sont symétriques par rapport à l'origine.
+Les fonctions $x^2$ et $\cos x$ sont paires ; $x^3$ et $\sin x$ sont impaires. Le statut trigonométrique sera justifié au chapitre 14.
+\begin{demonstration}[Complément]
+Si $f$ est paire et dérivable, dériver $f(-x)=f(x)$ donne $-f'(-x)=f'(x)$ : sa dérivée est impaire. Si $f$ est impaire, le même calcul donne une dérivée paire.
+\end{demonstration}
+\section{Un extremum intérieur impose une dérivée nulle}
+\begin{theoreme}[Condition nécessaire]
+Si $f$ est dérivable en un point intérieur $a$ où elle possède un maximum ou minimum local, alors $f'(a)=0$.
+\end{theoreme}
+\begin{demonstration}
+Pour un maximum, $f(a+h)-f(a)\le0$ lorsque $h$ est assez petit. Le taux est donc négatif ou nul pour $h>0$, positif ou nul pour $h<0$. Sa limite commune doit être à la fois $\le0$ et $\ge0$, donc nulle. Pour un minimum, les signes s'inversent et donnent la même conclusion.
+\end{demonstration}
+$f'(a)=0$ n'est pas suffisant : $x^3$ a une dérivée nulle en zéro mais change de valeurs croissantes de part et d'autre. Une borne du domaine demande un examen séparé : $f(x)=x$ sur $[0;1]$ atteint ses extrema aux bornes sans dérivée nulle.
+\section{Pourquoi le signe de la dérivée contrôle les variations}
+\begin{theoreme}
+Sur un intervalle $I$, pour $f$ dérivable :
+\begin{itemize}
+\item $f'\ge0$ sur $I$ si et seulement si $f$ est croissante ;
+\item $f'\le0$ sur $I$ si et seulement si $f$ est décroissante ;
+\item $f'=0$ sur $I$ si et seulement si $f$ est constante.
+\end{itemize}
+Si $f'>0$ partout, $f$ est strictement croissante ; la réciproque est fausse.
+\end{theoreme}
+Pour justifier le sens global, on établit deux résultats d'analyse. Leur seul fondement supplémentaire est qu'une fonction continue sur un segment atteint ses bornes ; ce résultat est démontré au chapitre 25 à partir de la complétude des réels.
+\begin{demonstration}[Rolle]
+Si $f$ est continue sur $[a;b]$, dérivable sur $]a;b[$ et $f(a)=f(b)$, elle atteint minimum et maximum. Si elle est constante, toute dérivée intérieure est nulle. Sinon, l'une de ses deux valeurs extrêmes diffère de la valeur commune aux bornes : elle est atteinte à l'intérieur. La condition nécessaire précédente donne $f'(c)=0$ pour un $c\in]a;b[$.
+\end{demonstration}
+\begin{demonstration}[Accroissements finis]
+Appliquer Rolle à
+$g(x)=f(x)-f(a)-[(f(b)-f(a))/(b-a)](x-a)$.
+Comme $g(a)=g(b)=0$, il existe $c\in]a;b[$ tel que
+\[
+f(b)-f(a)=f'(c)(b-a).
+\]
+Si $f'\ge0$ et $b>a$, la différence est donc positive ou nulle. Si $f'>0$, elle est strictement positive. Si $f'=0$, elle est nulle pour tous $a,b$ : $f$ est constante.
+\end{demonstration}
+Réciproquement, pour une fonction croissante, chaque taux de variation au voisinage d'un point intérieur est positif ou nul, même avec $h<0$ ; sa limite est donc $\ge0$. Une constante a une dérivée nulle.
+\begin{attention}
+Le mot « intervalle » compte. Sur $\R\setminus\{0\}$, la fonction égale à $-1$ à gauche de zéro et à $1$ à droite a une dérivée nulle partout sur son domaine, sans être globalement constante.
+\end{attention}
+\section{Construire un tableau de variations}
+\begin{methode}
+Déterminer domaine et dérivabilité ; calculer la dérivée ; factoriser ou étudier son signe ; indiquer les points critiques, les valeurs et les bornes ; rédiger les conclusions.
+\end{methode}
+\begin{exemple}
+$f(x)=x^3-3x$ a pour dérivée $3(x-1)(x+1)$.
+Elle croît sur $]-\infty;-1]$, décroît sur $[-1;1]$, croît sur $[1;+\infty[$.
+Elle possède un maximum local $f(-1)=2$ et un minimum local $f(1)=-2$.
+Sur $[-2;2]$, les valeurs aux bornes sont $-2$ et $2$ : le maximum global $2$ est atteint en $-1$ et $2$, le minimum global $-2$ en $-2$ et $1$.
+\end{exemple}
+\begin{center}\begin{tabular}{c|ccccccc}
+$x$&$-2$&&$-1$&&$1$&&$2$\\\hline
+$f'$&&$+$&$0$&$-$&$0$&$+$&\\
+$f$&$-2$&$\nearrow$&$2$&$\searrow$&$-2$&$\nearrow$&$2$
+\end{tabular}\end{center}
+\section{Retrouver le sommet d'une parabole}
+Pour $f(x)=ax^2+bx+c$, $f'(x)=2ax+b=2a(x-\alpha)$ avec $\alpha=-b/(2a)$.
+Le signe de cette expression donne exactement les variations obtenues par complétion du carré au chapitre 3. Les deux méthodes se contrôlent mutuellement.
+
+\begin{finchapitre}
+\section{Utilité et prolongements}
+La dérivée permet de passer d'une information locale à un ordre global. L'intervalle et la régularité sont les hypothèses qui autorisent ce passage.
+
+En licence, Rolle et les accroissements finis servent à contrôler les erreurs et à prouver l'unicité de solutions. En master, leur rôle est repris par des estimations différentielles et des inégalités sur des normes. La conclusion $|f(b)-f(a)|\le M|b-a|$ lorsque $|f'|\le M$ est déjà une telle estimation.
+\begin{retenir}
+Un point où la dérivée s'annule est un candidat, pas automatiquement un extremum. Pour un optimum global, comparer aussi les bornes et vérifier l'existence d'une valeur atteinte.
+\end{retenir}
+\end{finchapitre}
+\end{document}

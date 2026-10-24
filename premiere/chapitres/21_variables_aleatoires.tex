@@ -1,0 +1,106 @@
+\documentclass[../cours_1re.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{20}
+\chapter{Variables aléatoires et espérance}
+\label{ch:21}
+\begin{objectif}
+Définir une variable aléatoire sur un univers fini, déterminer sa loi et démontrer la linéarité de l'espérance.
+Prérequis : probabilités finies, sommes et fonctions.
+\end{objectif}
+\section{Une fonction dont l'entrée est aléatoire}
+\begin{definition}
+Une variable aléatoire réelle $X$ sur un univers fini $\Omega$ est une fonction
+$X:\Omega\to\R$. Sa loi donne les valeurs distinctes $x_1,\ldots,x_r$
+et les probabilités $p_i=P(X=x_i)$.
+\end{definition}
+L'événement $\{X=x_i\}$ est l'ensemble des issues $\omega$ telles que
+$X(\omega)=x_i$. Ces événements partitionnent $\Omega$, donc $\sum_ip_i=1$.
+$P(X\le a)$ s'obtient en additionnant les $p_i$ pour lesquels $x_i\le a$.
+Il faut distinguer l'issue $\omega$, sa valeur $X(\omega)$ et la probabilité
+de cette valeur.
+
+\begin{exemple}
+On lance deux dés équilibrés indépendants et $X$ est leur somme.
+Les $36$ couples ordonnés sont équiprobables. Les effectifs des sommes
+$2,3,\ldots,12$ sont $1,2,3,4,5,6,5,4,3,2,1$.
+Donc $P(X=7)=6/36$ et $P(X\ge10)=(3+2+1)/36=1/6$.
+Les onze sommes ne sont pas équiprobables.
+\end{exemple}
+
+\section{Espérance et interprétation}
+\begin{definition}
+$\displaystyle \mathbb E(X)=\sum_i x_iP(X=x_i)$.
+C'est une moyenne pondérée des valeurs possibles.
+\end{definition}
+En regroupant les issues qui donnent la même valeur, on obtient également
+$\mathbb E(X)=\sum_{\omega\in\Omega}X(\omega)p_\omega$.
+Cette seconde forme facilite les démonstrations.
+\begin{propriete}[linéarité]
+Pour des variables $X,Y$ sur un même univers et des réels $a,b$ :
+$\mathbb E(aX+bY)=a\mathbb E(X)+b\mathbb E(Y)$.
+Aucune indépendance n'est nécessaire.
+\end{propriete}
+\begin{demonstration}
+Développer la somme
+$\sum_\omega(aX(\omega)+bY(\omega))p_\omega$ et distribuer les termes
+donne exactement les deux sommes annoncées.
+Une constante $c$ a pour espérance $c\sum_\omega p_\omega=c$.
+\end{demonstration}
+Si $X\le Y$ pour chaque issue de probabilité positive, alors
+$\mathbb E(X)\le\mathbb E(Y)$, car la somme des termes
+$(Y(\omega)-X(\omega))p_\omega$ est positive ou nulle.
+L'espérance se situe donc entre le minimum et le maximum des valeurs possibles.
+Elle n'est pas nécessairement une valeur prise : un dé a une espérance $3{,}5$.
+
+\section{Variables indicatrices}
+La variable $\mathbf1_A$ vaut $1$ sur $A$, $0$ ailleurs.
+Sa loi donne immédiatement $\mathbb E(\mathbf1_A)=P(A)$.
+Pour le nombre $X$ de succès parmi $n$ épreuves de probabilité $p$,
+$X=\mathbf1_{S_1}+\cdots+\mathbf1_{S_n}$, donc
+$\mathbb E(X)=np$. Cette espérance reste vraie même sans indépendance
+si chaque succès a encore la probabilité $p$ ; c'est la loi binomiale,
+et plus tard la formule simple de variance, qui exigent l'indépendance.
+\begin{exemple}
+Pour deux dés, la linéarité donne $\mathbb E(X)=3{,}5+3{,}5=7$,
+sans additionner les onze termes de la loi de la somme.
+\end{exemple}
+
+\section{Jeux et décisions : préciser ce que l'on mesure}
+Un jeu verse $20$ euros avec probabilité $1/10$ et $0$ sinon.
+Si la mise est $m$, le gain net $G$ vaut $20-m$ ou $-m$ ;
+$\mathbb E(G)=2-m$. Il est équitable au sens de l'espérance si $m=2$.
+Cela ne garantit aucun résultat sur une partie ni une absence de risque.
+Le mot « gain » doit préciser s'il inclut le remboursement de la mise.
+
+\section{Transformer une variable}
+Pour toute fonction $f$ définie sur les valeurs de $X$,
+\[
+\mathbb E(f(X))=\sum_i f(x_i)p_i.
+\]
+Pour le démontrer, sommer d'abord sur les issues puis regrouper suivant $X$.
+En général $\mathbb E(f(X))\ne f(\mathbb E(X))$.
+Si $X$ vaut $-1$ ou $1$ avec probabilités égales,
+$\mathbb E(X)=0$, mais $\mathbb E(X^2)=1$.
+L'égalité est garantie pour les fonctions affines par linéarité,
+pas pour un carré ni une exponentielle.
+
+\begin{methode}
+Pour déterminer une loi : définir l'expérience et son univers ; définir la
+variable ; lister ses valeurs distinctes ; calculer chaque probabilité ;
+vérifier leur somme ; seulement ensuite calculer les moments demandés.
+\end{methode}
+
+\begin{finchapitre}
+\section{Utilité et prolongements}
+L'espérance convertit une expérience en une quantité moyenne, mais la
+dispersion demande un second outil : la variance.
+
+En licence, l'espérance sera une intégrale. Sa linéarité restera fondamentale,
+mais les sommes infinies demanderont des conditions de convergence.
+Les indicatrices relieront toujours les fonctions aux événements.
+\begin{retenir}
+Une variable aléatoire est une fonction. La linéarité de l'espérance ne
+demande pas l'indépendance. Une moyenne théorique n'est pas une garantie individuelle.
+\end{retenir}
+\end{finchapitre}
+\end{document}

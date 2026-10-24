@@ -1,0 +1,18 @@
+\chapter{Construire et représenter une suite}
+\section*{Exercice 4.1 -- Définition explicite}
+Les trois valeurs sont $1/2,2/3,6/7$. Pour tout $n\ge0$, $n+1$ et $n+2$ sont positifs et $n+1<n+2$ ; leur quotient est donc strictement entre $0$ et $1$. On peut aussi écrire $u_n=1-1/(n+2)$.
+
+\section*{Exercice 4.2 -- Récurrence et initialisation}
+On obtient $u_1=5$, $u_2=13$, $u_3=29$. Une autre valeur initiale donne en général une autre suite : avec $u_0=0$, le premier terme suivant serait $3$. La relation entre deux termes ne fixe pas le point de départ.
+
+\section*{Exercice 4.3 -- Un motif}
+Le premier carré utilise $4$ allumettes, puis chaque carré ajouté partage un côté et en apporte $3$. Pour $n$ carrés : $4+3(n-1)=3n+1$. Le comptage constitue une preuve pour chaque $n$, pas seulement pour les premiers dessins.
+
+\section*{Exercice 4.4 -- Intervalle stable}
+Le premier terme appartient à $[1,2]$. Si $1\le u_n\le2$, alors $3\le2+u_n\le4$ ; la racine est définie et $\sqrt3\le u_{n+1}\le2$, donc encore dans $[1,2]$. L'initialisation et l'hérédité établissent simultanément l'existence et la borne.
+
+\section*{Exercice 4.5 -- Indices de liste}
+Initialiser \texttt{termes = [2]}, puis répéter $n$ fois \texttt{termes.append(termes[-1]**2 - 1)} et renvoyer la liste. Après $k$ tours, elle contient exactement $u_0,\ldots,u_k$ ; elle contient donc $n+1$ éléments. La vérification de $n\ge0$ entier est un contrat nécessaire.
+
+\section*{Exercice 4.6 -- Graphique trompeur}
+Non. La suite $u_n=n+1+n(n-1)(n-2)(n-3)$ donne les valeurs annoncées aux indices $0,1,2,3$, mais $u_4=5+24=29$. Un nombre fini d'observations ne détermine pas une suite sans hypothèse sur sa définition.

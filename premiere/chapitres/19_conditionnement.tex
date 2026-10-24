@@ -1,0 +1,119 @@
+\documentclass[../cours_1re.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{18}
+\chapter{Conditionnement, indépendance et Bayes}
+\label{ch:19}
+\begin{objectif}
+Distinguer probabilité d'une intersection, conditionnement et indépendance.
+Prérequis : probabilités sur un univers fini, tableaux et arbres de seconde.
+\end{objectif}
+\section{Changer l'univers de référence}
+Sur un univers fini $\Omega$, des poids $p_\omega\ge0$ de somme $1$
+définissent $P(A)=\sum_{\omega\in A}p_\omega$.
+On retrouve $P(\Omega)=1$, $P(\varnothing)=0$ et, pour des événements disjoints,
+$P(A\cup B)=P(A)+P(B)$, car on additionne des termes distincts.
+Décomposer $A\cup B$ en $A\setminus B$, $B\setminus A$ et $A\cap B$
+prouve $P(A\cup B)=P(A)+P(B)-P(A\cap B)$.
+\begin{definition}
+Si $P(A)>0$, la probabilité de $B$ sachant $A$ est
+$P_A(B)=P(B\mid A)=P(A\cap B)/P(A)$.
+\end{definition}
+On renormalise les poids dans $A$ pour que leur somme vaille $1$.
+Ainsi $P(A\cap B)=P(A)P_A(B)$.
+Conditionner n'affirme pas que $A$ cause $B$.
+
+\begin{exemple}
+Dans une population fictive de $200$ personnes, $80$ prennent le bus,
+$50$ viennent de loin et $30$ cumulent ces deux propriétés.
+\begin{center}
+\begin{tabular}{lrrr}
+\toprule & Loin & Pas loin & Total\\\midrule
+Bus &30&50&80\\
+Pas de bus&20&100&120\\\midrule
+Total&50&150&200\\\bottomrule
+\end{tabular}
+\end{center}
+$P(\text{bus}\cap\text{loin})=30/200$,
+$P_{\text{loin}}(\text{bus})=30/50$ et
+$P_{\text{bus}}(\text{loin})=30/80$ : trois dénominateurs, trois questions.
+\end{exemple}
+
+\section{Partitions et probabilités totales}
+\begin{theoreme}
+Si $A_1,\ldots,A_r$ sont deux à deux disjoints, réunis égaux à $\Omega$,
+et de probabilités strictement positives, alors
+\[
+P(B)=\sum_{i=1}^r P(A_i)P_{A_i}(B).
+\]
+\end{theoreme}
+\begin{demonstration}
+Les événements $B\cap A_i$ partitionnent $B$. L'additivité donne
+$P(B)=\sum_iP(B\cap A_i)$, puis on utilise la définition conditionnelle.
+Si un $A_i$ a une probabilité nulle, son intersection avec $B$ a aussi
+une probabilité nulle ; on omet ce terme sans définir $P_{A_i}(B)$.
+\end{demonstration}
+Dans un arbre, les probabilités des branches issues d'un même nœud
+totalisent $1$. Le produit le long d'un chemin donne la probabilité
+de l'intersection ; additionner des chemins disjoints donne celle de leur réunion.
+L'ordre de l'arbre est celui du conditionnement, pas nécessairement un ordre temporel.
+
+\section{Indépendance : une propriété à vérifier}
+\begin{definition}
+$A$ et $B$ sont indépendants si $P(A\cap B)=P(A)P(B)$.
+Lorsque $P(A)>0$, cela équivaut à $P_A(B)=P(B)$.
+\end{definition}
+Cette définition reste valable si l'un des événements est de probabilité nulle.
+Elle est symétrique ; le conditionnement seul ne l'est pas.
+\begin{demonstration}[indépendance des complémentaires]
+Si $A$ et $B$ sont indépendants,
+\[
+P(A\cap\overline B)=P(A)-P(A\cap B)
+=P(A)(1-P(B))=P(A)P(\overline B).
+\]
+On peut échanger les rôles puis remplacer les deux événements par leurs
+complémentaires. Toutes ces paires sont indépendantes.
+\end{demonstration}
+\begin{attention}
+Des événements incompatibles ont une intersection vide. S'ils ont tous deux
+une probabilité positive, ils ne sont pas indépendants :
+$0=P(A\cap B)\ne P(A)P(B)$.
+Des observations apparemment sans lien ne suffisent pas à prouver une indépendance.
+\end{attention}
+
+\section{Inverser un conditionnement : formule de Bayes}
+\approfondissement
+Si $P(A)>0$ et $P(B)>0$, la même intersection calculée de deux façons donne
+\[
+P_B(A)=\frac{P(A)P_A(B)}{P(B)}.
+\]
+Avec une partition, remplacer le dénominateur par la formule totale.
+\begin{exemple}[modèle fictif de contrôle]
+Une pièce est défectueuse avec probabilité $0{,}01$. Un contrôle est positif
+avec probabilité $0{,}9$ sur une pièce défectueuse et $0{,}05$ sur une pièce
+non défectueuse. Ces nombres sont inventés pour le calcul.
+En notant $D$ le défaut et $+$ le résultat positif :
+\[
+P(+)=0{,}01\times0{,}9+0{,}99\times0{,}05=0{,}0585,
+\qquad
+P_+(D)=\frac{0{,}009}{0{,}0585}=\frac2{13}\simeq15{,}38\%.
+\]
+Sur $20\,000$ pièces suivant exactement ces proportions, on attend
+$180$ positifs défectueux et $990$ positifs non défectueux.
+Le faible taux initial de défaut explique le résultat.
+\end{exemple}
+
+\begin{finchapitre}
+\section{Utilité et prolongements}
+Le conditionnement organise les informations disponibles et les arbres
+permettent de décomposer une situation complexe.
+
+Bayes intervient en inférence statistique ; l'espérance conditionnelle du
+chapitre 28 remplacera un événement par une quantité à prédire.
+Les processus stochastiques de licence et de master décriront l'évolution
+de ces informations au cours du temps.
+\begin{retenir}
+Toujours identifier l'univers de référence. Une indépendance est une
+égalité, une partition une décomposition, et un conditionnement nécessite un dénominateur non nul.
+\end{retenir}
+\end{finchapitre}
+\end{document}

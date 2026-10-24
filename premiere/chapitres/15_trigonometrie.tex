@@ -1,0 +1,123 @@
+\documentclass[../cours_1re.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{14}
+\chapter{Identités et fonctions trigonométriques}
+\label{ch:15}
+\begin{objectif}
+Approfondissement hors du noyau du programme : passer du cercle aux identités, puis aux fonctions périodiques. Prérequis : chapitre 14 ; le produit scalaire du chapitre 16 pour la première preuve.
+\end{objectif}
+\section{Des angles aux identités}
+Les identités suivantes sont utiles, mais ne remplacent pas le dessin du cercle.
+Pour tous réels $a,b$,
+\[
+\cos(a-b)=\cos a\cos b+\sin a\sin b,\qquad
+\sin(a+b)=\sin a\cos b+\cos a\sin b.
+\]
+\begin{demonstration}
+Les vecteurs unitaires faisant les angles $a$ et $b$ ont pour coordonnées
+$(\cos a,\sin a)$ et $(\cos b,\sin b)$. Leur produit scalaire vaut à la fois
+$\cos(a-b)$ et $\cos a\cos b+\sin a\sin b$ (chapitre 16, dont la preuve ne suppose
+aucune formule d'addition). Remplacer $b$ par $-b$ donne
+$\cos(a+b)=\cos a\cos b-\sin a\sin b$.
+Enfin $\sin t=\cos(\pi/2-t)$ et les angles associés du chapitre 14 donnent
+la formule du sinus. Les preuves sont donc indépendantes de la dérivation du sinus.
+\end{demonstration}
+On obtient également $\sin(a-b)=\sin a\cos b-\cos a\sin b$.
+Avec $a=b=x$ :
+\[
+\sin(2x)=2\sin x\cos x,\qquad
+\cos(2x)=\cos^2x-\sin^2x=1-2\sin^2x=2\cos^2x-1.
+\]
+Ces égalités donnent $\sin^2x=(1-\cos2x)/2$ et
+$\cos^2x=(1+\cos2x)/2$. Pour transformer un produit en somme, ajouter
+les formules de $\cos(a-b)$ et $\cos(a+b)$ :
+\[
+2\cos a\cos b=\cos(a-b)+\cos(a+b).
+\]
+\begin{exemple}
+$\cos(\pi/12)=\cos(\pi/4-\pi/6)=(\sqrt6+\sqrt2)/4$.
+La valeur est positive car l'angle est dans le premier quadrant.
+\end{exemple}
+
+\section{Pourquoi le radian est indispensable à la dérivation}
+Pour $0<h<\pi/2$, la comparaison des aires du triangle inscrit,
+du secteur d'angle $h$ et du triangle tangent au cercle unité donne
+\[
+\tfrac12\sin h<\tfrac12h<\tfrac12\tan h,\qquad
+\cos h<\frac{\sin h}{h}<1.
+\]
+Ici l'aire du secteur est $h/2$, par proportionnalité à l'angle :
+un disque d'aire $\pi$ correspond à $2\pi$ radians. On utilise ce résultat
+géométrique d'aire, qui peut être construit par approximation polygonale.
+Comme $0\le1-\cos h=2\sin^2(h/2)\le h^2/2$,
+$\cos h\to1$. L'encadrement, puis la parité, donnent
+\[
+\lim_{h\to0}\frac{\sin h}{h}=1,\qquad
+\lim_{h\to0}\frac{\cos h-1}{h}=0.
+\]
+Les bornes sur $\sin h$ utilisées ici se prolongent aux petits $h$ négatifs
+par imparité. Elles prouvent aussi la continuité des fonctions trigonométriques,
+en utilisant les formules d'addition.
+\begin{demonstration}[dérivées]
+La formule d'addition donne
+\[
+\frac{\sin(x+h)-\sin x}{h}
+=\sin x\,\frac{\cos h-1}{h}+\cos x\,\frac{\sin h}{h}\longrightarrow\cos x.
+\]
+Le même calcul donne $(\cos x)'=-\sin x$. Pour $\cos x\ne0$,
+la règle du quotient donne $(\tan x)'=1/\cos^2x$.
+\end{demonstration}
+\begin{attention}
+Ces formules supposent des angles en radians. Pour $g(t)=\sin(\pi t/180)$,
+où $t$ est une mesure en degrés, $g'(t)=(\pi/180)\cos(\pi t/180)$.
+\end{attention}
+
+\section{Lire et construire des oscillations}
+Sur $[0,2\pi]$, le sinus croît sur $[0,\pi/2]$, décroît sur
+$[\pi/2,3\pi/2]$, puis croît ; c'est le signe du cosinus qui le prouve.
+La périodicité prolonge cette description à $\R$.
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[width=.92\linewidth,height=5cm,axis lines=middle,
+xmin=0,xmax=6.6,ymin=-1.25,ymax=1.25,
+xtick={0,1.5708,3.1416,4.7124,6.2832},
+xticklabels={$0$,$\pi/2$,$\pi$,$3\pi/2$,$2\pi$},ytick={-1,1},
+legend style={at={(.98,.98)},anchor=north east}]
+\addplot[accent,thick,domain=0:6.2832,samples=150]{sin(deg(x))};
+\addlegendentry{$\sin x$}
+\addplot[black,dashed,domain=0:6.2832,samples=150]{cos(deg(x))};
+\addlegendentry{$\cos x$}
+\end{axis}
+\end{tikzpicture}
+\end{center}
+Une oscillation $A\cos(\omega t+\varphi)$, avec $A>0$ et $\omega>0$,
+a pour amplitude $A$ et période $T=2\pi/\omega$ : augmenter $t$ de $T$
+ajoute $2\pi$ à l'angle. Sa dérivée seconde vaut $-\omega^2$ fois la fonction.
+Elle résout donc $y''+\omega^2y=0$, modèle idéal d'un ressort sans frottement.
+
+\section{Rotation et conservation des longueurs}
+L'application
+\[
+(x,y)\longmapsto(x\cos\theta-y\sin\theta,\ x\sin\theta+y\cos\theta)
+\]
+fait tourner les vecteurs d'angle $\theta$. Pour un vecteur de longueur $r$
+et d'angle $a$, les formules d'addition transforment ses coordonnées en
+$(r\cos(a+\theta),r\sin(a+\theta))$ ; le vecteur nul est fixe.
+En développant la somme des carrés des coordonnées, les termes croisés
+s'annulent : la longueur est conservée. Composer deux rotations revient
+à additionner les angles. La rotation inverse est celle d'angle $-\theta$.
+
+\begin{finchapitre}
+\section{Utilité et prolongements}
+Les sinus et cosinus décrivent des positions et des vitesses périodiques.
+Les produits transformés en sommes serviront au calcul d'intégrales.
+
+En licence, les nombres complexes écrivent la rotation comme une multiplication.
+Les séries de Fourier décomposent ensuite un signal en oscillations ; leur convergence
+demande des outils d'analyse supplémentaires, et ne découle pas d'un simple dessin.
+\begin{retenir}
+Les identités viennent de la géométrie du cercle. Le radian rend
+$(\sin x)'=\cos x$. Une périodicité se prouve par une égalité pour tout $x$.
+\end{retenir}
+\end{finchapitre}
+\end{document}

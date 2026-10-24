@@ -1,0 +1,18 @@
+\chapter{Épreuves répétées et dénombrement}
+\section*{Exercice 20.1 -- Trois épreuves}
+Les chemins sont SSE, SES et ESS, chacun de probabilité $(1/4)^2(3/4)=3/64$. Comme ils sont disjoints, la probabilité totale vaut $9/64$.
+
+\section*{Exercice 20.2 -- Au moins une réussite}
+L'événement contraire est l'échec des quatre essais, de probabilité $0{,}8^4=0{,}4096$. La probabilité cherchée vaut $1-0{,}4096=0{,}5904$. Additionner simplement quatre fois $0{,}2$ compterait plusieurs fois certains cas.
+
+\section*{Exercice 20.3 -- Dénombrement}
+Choisir les deux positions dans l'ordre donne $5\times4=20$ possibilités. Chaque paire est comptée deux fois, une par ordre, donc $20/2=10$. Cela correspond à $\binom52=5!/(2!3!)$.
+
+\section*{Exercice 20.4 -- Sans remise}
+La probabilité du chemin rouge puis rouge vaut $(2/3)(1/2)=1/3$. Par symétrie des positions, $P(R_2)=2/3$, donc le produit des probabilités marginales vaut $4/9\ne1/3$. Les tirages ne sont pas indépendants.
+
+\section*{Exercice 20.5 -- Indépendance deux à deux}
+Chaque événement contient deux des quatre couples. Chaque intersection de deux en contient un, donc vaut $1/4=(1/2)^2$. Mais A et B imposent $(1,1)$, exclu de C : l'intersection triple est vide, au lieu d'avoir probabilité $1/8$.
+
+\section*{Exercice 20.6 -- Marche aléatoire}
+Si $X$ compte les pas positifs, la position est $2X-4$. L'origine correspond à $X=2$, de probabilité $\binom42/16=6/16=3/8$. La position $2$ correspond à $X=3$, de probabilité $\binom43/16=1/4$.

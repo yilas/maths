@@ -1,0 +1,130 @@
+\documentclass[../cours_1re.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{23}
+\chapter{Algorithmique, listes et calcul fiable}
+\label{ch:24}
+\begin{objectif}
+Écrire, lire et vérifier des programmes courts. Prérequis : variables, tests, boucles et fonctions de seconde.
+Les fichiers exécutables et leurs vérifications se trouvent dans \texttt{premiere/python/}.
+\end{objectif}
+\section{Données, fonctions et contrats}
+Les types usuels sont \texttt{int}, \texttt{float}, \texttt{bool} et \texttt{str}.
+L'affectation \texttt{x = x + 1} modifie une valeur ; ce n'est pas une équation.
+Une fonction documente ses entrées, sa sortie et ses conditions :
+par exemple la factorielle exige un entier $n\ge0$.
+\begin{lstlisting}[language=Python]
+def factorielle(n):
+    if type(n) is not int or n < 0:
+        raise ValueError("entier positif ou nul attendu")
+    produit = 1
+    for k in range(1, n + 1):
+        produit *= k
+    return produit
+\end{lstlisting}
+Après l'étape $k$, \texttt{produit} vaut $k!$ : c'est un invariant.
+L'initialisation correspond à $0!=1$ ; la multiplication maintient l'invariant.
+La boucle possède un nombre fini d'étapes, donc termine.
+Un test sur $5!$ détecte certaines erreurs ; l'invariant prouve tous les cas admissibles.
+
+\section{Listes : ordre, indices et modifications}
+\begin{lstlisting}[language=Python]
+termes = [2, 5, 8]             # liste en extension
+termes.append(11)              # ajoute a la fin
+premier = termes[0]            # indices a partir de zero
+dernier = termes[-1]
+termes[1] = 6                 # remplace un element
+del termes[1]                 # supprime l'element d'indice 1
+retire = termes.pop()         # retire et renvoie le dernier
+carres = [k*k for k in range(6)]
+somme = 0
+for valeur in carres:
+    somme += valeur
+\end{lstlisting}
+Après ces instructions, \texttt{termes} vaut \texttt{[2, 8]} et
+\texttt{carres} vaut \texttt{[0, 1, 4, 9, 16, 25]}. Une liste accepte
+les répétitions et conserve un ordre. Une liste de $n$ éléments a ses indices
+positifs de $0$ à $n-1$ ; l'indice $n$ provoque une erreur.
+\texttt{b = a} désigne la même liste que \texttt{a}.
+Pour une liste simple de nombres, \texttt{b = a.copy()} crée une copie indépendante.
+Une copie superficielle ne copie pas récursivement les sous-listes.
+
+\section{Récurrences, seuils et arrêt}
+Pour Fibonacci, initialiser $(a,b)=(0,1)$, enregistrer $a$, puis faire
+\texttt{a, b = b, a + b}. Avant l'itération $k$, les valeurs sont
+$(F_k,F_{k+1})$. L'affectation simultanée évite de perdre l'ancienne valeur.
+Pour une suite à seuil, préciser si l'on cherche $u_n>T$ ou $u_n\ge T$.
+Si l'existence du seuil n'est pas prouvée, fixer un nombre maximal d'itérations
+et signaler explicitement son dépassement.
+
+La suite de Syracuse part d'un entier positif : on divise un terme pair
+par $2$ et on remplace un terme impair $u$ par $3u+1$.
+Le programme joint s'arrête à $1$ ou à une borne choisie.
+Il ne suppose pas résolue la conjecture d'arrêt pour tout entier initial.
+Le calcul entier \texttt{u // 2} évite ici une conversion inutile en flottant.
+
+\section{Les algorithmes d'analyse et de géométrie}
+Pour approcher une dérivée en $a$, construire la liste des
+$(f(a+h)-f(a))/h$ pour plusieurs $h\ne0$. Pour $f(x)=x^2$,
+la valeur exacte est $2a+h$ : cet exemple permet de contrôler le code.
+Des $h$ extrêmement petits peuvent aggraver l'erreur d'arrondi par soustraction.
+
+Euler met à jour \texttt{y = y + h * f(t, y)}, puis le temps.
+Newton met à jour \texttt{x = x - f(x) / df(x)} seulement si le dénominateur
+n'est pas nul. Une petite différence entre itérés ne garantit une erreur
+petite que si une estimation mathématique la justifie (chapitre 29).
+
+Pour Archimède, partir de l'hexagone inscrit au cercle unité : $n=6$, $s=1$.
+Les demi-périmètres inscrit et circonscrit encadrent $\pi$ :
+\[
+L=\frac{ns}{2}<\pi<\frac{ns}{2\sqrt{1-s^2/4}}=U.
+\]
+Le passage au double du nombre de côtés utilise
+$s_{\rm nouveau}=s/\sqrt{2+\sqrt{4-s^2}}$ (chapitre 14).
+Cette forme évite la soustraction de nombres voisins.
+L'encadrement est exact en arithmétique réelle ; des flottants ordinaires
+ne constituent pas un encadrement certifié pour un nombre arbitraire d'itérations.
+
+\section{Simuler et traiter des données}
+Pour une loi finie de probabilités $(p_1,\ldots,p_r)$, cumuler ces probabilités
+et comparer un uniforme $U$ aux cumuls : le $i$-ième intervalle a une longueur
+$p_i$, donc sélectionne la valeur $x_i$ avec cette probabilité dans le modèle.
+Utiliser ensuite des compréhensions de listes pour former des échantillons,
+des moyennes et la proportion demandée au chapitre 23.
+
+Pour étudier la fréquence des lettres, le module normalise les accents,
+retient les lettres de \texttt{a} à \texttt{z}, puis utilise une liste de
+26 effectifs. Diviser par le nombre de lettres retenues donne les fréquences.
+Deux courtes phrases françaises et anglaises sont fournies comme données
+d'exercice. Elles permettent de vérifier le programme ; elles ne suffisent
+pas à établir la distribution des lettres d'une langue.
+
+Dans un tableur, une suite $u_{n+1}=0{,}8u_n+30$ peut être placée en colonne B :
+indice $0$ en A2, $u_0$ en B2, puis \texttt{=A2+1} en A3 et
+\texttt{=0.8*B2+30} en B3 (adapter la virgule décimale à la configuration).
+Recopier vers le bas ; un paramètre fixe placé en D1 s'utilise avec
+\texttt{\$D\$1}. Pour une suite, choisir un nuage de points : l'indice
+est une abscisse numérique, pas une catégorie arbitrairement espacée.
+
+\begin{finchapitre}
+\section{Tester et discuter la fiabilité}
+Le script de vérification contrôle des valeurs exactes, les entrées invalides,
+des identités de récurrence, les bornes de Newton et l'évolution de l'erreur
+d'Euler. Les simulations ont des graines fixes et sont comparées à des bornes
+raisonnables, sans exiger une fréquence théorique exacte.
+Séparer erreur de modèle, erreur de discrétisation, fluctuation aléatoire
+et erreur d'arrondi aide à corriger la bonne cause.
+
+
+\section{Utilité et prolongements}
+Un algorithme rend une définition calculable. Le contrat, l'invariant et
+la preuve d'arrêt en établissent la signification ; les tests contrôlent l'implémentation.
+
+En licence puis en master, analyse numérique, probabilités et optimisation
+associeront systématiquement méthode de calcul, démonstration de convergence
+et estimation de l'erreur. Les listes préparent les vecteurs de données.
+\begin{retenir}
+Préciser les indices, vérifier les conditions et borner les boucles incertaines.
+Calculer plus longtemps ou avec des nombres plus petits ne garantit pas une meilleure précision.
+\end{retenir}
+\end{finchapitre}
+\end{document}

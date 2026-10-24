@@ -1,0 +1,120 @@
+\documentclass[../cours_1re.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{28}
+\chapter{Complément : convergence des algorithmes}
+\label{ch:29}
+\begin{objectif}
+Complément : relier une itération à sa convergence, à sa vitesse et à ses erreurs.
+Prérequis : suites, dérivation, exponentielle et complétude du chapitre 25.
+\end{objectif}
+\section{Une contraction possède un point fixe}
+Soit $I$ un intervalle fermé non vide, $f(I)\subset I$ et $0\le q<1$ tels que
+$|f(x)-f(y)|\le q|x-y|$ pour tous $x,y\in I$.
+La suite $u_{n+1}=f(u_n)$, $u_0\in I$, reste dans $I$.
+Par récurrence, $|u_{n+1}-u_n|\le q^n|u_1-u_0|$.
+Pour $m>n$, l'inégalité triangulaire et la somme géométrique donnent
+\[
+|u_m-u_n|\le\frac{q^n}{1-q}|u_1-u_0|.
+\]
+La suite est de Cauchy, donc converge vers $\ell\in I$.
+La condition lipschitzienne implique la continuité, donc $f(\ell)=\ell$.
+Deux points fixes $\ell,\ell'$ vérifieraient
+$|\ell-\ell'|\le q|\ell-\ell'|$ ; puisque $q<1$, ils sont égaux.
+En passant à la limite dans la borne précédente :
+\[
+|u_n-\ell|\le\frac{q^n}{1-q}|u_1-u_0|.
+\]
+Après avoir calculé $u_n$ pour $n\ge1$, on dispose aussi de
+$|u_n-\ell|\le q|u_n-u_{n-1}|/(1-q)$.
+Pour $q=0$, la fonction est constante et la solution est atteinte dès le
+premier pas ; les formules s'interprètent directement, sans ambiguïté de $0^0$.
+
+Si $f$ est dérivable sur $I$ et $|f'|\le q$, le théorème des accroissements
+finis prouve la condition de contraction. Vérifier aussi $f(I)\subset I$ :
+une dérivée petite ne suffit pas si les itérés quittent le domaine.
+
+\section{Newton : une vitesse quadratique, sous conditions}
+Pour la racine $r=\sqrt A$, $A>0$, Newton donne
+$u_{n+1}=(u_n+A/u_n)/2$. Si $u_0>0$, $u_1\ge r$ puisque
+$u_1-r=(u_0-r)^2/(2u_0)\ge0$.
+Ensuite $u_n\ge r$, $u_{n+1}\le u_n$ et la limite est $r$
+(chapitre 11). L'erreur vérifie exactement
+\[
+0\le u_{n+1}-r=\frac{(u_n-r)^2}{2u_n}
+\le\frac{(u_n-r)^2}{2r}.
+\]
+L'erreur est donc essentiellement mise au carré à chaque étape près de la solution.
+L'intervalle $[A/u_n,u_n]$ contient $r$ et fournit un arrêt justifié.
+Cette garantie porte sur les valeurs mathématiques exactes. Avec des flottants,
+il faut tenir compte des arrondis pour obtenir un encadrement numériquement certifié.
+Pour une fonction générale, des hypothèses locales supplémentaires sont
+nécessaires ; l'exemple cyclique du chapitre 11 interdit d'annoncer
+une convergence universelle de Newton.
+
+\section{Euler : de l'erreur locale à l'erreur globale}
+Approchons $y'=y$, $y(0)=1$, sur $[0,T]$, $T>0$, avec $h=T/n$.
+Les valeurs d'Euler sont $Y_k=(1+h)^k$.
+La formule de Taylor avec reste du chapitre 11 donne
+\[
+e^{(k+1)h}=e^{kh}+he^{kh}+r_k,\qquad
+0\le r_k\le\tfrac12e^Th^2.
+\]
+En posant $d_k=e^{kh}-Y_k$, on a
+$d_{k+1}=(1+h)d_k+r_k$ et $d_0=0$.
+En déroulant la récurrence :
+\[
+0\le d_n\le\tfrac12e^Th^2\sum_{j=0}^{n-1}(1+h)^j
+=\tfrac12e^Th\big((1+h)^n-1\big)
+\le\tfrac12e^T(e^T-1)h.
+\]
+La dernière inégalité vient de $1+h\le e^h$.
+L'erreur globale est donc au plus une constante fois $h$ :
+Euler converge avec un ordre au moins un dans cet exemple.
+L'erreur locale est en $h^2$, mais il y a environ $T/h$ étapes.
+On retrouve $(1+1/n)^n\to e$ pour $T=1$.
+
+\section{Stabilité et choix du pas}
+Pour $y'=-ky$, $k>0$, Euler donne $Y_{j+1}=(1-kh)Y_j$.
+Il tend vers $0$ si $|1-kh|<1$, c'est-à-dire $0<kh<2$.
+Pour $0<kh\le1$, les valeurs positives restent positives.
+Pour $1<kh<2$, elles alternent de signe tout en décroissant en valeur absolue,
+contrairement à la solution exacte positive. Pour $kh>2$, elles divergent
+en valeur absolue. Convergence d'une méthode lorsque $h\to0$ et stabilité
+pour un pas fixé sont deux questions distinctes.
+
+La descente de gradient pour minimiser
+$Q(x)=\frac a2(x-b)^2$, $a>0$, donne
+$x_{n+1}=x_n-\alpha Q'(x_n)$, donc
+$x_{n+1}-b=(1-\alpha a)(x_n-b)$.
+La même analyse donne convergence pour $0<\alpha a<2$.
+Une méthode d'optimisation se comprend ici par une suite géométrique.
+
+\section{Conditionnement et calcul flottant}
+Résoudre $x^2=\varepsilon$ donne $x=\sqrt\varepsilon$ :
+près de $0$, une petite variation absolue du second membre peut être
+fortement amplifiée relativement. C'est une sensibilité du problème.
+À cela peut s'ajouter une instabilité du calcul : dans
+$(-b+\sqrt{b^2-4ac})/(2a)$, soustraire deux grands nombres proches perd
+des chiffres significatifs.
+Lorsque $b\ne0$ et $\Delta>0$, calculer d'abord
+$q=-\frac12(b+\operatorname{sgn}(b)\sqrt\Delta)$, puis les racines
+$q/a$ et $c/q$. La seconde formule vient du produit des racines $c/a$.
+Traiter séparément les cas où ces divisions seraient impossibles.
+Cette réécriture réduit une source d'annulation ; elle ne corrige pas
+la sensibilité intrinsèque de racines presque confondues.
+
+\begin{finchapitre}
+\section{Utilité et prolongements}
+Une formule d'erreur transforme un critère d'arrêt en garantie.
+Les mêmes suites géométriques contrôlent contractions, stabilité d'Euler
+et descente de gradient sur une fonction quadratique.
+
+L'analyse numérique et l'optimisation de master distingueront systématiquement
+existence, convergence, vitesse, conditionnement et coût. Ces questions
+doivent être posées avant de faire confiance à un résultat informatique.
+\begin{retenir}
+Une itération ne converge pas par définition. Prouver la stabilité du domaine,
+établir une estimation d'erreur et distinguer les limites du modèle de celles du calcul.
+\end{retenir}
+\end{finchapitre}
+\end{document}

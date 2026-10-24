@@ -18,7 +18,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--niveau", choices=["troisieme", "seconde"], default="seconde")
+    parser.add_argument("--niveau", choices=["troisieme", "seconde", "premiere"], default="seconde")
     parser.add_argument("--destination", type=Path)
     args = parser.parse_args()
     destination = args.destination or ROOT / "build" / "apercus" / args.niveau
@@ -31,6 +31,15 @@ def main():
         "guide_2de": ["Table de couverture", "Réponses et contrôles"],
         "corriges_2de": ["Un jardin et son coût", "Un diagnostic fictif"],
         "exercices_2de": ["Classes et histogramme"],
+        "cours_1re": ["La formule en coordonnées", "Lire et construire des oscillations",
+                     "Construire une intégrale", "Pourquoi on peut passer à la limite",
+                     "La méthode du milieu", "Euler : de l'erreur locale",
+                     "La fonction exponentielle", "Une mesure signée"],
+        "guide_1re": ["Table de couverture", "Histogramme, bâtons", "Arbre pondéré",
+                     "Réponses et contrôles", "Dépendances et admissions"],
+        "corriges_1re": ["Contrôle et prédiction", "Projection et cercle",
+                        "Approcher une racine", "Variance totale"],
+        "exercices_1re": ["Huit problèmes de synthèse"],
     }
     for pdf in sorted((ROOT / "pdf" / args.niveau).glob("*.pdf")):
         doc = fitz.open(pdf)

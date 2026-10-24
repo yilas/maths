@@ -1,0 +1,78 @@
+\documentclass[../cours_1re.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{3}
+\chapter{Construire et représenter une suite}
+\label{ch:04}
+\begin{objectif}
+Définir une suite sans ambiguïté, calculer ses termes et interpréter ses représentations. Prérequis : fonctions, indices entiers et affectation Python.
+\end{objectif}
+\section{Une fonction dont les entrées sont des entiers}
+\begin{definition}
+Une suite réelle est une fonction définie sur $\N$, ou sur les entiers à partir d'un rang $n_0$, à valeurs dans $\R$. On note $u_n$ ou $u(n)$ son terme de rang $n$, et $(u_n)$ la suite entière.
+\end{definition}
+Une formule explicite donne directement $u_n$ à partir de $n$. Une relation de récurrence donne un terme à partir des précédents et exige des valeurs initiales.
+\begin{exemple}
+$u_n=3n^2-1$ donne $u_0=-1,u_1=2,u_2=11$.
+La suite définie par $v_0=2$, $v_{n+1}=v_n^2-1$ donne $2,3,8,63,\ldots$.
+La formule $v_{n+1}=v_n^2-1$ seule ne suffit pas : avec $v_0=0$, on obtient $0,-1,0,-1,\ldots$.
+\end{exemple}
+\section{Construire tous les termes}
+Une récurrence $u_{n+1}=f(u_n)$ définit une suite tant que chaque terme appartient au domaine de $f$. Si un intervalle $I$ contient $u_0$ et si $f(I)\subseteq I$, tous les termes restent dans $I$ ; on dit que $I$ est stable.
+\begin{demonstration}
+$u_0\in I$. Si $u_n\in I$, la stabilité donne $u_{n+1}=f(u_n)\in I$. On peut donc poursuivre indéfiniment le calcul. Cette justification est une application du principe de récurrence.
+\end{demonstration}
+\begin{exemple}
+Avec $u_0=1$ et $u_{n+1}=\sqrt{2+u_n}$, l'intervalle $[1;2]$ est stable puisque $1\le x\le2$ entraîne $1\le\sqrt{2+x}\le2$. La suite est donc bien définie. En revanche $u_{n+1}=1/u_n$ ne peut pas démarrer avec $u_0=0$.
+\end{exemple}
+\section{Motifs et dénombrements}
+Un motif carré de côté $n$ contient $n^2$ points. Pour passer du carré de côté $n$ à celui de côté $n+1$, on ajoute une ligne et une colonne, puis on évite de compter deux fois leur coin : on ajoute $2n+1$ points. Ainsi $u_n=n^2$ vérifie $u_{n+1}=u_n+2n+1$.
+
+Pour une rangée de $n$ carrés accolés construits avec des allumettes, le premier demande $4$ allumettes et chaque carré suivant en ajoute $3$. Le nombre est $4+3(n-1)=3n+1$ pour $n\ge1$. Décrire le partage des côtés est la preuve du modèle, pas seulement une observation sur les premiers dessins.
+\section{Graphique en points et escalier de récurrence}
+Le graphique d'une suite est formé des points $(n;u_n)$. Relier les points peut aider l'œil, mais ne crée pas des termes de rang non entier.
+Pour $u_{n+1}=f(u_n)$, un autre dessin utilise $y=f(x)$ et $y=x$ : partir de $u_n$ sur l'axe horizontal, monter jusqu'à la courbe, puis rejoindre la diagonale pour reporter $u_{n+1}$ en abscisse.
+\begin{center}
+\begin{tikzpicture}\begin{axis}[width=10cm,height=5.5cm,axis lines=middle,xmin=0,xmax=5,ymin=0,ymax=5,xlabel={$x$},ylabel={$y$},legend pos=north west]
+\addplot[accent,thick,domain=0:5]{.5*x+2};\addlegendentry{$f(x)=x/2+2$}
+\addplot[black,dashed,domain=0:5]{x};\addlegendentry{$y=x$}
+\addplot[black]coordinates{(0,0)(0,2)(2,2)(2,3)(3,3)(3,3.5)(3.5,3.5)(3.5,3.75)(3.75,3.75)};
+\end{axis}\end{tikzpicture}
+\end{center}
+Ici $u_0=0$ conduit à $2,3,3{,}5,\ldots$. Le dessin suggère un rapprochement vers $4$ ; la preuve viendra de $4-u_n=4/2^n$.
+\section{Calculer sans confondre indice et valeur}
+\begin{lstlisting}[language=Python]
+def termes_affines(u0, a, b, n):
+    valeurs = [u0]
+    for k in range(n):
+        valeurs.append(a * valeurs[-1] + b)
+    return valeurs  # n+1 termes, de u_0 a u_n
+\end{lstlisting}
+Après $k$ tours, la liste contient exactement les termes $u_0,\ldots,u_k$. C'est l'invariant de la boucle : l'ajout suivant emploie le dernier terme et applique la récurrence une fois.
+\begin{attention}
+Une affectation remplace une valeur ; ce n'est pas une équation à résoudre. Pour calculer simultanément deux termes, conserver les anciennes valeurs ou utiliser une affectation parallèle.
+\end{attention}
+\begin{finchapitre}
+\section{Fibonacci et Syracuse}
+La suite de Fibonacci est définie par $F_0=0$, $F_1=1$, $F_{n+2}=F_{n+1}+F_n$. Elle exige deux conditions initiales. Les premiers termes sont $0,1,1,2,3,5,8,13$.
+\begin{lstlisting}[language=Python]
+def fibonacci(n):
+    a, b = 0, 1
+    for k in range(n):
+        a, b = b, a + b
+    return a
+\end{lstlisting}
+L'invariant est $(a,b)=(F_k,F_{k+1})$. À la fin, $a=F_n$.
+
+La suite de Syracuse part d'un entier strictement positif ; on divise par $2$ s'il est pair et on calcule $3u+1$ sinon. Partant de $6$, on obtient $6,3,10,5,16,8,4,2,1$.
+Le problème de savoir si tout départ atteint $1$ n'est pas utilisé comme un théorème dans ce cours : nos programmes imposent un nombre maximal d'étapes et distinguent arrêt observé et preuve générale.
+
+
+\section{Utilité et prolongements}
+Une suite décrit un phénomène observé à dates discrètes : capital fictif, population modélisée, état d'un algorithme. Passer du dessin à une relation puis à une formule permet de prévoir et de démontrer.
+
+En algèbre linéaire, Fibonacci s'écrira à l'aide d'une matrice appliquée à $(F_n,F_{n+1})$. En analyse numérique, les approximations successives d'une solution forment une suite ; il faudra prouver sa convergence et contrôler sa vitesse. Les chapitres 6, 7 et 29 développent ces questions.
+\begin{retenir}
+Préciser le rang initial, les valeurs de départ et le domaine. Le calcul des premiers termes sert à explorer ; l'invariant ou une formule générale sert à justifier.
+\end{retenir}
+\end{finchapitre}
+\end{document}

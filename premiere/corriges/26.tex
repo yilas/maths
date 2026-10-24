@@ -1,0 +1,18 @@
+\chapter{Complément : construire exponentielle et logarithme}
+\section*{Exercice 26.1 -- Approximer e}
+Le reste est positif et au plus $2/8!=1/20160$, soit environ $4{,}97\times10^{-5}$. La somme approche donc $e$ par défaut avec cette borne en arithmétique exacte.
+
+\section*{Exercice 26.2 -- Convergence uniforme}
+La limite ponctuelle vaut $0$ pour $x<1$ et $1$ pour $x=1$, donc elle est discontinue. Chaque $f_n$ est continue ; une limite uniforme serait continue, contradiction. Plus directement, le supremum de l'écart sur $[0,1[$ vaut $1$ pour chaque $n$.
+
+\section*{Exercice 26.3 -- Logarithmes}
+Il faut d'abord $x>1$. Sur ce domaine, la somme vaut $\ln(x^2-1)$. L'injectivité du logarithme donne $x^2-1=8$, donc $x=\pm3$. Seule la valeur $3$ satisfait le domaine.
+
+\section*{Exercice 26.4 -- Dérivée d'une inverse}
+Poser $k=\ln(y+h)-\ln y$. La continuité du logarithme donne $k\to0$, et $k\ne0$ pour $h\ne0$. Le taux est $k/h=1/[(e^{x+k}-e^x)/k]$, qui tend vers $e^{-x}=1/y$. L'argument justifie la dérivée de l'inverse sans la supposer d'avance.
+
+\section*{Exercice 26.5 -- Limite d'Euler}
+Prendre $t=1/n$ et multiplier par $n$ donne $n/(n+1)\le n\ln(1+1/n)\le1$. Les deux bornes tendent vers $1$. Par continuité de l'exponentielle, $\exp(n\ln(1+1/n))=(1+1/n)^n$ tend vers $e$.
+
+\section*{Exercice 26.6 -- Logarithme et aire}
+Les deux fonctions de $x$ ont dérivée $1/x$ et valeur $0$ en $1$, donc leur différence est constante nulle. Sur $[1,2]$, $1/t\ge1/2$ et l'inégalité est stricte à l'intérieur ; son intégrale est donc strictement supérieure à $1/2$.

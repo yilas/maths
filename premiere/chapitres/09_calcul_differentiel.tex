@@ -1,0 +1,104 @@
+\documentclass[../cours_1re.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{8}
+\chapter{Calculer et justifier les dérivées}
+\label{ch:09}
+\begin{objectif}
+Établir les règles de dérivation et les appliquer en respectant les domaines. Prérequis : nombre dérivé et continuité impliquée par la dérivabilité.
+\end{objectif}
+\section{Dérivée d'une somme et d'un multiple}
+Si $u,v$ sont dérivables en $a$ et $\lambda$ est réel, alors
+$(u+v)'(a)=u'(a)+v'(a)$ et $(\lambda u)'(a)=\lambda u'(a)$.
+\begin{demonstration}
+Le taux de variation d'une somme est la somme des taux ; celui de $\lambda u$ vaut $\lambda$ fois le taux de $u$. Passer à la limite donne les résultats. Une constante a un taux nul, donc une dérivée nulle.
+\end{demonstration}
+\section{Pourquoi la règle du produit comporte deux termes}
+\begin{theoreme}
+$(uv)'=u'v+uv'$ sur tout intervalle où $u$ et $v$ sont dérivables.
+\end{theoreme}
+\begin{demonstration}
+Ajouter puis retrancher $u(a+h)v(a)$ dans le numérateur :
+\[
+\frac{u(a+h)v(a+h)-u(a)v(a)}h
+=u(a+h)\frac{v(a+h)-v(a)}h
++v(a)\frac{u(a+h)-u(a)}h.
+\]
+La dérivabilité implique $u(a+h)\to u(a)$. Les deux termes tendent respectivement vers $u(a)v'(a)$ et $v(a)u'(a)$.
+\end{demonstration}
+\begin{attention}
+La dérivée d'un produit n'est pas le produit des dérivées. Avec $u=v=x$, on aurait sinon $(x^2)'=1$, alors que la bonne valeur est $2x$.
+\end{attention}
+\section{Inverse et quotient}
+Si $v(a)\ne0$, sa continuité assure que $v(a+h)$ reste non nul pour $h$ assez petit. Alors
+\[
+\frac{1/v(a+h)-1/v(a)}h
+=-\frac{v(a+h)-v(a)}{h\,v(a+h)v(a)}
+\longrightarrow-\frac{v'(a)}{v(a)^2}.
+\]
+Ainsi $(1/v)'=-v'/v^2$ ; le produit $u(1/v)$ donne
+\[
+\left(\frac uv\right)'=\frac{u'v-uv'}{v^2}.
+\]
+Le signe moins résulte de la soustraction des fractions, pas d'une convention arbitraire.
+\begin{exemple}
+Pour $f(x)=(x^2+1)/(x-1)$, $x\ne1$,
+$f'(x)=[2x(x-1)-(x^2+1)]/(x-1)^2=(x^2-2x-1)/(x-1)^2$.
+Le carré du dénominateur est positif sur le domaine ; le signe de la dérivée dépend du numérateur.
+\end{exemple}
+\section{Puissances entières et fonctions usuelles}
+La factorisation du chapitre 2 montre $(x^n)'=nx^{n-1}$ pour $n\ge1$.
+On peut aussi procéder par récurrence en utilisant le produit :
+$(x^{n+1})'=nx^{n-1}x+x^n=(n+1)x^n$.
+Pour $n=-m<0$, écrire $x^n=1/x^m$ et utiliser la règle de l'inverse sur $\R\setminus\{0\}$ :
+$-(mx^{m-1})/x^{2m}=-mx^{-m-1}$.
+Pour $n=0$, la fonction constante $1$ a pour dérivée zéro, sans devoir écrire une expression $0/x$ en zéro.
+\begin{center}\begin{tabular}{lll}\toprule
+Fonction & Dérivée & Domaine de dérivabilité\\\midrule
+$c$ & $0$ & $\R$\\
+$x$ & $1$ & $\R$\\
+$x^2$ & $2x$ & $\R$\\
+$x^3$ & $3x^2$ & $\R$\\
+$1/x$ & $-1/x^2$ & $\R\setminus\{0\}$\\
+$\sqrt x$ & $1/(2\sqrt x)$ & $]0;+\infty[$\\\bottomrule
+\end{tabular}\end{center}
+Chaque ligne est démontrée ici ou au chapitre 8 ; la table sert à retrouver un résultat, pas à remplacer sa justification.
+\section{Composition avec une fonction affine}
+Si $F(x)=f(\alpha x+\beta)$, alors $F'(x)=\alpha f'(\alpha x+\beta)$ aux points appropriés.
+Pour $\alpha\ne0$, poser $k=\alpha h$ dans le taux de variation : on obtient $\alpha$ fois celui de $f$ avec accroissement $k$. Pour $\alpha=0$, $F$ est constante.
+\begin{exemple}
+$[(3x-1)^4]'=12(3x-1)^3$.
+Sur $x>-2$, $[\sqrt{x+2}]'=1/(2\sqrt{x+2})$.
+Pour $1/(2x+5)$, la dérivée est $-2/(2x+5)^2$ et $x=-5/2$ reste interdit.
+\end{exemple}
+\section{Complément : la règle de la chaîne}
+\begin{theoreme}
+Si $u$ est dérivable en $a$ et $f$ dérivable en $u(a)$, alors
+$(f\circ u)'(a)=f'(u(a))u'(a)$.
+\end{theoreme}
+\begin{demonstration}
+Écrire $u(a+h)-u(a)=h(u'(a)+\eta(h))$ avec $\eta(h)\to0$.
+Écrire aussi $f(u(a)+k)-f(u(a))=k(f'(u(a))+\varepsilon(k))$, avec $\varepsilon(k)\to0$ ; définir $\varepsilon(0)=0$ rend l'identité valable même si $k=0$.
+Substituer $k=u(a+h)-u(a)$ puis diviser par $h$. Le produit obtenu tend vers $u'(a)f'(u(a))$. On n'a jamais divisé par $u(a+h)-u(a)$, qui pourrait s'annuler.
+\end{demonstration}
+Cette démonstration générale est un approfondissement. Elle explique notamment
+$(u^n)'=nu^{n-1}u'$ et $[\sqrt u]'=u'/(2\sqrt u)$ lorsque $u>0$.
+\begin{finchapitre}
+\section{Organiser un calcul}
+Pour $F(x)=(x^2+1)\sqrt{x+2}$, le domaine est $[-2;+\infty[$ et la dérivabilité est assurée pour $x>-2$.
+Le produit donne
+\[
+F'(x)=2x\sqrt{x+2}+\frac{x^2+1}{2\sqrt{x+2}}
+=\frac{5x^2+8x+1}{2\sqrt{x+2}}.
+\]
+La première forme explique l'origine du calcul ; la dernière facilite l'étude du signe. Vérifier un résultat en quelques points ne démontre pas la formule, mais peut repérer une erreur.
+
+
+\section{Utilité et prolongements}
+Les règles permettent de transformer un modèle construit par étapes en une dérivée calculable. La règle de la chaîne suit les dépendances entre les étapes.
+
+En optimisation et en apprentissage automatique, la différentiation automatique applique ces règles à un programme. En licence, la chaîne se généralise aux matrices jacobiennes ; en master, elle intervient dans les changements de variables et la dérivation d'applications entre espaces de fonctions. Son mécanisme reste la composition d'approximations linéaires.
+\begin{retenir}
+Établir le domaine, identifier l'opération principale, appliquer la règle, puis simplifier selon l'objectif. Une formule dérivée ne dispense jamais des conditions de dérivabilité.
+\end{retenir}
+\end{finchapitre}
+\end{document}

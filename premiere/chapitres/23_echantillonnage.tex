@@ -1,0 +1,124 @@
+\documentclass[../cours_1re.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{22}
+\chapter{Échantillonnage et simulation}
+\label{ch:23}
+\begin{objectif}
+Simuler une variable, observer la fluctuation de moyennes et justifier l'échelle en $1/\sqrt n$.
+Prérequis : variables aléatoires et variance. Les inégalités probabilistes sont des compléments.
+\end{objectif}
+\section{Échantillon et moyenne}
+Un échantillon de taille $n$ est ici une famille $X_1,\ldots,X_n$ de variables
+indépendantes, de même loi qu'une variable $X$ d'espérance $\mu$ et de
+variance $\sigma^2$. Sa moyenne est $\overline X_n=(X_1+\cdots+X_n)/n$.
+Une réalisation est une liste de nombres ; l'échantillon théorique est une
+famille de variables aléatoires avant l'observation.
+\begin{propriete}
+$\mathbb E(\overline X_n)=\mu$ et
+$\operatorname{Var}(\overline X_n)=\sigma^2/n$.
+L'écart type de la moyenne est $\sigma/\sqrt n$.
+\end{propriete}
+\begin{demonstration}
+La linéarité donne $\mathbb E(\sum_iX_i)/n=n\mu/n=\mu$.
+L'indépendance donne $\operatorname{Var}(\sum_iX_i)=n\sigma^2$.
+Diviser une variable par $n$ divise sa variance par $n^2$, d'où le résultat.
+\end{demonstration}
+Multiplier $n$ par $4$ divise l'écart type par $2$. Multiplier $n$ par $100$
+le divise seulement par $10$. Une dépendance entre observations peut invalider
+ce calcul, car les covariances ne sont plus forcément nulles.
+
+\section{Une garantie démontrable}
+\approfondissement
+Si $Y\ge0$ et $a>0$, on a
+$\mathbb E(Y)\ge aP(Y\ge a)$ : dans la somme définissant l'espérance,
+les issues où $Y\ge a$ contribuent au moins $a$ fois leur probabilité
+et les autres termes sont positifs. C'est l'inégalité de Markov.
+L'appliquer à $Y=(X-\mu)^2$ donne, pour $t>0$,
+\[
+P(|X-\mu|\ge t)\le\frac{\sigma^2}{t^2}.
+\]
+C'est l'inégalité de Bienaymé--Tchebychev. Pour la moyenne :
+\[
+P(|\overline X_n-\mu|\ge\varepsilon)
+\le \frac{\sigma^2}{n\varepsilon^2}.
+\]
+Pour tout $\varepsilon>0$ fixé, cette borne tend vers $0$.
+On vient de démontrer une loi faible des grands nombres dans ce cadre.
+Ce résultat porte sur une probabilité d'écart, pas sur la convergence
+monotone d'une liste de moyennes observées.
+
+\section{L'expérience demandée au programme}
+Fixer une loi, sa moyenne $\mu$, son écart type $\sigma$, une taille $n$
+et un nombre $N$ de répétitions. Simuler $N$ échantillons indépendants,
+calculer leurs moyennes, puis la proportion vérifiant
+\[
+|\overline X_n-\mu|\le\frac{2\sigma}{\sqrt n}.
+\]
+Pour $\sigma>0$, l'inégalité précédente garantit une probabilité au moins
+$3/4$ pour cet événement. Si $\sigma=0$, il se produit avec probabilité $1$.
+La proportion simulée fluctue elle-même autour de cette probabilité.
+
+\begin{attention}
+La valeur d'environ $95\%$ est liée à une approximation normale appropriée,
+pas à une propriété de toutes les lois. Pour $n=1$ et une Bernoulli de paramètre
+$0{,}1$, l'intervalle $\mu\pm2\sigma=[-0{,}5;0{,}7]$ contient seulement
+la valeur $0$ ; la probabilité est donc $0{,}9$.
+Le théorème central limite sera étudié plus tard, avec ses hypothèses.
+\end{attention}
+Le module Python joint reproduit cette expérience, avec une graine indiquée.
+Une graine rend un calcul reproductible ; elle ne prouve pas que le
+générateur fournit une indépendance mathématique parfaite.
+\begin{exemple}[une expérience effectivement exécutée]
+Pour une Bernoulli de paramètre $0{,}3$, $n=100$, $N=2000$ et la graine
+$2026$ du module joint, la proportion observée est $0{,}954$.
+Le seuil est $2\sqrt{0{,}21}/10\simeq0{,}09165$.
+Le résultat décrit cette expérience ; il n'établit pas une loi universelle
+à $95\%$. Modifier $n$, le paramètre ou la graine permet d'étudier la fluctuation.
+\end{exemple}
+
+\section{Méthode de Monte-Carlo : compter pour mesurer}
+Dans le carré unité, on tire un point $(U,V)$ uniformément. La probabilité
+de tomber sous la courbe $v=u^2$ est son aire, qui vaut $1/3$
+(preuve par intégration au chapitre 25).
+La fréquence des réussites estime donc cette aire.
+Pour le quart de disque $u^2+v^2\le1$, l'aire est $\pi/4$ ;
+quatre fois la fréquence estime $\pi$.
+
+Le tirage uniforme continu utilise un modèle au-delà de l'univers fini
+du programme : la probabilité d'une région est définie par son aire.
+L'indicatrice de réussite, elle, suit une Bernoulli. Les calculs sur les
+indicatrices et leurs moyennes restent donc ceux démontrés plus haut.
+Un ordinateur tire sur une grille finie de nombres représentables ;
+l'approximation du modèle continu est une hypothèse de simulation.
+
+Pour une aire $p$, l'écart type de sa fréquence sur $n$ points est
+$\sqrt{p(1-p)/n}\le1/(2\sqrt n)$, car
+$p(1-p)=1/4-(p-1/2)^2\le1/4$.
+Pour l'estimateur de $\pi$, il est au plus $2/\sqrt n$.
+Ces bornes ne sont pas des erreurs maximales certaines.
+
+\begin{finchapitre}
+\section{Lire un résultat numérique}
+Une étude reproductible doit donner la loi, les paramètres, la taille,
+le nombre de répétitions et la graine. Comparer une erreur observée à une
+dispersion théorique, puis refaire plusieurs répétitions.
+Un seul résultat proche de la valeur exacte ne mesure pas la précision d'une méthode.
+Un histogramme de moyennes peut révéler leur concentration, mais l'aire des
+rectangles, et non leur hauteur seule lorsque les classes sont inégales,
+représente les fréquences.
+
+
+\section{Utilité et prolongements}
+L'échantillonnage explique pourquoi répéter des mesures réduit certaines
+fluctuations et pourquoi le gain de précision est lent.
+
+Les statistiques de licence introduiront estimation et intervalles de confiance.
+En master, Monte-Carlo permettra d'approcher des intégrales de grande dimension,
+avec des méthodes de réduction de variance ; les hypothèses de dépendance
+et de modèle resteront décisives.
+\begin{retenir}
+Sous indépendance et même loi, l'erreur quadratique moyenne décroît
+comme $1/n$, l'écart type comme $1/\sqrt n$. Un résultat simulé et un théorème ont des statuts différents.
+\end{retenir}
+\end{finchapitre}
+\end{document}

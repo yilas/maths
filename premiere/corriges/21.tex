@@ -1,0 +1,18 @@
+\chapter{Variables aléatoires et espérance}
+\section*{Exercice 21.1 -- Établir une loi}
+Les quatre couples sont équiprobables. Les gains $0,1,4$ ont probabilités $1/4,1/2,1/4$. Leur somme vaut $1$. L'espérance est $0/4+1/2+4/4=3/2$. Les trois gains ne sont pas équiprobables.
+
+\section*{Exercice 21.2 -- Mise équitable}
+Le versement brut a pour espérance $12/6+3/3=3$. Si la mise est $m$, le gain net est le versement moins $m$, donc son espérance vaut $3-m$. La mise équitable dans ce sens est $3$ ; cela ne garantit aucun remboursement individuel.
+
+\section*{Exercice 21.3 -- Linéarité sans indépendance}
+La somme vaut constamment $7$, donc son espérance vaut $7$. Par linéarité, $\mathbb E(X)=3{,}5$ et $\mathbb E(Y)=7-3{,}5=3{,}5$, d'où la même valeur. Les variables sont entièrement liées, ce qui montre que l'indépendance n'est pas requise.
+
+\section*{Exercice 21.4 -- Compter avec des indicatrices}
+Le nombre est $X=\sum_{i=1}^4\mathbf1_{A_i}$. La linéarité donne $\mathbb E(X)=\sum_iP(A_i)=1{,}2$. L'indépendance n'est pas nécessaire. Elle serait utile pour déterminer une loi binomiale et une variance sans covariances.
+
+\section*{Exercice 21.5 -- Transformation non linéaire}
+$\mathbb E(X)=1$, donc son carré vaut $1$. Mais $\mathbb E(X^2)=(0+4)/2=2$. La différence vaut la variance. On ne commute pas une fonction non affine et une espérance sans justification.
+
+\section*{Exercice 21.6 -- Bornes de l'espérance}
+Chaque terme $(X(\omega)-a)p_\omega$ est positif ou nul, donc $\mathbb E(X)-a\ge0$. De même $b-\mathbb E(X)\ge0$. L'égalité à gauche exige que tous les termes de poids positif s'annulent, donc $X=a$ presque sûrement.

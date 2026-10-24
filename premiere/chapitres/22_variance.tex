@@ -1,0 +1,109 @@
+\documentclass[../cours_1re.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{21}
+\chapter{Variance, covariance et erreur quadratique}
+\label{ch:22}
+\begin{objectif}
+Démontrer les formules de variance ; comprendre la covariance et la meilleure approximation par une constante.
+Prérequis : espérance et développement d'un carré.
+\end{objectif}
+\section{Mesurer une dispersion}
+\begin{definition}
+Si $\mu=\mathbb E(X)$, la variance est
+$\operatorname{Var}(X)=\mathbb E((X-\mu)^2)$.
+L'écart type est $\sigma(X)=\sqrt{\operatorname{Var}(X)}$.
+\end{definition}
+La variance est positive ou nulle puisque les carrés et les poids le sont.
+Elle est nulle si et seulement si $X=\mu$ sur chaque issue de probabilité positive.
+C'est l'expression « presque sûrement » dans un univers fini.
+La variance a l'unité de $X$ au carré ; l'écart type a la même unité que $X$.
+
+\begin{theoreme}[König--Huygens]
+$\operatorname{Var}(X)=\mathbb E(X^2)-\mathbb E(X)^2$.
+De plus $\operatorname{Var}(aX+b)=a^2\operatorname{Var}(X)$
+et $\sigma(aX+b)=|a|\sigma(X)$.
+\end{theoreme}
+\begin{demonstration}
+Développer $(X-\mu)^2=X^2-2\mu X+\mu^2$ et prendre l'espérance :
+$\mathbb E(X^2)-2\mu^2+\mu^2=\mathbb E(X^2)-\mu^2$.
+Comme $\mathbb E(aX+b)=a\mu+b$, la variable centrée associée est
+$a(X-\mu)$. Son carré est $a^2(X-\mu)^2$, d'où les deux autres formules.
+\end{demonstration}
+\begin{exemple}
+Si $X$ vaut $0,2,5$ avec probabilités $1/2,1/3,1/6$,
+$\mu=3/2$, $\mathbb E(X^2)=11/2$ et
+$\operatorname{Var}(X)=11/2-9/4=13/4$.
+$\sigma=\sqrt{13}/2$. La valeur moyenne $1{,}5$ n'appartient pas au support.
+\end{exemple}
+Pour une série statistique finie, les mêmes définitions s'appliquent en prenant
+les fréquences comme poids. On divise alors la somme des carrés centrés par
+l'effectif total $n$. Le dénominateur $n-1$, rencontré en inférence statistique,
+répond à un autre problème : estimer sans biais la variance d'une population.
+
+\section{Additionner des variables}
+\approfondissement
+On définit
+$\operatorname{Cov}(X,Y)=\mathbb E((X-\mathbb E X)(Y-\mathbb E Y))$.
+Le développement et la linéarité donnent
+$\operatorname{Cov}(X,Y)=\mathbb E(XY)-\mathbb E(X)\mathbb E(Y)$, puis
+\[
+\operatorname{Var}(X+Y)=\operatorname{Var}(X)+\operatorname{Var}(Y)
++2\operatorname{Cov}(X,Y).
+\]
+Plus généralement, le développement du carré d'une somme donne
+$\operatorname{Var}(\sum_iX_i)=\sum_i\operatorname{Var}(X_i)
++2\sum_{i<j}\operatorname{Cov}(X_i,X_j)$.
+
+Les variables $X,Y$ sont indépendantes lorsque, pour toutes leurs valeurs,
+$P(X=x_i,Y=y_j)=P(X=x_i)P(Y=y_j)$.
+\begin{demonstration}
+Sous cette hypothèse, le calcul sur la loi jointe donne
+\[
+\mathbb E(XY)=\sum_{i,j}x_iy_jP(X=x_i)P(Y=y_j)
+=\left(\sum_i x_iP(X=x_i)\right)\left(\sum_jy_jP(Y=y_j)\right).
+\]
+La covariance est donc nulle et les variances s'additionnent.
+\end{demonstration}
+La réciproque est fausse. Si $X$ est uniforme sur $\{-1,0,1\}$ et $Y=X^2$,
+$\mathbb E(X)=\mathbb E(XY)=0$, donc la covariance est nulle.
+Pourtant $P(X=0,Y=0)=1/3\ne(1/3)(1/3)$ : les variables sont dépendantes.
+
+\section{Bernoulli et binomiale}
+Une variable de Bernoulli $B$ satisfait $B^2=B$. Donc
+$\operatorname{Var}(B)=p-p^2=p(1-p)$.
+Pour $n$ Bernoulli indépendantes de même paramètre $p$, leur somme $X$
+a pour espérance $np$ et variance $np(1-p)$, par les résultats précédents.
+La marche $S_n=2X-n$ a donc pour espérance $n(2p-1)$ et variance
+$4np(1-p)$. Pour $p=1/2$, sa position moyenne est nulle mais sa dispersion
+augmente : écart type $\sqrt n$.
+
+\section{Pourquoi la moyenne minimise l'erreur quadratique}
+\begin{theoreme}
+Pour tout réel $a$,
+$\mathbb E((X-a)^2)=\operatorname{Var}(X)+(a-\mu)^2$.
+L'unique constante minimisant cette erreur est donc $a=\mu$.
+\end{theoreme}
+\begin{demonstration}
+Écrire $X-a=(X-\mu)+(\mu-a)$ et développer. Le terme croisé a pour
+espérance $2(\mu-a)\mathbb E(X-\mu)=0$.
+Il reste la variance et le carré annoncé, minimal uniquement lorsqu'il est nul.
+\end{demonstration}
+Cette propriété dépend du choix d'une erreur au carré. Une perte absolue
+conduit aux médianes ; une perte asymétrique peut conduire à un autre choix.
+Il faut donc définir le critère avant d'annoncer un « meilleur » estimateur.
+
+\begin{finchapitre}
+\section{Utilité et prolongements}
+Variance et covariance mesurent la dispersion et les fluctuations communes.
+L'identité de meilleure constante est la version probabiliste du théorème du
+centre de gravité du chapitre 17.
+
+En statistique et en apprentissage, on minimisera des erreurs quadratiques
+sur des familles de prédicteurs. Les chapitres 27 et 28 donnent les premiers
+cas résolus par orthogonalité ; le master étudiera aussi les limites de ces modèles.
+\begin{retenir}
+Centrer avant de mesurer la dispersion. Les variances s'additionnent
+pour des variables indépendantes ; la linéarité des espérances, elle, est toujours valable.
+\end{retenir}
+\end{finchapitre}
+\end{document}

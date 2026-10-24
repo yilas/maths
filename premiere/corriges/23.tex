@@ -1,0 +1,18 @@
+\chapter{Échantillonnage et simulation}
+\section*{Exercice 23.1 -- Moyenne d'échantillon}
+La moyenne théorique reste $8$. La variance est $36/100=0{,}36$ et l'écart type $0{,}6$. Diviser la variance par $n$ et l'écart type par $\sqrt n$ sont deux formulations cohérentes.
+
+\section*{Exercice 23.2 -- Taille et précision}
+Il faut $\sigma/\sqrt{n'}=(1/3)\sigma/\sqrt n$ lorsque $\sigma>0$, donc $\sqrt{n'}=3\sqrt n$ et $n'=9n$. Si $\sigma=0$, toutes les moyennes sont déjà constantes presque sûrement.
+
+\section*{Exercice 23.3 -- Tchebychev}
+La variance de la moyenne est $1/(4n)$. La borne vaut $[1/(4n)]/(0{,}1)^2=25/n$, à remplacer par $1$ si elle le dépasse. Il faut $25/n\le0{,}05$, donc $n\ge500$. La borne est suffisante, pas nécessairement optimale.
+
+\section*{Exercice 23.4 -- Deux écarts types}
+$\mu=0{,}1$ et $\sigma=\sqrt{0{,}09}=0{,}3$. L'intervalle est $[-0{,}5,0{,}7]$, qui contient $0$ mais pas $1$. La probabilité vaut donc $0{,}9$, ce qui réfute une règle universelle de $95\%$.
+
+\section*{Exercice 23.5 -- Monte-Carlo}
+L'estimateur vaut $4(7860/10000)=3{,}144$. Son écart type théorique est $4\sqrt{p(1-p)/10000}\le2/\sqrt{10000}=0{,}02$. Cette borne est une dispersion, pas une garantie que l'erreur de cette réalisation soit inférieure à $0{,}02$.
+
+\section*{Exercice 23.6 -- Pourquoi l'indépendance compte}
+Si $X_i=X$ pour tout $i$, alors $\overline X_n=X$ exactement et sa variance reste $\operatorname{Var}(X)$, sans diminution. Les covariances entre paires valent toutes la variance de $X$ et compensent le facteur $n^2$ au dénominateur.
