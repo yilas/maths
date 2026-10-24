@@ -12,7 +12,9 @@
 
 ## Objectif pédagogique
 
-- Construire une collection de la troisième à la terminale, exhaustive par
+- Lire `OBJECTIFS.md` avant toute création ou révision pédagogique ; appliquer sa grille de contrôle.
+
+- Construire une collection du primaire au master, exhaustive par
   rapport au programme et au parcours explicitement annoncés.
 - L'objectif final est un niveau master de mathématiques, construit progressivement
   après la terminale par des volumes de licence puis de master.
@@ -35,16 +37,17 @@
 
 ## Structure et vérification
 
-- Utiliser l'unique `mathscommun.sty` à la racine ; ne pas en dupliquer une copie
+- Utiliser l'unique `commun/mathscommun.sty` ; ne pas en dupliquer une copie
   par niveau. La présentation reste sobre et adaptée à l'impression.
 - Maintenir des fichiers distincts pour le cours, les exercices, les corrigés et
   le guide ; conserver la correspondance de leur numérotation.
-- Ajouter les nouveaux niveaux dans `NIVEAUX` de `compiler.py`.
+- Ajouter les nouveaux niveaux dans `niveaux.json` (chemin et suffixe des quatre maîtres).
 - Compiler les documents modifiés avec `python3 compiler.py`. Après une modification
   du style ou du script commun, compiler tous les niveaux disponibles.
 - Corriger les erreurs, références non résolues et débordements ; inspecter le
   rendu des pages modifiées, les figures, les tableaux et les sauts de page.
 - Vérifier les calculs, la cohérence des énoncés et des corrigés, les unités et les
   conditions d'application des théorèmes.
-- Actualiser les PDF dans `pdf/<niveau>/`. Ne pas versionner `build/`, les journaux
-  et les fichiers auxiliaires de compilation.
+- Ne jamais versionner les PDF : les générer dans `build/pdf/<niveau>/`, puis les publier
+  par le workflow de release sur tag. Ne pas versionner `build/`, les journaux
+  et les fichiers auxiliaires. Vérifier aussi le conditionnement de tous les niveaux.

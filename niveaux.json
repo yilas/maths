@@ -1,0 +1,14 @@
+{
+  "troisieme": {
+    "source": "sources/02-college/04-troisieme",
+    "suffixe": "3e"
+  },
+  "seconde": {
+    "source": "sources/03-lycee/01-seconde",
+    "suffixe": "2de"
+  },
+  "premiere": {
+    "source": "sources/03-lycee/02-premiere",
+    "suffixe": "1re"
+  }
+}

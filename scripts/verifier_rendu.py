@@ -9,6 +9,9 @@ import json
 from pathlib import Path
 import subprocess
 import tempfile
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from compiler import NIVEAUX
 
 import fitz
 from PIL import Image, ImageDraw
@@ -18,7 +21,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--niveau", choices=["troisieme", "seconde", "premiere"], default="seconde")
+    parser.add_argument("--niveau", choices=sorted(NIVEAUX), default="seconde")
     parser.add_argument("--destination", type=Path)
     args = parser.parse_args()
     destination = args.destination or ROOT / "build" / "apercus" / args.niveau
@@ -41,7 +44,7 @@ def main():
                         "Approcher une racine", "Variance totale"],
         "exercices_1re": ["Huit problèmes de synthèse"],
     }
-    for pdf in sorted((ROOT / "pdf" / args.niveau).glob("*.pdf")):
+    for pdf in sorted((ROOT / "build" / "pdf" / args.niveau).glob("*.pdf")):
         doc = fitz.open(pdf)
         alertes = []
         observations = []

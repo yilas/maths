@@ -2,6 +2,7 @@
 """Compiler et vérifier la collection avec le style LaTeX commun."""
 
 import argparse
+import json
 import os
 from pathlib import Path
 import re
@@ -10,7 +11,7 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parent
-NIVEAUX = {"troisieme": "3e", "seconde": "2de", "premiere": "1re"}
+NIVEAUX = json.loads((ROOT / "niveaux.json").read_text(encoding="utf-8"))
 DOCUMENTS = ("cours", "exercices", "corriges", "guide")
 PROBLEMES = re.compile(
     r"Overfull \\[hv]box|undefined|Rerun to get cross-references right|"
@@ -25,7 +26,7 @@ def compiler(source, destination):
     environnement = os.environ.copy()
     # Le séparateur final préserve le chemin de recherche standard de TeX.
     environnement["TEXINPUTS"] = (
-        str(ROOT) + os.pathsep + environnement.get("TEXINPUTS", "") + os.pathsep
+        str(ROOT / "commun") + os.pathsep + environnement.get("TEXINPUTS", "") + os.pathsep
     )
     for passage in range(1, 4):
         resultat = subprocess.run(
@@ -79,7 +80,7 @@ def main():
         niveau = args.niveau or "troisieme"
         if args.chapitre < 1:
             parser.error("--chapitre doit être positif.")
-        choix = sorted((ROOT / niveau / "chapitres").glob(f"{args.chapitre:02d}_*.tex"))
+        choix = sorted((ROOT / NIVEAUX[niveau]["source"] / "chapitres").glob(f"{args.chapitre:02d}_*.tex"))
         if len(choix) != 1:
             parser.error(f"Chapitre {args.chapitre} introuvable ou ambigu pour {niveau}.")
         pdf = compiler(choix[0], ROOT / "build" / niveau / "chapitres")
@@ -90,9 +91,9 @@ def main():
     publications = []
     for niveau in ([args.niveau] if args.niveau else NIVEAUX):
         for document in DOCUMENTS:
-            source = ROOT / niveau / f"{document}_{NIVEAUX[niveau]}.tex"
+            source = ROOT / NIVEAUX[niveau]["source"] / f"{document}_{NIVEAUX[niveau]['suffixe']}.tex"
             pdf = compiler(source, ROOT / "build" / niveau)
-            publications.append((pdf, ROOT / "pdf" / niveau / pdf.name))
+            publications.append((pdf, ROOT / "build" / "pdf" / niveau / pdf.name))
     for source, destination in publications:
         destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(source, destination)
