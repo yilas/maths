@@ -1,0 +1,122 @@
+\documentclass[../cours_spe_trigo.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{13}
+\chapter{Analyse : limites, dérivées et primitives depuis les fondements}
+\section{Le point décisif : $\lim_{h\to0}\sin h/h=1$}
+\begin{propriete}
+\[\boxed{\displaystyle\lim_{h\to0}\frac{\sin h}{h}=1}\qquad\text{(angle exprimé en radians).}\]
+\end{propriete}
+\begin{demonstration}
+\textbf{Preuve géométrique par encadrement des aires.} Prenons $0<h<\pi/2$ sur le cercle unité. Nommons $I=(1,0)$, $M=(\cos h,\sin h)$ et $T$ l'intersection de la demi-droite $OM$ avec la tangente verticale au cercle en $I$.
+
+Le triangle $OIM$ est contenu dans le secteur circulaire d'angle $h$, lui-même contenu dans le triangle $OIT$. Leurs aires valent respectivement
+\[
+\frac12\sin h,\qquad\frac12h,\qquad\frac12\tan h.
+\]
+En effet, l'aire du secteur a été démontrée : $\mathcal A=h/2$ pour $R=1$. Le point $T$ a pour ordonnée $\tan h$, puisque la pente de $OM$ est $\tan h$ et son abscisse vaut $1$.
+
+On en déduit $\sin h\le h\le\tan h$. Pour $h>0$, en divisant et en utilisant $\tan h=\sin h/\cos h$, on obtient
+\[
+\cos h\le\frac{\sin h}{h}\le1.
+\]
+Comme $\cos h\to1$ quand $h\to0$ (continuité du point du cercle), le théorème des gendarmes donne la limite égale à $1$ à droite. Pour $h<0$, $\sin h/h=\sin(-h)/(-h)$ grâce à la parité impaire, donc la limite à gauche est la même. $\square$
+\end{demonstration}
+\begin{center}
+\begin{tikzpicture}[scale=2.0]
+\fill[bleuPale] (0,0)--(0:1) arc[start angle=0,end angle=33,radius=1]--cycle;
+\draw[bleu,thick] (0,0) circle (1);
+\coordinate (I) at (1,0);
+\coordinate (M) at (33:1);
+\coordinate (T) at (1,{tan(33)});
+\fill[orange!14] (0,0)--(I)--(M)--cycle;
+\draw[very thick,orange] (0,0)--(M)--(I)--cycle;
+\draw[very thick,vert,dashed] (0,0)--(T)--(I);
+\draw[gris] (1,-.12)--(1,.85);
+\draw[orange] (.26,0) arc[start angle=0,end angle=33,radius=.26];
+\node at (19:.40) {$h$};
+\node[below left] at (0,0) {$O$};
+\node[below] at (1,0) {$I$};
+\node[above left] at (M) {$M$};
+\node[above right] at (T) {$T$};
+\end{tikzpicture}
+\end{center}
+\textbf{Pourquoi les radians sont indispensables.} Si $h$ était mesuré en \emph{degrés}, l'arc correspondant sur le cercle unité vaudrait $\pi h/180$, et la limite deviendrait $\pi/180$. Le nombre $1$ apparaît précisément grâce au choix du radian.
+
+\section{Une seconde limite remarquable}
+\begin{demonstration}
+De $\cos(2u)=1-2\sin^2u$, avec $u=h/2$, on déduit
+\[
+\frac{\cos h-1}{h}=-\frac{2\sin^2(h/2)}{h}
+=-\frac{\sin(h/2)}{h/2}\,\sin(h/2).
+\]
+Le premier facteur tend vers $1$ et le second vers $0$. Donc
+\[\boxed{\displaystyle\lim_{h\to0}\frac{\cos h-1}{h}=0.}\]
+$\square$
+\end{demonstration}
+
+\section{Démontrer $(\sin x)'=\cos x$}
+\begin{demonstration}
+Par définition de la dérivée :
+\[
+(\sin x)'=\lim_{h\to0}\frac{\sin(x+h)-\sin x}{h}.
+\]
+La formule d'addition donne
+\[
+\frac{\sin(x+h)-\sin x}{h}
+=\sin x\,\frac{\cos h-1}{h}+\cos x\,\frac{\sin h}{h}.
+\]
+En passant à la limite, le premier terme tend vers $0$ et le second vers $\cos x$. Ainsi
+\[\boxed{\frac{d}{dx}\sin x=\cos x.}\]
+$\square$
+\end{demonstration}
+\section{Démontrer $(\cos x)'=-\sin x$}
+\begin{demonstration}
+De même,
+\[
+\frac{\cos(x+h)-\cos x}{h}
+=\cos x\,\frac{\cos h-1}{h}-\sin x\,\frac{\sin h}{h}.
+\]
+Les limites remarquables donnent
+\[\boxed{\frac{d}{dx}\cos x=-\sin x.}\]
+$\square$
+\end{demonstration}
+\section{La dérivée de la tangente et ses variations}
+Sur son domaine, appliquer la règle du quotient $\left(u/v\right)'=(u'v-uv')/v^2$ :
+\[
+\begin{aligned}
+(\tan x)'&=\left(\frac{\sin x}{\cos x}\right)'=
+\frac{\cos^2x+\sin^2x}{\cos^2x}\\
+&=\boxed{\frac1{\cos^2x}=1+\tan^2x>0}.
+\end{aligned}
+\]
+La tangente est donc strictement croissante sur chaque intervalle $]-\pi/2+k\pi,\pi/2+k\pi[$. Cela \emph{ne} signifie pas qu'elle est croissante globalement sur son domaine disjoint.
+
+\section{Dériver des fonctions composées}
+La règle de la chaîne donne, si $u$ est dérivable :
+\[
+\boxed{(\sin u(x))'=u'(x)\cos u(x),\qquad
+(\cos u(x))'=-u'(x)\sin u(x).}
+\]
+\textbf{Exemple.} $f(x)=3\sin(2x+\pi/6)-2$ vérifie $f'(x)=6\cos(2x+\pi/6)$.
+\begin{attention}
+\textbf{Erreur classique : oublier la dérivée intérieure.} La dérivée de $\sin(5x)$ n'est pas $\cos(5x)$ mais $5\cos(5x)$. Si la variable d'entrée est exprimée numériquement en degrés, alors $d\sin(x^\circ)/dx=(\pi/180)\cos(x^\circ)$.
+\end{attention}
+
+\section{Primitives : retrouver les formules par dérivation}
+Puisque la dérivée du sinus est le cosinus, $\sin x+C$ est une primitive de $\cos x$. Puisque la dérivée de $-\cos x$ est $\sin x$, $-\cos x+C$ est une primitive de $\sin x$ :
+\[
+\boxed{\int\cos x\,dx=\sin x+C,\qquad\int\sin x\,dx=-\cos x+C.}
+\]
+La linéarisation donne
+\[
+\int\sin^2x\,dx=\int\frac{1-\cos2x}{2}\,dx
+=\boxed{\frac x2-\frac{\sin2x}{4}+C},
+\]
+\[
+\int\cos^2x\,dx=\boxed{\frac x2+\frac{\sin2x}{4}+C}.
+\]
+\textbf{Exemple d'intégrale définie.} $\int_0^{\pi/2}\cos x\,dx=[\sin x]_0^{\pi/2}=1$. Géométriquement, cette intégrale représente une aire algébrique sous la courbe du cosinus.
+
+\section{Les dérivées confirment les variations}
+$\sin' x=\cos x$ : le sinus croît où le cosinus est positif et décroît où le cosinus est négatif. $\cos' x=-\sin x$ : le cosinus décroît où le sinus est positif et croît où le sinus est négatif. Cela confirme rigoureusement les tableaux de variations lus sur le cercle.
+\end{document}

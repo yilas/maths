@@ -1,0 +1,66 @@
+\documentclass[../cours_spe_trigo.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{1}
+\chapter{Les acquis qui rendent la trigonométrie possible}
+\section{Théorème de Pythagore et preuve géométrique}
+\begin{propriete}
+Dans un triangle rectangle dont les côtés de l'angle droit sont $a,b>0$ et l'hypoténuse $c>0$ : $\boxed{a^2+b^2=c^2}$.
+\end{propriete}
+\begin{demonstration}
+\textbf{Preuve par les aires.} Construisons un grand carré de côté $a+b$ avec quatre copies du triangle rectangle aux coins ; leurs hypoténuses bordent un carré intérieur de côté $c$. L'aire du grand carré se calcule alors de deux façons :
+\[(a+b)^2=4\times\frac{ab}{2}+c^2=2ab+c^2.\]
+En développant $a^2+2ab+b^2=2ab+c^2$, puis en simplifiant : $a^2+b^2=c^2$. $\square$
+\end{demonstration}
+\begin{center}
+\begin{tikzpicture}[scale=.62]
+\fill[bleuPale] (0,0) rectangle (5,5);
+\fill[orange!30] (0,0)--(3,0)--(0,2)--cycle;
+\fill[orange!30] (5,0)--(5,3)--(3,0)--cycle;
+\fill[orange!30] (5,5)--(2,5)--(5,3)--cycle;
+\fill[orange!30] (0,5)--(0,2)--(2,5)--cycle;
+\draw[thick] (0,0) rectangle (5,5);
+\draw[very thick,bleu] (3,0)--(5,3)--(2,5)--(0,2)--cycle;
+\node at (2.5,2.5) {$c^2$};
+\node[below] at (1.5,0) {$a$};\node[below] at (4,0) {$b$};
+\node[left] at (0,1) {$b$};\node[left] at (0,3.5) {$a$};
+\end{tikzpicture}
+\end{center}
+\section{Triangles semblables et rapports indépendants de la taille}
+Deux triangles sont \textbf{semblables} lorsque leurs angles correspondants sont égaux. Leurs longueurs correspondantes sont alors proportionnelles. En particulier, si deux triangles rectangles ont le même angle aigu $\alpha$, leurs côtés opposé, adjacent et hypoténuse sont multipliés par un même facteur quand on passe de l'un à l'autre.
+\begin{definition}
+Dans un triangle rectangle, pour $0^\circ<\alpha<90^\circ$ :
+\[
+\boxed{\sin\alpha=\frac{\text{opposé}}{\text{hypoténuse}},\quad
+\cos\alpha=\frac{\text{adjacent}}{\text{hypoténuse}},\quad
+\tan\alpha=\frac{\text{opposé}}{\text{adjacent}}.}
+\]
+\end{definition}
+\begin{demonstration}
+\textbf{Pourquoi ces quotients ne dépendent-ils que de $\alpha$ ?} Pour deux triangles rectangles ayant le même angle $\alpha$, la somme des angles implique que le troisième angle est identique. Les triangles sont semblables. Si le second est $\lambda$ fois plus grand, alors par exemple
+\[
+\frac{\text{opposé}_2}{\text{hypoténuse}_2}
+=\frac{\lambda\,\text{opposé}_1}{\lambda\,\text{hypoténuse}_1}
+=\frac{\text{opposé}_1}{\text{hypoténuse}_1}.
+\]
+Il en va de même des deux autres rapports. Le sinus, le cosinus et la tangente sont donc bien des fonctions de l'angle. $\square$
+\end{demonstration}
+\begin{center}
+\begin{tikzpicture}[scale=.93]
+\coordinate (A) at (0,0);\coordinate (B) at (5,0);\coordinate (C) at (5,2.8);
+\draw[very thick,bleuNuit] (A)--(B)--(C)--cycle;
+\draw[bleuNuit] (4.7,0)--(4.7,.3)--(5,.3);
+\draw[orange,thick] (.8,0) arc[start angle=0,end angle=29.25,radius=.8];
+\node[orange] at (1.17,.33) {$\alpha$};
+\node[below] at (2.5,0) {adjacent};
+\node[right] at (5,1.42) {opposé};
+\node[above left] at (2.25,1.58) {hypoténuse};
+\end{tikzpicture}
+\end{center}
+\section{L'identité de Pythagore avant même le cercle trigonométrique}
+En notant $o$ le côté opposé, $a$ l'adjacent et $h$ l'hypoténuse, Pythagore donne $o^2+a^2=h^2$. En divisant par $h^2$ :
+\[
+\left(\frac{o}{h}\right)^2+\left(\frac{a}{h}\right)^2=1
+\quad\Longrightarrow\quad\boxed{\sin^2\alpha+\cos^2\alpha=1}.
+\]
+Cette preuve concerne pour l'instant les angles \emph{aigus}. Nous prolongerons la formule à tous les réels grâce au cercle trigonométrique.
+\end{document}

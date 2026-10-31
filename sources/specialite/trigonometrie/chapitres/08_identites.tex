@@ -1,0 +1,58 @@
+\documentclass[../cours_spe_trigo.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{7}
+\chapter{Démonstrations des identités trigonométriques usuelles}
+\section{Angles doubles}
+Dans les formules d'addition, posons $a=b=x$. Nous obtenons directement
+\[
+\boxed{\sin(2x)=2\sin x\cos x,\qquad \cos(2x)=\cos^2x-\sin^2x.}
+\]
+Par Pythagore, $\sin^2x=1-\cos^2x$ et $\cos^2x=1-\sin^2x$. Donc
+\[
+\boxed{\cos(2x)=2\cos^2x-1=1-2\sin^2x.}
+\]
+En isolant les carrés :
+\[\boxed{\cos^2x=\frac{1+\cos(2x)}2,\qquad \sin^2x=\frac{1-\cos(2x)}2.}\]
+\section{Angles triples et duplication de la tangente}
+Appliquons l'addition à $3x=2x+x$ :
+\[
+\begin{aligned}
+\sin3x&=\sin2x\cos x+\cos2x\sin x\\
+&=2\sin x\cos^2x+(1-2\sin^2x)\sin x\\
+&=\boxed{3\sin x-4\sin^3x}.
+\end{aligned}
+\]
+De même $\boxed{\cos3x=4\cos^3x-3\cos x}$ (remplacer $\sin^2x$ par $1-\cos^2x$ dans l'addition).
+
+\section{Transformer des produits en sommes : la linéarisation}
+Additionnons $\cos(a+b)$ et $\cos(a-b)$ : les termes en $\sin a\sin b$ s'annulent. Soustrayons les mêmes relations : les termes en $\cos a\cos b$ s'annulent. Et procédons de même pour le sinus :
+\[
+\boxed{\begin{aligned}
+\cos a\cos b&=\tfrac12\bigl(\cos(a-b)+\cos(a+b)\bigr),\\
+\sin a\sin b&=\tfrac12\bigl(\cos(a-b)-\cos(a+b)\bigr),\\
+\sin a\cos b&=\tfrac12\bigl(\sin(a+b)+\sin(a-b)\bigr).
+\end{aligned}}
+\]
+\textbf{Pourquoi les utiliser ?} Elles servent à simplifier des produits, à intégrer $\sin^2x$ ou $\cos^2x$, et à analyser des superpositions d'ondes.
+\section{Transformer des sommes en produits : la factorisation}
+Posons $u=(a+b)/2$ et $v=(a-b)/2$ : alors $a=u+v$ et $b=u-v$. En additionnant et soustrayant les formules d'addition, on obtient
+\[
+\boxed{\begin{aligned}
+\sin a+\sin b&=2\sin\tfrac{a+b}{2}\cos\tfrac{a-b}{2},\\
+\sin a-\sin b&=2\cos\tfrac{a+b}{2}\sin\tfrac{a-b}{2},\\
+\cos a+\cos b&=2\cos\tfrac{a+b}{2}\cos\tfrac{a-b}{2},\\
+\cos a-\cos b&=-2\sin\tfrac{a+b}{2}\sin\tfrac{a-b}{2}.
+\end{aligned}}
+\]
+\textbf{Exemple.} $\sin3x+\sin x=2\sin2x\cos x$.
+
+\section{Formules de demi-angle : attention aux signes}
+La relation $\cos2u=2\cos^2u-1$ fournit $\cos^2u=(1+\cos2u)/2$. En posant $u=x/2$ :
+\[
+\boxed{\left|\cos\frac x2\right|=\sqrt{\frac{1+\cos x}{2}},\qquad
+\left|\sin\frac x2\right|=\sqrt{\frac{1-\cos x}{2}}.}
+\]
+\begin{attention}
+Les racines carrées sont positives ou nulles, mais $\sin(x/2)$ ou $\cos(x/2)$ peuvent être négatifs. Pour supprimer les valeurs absolues, il faut d'abord \textbf{déterminer le quadrant de $x/2$}.
+\end{attention}
+\end{document}

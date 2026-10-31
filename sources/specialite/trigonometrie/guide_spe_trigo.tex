@@ -1,0 +1,105 @@
+\documentclass[11pt,a4paper,oneside]{book}
+\usepackage{mathscommun}
+\input{commandes.tex}
+\setniveau{Spécialité : trigonométrie}
+\renewcommand{\ReferenceProgramme}{Dossier thématique transversal -- lycée et approfondissements}
+\renewcommand{\EditionDocument}{Édition du 31 octobre 2026}
+\hypersetup{pdftitle={Spécialité trigonométrie - Guide pédagogique}}
+\begin{document}
+\titrecollection{Guide pédagogique}{Parcours, prérequis, preuves et autoévaluation}{Un accompagnement du cours approfondi de trigonométrie : comprendre les dépendances logiques, repérer les résultats admis et se préparer aux 40 exercices.}
+\frontmatter\tableofcontents\mainmatter
+\chapter{Public, objectifs et périmètre}
+Ce \emph{dossier thématique de spécialité} ne remplace ni le programme de première ou de terminale, ni leurs quatre volumes. Il reprend le sujet du cercle et des fonctions trigonométriques depuis les prérequis élémentaires, puis prolonge le travail jusqu'aux équations différentielles et aux nombres complexes. Ici, « spécialité » désigne une \textbf{collection de cours thématiques approfondis}, et non une certification de couverture d'un programme scolaire officiel.
+\begin{objectif}
+À la fin du parcours, expliquer l'origine de $\pi$ et de $2\pi R$, construire le radian et les coordonnées du cercle unité, prouver les valeurs et identités fondamentales, résoudre des équations et inéquations, étudier les fonctions, justifier les dérivées et reconnaître des applications géométriques et physiques. Il ne suffit pas de réciter les formules : le lecteur doit pouvoir retrouver les étapes de leur démonstration.
+\end{objectif}
+\section{Prérequis et renvois}
+\begin{itemize}
+\item \textbf{Collège} : Pythagore, Thalès, similitudes et angles du triangle ; revoir la troisième, notamment ses chapitres de trigonométrie, géométrie et mesures.
+\item \textbf{Seconde} : repère orthonormé, distance, calcul littéral, fonctions ; revoir les chapitres correspondants du cours de seconde.
+\item \textbf{Première} : identités, équations, produit scalaire, dérivation élémentaire ; voir notamment « Radian et cercle trigonométrique » et « Fonctions trigonométriques ».
+\item \textbf{Terminale} : composition, limites et dérivées, primitives, oscillations ; les complexes et Euler sont explicitement des prolongements.
+\end{itemize}
+\chapter{Démarrer : diagnostic initial}
+Faire ces six questions sans formulaire ni calculatrice ; puis vérifier avec les réponses ci-dessous.
+\begin{enumerate}
+\item Un cercle a un diamètre de $8\,\mathrm{cm}$. Quel est son rayon ? Quelle formule relie sa circonférence $C$ au diamètre $D$ ?
+\item Pourquoi deux triangles rectangles avec un même angle aigu ont-ils les mêmes rapports de côtés correspondants ?
+\item Dans un triangle rectangle dont les côtés de l'angle droit valent $3$ et $4$, quelle est la longueur de l'hypoténuse ?
+\item Calculer $\cos(60^\circ)$ et $\sin(30^\circ)$ par construction d'un triangle équilatéral.
+\item Expliquer la différence entre une définition, une propriété et sa démonstration.
+\item Que vaut $180^\circ$ en radians et quel argument géométrique justifie la conversion ?
+\end{enumerate}
+\section{Réponses commentées}
+\begin{enumerate}
+\item $R=D/2=4\,\mathrm{cm}$. Après justification que $C/D$ est constant par homothétie, ce quotient est appelé $\pi$, donc $C=\pi D$.
+\item Ils sont semblables : les longueurs sont multipliées par un même rapport et les quotients opposé/hypoténuse ou adjacent/hypoténuse sont inchangés.
+\item Par Pythagore, $\sqrt{3^2+4^2}=5$.
+\item En partageant un triangle équilatéral en deux triangles rectangles, on trouve $\cos60^\circ=\sin30^\circ=1/2$.
+\item Une définition fixe le sens d'un objet ; une propriété affirme un résultat ; une démonstration en établit la vérité à partir d'hypothèses et de résultats connus.
+\item Un demi-tour intercepte un arc de longueur $\pi R$, donc l'angle vaut $\pi R/R=\pi$ radians.
+\end{enumerate}
+Si plus de deux réponses posent problème, revoir les prérequis avant les chapitres 3 et 4.
+\chapter{Progression et couverture du dossier}
+\section{La chaîne des raisonnements}
+\begin{enumerate}
+\item \textbf{Longueurs et similitudes} $\longrightarrow$ circonférence, définition de $\pi$, aires.
+\item \textbf{Arc divisé par rayon} $\longrightarrow$ radians, angles orientés, secteurs.
+\item \textbf{Triangles et cercle unité} $\longrightarrow$ sinus et cosinus comme coordonnées, identité fondamentale.
+\item \textbf{Symétries et rotations} $\longrightarrow$ valeurs exactes, addition, angle double et périodicité.
+\item \textbf{Identités et fonctions} $\longrightarrow$ équations, inéquations, courbes, dérivées.
+\item \textbf{Applications} $\longrightarrow$ produit scalaire, géométrie, oscillations, complexes.
+\end{enumerate}
+\section{Table de couverture : notions, preuves et exercices}
+\small
+\begin{longtable}{p{.31\textwidth}p{.31\textwidth}p{.26\textwidth}}
+\toprule
+\textbf{Notion ou capacité} & \textbf{Chapitre et statut} & \textbf{Exercices / corrigés}\\
+\midrule\endfirsthead
+\toprule\textbf{Notion ou capacité} & \textbf{Chapitre et statut} & \textbf{Exercices / corrigés}\\\midrule\endhead
+Définition de $\pi$, homothétie, périmètres inscrits et circonscrits & 1--2 : preuves géométriques, passage à la limite expliqué & 21--23\\
+Conversion degrés-radians, arcs et secteurs & 3 : construction, preuves et conditions & 1, 24\\
+Triangles semblables, coordonnées $(\cos t,\sin t)$ et Pythagore & 2, 4 : définition et compatibilité prouvée & 3, 4, 25\\
+Angles remarquables, quadrants et symétries & 5--6 : constructions et réflexions & 2, 26, 27\\
+Formules d'addition, angles doubles et transformations & 7--8 : démonstration par rotation & 5, 7, 8, 28, 39\\
+Tangente, domaine et asymptotes & 9 : quotient et limites & 19, 29\\
+Courbes, périodes, amplitudes et transformations & 10 : étude des fonctions & 6, 16, 17, 32, 38\\
+Équations, inéquations, familles de solutions & 11 : symétrie, périodicité, factorisation & 9--13, 20, 30, 31\\
+Triangles quelconques et produit scalaire & 12--13 : coordonnées, lois géométriques & 14, 15, 33, 34, 40\\
+Limites, dérivées et primitives trigonométriques & 14 : preuve géométrique puis limites & 8, 17, 35, 36\\
+Fonctions trigonométriques réciproques & 15 : intervalles de référence & 18, 37\\
+Oscillateurs et équations différentielles & 16 : calcul différentiel, extension & 16, 38\\
+Complexes et formule d'Euler & 17 : prolongement facultatif ; fondements signalés & 39\\
+Méthodes, erreurs fréquentes, synthèse & 18--19 : bilan transversal & 1--40\\
+\bottomrule
+\end{longtable}
+\normalsize
+\chapter{Ce qui est prouvé, ce qui reste admis}
+Une construction de lycée doit expliciter ses postulats et ses outils déjà connus. Les points ci-dessous sont signalés dans le cours, mais ne font pas l'objet d'une reconstruction axiomatique complète dans le présent dossier.
+\begin{longtable}{p{.25\textwidth}p{.33\textwidth}p{.30\textwidth}}
+\toprule
+\textbf{Fondement admis} & \textbf{Rôle dans les preuves} & \textbf{Ce qu'exigerait une preuve supérieure}\\\midrule
+Longueur d'un arc, passage de polygones à une courbe & Définir $C$, établir les effets de l'homothétie & Rectifiabilité et limites de longueurs polygonales\\
+Aire du disque et des secteurs & Encadrements et limite $\sin x/x$ & Définition rigoureuse de l'aire, limites ou intégration\\
+Continuité de l'enroulement et des coordonnées sur le cercle & Valeurs et limites de sinus et cosinus & Topologie et continuité de fonctions\\
+Théorèmes usuels de dérivation et de composition & Dérivées de combinaisons et primitives & Analyse réelle : définition de dérivée et théorèmes généraux\\
+Existence de l'exponentielle complexe (passerelle) & Interprétation de la formule d'Euler & Séries entières et convergence uniforme locale\\
+\bottomrule
+\end{longtable}
+\begin{attention}
+Une figure, une mesure numérique ou une simulation ne démontre pas une identité pour tout angle. À l'inverse, une définition ne se « démontre » pas : on peut démontrer qu'elle prolonge correctement une ancienne définition, ou qu'elle est équivalente à une autre construction.
+\end{attention}
+\chapter{Exercices, contrôles et méthode de travail}
+Les \textbf{40 exercices} disposent chacun d'un corrigé portant le même numéro. Les exercices 1 à 20 privilégient conversions, valeurs, identités, équations et applications. Les exercices 21 à 40 demandent de reconstruire et critiquer des preuves, y compris sur $\pi$ et les radians.
+\section{Parcours recommandés}
+\begin{itemize}
+\item \textbf{Découverte (seconde)} : chapitres 1--6, exercices 1--4 et 21--27.
+\item \textbf{Consolidation (première)} : chapitres 7--13 et 18, exercices 5--15, 19--20, 28--34 et 40.
+\item \textbf{Analyse (terminale)} : chapitres 10, 14--16, exercices 16--18, 35--38.
+\item \textbf{Passerelle supérieure} : chapitre 17, exercice 39, puis reprise des hypothèses dans le registre des admissions.
+\end{itemize}
+\section{Grille d'autoévaluation}
+Êtes-vous capable de justifier sans consulter les formules : pourquoi $C/D$ est constant ; pourquoi $180^\circ=\pi$ radians ; pourquoi les coordonnées sont $(\cos t,\sin t)$ ; pourquoi les identités d'addition découlent des rotations ; pourquoi la dérivée de sinus exige les radians ? Si une réponse se limite à « c'est la formule », remonter d'un chapitre et refaire l'exercice de démonstration correspondant.
+\section{Utilité et suite du parcours}
+Les radians, le produit scalaire et la rotation préparent la géométrie et l'algèbre linéaire. Les fonctions et les limites préparent l'analyse. Les oscillations annoncent les équations différentielles ; les complexes et les séries de Fourier relient ensuite rotations, signaux et opérateurs. Une mention introductive n'est pas une maîtrise universitaire de ces domaines.
+\end{document}

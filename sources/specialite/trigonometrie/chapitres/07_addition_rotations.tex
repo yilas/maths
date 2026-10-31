@@ -1,0 +1,58 @@
+\documentclass[../cours_spe_trigo.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{6}
+\chapter{Les formules d'addition, démontrées avec les rotations}
+\section{Comment une rotation agit-elle sur les coordonnées ?}
+Une rotation du plan conserve les longueurs et les angles orientés. La rotation d'angle $a$ envoie le vecteur $\vec{OI}=(1,0)$ sur $(\cos a,\sin a)$. Elle envoie le vecteur $\vec{OJ}=(0,1)$, qui lui est perpendiculaire et orienté d'un quart de tour positif, sur $(-\sin a,\cos a)$.
+\begin{demonstration}
+Tout vecteur $(x,y)$ s'écrit $x(1,0)+y(0,1)$. Une rotation étant linéaire, son image est
+\[
+\begin{aligned}
+R_a(x,y)&=x(\cos a,\sin a)+y(-\sin a,\cos a)\\
+&=(x\cos a-y\sin a,\ x\sin a+y\cos a).
+\end{aligned}
+\]
+Ainsi la matrice de rotation est
+\[\boxed{R_a=\begin{pmatrix}\cos a&-\sin a\\\sin a&\cos a\end{pmatrix}.}\]
+Cette formule est obtenue à partir de la géométrie des deux vecteurs de base, \emph{sans employer les formules d'addition que nous allons prouver}. $\square$
+\end{demonstration}
+\section{Composition de rotations et addition des angles}
+Faire une rotation d'angle $b$, puis une rotation d'angle $a$, revient à une rotation d'angle $a+b$. Les matrices satisfont $R_aR_b=R_{a+b}$.
+\begin{demonstration}
+En multipliant les deux matrices, nous obtenons
+\[
+\begin{aligned}
+R_aR_b
+&=\begin{pmatrix}\cos a&-\sin a\\\sin a&\cos a\end{pmatrix}
+\begin{pmatrix}\cos b&-\sin b\\\sin b&\cos b\end{pmatrix}\\
+&=\begin{pmatrix}
+\cos a\cos b-\sin a\sin b&-(\sin a\cos b+\cos a\sin b)\\
+\sin a\cos b+\cos a\sin b&\cos a\cos b-\sin a\sin b
+\end{pmatrix}.
+\end{aligned}
+\]
+Mais cette matrice est $R_{a+b}$, dont les coefficients de la première colonne sont $(\cos(a+b),\sin(a+b))$. L'identification de ces coefficients démontre les deux formules :
+\[
+\boxed{\begin{aligned}
+\cos(a+b)&=\cos a\cos b-\sin a\sin b,\\
+\sin(a+b)&=\sin a\cos b+\cos a\sin b.
+\end{aligned}}
+\]
+La preuve est valable pour tous réels $a,b$, même négatifs. $\square$
+\end{demonstration}
+\section{Formules de soustraction}
+En remplaçant $b$ par $-b$ dans les formules d'addition et en utilisant $\cos(-b)=\cos b$, $\sin(-b)=-\sin b$ :
+\[
+\boxed{\begin{aligned}
+\cos(a-b)&=\cos a\cos b+\sin a\sin b,\\
+\sin(a-b)&=\sin a\cos b-\cos a\sin b.
+\end{aligned}}
+\]
+\textbf{Application : calculer $\sin(15^\circ)$ exactement.} Comme $15^\circ=60^\circ-45^\circ$ :
+\[
+\sin\frac{\pi}{12}
+=\sin\frac\pi3\cos\frac\pi4-\cos\frac\pi3\sin\frac\pi4
+=\boxed{\frac{\sqrt6-\sqrt2}{4}}.
+\]
+De même $\cos(\pi/12)=(\sqrt6+\sqrt2)/4$.
+\end{document}

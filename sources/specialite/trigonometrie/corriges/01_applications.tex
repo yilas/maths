@@ -1,0 +1,134 @@
+\chapter{Corrigés détaillés}
+\corrige{1 — conversions et cercle}
+\(225^\circ=225\pi/180=\boxed{5\pi/4}\). \(-7\pi/6\times180/\pi=\boxed{-210^\circ}\). Pour \(R=6\) et \(\theta=5\pi/6\),
+\[\ell=6\times\frac{5\pi}6=\boxed{5\pi\ \text{cm}};\qquad
+\mathcal A=\frac12\times36\times\frac{5\pi}6=\boxed{15\pi\ \text{cm}^2}.\]
+
+\corrige{2 — angles remarquables}
+\(11\pi/6=2\pi-\pi/6\) est dans le quadrant IV :
+\[\boxed{\cos(11\pi/6)=\sqrt3/2,\quad\sin(11\pi/6)=-1/2}.\]
+\(-7\pi/4+2\pi=\pi/4\), quadrant I :
+\[\boxed{\cos(-7\pi/4)=\sin(-7\pi/4)=\sqrt2/2}.\]
+\(17\pi/3-4\pi=5\pi/3=2\pi-\pi/3\), quadrant IV :
+\[\boxed{\cos(17\pi/3)=1/2,\quad\sin(17\pi/3)=-\sqrt3/2}.\]
+
+\corrige{3 — signe et Pythagore}
+On a \(\sin^2x=1-(4/5)^2=9/25\). L'angle est dans le quatrième quadrant, où le sinus est négatif. Ainsi
+\[\boxed{\sin x=-3/5,\qquad \tan x=\frac{-3/5}{4/5}=-3/4}.\]
+
+\corrige{4 — triangle rectangle}
+Par définition : côté opposé \(=14\sin(\pi/6)=14/2=\boxed{7\ \mathrm{cm}}\). Côté adjacent \(=14\cos(\pi/6)=14\sqrt3/2=\boxed{7\sqrt3\ \mathrm{cm}}\).
+
+\corrige{5 — identités et domaines}
+Sur le cercle, \(\pi-x\) est le symétrique de \(x\) par rapport à l'axe vertical : l'ordonnée ne change pas, donc \(\sin(\pi-x)=\sin x\). Un décalage de \(\pi\) prend le point diamétralement opposé : ses deux coordonnées changent de signe, donc \(\cos(x+\pi)=-\cos x\).
+
+Puis \(\sin(2x)=2\sin x\cos x\). L'expression initiale est définie seulement si \(\cos x\neq0\), soit \(x\neq\pi/2+k\pi\). Sur ce domaine,
+\[\boxed{\frac{\sin(2x)}{2\cos x}=\sin x}.\]
+La fonction simplifiée est définie ailleurs aussi, mais \emph{ce n'est pas le domaine de l'expression initiale}.
+
+\corrige{6 — fonction sinusoïdale}
+Pour \(f(x)=3\sin(2x+\pi/6)-2\), amplitude \(3\), pulsation \(2\), donc période \(2\pi/2=\boxed{\pi}\). Écrire \(2x+\pi/6=2(x+\pi/12)\) : le graphe est décalé de \(\pi/12\) vers la \emph{gauche}. Valeur centrale : \(-2\). Image : \([-2-3,-2+3]=\boxed{[-5,1]}\). Dérivée :
+\[\boxed{f'(x)=6\cos(2x+\pi/6)}.\]
+
+\corrige{7 — addition}
+On remarque \(\pi/12=\pi/3-\pi/4\). Avec les valeurs remarquables :
+\[\begin{aligned}
+\sin(\pi/12)&=\sin(\pi/3)\cos(\pi/4)-\cos(\pi/3)\sin(\pi/4)
+=\boxed{\frac{\sqrt6-\sqrt2}{4}},\\
+\cos(\pi/12)&=\cos(\pi/3)\cos(\pi/4)+\sin(\pi/3)\sin(\pi/4)
+=\boxed{\frac{\sqrt6+\sqrt2}{4}}.
+\end{aligned}\]
+
+\corrige{8 — linéarisation et primitive}
+La formule de l'angle double donne \(\cos2x=2\cos^2x-1\). En isolant \(\cos^2x\),
+\[\boxed{\cos^2x=\frac{1+\cos2x}{2}}.\]
+Une primitive sur \(\R\) est donc
+\[\int\cos^2x\,dx=\int\left(\frac12+\frac12\cos2x\right)dx
+=\boxed{\frac x2+\frac{\sin2x}{4}+C}.\]
+La dérivée de \(\sin2x/4\) vaut \(\cos2x/2\), ce qui vérifie le résultat.
+
+\corrige{9 — équation simple}
+Le sinus vaut \(-1/2\) aux points de référence \(\pi/6\) des quadrants III et IV : \(\pi+\pi/6=7\pi/6\) et \(2\pi-\pi/6=11\pi/6\). Dans \([0,2\pi[\) :
+\[\boxed{S=\{7\pi/6,11\pi/6\}}.\]
+
+\corrige{10 — équation avec argument double}
+\(\cos(2x)=1/2=\cos(\pi/3)\). Ainsi \(2x=\pm\pi/3+2k\pi\), soit
+\[x=\pm\pi/6+k\pi,\qquad k\in\Z.\]
+L'intersection avec \([0,2\pi[\) contient quatre angles distincts :
+\[\boxed{S=\{\pi/6,5\pi/6,7\pi/6,11\pi/6\}}.\]
+
+\corrige{11 — factorisation}
+\[\sin(2x)=\cos x\iff 2\sin x\cos x=\cos x
+\iff\cos x(2\sin x-1)=0.\]
+Donc \(\cos x=0\) ou \(\sin x=1/2\). Sur \([0,2\pi[\),
+\[\cos x=0\Rightarrow x\in\{\pi/2,3\pi/2\},\qquad
+\sin x=1/2\Rightarrow x\in\{\pi/6,5\pi/6\}.\]
+D'où \(\boxed{S=\{\pi/6,\pi/2,5\pi/6,3\pi/2\}}\). Diviser directement par \(\cos x\) ferait perdre les deux solutions \(\pi/2\) et \(3\pi/2\).
+
+\corrige{12 — inéquation}
+\(\sqrt2/2\) est le sinus de \(\pi/4\) et de \(3\pi/4\). Entre ces deux angles, l'ordonnée sur le cercle est au moins \(\sqrt2/2\). Donc
+\[\boxed{S_{[0,2\pi]}=[\pi/4,3\pi/4]}.\]
+Dans \(\R\), par périodicité,
+\[\boxed{S_\R=\bigcup_{k\in\Z}[\pi/4+2k\pi,\ 3\pi/4+2k\pi]}.\]
+
+\corrige{13 — combinaison de deux fonctions}
+D'après les formules d'addition,
+\[\sin x+\cos x=\sqrt2\sin(x+\pi/4).\]
+L'équation devient \(\sin(x+\pi/4)=\sqrt2/2\), donc
+\[x+\pi/4=\pi/4+2k\pi\ \text{ou}\ x+\pi/4=3\pi/4+2k\pi.\]
+Après soustraction de \(\pi/4\),
+\[\boxed{x=2k\pi\ \text{ou}\ x=\pi/2+2k\pi,\qquad k\in\Z}.\]
+Dans \([0,2\pi[\), \(\boxed{S=\{0,\pi/2\}}\).
+
+\corrige{14 — triangle quelconque}
+La loi des cosinus donne
+\[a^2=b^2+c^2-2bc\cos A=25+49-70\times\frac12=39,\]
+donc \(\boxed{a=\sqrt{39}}\). L'aire du triangle est
+\[\mathcal A=\frac12bc\sin A=\frac12\times5\times7\times\frac{\sqrt3}2
+=\boxed{35\sqrt3/4}.\]
+
+\corrige{15 — produit scalaire}
+\(\vec u\cdot\vec v=1\times2+2\times(-1)=0\). De plus,
+\[\|\vec u\|=\sqrt{1^2+2^2}=\sqrt5,\qquad
+\|\vec v\|=\sqrt{2^2+(-1)^2}=\sqrt5.\]
+Les deux vecteurs sont non nuls, donc \(0=\|u\|\|v\|\cos\alpha\) impose \(\cos\alpha=0\). L'angle non orienté vaut \(\boxed{\alpha=\pi/2}\).
+
+\corrige{16 — phénomène périodique}
+\(\omega=\pi/6\ \mathrm{rad/s}\). La période vaut
+\[\boxed{T=\frac{2\pi}{\pi/6}=12\ \mathrm s},\qquad
+\boxed{f=\frac1{12}\ \mathrm{Hz}}.\]
+La hauteur varie entre \(2-1{,}5=\boxed{0{,}5\ \mathrm m}\) et \(2+1{,}5=\boxed{3{,}5\ \mathrm m}\). Le premier maximum correspond à \(\sin(\pi t/6)=1\), donc \(\pi t/6=\pi/2\) au premier instant positif, soit \(\boxed{t=3\ \mathrm s}\).
+
+\corrige{17 — extrema et dérivée}
+\(f'(x)=\cos x-\sin x\). Les points critiques vérifient \(\cos x=\sin x\), donc \(\tan x=1\) (avec \(\cos x\neq0\)) et \(x=\pi/4+k\pi\). Dans \([0,2\pi]\), les candidats sont \(\pi/4\), \(5\pi/4\) ainsi que les bornes \(0\) et \(2\pi\).
+\[
+\begin{array}{c|cccc}
+x & 0 & \pi/4 & 5\pi/4 & 2\pi\\\hline
+f(x)&1&\sqrt2&-\sqrt2&1
+\end{array}
+\]
+La dérivée passe de positive à négative en \(\pi/4\) et de négative à positive en \(5\pi/4\). Donc
+\[\boxed{\max f=\sqrt2\ \text{en}\ x=\pi/4},\qquad
+\boxed{\min f=-\sqrt2\ \text{en}\ x=5\pi/4}.\]
+Par ailleurs, \(\sin x+\cos x=\sqrt2\sin(x+\pi/4)\), ce qui donne immédiatement la borne \([-\sqrt2,\sqrt2]\) et confirme les extrema.
+
+\corrige{18 — réciproques}
+L'arc sinus prend toujours ses valeurs dans \([-\pi/2,\pi/2]\). Or \(\sin(5\pi/6)=1/2\). Donc\[\boxed{\arcsin(\sin(5\pi/6))=\pi/6}.\]
+
+L'arc cosinus prend ses valeurs dans \([0,\pi]\). Or \(\cos(5\pi/3)=1/2\). Donc\[\boxed{\arccos(\cos(5\pi/3))=\pi/3}.\]
+
+L'arc tangente prend ses valeurs dans \(]-\pi/2,\pi/2[\). Or \(\tan(3\pi/4)=-1\). Donc\[\boxed{\arctan(\tan(3\pi/4))=-\pi/4}.\]
+
+\corrige{19 — tangente}
+La tangente est définie pour \(x\in\R\setminus\{\pi/2+k\pi:k\in\Z\}\). Puisque \(\tan(\pi/3)=\sqrt3\) et que la tangente est de période \(\pi\),
+\[\boxed{x=\pi/3+k\pi,\quad k\in\Z}.\]
+Dans \([0,2\pi[\), seules les valeurs \(\boxed{\{\pi/3,4\pi/3\}}\) conviennent.
+
+\corrige{20 — deux méthodes}
+\textbf{Méthode 1.} L'angle double donne
+\[2\cos^2x-1=\cos x\iff(2\cos x+1)(\cos x-1)=0.\]
+Ainsi \(\cos x=-1/2\) ou \(\cos x=1\), d'où \(\boxed{S=\{0,2\pi/3,4\pi/3\}}\) sur \([0,2\pi[\).
+
+\textbf{Méthode 2.} Pour \(\cos A=\cos B\), on a \(A=B+2k\pi\) ou \(A=-B+2k\pi\). Avec \(A=2x\), \(B=x\),
+\[2x=x+2k\pi\ \text{ou}\ 2x=-x+2k\pi.\]
+D'où \(x=2k\pi\) ou \(3x=2k\pi\), soit \(x=2k\pi/3\). La première famille est incluse dans la seconde (pour les multiples de \(3\)). Sur \([0,2\pi[\), on retrouve \(\boxed{S=\{0,2\pi/3,4\pi/3\}}\).

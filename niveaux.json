@@ -14,5 +14,9 @@
   "terminale": {
     "source": "sources/03-lycee/03-terminale",
     "suffixe": "tle"
+  },
+  "specialite-trigonometrie": {
+    "source": "sources/specialite/trigonometrie",
+    "suffixe": "spe_trigo"
   }
 }

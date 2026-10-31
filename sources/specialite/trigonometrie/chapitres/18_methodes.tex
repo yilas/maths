@@ -1,0 +1,49 @@
+\documentclass[../cours_spe_trigo.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{17}
+\chapter{Méthodes, pièges et carte des démonstrations}
+\section{Reconnaître ce qui est une définition et ce qui est démontré}
+\begin{center}
+\begin{tabularx}{\linewidth}{@{}p{.28\linewidth} X@{}}
+\toprule
+\textbf{Statut} & \textbf{Exemples et justification}\\
+\midrule
+Définition & $\pi=C/D$ après preuve que ce quotient est constant ; mesure en radians $\ell/R$ ; sinus et cosinus comme coordonnées du cercle.\\
+Théorème de géométrie & Pythagore ; loi des cosinus ; loi des sinus ; produit scalaire et angle.\\
+Conséquence géométrique & $C=2\pi R$ ; $180^\circ=\pi$ rad ; $\sin^2x+\cos^2x=1$ ; symétries et périodicité.\\
+Conséquence algébrique & Formules d'addition, angles doubles, produit--somme, somme--produit, équations.\\
+Résultat d'analyse & Limite $\sin x/x\to1$, dérivées, primitives, approximations de Taylor.\\
+\bottomrule
+\end{tabularx}
+\end{center}
+\section{Les erreurs fréquentes et leurs remèdes}
+\begin{enumerate}[label=\arabic*.]
+\item \textbf{Confondre $2\pi$ et $2\pi R$.} $2\pi$ est un angle (en radians), mais $2\pi R$ est une longueur.
+\item \textbf{Confondre longueur et aire.} $C=2\pi R$ et $\mathcal A=\pi R^2$, avec unités différentes.
+\item \textbf{Utiliser les degrés dans une formule d'analyse.} Pour $\sin x/x\to1$, les radians sont indispensables.
+\item \textbf{Dire $\sqrt{\sin^2x}=\sin x$.} Le résultat général est $\sqrt{\sin^2x}=|\sin x|$.
+\item \textbf{Écrire $\sin(a+b)=\sin a+\sin b$.} C'est faux en général : utiliser la formule d'addition.
+\item \textbf{Diviser par une expression qui peut être nulle.} Dans une équation, cela peut supprimer des solutions.
+\item \textbf{Oublier $k\in\mathbb Z$.} Les solutions générales se répètent à chaque période.
+\item \textbf{Confondre $\arcsin(\sin x)$ et $x$.} L'égalité n'est vraie que dans l'intervalle principal choisi.
+\item \textbf{Ignorer le domaine de la tangente.} Elle n'existe pas lorsque $\cos x=0$.
+\end{enumerate}
+\section{Chaîne logique du cours}
+\begin{center}
+\begin{tikzpicture}[node distance=6mm and 8mm,
+nodeStep/.style={draw=bleu,fill=bleuPale,rounded corners=2mm,text width=3.7cm,align=center,inner sep=6pt,font=\small},
+arr/.style={-Latex,thick,bleu}]
+\node[nodeStep] (a) {Similitude, Pythagore, cercle et disque};
+\node[nodeStep,below=of a] (b) {$\pi=C/D$ et $C=2\pi R$};
+\node[nodeStep,below=of b] (c) {Radians, arcs et secteurs};
+\node[nodeStep,below=of c] (d) {Cercle unité et coordonnées};
+\node[nodeStep,below left=of d] (e) {Symétries, valeurs, périodicité};
+\node[nodeStep,below right=of d] (f) {Rotations et formules d'addition};
+\node[nodeStep,below=of $(e)!0.5!(f)$] (g) {Équations, fonctions, dérivées, applications};
+\draw[arr] (a)--(b);\draw[arr] (b)--(c);\draw[arr] (c)--(d);
+\draw[arr] (d)--(e);\draw[arr] (d)--(f);
+\draw[arr] (e)--(g);\draw[arr] (f)--(g);
+\end{tikzpicture}
+\end{center}
+Cette carte donne une stratégie de révision : si une identité paraît mystérieuse, \emph{remonter} d'un niveau, vers la rotation, la symétrie ou le triangle rectangle.
+\end{document}

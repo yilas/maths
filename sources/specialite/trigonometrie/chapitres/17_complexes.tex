@@ -1,0 +1,48 @@
+\documentclass[../cours_spe_trigo.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{16}
+\chapter{Passerelle vers les mathématiques supérieures}
+\section{Les nombres complexes sur le cercle}
+Le nombre complexe $z=x+iy$ possède un module $|z|=\sqrt{x^2+y^2}$. Si $|z|=1$, il existe un angle $\theta$ tel que
+\[z=\cos\theta+i\sin\theta.\]
+\begin{demonstration}
+\textbf{Produit de deux complexes de module $1$.} Posons $z_a=\cos a+i\sin a$ et $z_b=\cos b+i\sin b$. En développant, avec $i^2=-1$ :
+\[
+\begin{aligned}
+z_az_b&=(\cos a\cos b-\sin a\sin b)\\
+&\quad+i(\sin a\cos b+\cos a\sin b)\\
+&=\cos(a+b)+i\sin(a+b),
+\end{aligned}
+\]
+par les formules d'addition déjà prouvées. Ainsi la \emph{multiplication} de deux complexes sur le cercle unité \emph{additionne les angles}. $\square$
+\end{demonstration}
+\section{Formule de Moivre}
+Le produit précédent implique par récurrence, pour tout entier $n\ge0$ :
+\[\boxed{(\cos\theta+i\sin\theta)^n=\cos(n\theta)+i\sin(n\theta).}\]
+Pour $n<0$, on utilise l'inverse $1/(\cos\theta+i\sin\theta)=\cos\theta-i\sin\theta$, car le module vaut $1$ ; la formule reste donc valable pour tous les entiers relatifs.
+\section{Pourquoi $e^{ix}=\cos x+i\sin x$ ?}
+\niveau{Approfondissement : fonctions exponentielles complexes et séries}
+\begin{demonstration}
+L'exponentielle complexe peut être \textbf{définie} par sa série entière
+\[e^z=\sum_{n=0}^{\infty}\frac{z^n}{n!}.\]
+En prenant $z=ix$ et en séparant les puissances paires ($i^{2n}=(-1)^n$) et impaires ($i^{2n+1}=i(-1)^n$), on obtient
+\[
+e^{ix}=\sum_{n=0}^{\infty}(-1)^n\frac{x^{2n}}{(2n)!}
++i\sum_{n=0}^{\infty}(-1)^n\frac{x^{2n+1}}{(2n+1)!}.
+\]
+Les deux séries réelles sont exactement les développements de Taylor du cosinus et du sinus (que l'on peut démontrer grâce à leurs dérivées successives et au reste de Taylor). Ainsi
+\[\boxed{e^{ix}=\cos x+i\sin x.}\]
+Cette identité ne sert donc pas à \emph{définir} artificiellement le cercle trigonométrique : elle relie deux constructions indépendantes, la géométrie du cercle et l'exponentielle complexe. $\square$
+\end{demonstration}
+\section{Les approximations pour les petits angles}
+Grâce aux dérivées successives et à la formule de Taylor, on a, au voisinage de $0$ :
+\[
+\sin x=x-\frac{x^3}{6}+\frac{x^5}{120}+O(x^7),\quad
+\cos x=1-\frac{x^2}{2}+\frac{x^4}{24}+O(x^6).
+\]
+En particulier $\sin x\sim x$ et $1-\cos x\sim x^2/2$ lorsque $x\to0$.
+\begin{demonstration}
+\textbf{Origine des coefficients.} Les dérivées de $\sin x$ en $0$ suivent le cycle $0,1,0,-1,0,1,\ldots$, et celles de $\cos x$ le cycle $1,0,-1,0,1,\ldots$. Le polynôme de Taylor $\sum_{k=0}^n f^{(k)}(0)x^k/k!$ fournit alors les termes affichés. Les restes convergent vers $0$ plus vite que la dernière puissance conservée parce que les dérivées successives sont bornées par $1$. $\square$
+\end{demonstration}
+\textbf{Attention :} ces approximations concernent $x$ \emph{en radians}. Pour un angle de $1^\circ$, on doit utiliser $x=\pi/180\approx0{,}01745$ et non $x=1$.
+\end{document}

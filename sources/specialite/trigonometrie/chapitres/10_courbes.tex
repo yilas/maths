@@ -1,0 +1,48 @@
+\documentclass[../cours_spe_trigo.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{9}
+\chapter{Comprendre les courbes du sinus et du cosinus}
+\section{Comment le cercle engendre-t-il une courbe ?}
+Quand $x$ augmente, le point $M(x)$ parcourt le cercle. Son abscisse $\cos x$ et son ordonnée $\sin x$ oscillent entre $-1$ et $1$. En reportant pour chaque $x$ sa hauteur dans un repère $(x,y)$, on obtient la \textbf{sinusoïde} $y=\sin x$. En reportant l'abscisse, on obtient $y=\cos x$.
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[width=.94\linewidth,height=5.6cm,xmin=-6.2832,xmax=6.2832,ymin=-1.28,ymax=1.28,
+axis lines=middle,grid=major,grid style={gray!12},
+xtick={-6.2832,-4.7124,-3.1416,-1.5708,0,1.5708,3.1416,4.7124,6.2832},
+xticklabels={$-2\pi$,$-3\pi/2$,$-\pi$,$-\pi/2$,$0$,$\pi/2$,$\pi$,$3\pi/2$,$2\pi$},
+ytick={-1,0,1},tick label style={font=\scriptsize},
+legend style={font=\footnotesize,at={(.5,1.02)},anchor=south,draw=none,legend columns=2}]
+\addplot[bleu,very thick,domain=-6.2832:6.2832,samples=250]{sin(deg(x))};
+\addplot[orange,very thick,domain=-6.2832:6.2832,samples=250]{cos(deg(x))};
+\legend{$y=\sin x$,$y=\cos x$}
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\section{Continuité, variations et extrema}
+Géométriquement, si l'angle change très peu, le point du cercle se déplace très peu ; donc ses coordonnées changent continûment. Les fonctions sinus et cosinus sont continues sur $\mathbb R$.
+
+Sur $[0,2\pi]$, le sinus est croissant sur $[0,\pi/2]$, décroissant sur $[\pi/2,3\pi/2]$ et croissant sur $[3\pi/2,2\pi]$ ; le cosinus est décroissant sur $[0,\pi]$ puis croissant sur $[\pi,2\pi]$. On le lit sur le cercle en suivant les coordonnées ; nous le confirmerons plus loin par les dérivées.
+\begin{center}
+\begin{tabular}{c|ccccc}
+\toprule
+$x$ & $0$ & $\pi/2$ & $\pi$ & $3\pi/2$ & $2\pi$\\
+\midrule
+$\sin x$ & $0$ & $1$ & $0$ & $-1$ & $0$\\
+$\cos x$ & $1$ & $0$ & $-1$ & $0$ & $1$\\
+\bottomrule
+\end{tabular}
+\end{center}
+\section{Amplitude, fréquence, pulsation, déphasage}
+\begin{propriete}
+Pour $A\ne0$ et $\omega\ne0$, une sinusoïde générale
+\[\boxed{f(x)=A\sin(\omega x+\varphi)+d}\]
+a pour amplitude $|A|$, axe médian $y=d$, image $[d-|A|,d+|A|]$, période fondamentale $T=2\pi/|\omega|$, décalage horizontal $-\varphi/\omega$. La fréquence spatiale ou temporelle, si l'argument est un temps, vaut $1/T$.
+\end{propriete}
+\begin{demonstration}
+Puisque $-1\le\sin u\le1$, multiplier par $A$ donne une oscillation d'amplitude $|A|$ et ajouter $d$ translate les valeurs. Pour la période, on cherche un $T>0$ tel que $\omega(x+T)+\varphi$ diffère de $\omega x+\varphi$ d'un tour entier $2k\pi$. Le plus petit $T>0$ correspond à $|\omega|T=2\pi$, soit $T=2\pi/|\omega|$. Enfin $\omega x+\varphi=\omega(x+\varphi/\omega)$ justifie le décalage. $\square$
+\end{demonstration}
+\textbf{Exemple détaillé.} $f(x)=3\sin(2x+\pi/6)-2$ : amplitude $3$, période $\pi$, décalage de $\pi/12$ vers la gauche, axe médian $y=-2$ et image $[-5,1]$.
+\begin{attention}
+Lorsque $A=0$ ou $\omega=0$, la fonction est constante : elle admet toutes les périodes positives et n'a donc \emph{pas} de période fondamentale. Pour $\tan(\omega x+\varphi)$, la période est $\pi/|\omega|$.
+\end{attention}
+\end{document}

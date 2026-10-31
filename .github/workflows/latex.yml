@@ -26,6 +26,8 @@ jobs:
           docker run --rm --user "$(id -u):$(id -g)" -v "$PWD:/work" -w /work maths-latex python3 compiler.py --niveau seconde --chapitre 9
           docker run --rm --user "$(id -u):$(id -g)" -v "$PWD:/work" -w /work maths-latex python3 compiler.py --niveau premiere --chapitre 16
           docker run --rm --user "$(id -u):$(id -g)" -v "$PWD:/work" -w /work maths-latex python3 compiler.py --niveau terminale --chapitre 17
+          docker run --rm --user "$(id -u):$(id -g)" -v "$PWD:/work" -w /work maths-latex python3 compiler.py --niveau specialite-trigonometrie --chapitre 1
+          docker run --rm --user "$(id -u):$(id -g)" -v "$PWD:/work" -w /work maths-latex python3 compiler.py --niveau specialite-trigonometrie --chapitre 14
           docker run --rm --user "$(id -u):$(id -g)" -v "$PWD:/work" -w /work maths-latex python3 compiler.py --document modeles/modele_nouveau_cours.tex
       - uses: actions/upload-artifact@v7
         with:

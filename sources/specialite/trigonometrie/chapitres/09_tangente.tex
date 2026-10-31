@@ -1,0 +1,45 @@
+\documentclass[../cours_spe_trigo.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{8}
+\chapter{La tangente : rapport, pente et asymptotes}
+\section{Définition, domaine et identité}
+\begin{definition}
+Lorsque $\cos x\ne0$, la tangente est définie par
+\[\boxed{\tan x=\frac{\sin x}{\cos x}.}\]
+Elle n'est pas définie pour $x=\pi/2+k\pi$ ($k\in\mathbb Z$).
+\end{definition}
+\begin{demonstration}
+\textbf{Interprétation comme pente.} La droite passant par $O$ et $M=(\cos x,\sin x)$ a pour coefficient directeur $\Delta y/\Delta x=\sin x/\cos x$ lorsque $\cos x\ne0$. C'est exactement $\tan x$. Si $\cos x=0$, la droite est verticale et n'a pas de pente finie. $\square$
+\end{demonstration}
+\begin{demonstration}
+\textbf{Identité fondamentale de la tangente.} En divisant $\cos^2x+\sin^2x=1$ par $\cos^2x$ (possible uniquement si $\cos x\ne0$) :
+\[\boxed{1+\tan^2x=\frac1{\cos^2x}.}\]
+\end{demonstration}
+\section{Période $\pi$, parité et formules d'addition}
+Comme $\sin(x+\pi)=-\sin x$ et $\cos(x+\pi)=-\cos x$, leur quotient est inchangé : $\tan(x+\pi)=\tan x$. La parité est impaire : $\tan(-x)=-\tan x$.
+\begin{demonstration}
+\textbf{Période fondamentale.} Si $T>0$ est une période de $\tan$, l'égalité $\tan T=\tan0=0$ impose $\sin T=0$, donc $T=k\pi$, et la plus petite possibilité positive est $\pi$. $\square$
+\end{demonstration}
+En divisant la formule d'addition du sinus par celle du cosinus, puis en divisant numérateur et dénominateur par $\cos a\cos b$, on obtient, \emph{lorsque tous les termes écrits sont définis},
+\[
+\boxed{\tan(a+b)=\frac{\tan a+\tan b}{1-\tan a\tan b}.}
+\]
+La même méthode avec $b=-a$ donne $\tan(a-b)=(\tan a-\tan b)/(1+\tan a\tan b)$ ; avec $a=b=x$, $\tan2x=2\tan x/(1-\tan^2x)$, sous les conditions de définition appropriées.
+\section{Pourquoi la tangente tend-elle vers l'infini ?}
+Quand $x\to(\pi/2)^-$, $\sin x\to1$ et $\cos x\to0$ par valeurs positives, donc $\tan x\to+\infty$. En approchant $\pi/2$ par la droite, le cosinus devient négatif, donc $\tan x\to-\infty$. Les droites $x=\pi/2+k\pi$ sont des asymptotes verticales.
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[width=.9\linewidth,height=5.25cm,xmin=-4.4,xmax=4.4,ymin=-4,ymax=4,
+axis lines=middle,grid=major,grid style={gray!12},
+xtick={-3.1416,-1.5708,0,1.5708,3.1416},
+xticklabels={$-\pi$,$-\pi/2$,$0$,$\pi/2$,$\pi$},
+ytick={-3,-1,0,1,3},tick label style={font=\scriptsize}]
+\addplot[bleu,very thick,samples=110,domain=-4.40:-1.80]{tan(deg(x))};
+\addplot[bleu,very thick,samples=110,domain=-1.35:1.35]{tan(deg(x))};
+\addplot[bleu,very thick,samples=110,domain=1.80:4.40]{tan(deg(x))};
+\addplot[orange,dashed] coordinates {(-1.5708,-4)(-1.5708,4)};
+\addplot[orange,dashed] coordinates {(1.5708,-4)(1.5708,4)};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\end{document}

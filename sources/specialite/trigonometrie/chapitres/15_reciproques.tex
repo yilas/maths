@@ -1,0 +1,31 @@
+\documentclass[../cours_spe_trigo.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{14}
+\chapter{Fonctions réciproques : \texorpdfstring{$\arcsin$, $\arccos$ et $\arctan$}{arcsin, arccos et arctan}}
+\section{Pourquoi faut-il restreindre les fonctions ?}
+Une fonction admet une fonction réciproque sur un ensemble seulement si elle y est bijective. Or la fonction sinus prend la même valeur en une infinité d'angles ; il faut donc la restreindre à un intervalle où elle est strictement monotone.
+\begin{definition}
+Les trois fonctions réciproques usuelles sont définies par les choix suivants :
+\[
+\begin{aligned}
+\arcsin &: [-1,1]\longrightarrow[-\pi/2,\pi/2],\\
+\arccos &: [-1,1]\longrightarrow[0,\pi],\\
+\arctan &: \mathbb R\longrightarrow]-\pi/2,\pi/2[.
+\end{aligned}
+\]
+Sur ces intervalles, chacune renvoie \textbf{l'unique angle} dont le sinus, le cosinus ou la tangente est l'argument.
+\end{definition}
+\textbf{Exemples.} $\arcsin(1/2)=\pi/6$. En revanche,
+\[\arcsin(\sin(5\pi/6))=\pi/6\ne5\pi/6.\]
+De même, $\arccos(\cos(5\pi/3))=\pi/3$.
+\section{Dérivées des fonctions réciproques (approfondissement)}
+\begin{demonstration}
+Posons $y=\arcsin x$ pour $-1<x<1$. Alors $x=\sin y$ et $y\in]-\pi/2,\pi/2[$. En dérivant : $1=\cos y\,y'$. Puisque $\cos y>0$ dans cet intervalle et $\cos^2y=1-\sin^2y=1-x^2$, on a $\cos y=\sqrt{1-x^2}$. Ainsi
+\[\boxed{(\arcsin x)'=\frac1{\sqrt{1-x^2}}.}\]
+On démontre de même, avec $y=\arccos x$ et $\sin y>0$ pour $0<y<\pi$ :
+\[\boxed{(\arccos x)'=-\frac1{\sqrt{1-x^2}}.}\]
+Enfin, si $y=\arctan x$, $x=\tan y$, donc $1=(1+\tan^2y)y'=(1+x^2)y'$ et
+\[\boxed{(\arctan x)'=\frac1{1+x^2}.}\]
+$\square$
+\end{demonstration}
+\end{document}

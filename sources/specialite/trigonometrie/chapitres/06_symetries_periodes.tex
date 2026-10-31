@@ -1,0 +1,41 @@
+\documentclass[../cours_spe_trigo.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{5}
+\chapter{Symétries, angles associés et périodes : justifications géométriques}
+\section{Parité : changer le sens de rotation}
+Le point d'angle $-x$ est le reflet de celui d'angle $x$ par rapport à l'axe horizontal. La réflexion conserve l'abscisse et change le signe de l'ordonnée :
+\[\boxed{\cos(-x)=\cos x,\qquad\sin(-x)=-\sin x.}\]
+Le cosinus est \textbf{pair} ; le sinus est \textbf{impair}.
+
+\section{Opposition, supplémentarité et quart de tour}
+\begin{demonstration}
+Le point d'angle $\pi-x$ est le reflet de celui d'angle $x$ par rapport à l'axe vertical :
+$\cos(\pi-x)=-\cos x$ et $\sin(\pi-x)=\sin x$.
+Le point d'angle $x+\pi$ est à l'opposé sur le diamètre :
+$\cos(x+\pi)=-\cos x$ et $\sin(x+\pi)=-\sin x$.
+La rotation de $\pi/2$ transforme les coordonnées $(u,v)$ en $(-v,u)$, ce qui se voit par un quart de tour direct. Donc
+$\cos(x+\pi/2)=-\sin x$ et $\sin(x+\pi/2)=\cos x$. $\square$
+\end{demonstration}
+\begin{propriete}
+Les identités fondamentales d'angles associés sont
+\[
+\begin{array}{rlrl}
+\cos(\pi-x)&=-\cos x,&\sin(\pi-x)&=\sin x,\\
+\cos(\pi+x)&=-\cos x,&\sin(\pi+x)&=-\sin x,\\
+\cos(2\pi-x)&=\cos x,&\sin(2\pi-x)&=-\sin x,\\
+\cos(x+\pi/2)&=-\sin x,&\sin(x+\pi/2)&=\cos x.
+\end{array}
+\]
+\end{propriete}
+\textbf{Exemple corrigé.} Comme $5\pi/6=\pi-\pi/6$, $\cos(5\pi/6)=-\sqrt3/2$ et $\sin(5\pi/6)=1/2$. Comme $-13\pi/6=-\pi/6-2\pi$, son cosinus vaut $\sqrt3/2$ et son sinus $-1/2$.
+
+\section{Pourquoi la plus petite période positive est-elle $2\pi$ ?}
+\begin{demonstration}
+On sait déjà que $2\pi$ est une période des deux fonctions. Montrons qu'il n'existe pas de période positive plus petite.
+
+Pour le \textbf{cosinus}, si $T>0$ est une période, $\cos(T)=\cos(0)=1$. Or sur le cercle, l'abscisse $1$ ne se rencontre qu'au point $I$, obtenu pour les angles $2k\pi$. Par conséquent $T=2k\pi$ : la plus petite valeur positive possible est $2\pi$.
+
+Pour le \textbf{sinus}, si $T>0$ est une période, l'égalité en $x=0$ impose $\sin T=0$, et l'égalité en $x=\pi/2$ impose
+$\sin(\pi/2+T)=\sin(\pi/2)=1$, soit $\cos T=1$ par la formule du quart de tour. Là encore, $T\in2\pi\mathbb Z$. $\square$
+\end{demonstration}
+\end{document}

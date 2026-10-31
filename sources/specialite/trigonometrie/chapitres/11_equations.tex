@@ -1,0 +1,78 @@
+\documentclass[../cours_spe_trigo.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{10}
+\chapter{Équations trigonométriques : toutes les solutions, et pourquoi}
+\section{Équations fondamentales sur le cercle}
+\begin{propriete}
+Pour tous réels $x,a$, avec $k\in\mathbb Z$ :
+\[
+\boxed{\cos x=\cos a\iff x=2k\pi+a\ \text{ou}\ x=2k\pi-a.}
+\]
+\[
+\boxed{\sin x=\sin a\iff x=2k\pi+a\ \text{ou}\ x=2k\pi+\pi-a.}
+\]
+Si $a$ et $x$ sont dans le domaine de $\tan$ :
+\[
+\boxed{\tan x=\tan a\iff x=a+k\pi.}
+\]
+\end{propriete}
+\begin{demonstration}
+\textbf{Cosinus.} Fixons une abscisse $c=\cos a$ du cercle unité. Une droite verticale d'équation $x=c$ rencontre le cercle en au plus deux points. Ils sont symétriques par rapport à l'axe horizontal : leurs angles sont $a$ et $-a$, modulo $2\pi$. Ce sont \emph{tous} les cas.
+
+\textbf{Sinus.} Fixons une ordonnée $s=\sin a$. La droite horizontale $y=s$ coupe le cercle en deux points symétriques par rapport à l'axe vertical, d'angles $a$ et $\pi-a$, modulo $2\pi$.
+
+\textbf{Tangente.} Deux angles ont la même tangente exactement lorsque leurs droites $OM$ ont la même pente. Il s'agit de la même droite non verticale, donc les points sont identiques ou diamétralement opposés. Les angles diffèrent d'un multiple de $\pi$. $\square$
+\end{demonstration}
+\begin{attention}
+Ne pas confondre une \textbf{équation sur $\mathbb R$}, qui peut donner des familles infinies, et la recherche de solutions dans un intervalle comme $[0,2\pi[$. Le paramètre $k$ doit être entier, et les solutions proposées doivent respecter le domaine.
+\end{attention}
+
+\section{Équations numériques $\sin x=c$ et $\cos x=c$}
+Si $|c|>1$, aucune solution réelle, puisque les fonctions sont bornées par $1$. Si $|c|\le1$, on identifie un angle $a$ tel que $\sin a=c$ ou $\cos a=c$, puis on applique les deux familles correspondantes. Aux extrêmes $c=1$ ou $c=-1$, les deux familles peuvent coïncider.
+\begin{methode}
+\textbf{Exemple entièrement résolu.} Résoudre $\sin(2x)=\sqrt3/2$ dans $[0,2\pi[$.
+
+Les angles de sinus $\sqrt3/2$ sont $\pi/3$ et $2\pi/3$ modulo $2\pi$. Donc
+\[
+2x=\frac\pi3+2k\pi\quad\text{ou}\quad 2x=\frac{2\pi}3+2k\pi.
+\]
+En divisant par $2$, $x=\pi/6+k\pi$ ou $x=\pi/3+k\pi$. Pour $k=0,1$ les solutions de l'intervalle sont
+\[\boxed{S=\{\pi/6,\pi/3,7\pi/6,4\pi/3\}.}\]
+Vérifier en substituant $2x$ dans le sinus permet de détecter les oublis.
+\end{methode}
+
+\section{Factoriser, substituer et préserver le domaine}
+\begin{methode}
+\textbf{Exemple.} Résoudre $\sin2x=\cos x$ sur $[0,2\pi[$. Grâce à l'angle double :
+\[
+2\sin x\cos x=\cos x\iff\cos x(2\sin x-1)=0.
+\]
+Ainsi $\cos x=0$ ou $\sin x=1/2$. L'ensemble est
+\[\boxed{S=\{\pi/6,\pi/2,5\pi/6,3\pi/2\}.}\]
+Diviser par $\cos x$ au départ ferait \textbf{perdre} les solutions $\pi/2$ et $3\pi/2$.
+\end{methode}
+\textbf{Exemple de substitution.} L'équation $2\sin^2x-3\sin x+1=0$ devient $(2u-1)(u-1)=0$ en posant $u=\sin x$. On résout donc $\sin x=1/2$ ou $\sin x=1$, puis on revient à $x$.
+
+\section{Pourquoi les inéquations se lisent sur les arcs ?}
+Résoudre $\sin x\ge1/2$ revient à sélectionner, sur le cercle, les points dont l'ordonnée est au moins $1/2$. La portion supérieure du cercle comprise entre $\pi/6$ et $5\pi/6$ convient. Ainsi
+\[
+\boxed{S_{[0,2\pi]}=[\pi/6,5\pi/6],\qquad
+S_{\mathbb R}=\bigcup_{k\in\mathbb Z}[\pi/6+2k\pi,5\pi/6+2k\pi].}
+\]
+Il faut toujours examiner la \emph{stricte ou large inégalité} pour savoir si les bornes sont incluses.
+
+\section{Toute combinaison $a\sin x+b\cos x$ est une sinusoïde}
+Pour $a,b$ non tous deux nuls, posons $R=\sqrt{a^2+b^2}>0$. Le point $(a/R,b/R)$ est sur le cercle unité : il existe donc un angle $\varphi$ tel que $\cos\varphi=a/R$ et $\sin\varphi=b/R$. La formule d'addition donne
+\[
+\boxed{a\sin x+b\cos x=R\sin(x+\varphi).}
+\]
+\begin{demonstration}
+En développant le membre de droite :
+\[
+R\sin(x+\varphi)=R\sin x\cos\varphi+R\cos x\sin\varphi
+=a\sin x+b\cos x.
+\]
+Le choix d'un tel angle est possible exactement parce que $(a/R)^2+(b/R)^2=1$. Ce résultat sert aux équations, mais aussi à déterminer des maxima, des minima et des phases en physique. $\square$
+\end{demonstration}
+\textbf{Exemple.} $\sin x+\cos x=\sqrt2\sin(x+\pi/4)$ ; l'expression prend donc toutes les valeurs de $[-\sqrt2,\sqrt2]$.
+\end{document}
