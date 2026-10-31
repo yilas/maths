@@ -13,6 +13,21 @@ Le référentiel [OBJECTIFS.md](OBJECTIFS.md) guide toute création et révision
 Les PDF sont disponibles dans les [releases](https://github.com/yilas/maths/releases)
 après la première publication sur tag contenant ce workflow.
 
+## Spécialité — cours thématiques approfondis
+
+Ces dossiers approfondissent un sujet depuis ses fondements, avec des **démonstrations, méthodes, exemples, exercices et corrigés**. Ils sont transversaux (seconde, première, terminale et prolongements), et ne remplacent pas les volumes scolaires couvrant la spécialité officielle.
+
+**Premier dossier : [Trigonométrie — des origines de π aux fonctions](sources/specialite/trigonometrie/README.md)**. Pourquoi la circonférence vaut-elle $2\pi R$ ? D'où viennent les radians, les coordonnées, les identités, les équations et les dérivées ? **19 chapitres, 40 exercices et 40 corrigés.**
+
+| Document | Source LaTeX | PDF après le prochain tag contenant ce cours |
+| --- | --- | --- |
+| Cours démontré | [Source](sources/specialite/trigonometrie/cours_spe_trigo.tex) | [PDF](https://github.com/yilas/maths/releases/latest/download/specialite-trigonometrie-cours.pdf) |
+| Exercices | [Source](sources/specialite/trigonometrie/exercices_spe_trigo.tex) | [PDF](https://github.com/yilas/maths/releases/latest/download/specialite-trigonometrie-exercices.pdf) |
+| Corrigés | [Source](sources/specialite/trigonometrie/corriges_spe_trigo.tex) | [PDF](https://github.com/yilas/maths/releases/latest/download/specialite-trigonometrie-corriges.pdf) |
+| Guide | [Source](sources/specialite/trigonometrie/guide_spe_trigo.tex) | [PDF](https://github.com/yilas/maths/releases/latest/download/specialite-trigonometrie-guide.pdf) |
+
+Compilation : `make pdf NIVEAU=specialite-trigonometrie`. Les PDF ne sont pas versionnés ; les releases se construisent sur tag. Pour créer d'autres thèmes, suivre [les conventions du dossier](sources/specialite/trigonometrie/README.md).
+
 ## Terminale générale : spécialité et mathématiques expertes
 
 Le volume couvre la spécialité de **2026–2027**, le nouveau programme applicable
@@ -132,8 +147,9 @@ Le parcours prévu est le suivant. Seuls les niveaux rédigés ont un dossier :
 | Lycée | `sources/03-lycee/` | `01-seconde`, `02-premiere`, `03-terminale` |
 | Licence | `sources/04-licence/` | `01-l1`, `02-l2`, `03-l3` |
 | Master | `sources/05-master/` | `01-m1`, `02-m2` |
+| Spécialité thématique (transversale) | `sources/specialite/` | `trigonometrie`, puis autres sujets |
 
-Chaque classe conserve quatre maîtres LaTeX : **guide, cours, exercices et corrigés**.
+Chaque classe ou dossier thématique conserve quatre maîtres LaTeX : **guide, cours, exercices et corrigés**.
 Les chapitres, programmes Python et données restent à côté de ces maîtres.
 Le style unique est dans `commun/mathscommun.sty` ; les modèles sont dans `modeles/`.
 `niveaux.json` déclare le chemin et le suffixe des maîtres pour chaque niveau disponible.
@@ -153,13 +169,14 @@ Depuis le terminal à la racine :
 ```sh
 make pdf                       # toutes les classes disponibles
 make pdf NIVEAU=premiere        # les quatre documents d'une classe
+make pdf NIVEAU=specialite-trigonometrie # les quatre documents du dossier
 make verifier                  # compilation, tests Python et contrôles de rendu
 make release                   # mêmes contrôles + préparation des fichiers de release
 python3 compiler.py --niveau seconde --chapitre 9
 python3 compiler.py --document modeles/modele_nouveau_cours.tex
 ```
 
-Les quatre PDF de chaque classe sont dans `build/pdf/<niveau>/`. Pour les lire,
+Les quatre PDF de chaque niveau ou dossier sont dans `build/pdf/<niveau>/`. Pour les lire,
 ouvrir un PDF dans l'éditeur ; pour le récupérer, utiliser **Download** dans
 l'explorateur du Codespace. LaTeX Workshop permet aussi de compiler le maître
 ouvert avec la recette « pdfLaTeX avec style commun ». Ses sorties sont séparées
@@ -194,7 +211,7 @@ un par un. La publication utilise le commit exact du tag. Un tag créé par un a
 workflow avec `GITHUB_TOKEN` ne déclenche pas normalement ce second workflow :
 utiliser ici le push authentifié du contributeur.
 
-La release contient `troisieme-cours.pdf`, `seconde-guide.pdf`, etc., et
+La release contient `troisieme-cours.pdf`, `seconde-guide.pdf`, `specialite-trigonometrie-cours.pdf`, etc., et
 `maths-tous-les-niveaux.zip`, organisé en `<niveau>/<document>.pdf`.
 Elle n'est rendue publique qu'après tous les contrôles et l'envoi des fichiers.
 Si l'envoi échoue, elle reste en brouillon : relancer le job permet de terminer.

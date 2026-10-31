@@ -51,3 +51,10 @@
 - Ne jamais versionner les PDF : les générer dans `build/pdf/<niveau>/`, puis les publier
   par le workflow de release sur tag. Ne pas versionner `build/`, les journaux
   et les fichiers auxiliaires. Vérifier aussi le conditionnement de tous les niveaux.
+
+## Dossiers thématiques de spécialité
+
+Les dossiers `sources/specialite/` sont transversaux aux classes et distincts des programmes
+officiels de première/terminale. Chaque thème conserve les quatre maîtres, le style commun,
+des preuves, une table de couverture et un registre des admissions. Le déclarer dans
+`niveaux.json` pour compiler et publier les PDF sur tag ; ne pas versionner les PDF.

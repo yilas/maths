@@ -1,0 +1,17 @@
+\documentclass[11pt,a4paper,oneside]{book}
+\usepackage{mathscommun}
+\input{commandes.tex}
+\setniveau{Spécialité : trigonométrie}
+\renewcommand{\ReferenceProgramme}{Dossier thématique : seconde, première, terminale et prolongements}
+\renewcommand{\EditionDocument}{Édition du 31 octobre 2026}
+
+\hypersetup{pdftitle={Spécialité trigonométrie - Exercices}}
+\newcommand{\exercice}[2]{\Needspace{4\baselineskip}\section*{Exercice #1\hfill{\small #2}}}
+\begin{document}
+\titrecollection{Exercices}{Calculer, raisonner, démontrer}{40 exercices gradués : 20 applications et 20 reconstructions de preuves, de la seconde aux approfondissements.}
+\frontmatter
+\tableofcontents
+\mainmatter
+\input{exercices/01_applications.tex}
+\input{exercices/02_demonstrations.tex}
+\end{document}

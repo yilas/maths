@@ -228,6 +228,22 @@ l'unique style commun ; ne pas en créer de variante par classe. Les chapitres
 restent modulaires. Publier les quatre PDF ensemble pour un même tag, afin que
 le lecteur utilise des versions cohérentes.
 
+## 11 bis. Spécialité thématique : dossiers transversaux
+
+En complément des volumes scolaires et universitaires, la collection propose des dossiers
+thématiques approfondis, construits depuis les fondements et les démonstrations jusqu'aux
+prolongements explicitement définis. Ne pas confondre cette catégorie avec l'enseignement
+de « spécialité mathématiques » de première ou de terminale.
+
+Chaque sujet a quatre maîtres (guide, cours, exercices, corrigés), des chapitres modulaires,
+des objectifs, un diagnostic initial corrigé, une table de couverture et un registre des
+admissions. Les résultats prouvés, les fondements admis et les approfondissements restent
+distingués ; les prérequis renvoient aux volumes scolaires existants.
+
+Les dossiers sont dans `sources/specialite/<theme>/` et déclarés dans `niveaux.json` sous
+un identifiant unique comme `specialite-trigonometrie`. Leur publication suit les mêmes
+règles : sources LaTeX versionnées, PDF produits en CI et publiés seulement sur release.
+
 ## 12. Processus de création et de révision
 
 Pour un nouveau niveau : établir le périmètre et les sources, construire la table

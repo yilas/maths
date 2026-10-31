@@ -1,0 +1,71 @@
+\documentclass[../cours_spe_trigo.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{2}
+\chapter{Pourquoi les radians ? Construire la mesure des angles}
+\section{Longueurs d'arc et fractions de tour}
+Sur un cercle de rayon $R$, la longueur d'un demi-cercle est la moitié de $C$, soit $\pi R$ ; celle d'un quart de cercle vaut $\pi R/2$. Plus généralement, pour un angle géométrique $\alpha$ compris entre $0^\circ$ et $360^\circ$, la longueur de son arc est proportionnelle à la fraction de tour :
+\[
+\ell=\frac{\alpha}{360^\circ}\,2\pi R.
+\]
+\textbf{Pourquoi cette proportionnalité ?} Une rotation d'angle fixé découpe la circonférence en arcs congruents ; la longueur parcourue est additive lorsqu'on concatène les arcs. Pour les subdivisions rationnelles d'un tour, le rapport est évident ; le passage à tous les angles repose sur la continuité de la longueur d'arc.
+
+\section{Définition précise du radian}
+\begin{definition}
+Pour un arc parcouru dans le sens positif, sur un cercle de rayon $R$, l'angle \textbf{en radians} est le rapport
+\[\boxed{\theta=\frac{\ell}{R}.}\]
+Pour une rotation négative, on donne à $\theta$ le signe négatif. Si l'on effectue plusieurs tours, $\ell$ désigne ici la \emph{distance parcourue en comptant les tours}, et non simplement le plus petit arc entre départ et arrivée.
+\end{definition}
+\textbf{Un radian.} Un angle de $1\,\mathrm{rad}$ intercepte un arc de longueur $R$ ; l'angle de $2\,\mathrm{rad}$ intercepte un arc deux fois plus long. Le radian est sans dimension physique, puisque c'est le rapport de deux longueurs.
+\begin{demonstration}
+\textbf{Pourquoi $180^\circ=\pi\,\mathrm{rad}$ ?} Sur un demi-tour, $\ell=C/2=\pi R$. Ainsi $\theta=\ell/R=(\pi R)/R=\pi$. Sur un tour, $\ell=C=2\pi R$, donc $\theta=2\pi$. On obtient
+\[\boxed{180^\circ=\pi\ \mathrm{rad}\qquad\text{et}\qquad360^\circ=2\pi\ \mathrm{rad}.}\]
+Le rayon s'annule dans le quotient : le résultat ne dépend d'aucune taille particulière du cercle. $\square$
+\end{demonstration}
+\begin{center}
+\begin{tikzpicture}[scale=1.12]
+\fill[bleuPale] (0,0)--(0:1.7) arc[start angle=0,end angle=180,radius=1.7]--cycle;
+\draw[bleu,thick] (0,0) circle (1.7);
+\draw[orange,ultra thick,->] (0:1.7) arc[start angle=0,end angle=165,radius=1.7];
+\draw[thick] (-1.9,0)--(1.9,0);
+\node at (0,.68) {$180^\circ=\pi\,\mathrm{rad}$};
+\node[below] at (0,0) {$O$};
+\node[below] at (1.7,0) {$I$};
+\node[above] at (0,1.77) {$\ell=\pi R$};
+\end{tikzpicture}
+\end{center}
+\section{Conversion degrés--radians et angles orientés}
+La correspondance est une proportionnalité directe :
+\[
+\boxed{\theta_{\mathrm{rad}}=\theta_{\mathrm{deg}}\frac\pi{180}}
+\qquad
+\boxed{\theta_{\mathrm{deg}}=\theta_{\mathrm{rad}}\frac{180}{\pi}}.
+\]
+\begin{center}
+\begin{tabular}{ccccccccc}
+\toprule
+$0^\circ$ & $30^\circ$ & $45^\circ$ & $60^\circ$ & $90^\circ$ & $120^\circ$ & $180^\circ$ & $270^\circ$ & $360^\circ$ \\
+\midrule
+$0$ & $\pi/6$ & $\pi/4$ & $\pi/3$ & $\pi/2$ & $2\pi/3$ & $\pi$ & $3\pi/2$ & $2\pi$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+\textbf{Exemples.} $150^\circ=5\pi/6\,\mathrm{rad}$ ; $-450^\circ=-5\pi/2\,\mathrm{rad}$ ; $7\pi/4\,\mathrm{rad}=315^\circ$.
+
+\section{Pourquoi $\ell=R\theta$ et $\mathcal A_{\mathrm{secteur}}=R^2\theta/2$ ?}
+\begin{propriete}
+Pour $0\leq\theta\leq2\pi$, avec $\theta$ en radians, la longueur d'arc et l'aire du secteur circulaire sont
+\[\boxed{\ell=R\theta,\qquad \mathcal A_{\mathrm{secteur}}=\frac12R^2\theta.}\]
+Pour un parcours orienté négativement, la longueur géométrique est $R|\theta|$. Pour plusieurs tours, $R|\theta|$ est une \emph{distance parcourue cumulée}, pas la longueur d'un arc simple.
+\end{propriete}
+\begin{demonstration}
+La première formule est une réécriture de la \emph{définition} $\theta=\ell/R$. Pour la seconde, le secteur représente la fraction $\theta/(2\pi)$ du disque, d'aire $\pi R^2$ (démontrée précédemment). Ainsi
+\[
+\mathcal A_{\mathrm{secteur}}=\frac{\theta}{2\pi}\times\pi R^2=\frac12R^2\theta.
+\]
+Ce sont donc deux formules liées à la définition du radian, mais de natures différentes. $\square$
+\end{demonstration}
+\textbf{Exemple.} Pour $R=6\,\mathrm{cm}$ et $\theta=5\pi/6$, $\ell=5\pi\,\mathrm{cm}$ et $\mathcal A_{\mathrm{secteur}}=15\pi\,\mathrm{cm}^2$.
+\begin{attention}
+L'égalité « mesure de l'angle = longueur de l'arc » est \emph{numérique et propre au cercle de rayon $1$}. Elle ne signifie pas qu'un angle et une longueur sont le même objet, ni que $\pi$ est une unité de mesure.
+\end{attention}
+\end{document}

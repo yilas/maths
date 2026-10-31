@@ -1,0 +1,66 @@
+\chapter{Corrigés des exercices de démonstration (21 à 40)}
+\corrige{21 --- circonférence et $\pi$}
+Une homothétie de rapport $\lambda$ multiplie toutes les longueurs de polygones qui approchent le cercle par $\lambda$ ; en passant à la limite elle multiplie $C$ par $\lambda$. Le diamètre étant lui aussi multiplié par $\lambda$, $C/D$ ne change pas. Ce quotient s'appelle $\pi$. Pour $R=4\,\mathrm{cm}$, $C=2\pi R=\boxed{8\pi\,\mathrm{cm}}$ et $A=\pi R^2=\boxed{16\pi\,\mathrm{cm}^2}$. La longueur $2\pi$ n'est la circonférence que pour $R=1$ dans l'unité de longueur choisie.
+
+\corrige{22 --- homothétie}
+Le rayon et le diamètre sont multipliés par $2$. La longueur du contour (limite de périmètres polygonaux) est multipliée par $2$, donc $C_2=2C_1$. L'aire d'une figure semblable est multipliée par le carré du rapport : $A_2=2^2A_1=4A_1$. Les résultats ne requièrent aucune approximation numérique de $\pi$.
+
+\corrige{23 --- polygones réguliers}
+L'hexagone inscrit se décompose en six triangles équilatéraux, chacun de côté $R=1$ : $P_6=6$. Pour l'hexagone tangent, chaque demi-côté $u$ forme avec un rayon un triangle rectangle d'hypoténuse $2u$ et de côtés $1,u$ (issu du demi-triangle équilatéral). Pythagore donne $(2u)^2=1+u^2$, soit $3u^2=1$, d'où $u=1/\sqrt3$. Il y a douze demi-côtés, donc $Q_6=12/\sqrt3=4\sqrt3$. Les périmètres encadrent la circonférence $C(1)=2\pi$ : $6<2\pi<4\sqrt3$, donc $\boxed{3<\pi<2\sqrt3}$.
+
+\corrige{24 --- radians et secteur}
+L'arc d'un demi-cercle vaut $C/2=\pi R$. Diviser par $R$ donne la mesure en radians : $\theta=\pi$. Puis $240^\circ=240\pi/180=4\pi/3$. Pour $R=3$, la longueur d'arc est $\ell=3(4\pi/3)=\boxed{4\pi\,\mathrm{cm}}$ et l'aire est $\frac12\cdot9\cdot4\pi/3=\boxed{6\pi\,\mathrm{cm}^2}$.
+
+\corrige{25 --- identité et signes}
+Si $M=(\cos x,\sin x)$ est sur le cercle unité, l'équation de celui-ci est $x_M^2+y_M^2=1$, d'où $\cos^2x+\sin^2x=1$. Avec $\cos x=-3/5$, on a $\sin^2x=1-9/25=16/25$. Dans le deuxième quadrant, le sinus est positif : $\boxed{\sin x=4/5}$. Comme le cosinus est non nul, $\boxed{\tan x=-4/3}$.
+
+\corrige{26 --- le triangle isocèle}
+Un triangle rectangle à côtés de l'angle droit $1$ et $1$ a une hypoténuse de longueur $\sqrt2$ par Pythagore et deux angles égaux de $45^\circ=\pi/4$. Les deux rapports valent $1/\sqrt2=\sqrt2/2$. Pour $3\pi/4=\pi-\pi/4$, la réflexion par rapport à l'axe vertical inverse l'abscisse et conserve l'ordonnée : $\boxed{\cos(3\pi/4)=-\sqrt2/2}$ et $\boxed{\sin(3\pi/4)=\sqrt2/2}$.
+
+\corrige{27 --- symétrie verticale}
+Les points de mesures $x$ et $\pi-x$ sont symétriques relativement à l'axe vertical. Ils ont donc la même ordonnée et des abscisses opposées, soit $\sin(\pi-x)=\sin x$ et $\cos(\pi-x)=-\cos x$. Puis $5\pi/6=\pi-\pi/6$, donc $\boxed{\sin(5\pi/6)=1/2}$ et $\boxed{\cos(5\pi/6)=-\sqrt3/2}$.
+
+\corrige{28 --- angle double}
+Avec $a=b=x$ dans $\sin(a+b)=\sin a\cos b+\cos a\sin b$, on trouve $\sin2x=2\sin x\cos x$. De même $\cos2x=\cos^2x-\sin^2x=(1-\sin^2x)-\sin^2x=1-2\sin^2x$. En isolant le carré, $\boxed{\sin^2x=(1-\cos2x)/2}$.
+
+\corrige{29 --- tangente et conditions}
+Pour $\cos x\ne0$, $1+\tan^2x=(\cos^2x+\sin^2x)/\cos^2x=1/\cos^2x$. Diviser l'addition de $\sin2x=2\sin x\cos x$ par $\cos2x=\cos^2x-\sin^2x$ et ensuite par $\cos^2x$ donne
+\[\tan2x=\frac{2\tan x}{1-\tan^2x}.\]
+Cette écriture exige $\cos x\ne0$ et $\cos2x\ne0$, équivalent, sous la première condition, à $1-\tan^2x\ne0$. Ces restrictions sont indispensables.
+
+\corrige{30 --- $\sin3x=\sin x$}
+Par somme--produit, $\sin3x-\sin x=2\cos2x\sin x=0$. Soit $\sin x=0$, d'où $x=0$ ou $x=\pi$ dans $[0,2\pi[$ ; soit $\cos2x=0$, d'où $2x=\pi/2+k\pi$, puis $x=\pi/4+k\pi/2$. Dans l'intervalle on a quatre valeurs. L'union de ces ensembles comporte exactement six angles :
+\[\boxed{S=\{0,\pi/4,3\pi/4,\pi,5\pi/4,7\pi/4\}.}\]
+
+\corrige{31 --- inéquation}
+Le sinus vaut $-\sqrt2/2$ en $5\pi/4$ et $7\pi/4$. L'ordonnée est plus petite entre ces angles, sur l'arc inférieur proche du pôle sud. Elle est supérieure ou égale ailleurs. Les frontières sont incluses :
+\[\boxed{S=[0,5\pi/4]\ \cup\ [7\pi/4,2\pi].}\]
+
+\corrige{32 --- amplitude et maxima}
+La formule d'addition donne $\sin(x+\pi/4)=\sin x\frac{\sqrt2}2+\cos x\frac{\sqrt2}2$ ; multiplier par $2\sqrt2$ redonne $2\sin x+2\cos x$. L'image vaut $\boxed{[-2\sqrt2,2\sqrt2]}$. Le maximum est atteint lorsque $x+\pi/4=\pi/2+2k\pi$, donc $\boxed{x=\pi/4+2k\pi}$, $k\in\mathbb Z$.
+
+\corrige{33 --- loi des cosinus et aire}
+Choisissons $A=(0,0)$, $B=(4,0)$ et $C=(3\cos60^\circ,3\sin60^\circ)=(3/2,3\sqrt3/2)$. Alors
+\[a^2=BC^2=(4-3/2)^2+(3\sqrt3/2)^2=25/4+27/4=13,\]
+d'où $\boxed{a=\sqrt{13}}$. Cette expansion est le cas numérique de $a^2=b^2+c^2-2bc\cos A$. L'aire vaut $\frac12bc\sin A=\frac12\cdot3\cdot4\cdot\sqrt3/2=\boxed{3\sqrt3}$.
+
+\corrige{34 --- vecteurs orthogonaux}
+$\vec u\cdot\vec v=3\cdot4+4\cdot(-3)=0$. $\|\vec u\|=\sqrt{9+16}=5$ et $\|\vec v\|=\sqrt{16+9}=5$. Par la relation $\vec u\cdot\vec v=\|u\|\|v\|\cos\gamma$, on a $25\cos\gamma=0$, donc $\boxed{\gamma=\pi/2}$. La réciproque est vraie pour deux vecteurs non nuls ; le produit scalaire nul caractérise alors la perpendicularité.
+
+\corrige{35 --- démonstration de la limite}
+L'inclusion des aires du triangle intérieur, du secteur et du triangle tangent établit $\sin h\le h\le\tan h$ pour $0<h<\pi/2$. En divisant par $h>0$ puis en utilisant $\tan h=\sin h/\cos h$ : $\cos h\le\sin h/h\le1$. La continuité de $\cos$ en $0$ donne une limite $1$ à droite ; la parité de $\sin h/h$ donne la même à gauche. Le secteur a pour aire $h/2$ \emph{seulement si $h$ est en radians}. Mesuré en degrés, $\sin(h^\circ)/h\to\pi/180$.
+
+\corrige{36 --- chaîne et deux primitives}
+La règle de chaîne est $(\sin u)'=u'\cos u$. Pour $u=3x$, $u'=3$, d'où $(\sin3x)'=\boxed{3\cos3x}$. Puis $\bigl(\sin^2x/2\bigr)'=\sin x\cos x$. Autre méthode : $\sin x\cos x=\sin2x/2$ ; sa primitive est $-\cos2x/4$. Les primitives $\sin^2x/2$ et $-\cos2x/4$ diffèrent de $1/4$, car $\sin^2x=(1-\cos2x)/2$.
+
+\corrige{37 --- intervalles principaux}
+$\sin(7\pi/6)=-1/2$ et $\arcsin$ renvoie l'angle dans $[-\pi/2,\pi/2]$ : $\boxed{-\pi/6}$. $\cos(7\pi/6)=-\sqrt3/2$ et $\arccos$ prend ses valeurs dans $[0,\pi]$ : $\boxed{5\pi/6}$. $\tan(7\pi/6)=\tan(\pi/6)=\sqrt3/3$ et $\arctan$ renvoie un angle de $]-\pi/2,\pi/2[$ : $\boxed{\pi/6}$.
+
+\corrige{38 --- pulsation et équation différentielle}
+$A=4$, $\omega=5\pi$, $d=1$ ; l'amplitude est $\boxed{4}$, la période $T=2\pi/(5\pi)=\boxed{2/5\,\mathrm s}$ et la fréquence $f=1/T=\boxed{5/2\,\mathrm{Hz}}$. L'axe médian est $y=1$, les extrema sont $\boxed{-3\text{ et }5}$. Pour $z(t)=4\cos(5\pi t-\pi/2)$, $z''(t)=-(5\pi)^2z(t)$, donc $\boxed{z''+25\pi^2z=0}$.
+
+\corrige{39 --- Moivre et angle triple}
+Posons $c=\cos x$, $s=\sin x$. Par développement du cube, $(c+is)^3=(c^3-3cs^2)+i(3c^2s-s^3)$. D'après la formule de Moivre, sa partie réelle est $\cos3x$. Donc $\cos3x=c^3-3c(1-c^2)=4c^3-3c$, soit $\boxed{\cos3x=4\cos^3x-3\cos x}$.
+
+\corrige{40 --- corde et arc}
+Dans le triangle isocèle $OAB$, $OA=OB=R$ et $\widehat{AOB}=\theta$. En coupant ce triangle par la bissectrice, on forme deux triangles rectangles dont l'hypoténuse vaut $R$, l'angle au centre $\theta/2$ et le côté opposé $d/2$. Ainsi $d/(2R)=\sin(\theta/2)$ : $\boxed{d=2R\sin(\theta/2)}$. L'arc correspondant a pour longueur $R\theta$. Pour $0<\theta\le\pi$, l'inégalité $\sin u<u$ si $u>0$ donne $d=2R\sin(\theta/2)<R\theta$ ; pour $\theta=0$ les deux longueurs valent $0$. La corde est plus courte que l'arc qui la relie.

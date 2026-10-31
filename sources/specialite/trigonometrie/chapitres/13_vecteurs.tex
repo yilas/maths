@@ -1,0 +1,30 @@
+\documentclass[../cours_spe_trigo.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{12}
+\chapter{Vecteurs, coordonnées polaires et produit scalaire}
+\section{Coordonnées cartésiennes et polaires}
+Tout vecteur non nul $\vec u$ du plan peut être caractérisé par sa longueur $r=\|\vec u\|>0$ et un angle de direction $\theta$ (défini modulo $2\pi$). Ses coordonnées sont
+\[\boxed{\vec u=(r\cos\theta,r\sin\theta).}\]
+\begin{demonstration}
+Le point extrémité du vecteur $\vec u$ appartient à un cercle de rayon $r$ centré en son origine. Une homothétie de rapport $r$ transforme le point du cercle unité $(\cos\theta,\sin\theta)$ en $(r\cos\theta,r\sin\theta)$, d'où le résultat. $\square$
+\end{demonstration}
+\section{Produit scalaire et angle : pourquoi apparaît le cosinus ?}
+Dans un repère orthonormé, on \textbf{définit} le produit scalaire de $\vec u=(u_x,u_y)$ et $\vec v=(v_x,v_y)$ par
+\[\vec u\cdot\vec v=u_xv_x+u_yv_y.\]
+\begin{propriete}
+Si $\vec u$ et $\vec v$ sont non nuls et forment un angle géométrique $\gamma\in[0,\pi]$, alors
+\[\boxed{\vec u\cdot\vec v=\|\vec u\|\,\|\vec v\|\cos\gamma.}\]
+\end{propriete}
+\begin{demonstration}
+D'une part, développer la norme au carré :
+\[
+\|\vec u-\vec v\|^2=\|\vec u\|^2+\|\vec v\|^2-2\vec u\cdot\vec v.
+\]
+D'autre part, la loi des cosinus appliquée au triangle défini par $\vec u$, $\vec v$ et leur différence donne
+\[
+\|\vec u-\vec v\|^2=\|\vec u\|^2+\|\vec v\|^2-2\|\vec u\|\|\vec v\|\cos\gamma.
+\]
+Comparer les deux membres démontre la formule du produit scalaire. $\square$
+\end{demonstration}
+\textbf{Application.} $\vec u=(1,2)$ et $\vec v=(2,-1)$ vérifient $\vec u\cdot\vec v=2-2=0$. Comme ils sont non nuls, $\cos\gamma=0$, donc $\gamma=\pi/2$ : ils sont orthogonaux.
+\end{document}

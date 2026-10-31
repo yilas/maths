@@ -51,6 +51,12 @@ def main():
                         "Approcher une racine", "Variance totale"],
         "exercices_1re": ["Huit problèmes de synthèse"],
     }
+    mots.update({
+        "cours_spe_trigo": ["Pourquoi le quotient", "Pourquoi les radians", "formules d'addition", "Pourquoi les dérivées"],
+        "guide_spe_trigo": ["Table de couverture", "Fondement admis"],
+        "exercices_spe_trigo": ["Exercices supplémentaires"],
+        "corriges_spe_trigo": ["Corrigés des exercices de démonstration"],
+    })
     for pdf in sorted((ROOT / "build" / "pdf" / args.niveau).glob("*.pdf")):
         doc = fitz.open(pdf)
         alertes = []

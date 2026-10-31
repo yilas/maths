@@ -1,0 +1,52 @@
+\documentclass[../cours_spe_trigo.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{11}
+\chapter{Géométrie du triangle quelconque : tout démontrer par les coordonnées}
+On note $ABC$ un triangle non aplati ; les longueurs opposées aux angles $A,B,C$ sont respectivement $a=BC$, $b=CA$, $c=AB$.
+\section{Loi des cosinus ou théorème d'Al-Kashi}
+\begin{propriete}
+\[\boxed{a^2=b^2+c^2-2bc\cos A.}\]
+Les deux relations obtenues en permutant les lettres sont également vraies.
+\end{propriete}
+\begin{demonstration}
+Plaçons $A=(0,0)$, $B=(c,0)$ et $C=(b\cos A,b\sin A)$. Cette dernière écriture est justifiée par les coordonnées polaires d'un segment de longueur $b$. Alors
+\[
+\begin{aligned}
+a^2=BC^2&=(c-b\cos A)^2+(b\sin A)^2\\
+&=c^2-2bc\cos A+b^2(\cos^2A+\sin^2A)\\
+&=\boxed{b^2+c^2-2bc\cos A}.
+\end{aligned}
+\]
+On a utilisé uniquement la formule de distance (issue de Pythagore) et l'identité trigonométrique fondamentale. $\square$
+\end{demonstration}
+\textbf{Pourquoi Pythagore est-il un cas particulier ?} Si $A=\pi/2$, alors $\cos A=0$, et la loi devient $a^2=b^2+c^2$.
+\section{Aire du triangle avec le sinus}
+\begin{propriete}
+\[\boxed{\mathcal A_{ABC}=\frac12bc\sin A
+=\frac12ca\sin B=\frac12ab\sin C.}\]
+\end{propriete}
+\begin{demonstration}
+Choisissons $AB$ de longueur $c$ comme base. La hauteur issue de $C$ vaut $b\sin A$ (même si la projection tombe à l'extérieur du segment pour un angle obtus : le sinus de l'angle intérieur reste positif). L'aire vaut base fois hauteur divisée par deux : $\mathcal A=cb\sin A/2$. Les autres expressions proviennent d'un choix différent de base. $\square$
+\end{demonstration}
+\section{Loi des sinus}
+\begin{propriete}
+\[\boxed{\frac{a}{\sin A}=\frac{b}{\sin B}=\frac{c}{\sin C}.}\]
+\end{propriete}
+\begin{demonstration}
+De $2\mathcal A=bc\sin A=ca\sin B=ab\sin C$ et comme les côtés sont strictement positifs, divisons les trois expressions par $abc$ :
+\[
+\frac{2\mathcal A}{abc}=\frac{\sin A}{a}=\frac{\sin B}{b}=\frac{\sin C}{c}.
+\]
+Les sinus des angles intérieurs sont positifs ; on peut inverser ces quotients pour obtenir la loi souhaitée. $\square$
+\end{demonstration}
+\textbf{Complément.} Si $R_c$ est le rayon du cercle circonscrit au triangle, on a en outre $a/\sin A=b/\sin B=c/\sin C=2R_c$. Cela découle du théorème de l'angle inscrit : une corde de longueur $a$ sous-tend un angle inscrit $A$, et une section rectangulaire formée avec un diamètre donne $a=2R_c\sin A$. Cette extension suppose ce théorème de géométrie du cercle.
+\section{Une conséquence : l'aire par deux côtés et l'angle compris}
+Si $b=5$, $c=7$ et $A=60^\circ$, alors
+\[
+a^2=25+49-70\cdot\frac12=39
+\quad\Rightarrow\quad a=\sqrt{39},
+\]
+\[
+\mathcal A=\frac12\times5\times7\times\frac{\sqrt3}{2}=\frac{35\sqrt3}{4}.
+\]
+\end{document}

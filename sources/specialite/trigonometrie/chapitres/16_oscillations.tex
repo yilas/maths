@@ -1,0 +1,22 @@
+\documentclass[../cours_spe_trigo.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{15}
+\chapter{Les phénomènes périodiques et les équations différentielles}
+\section{Ce que signifient amplitude, pulsation et phase}
+Une oscillation sinusoïdale est souvent décrite par
+\[x(t)=x_0+A\cos(\omega t+\varphi),\]
+où $x_0$ est l'équilibre, $A$ l'amplitude signée, $|A|$ l'amplitude physique, $\omega$ une pulsation en radians par seconde, $\varphi$ une phase initiale et $t$ le temps. Si $\omega\ne0$, la période et la fréquence sont
+\[\boxed{T=\frac{2\pi}{|\omega|},\qquad f=\frac1T=\frac{|\omega|}{2\pi}.}\]
+\section{Démontrer l'équation d'un oscillateur harmonique}
+Soit $y(t)=A\cos(\omega t+\varphi)+B\sin(\omega t+\varphi)$. En dérivant deux fois :
+\[
+\begin{aligned}
+y'(t)&=-A\omega\sin(\omega t+\varphi)+B\omega\cos(\omega t+\varphi),\\
+y''(t)&=-A\omega^2\cos(\omega t+\varphi)-B\omega^2\sin(\omega t+\varphi)\\
+&=-\omega^2y(t).
+\end{aligned}
+\]
+Donc $\boxed{y''+\omega^2y=0}$. Réciproquement, pour $\omega\ne0$, l'étude des équations différentielles linéaires montre que \emph{toute} solution réelle de cette équation a la forme $A\cos\omega t+B\sin\omega t$ (démonstration générale hors programme de cette section, mais voir la méthode de premier ordre en études supérieures).
+\section{Exemple de modélisation}
+Considérons $h(t)=2+1{,}5\sin(\pi t/6)$, où $t$ est en secondes et $h$ en mètres. Le milieu vaut $2\,\mathrm m$, l'amplitude $1{,}5\,\mathrm m$, la période $T=12\,\mathrm s$ et la fréquence $f=1/12\,\mathrm{Hz}$. Les extrema sont $0{,}5\,\mathrm m$ et $3{,}5\,\mathrm m$. Le premier maximum pour $t\ge0$ se produit lorsque $\pi t/6=\pi/2$, soit $t=3\,\mathrm s$.
+\end{document}

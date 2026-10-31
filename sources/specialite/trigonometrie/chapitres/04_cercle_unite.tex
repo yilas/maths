@@ -1,0 +1,80 @@
+\documentclass[../cours_spe_trigo.tex]{subfiles}
+\begin{document}
+\setcounter{chapter}{3}
+\chapter{Le cercle trigonométrique : des triangles aux coordonnées}
+\section{Construire le repère direct et le cercle unité}
+Dans un repère orthonormé direct $(O;I;J)$, on choisit $O=(0,0)$, $I=(1,0)$, $J=(0,1)$ et des axes perpendiculaires de même unité. Le sens direct est le sens anti-horaire.
+\begin{definition}
+Le \textbf{cercle trigonométrique} est le cercle $\mathcal C$ de centre $O$ et de rayon $1$ ; il est caractérisé par l'équation $x^2+y^2=1$. À tout réel $\theta$, on associe le point $M(\theta)$ obtenu par rotation d'angle $\theta$ depuis $I$. \textbf{On définit alors}
+\[\boxed{\cos\theta=x_M,\qquad\sin\theta=y_M.}\]
+Autrement dit, $M(\theta)=(\cos\theta,\sin\theta)$.
+\end{definition}
+\begin{center}
+\begin{tikzpicture}[scale=2.05]
+\draw[->,gris] (-1.25,0)--(1.3,0) node[right] {$x$};
+\draw[->,gris] (0,-1.2)--(0,1.26) node[above] {$y$};
+\draw[very thick,bleu] (0,0) circle (1);
+\coordinate (M) at (40:1);
+\draw[very thick,orange,->] (0,0)--(M);
+\draw[dashed,vert] (M)--({cos(40)},0);
+\draw[dashed,vert] (M)--(0,{sin(40)});
+\draw[orange] (.32,0) arc[start angle=0,end angle=40,radius=.32];
+\node[orange] at (23:.46) {$\theta$};
+\node[below left] at (0,0) {$O$};
+\node[below right] at (1,0) {$I$};
+\node[above left] at (0,1) {$J$};
+\node[above right] at (M) {$M$};
+\node[below] at ({cos(40)},0) {$\cos\theta$};
+\node[left] at (0,{sin(40)}) {$\sin\theta$};
+\end{tikzpicture}
+\end{center}
+\textbf{Pourquoi est-ce une définition et non une démonstration ?} Tant qu'on ne sait définir le sinus et le cosinus que dans un triangle rectangle, ils n'existent que pour des angles aigus. Pour les étendre aux angles quelconques, \emph{nous décidons} de les appeler les coordonnées du point sur le cercle. La question mathématique est : cette extension coïncide-t-elle avec l'ancienne notion ?
+
+\section{Démonstration de la cohérence avec le triangle rectangle}
+\begin{demonstration}
+Supposons $0<\theta<\pi/2$. La projection orthogonale de $M=(x,y)$ sur l'axe horizontal est $H=(x,0)$. Le triangle $OHM$ est rectangle en $H$ et son hypoténuse vaut $OM=1$. Par la définition du collège :
+\[
+\cos\theta=\frac{OH}{OM}=\frac{x}{1}=x,
+\quad
+\sin\theta=\frac{HM}{OM}=\frac{y}{1}=y.
+\]
+La définition générale restitue exactement les valeurs du collège pour les angles aigus. Pour les autres quadrants, les \emph{coordonnées signées} prolongent cette construction de façon cohérente avec les symétries du plan. $\square$
+\end{demonstration}
+\section{Pourquoi le cercle de rayon $1$ est-il privilégié ?}
+Pour un cercle de rayon $R$, la projection dans le premier quadrant donne $x=R\cos\theta$, $y=R\sin\theta$. La même relation reste vraie dans les autres quadrants avec des coordonnées signées :
+\[\boxed{M_R(\theta)=(R\cos\theta,R\sin\theta).}\]
+En particulier $R=1$ supprime le facteur qui multiplie les deux fonctions.
+
+\section{Pythagore, signes et valeurs possibles}
+\begin{propriete}
+Pour tout réel $\theta$ :
+\[\boxed{\cos^2\theta+\sin^2\theta=1,\qquad -1\leq\cos\theta\leq1,\qquad-1\leq\sin\theta\leq1.}\]
+\end{propriete}
+\begin{demonstration}
+Comme $OM=1$, le théorème de Pythagore dans le repère orthonormé donne $x_M^2+y_M^2=1$. En remplaçant $x_M$ et $y_M$ par leurs définitions, on retrouve l'identité fondamentale. Chacun des deux carrés est compris entre $0$ et $1$ ; d'où les deux encadrements. Ce raisonnement est valable pour tout réel $\theta$, sans hypothèse sur son quadrant. $\square$
+\end{demonstration}
+\begin{center}
+\begin{tabular}{c|cc}
+\toprule
+Quadrant de $M$ & signe de $\cos\theta$ & signe de $\sin\theta$ \\
+\midrule
+I (haut droit) & $+$ & $+$\\
+II (haut gauche) & $-$ & $+$\\
+III (bas gauche) & $-$ & $-$\\
+IV (bas droit) & $+$ & $-$\\
+\bottomrule
+\end{tabular}
+\end{center}
+Sur les axes, l'une des coordonnées est nulle : aux angles $0$, $\pi/2$, $\pi$, $3\pi/2$, les points sont respectivement $(1,0)$, $(0,1)$, $(-1,0)$ et $(0,-1)$.
+
+\section{Angles équivalents et périodicité géométrique}
+Un tour positif correspond à $2\pi$ radians ; si on effectue $k$ tours supplémentaires, la position finale ne change pas. On a donc
+\[\boxed{M(\theta+2k\pi)=M(\theta),\quad k\in\mathbb Z.}\]
+En particulier $\cos(\theta+2k\pi)=\cos\theta$ et $\sin(\theta+2k\pi)=\sin\theta$.
+\begin{demonstration}
+\textbf{Réciproque.} Si deux angles $a,b$ désignent le même point final, la rotation qui envoie $M(a)$ sur $M(b)$ est une rotation de mesure $b-a$ laissant ce point et son rayon orienté sur place. Cette rotation est un nombre entier de tours : $b-a=2k\pi$. Ainsi
+\[\boxed{M(a)=M(b)\iff a-b\in2\pi\mathbb Z.}\]
+La relation $\theta\equiv\alpha\pmod{2\pi}$ signifie précisément que $\theta-\alpha$ est un multiple entier de $2\pi$. $\square$
+\end{demonstration}
+\textbf{Exemple.} $17\pi/6=5\pi/6+2\pi$ : les deux mesures correspondent au même point, pas au même nombre réel.
+\end{document}
