@@ -10,8 +10,7 @@ calcul maîtrisé, définitions précises, preuves, contre-exemples et autonomie
 Les compléments avancés restent distingués du programme obligatoire.
 
 Le référentiel [OBJECTIFS.md](OBJECTIFS.md) guide toute création et révision.
-Les PDF sont disponibles dans les [releases](https://github.com/yilas/maths/releases)
-après la première publication sur tag contenant ce workflow.
+Les PDF sont publiés dans les [releases](https://github.com/yilas/maths/releases) lorsqu'une publication sur tag réussit et contient ses fichiers joints. La release `v2026.10.24` ne contient aucun PDF : les liens de téléchargement directs ne sont donc pas affichés tant qu'une release avec fichiers n'est pas disponible.
 
 ## Spécialité — cours thématiques approfondis
 
@@ -19,12 +18,12 @@ Ces dossiers approfondissent un sujet depuis ses fondements, avec des **démonst
 
 **Premier dossier : [Trigonométrie — des origines de π aux fonctions](sources/specialite/trigonometrie/README.md)**. Pourquoi la circonférence vaut-elle $2\pi R$ ? D'où viennent les radians, les coordonnées, les identités, les équations et les dérivées ? **19 chapitres, 40 exercices et 40 corrigés.**
 
-| Document | Source LaTeX | PDF après le prochain tag contenant ce cours |
+| Document | Source LaTeX | Nom du PDF attendu |
 | --- | --- | --- |
-| Cours démontré | [Source](sources/specialite/trigonometrie/cours_spe_trigo.tex) | [PDF](https://github.com/yilas/maths/releases/latest/download/specialite-trigonometrie-cours.pdf) |
-| Exercices | [Source](sources/specialite/trigonometrie/exercices_spe_trigo.tex) | [PDF](https://github.com/yilas/maths/releases/latest/download/specialite-trigonometrie-exercices.pdf) |
-| Corrigés | [Source](sources/specialite/trigonometrie/corriges_spe_trigo.tex) | [PDF](https://github.com/yilas/maths/releases/latest/download/specialite-trigonometrie-corriges.pdf) |
-| Guide | [Source](sources/specialite/trigonometrie/guide_spe_trigo.tex) | [PDF](https://github.com/yilas/maths/releases/latest/download/specialite-trigonometrie-guide.pdf) |
+| Cours démontré | [Source](sources/specialite/trigonometrie/cours_spe_trigo.tex) | `specialite-trigonometrie-cours.pdf` |
+| Exercices | [Source](sources/specialite/trigonometrie/exercices_spe_trigo.tex) | `specialite-trigonometrie-exercices.pdf` |
+| Corrigés | [Source](sources/specialite/trigonometrie/corriges_spe_trigo.tex) | `specialite-trigonometrie-corriges.pdf` |
+| Guide | [Source](sources/specialite/trigonometrie/guide_spe_trigo.tex) | `specialite-trigonometrie-guide.pdf` |
 
 Compilation : `make pdf NIVEAU=specialite-trigonometrie`. Les PDF ne sont pas versionnés ; les releases se construisent sur tag. Pour créer d'autres thèmes, suivre [les conventions du dossier](sources/specialite/trigonometrie/README.md).
 
@@ -34,12 +33,12 @@ Le volume couvre la spécialité de **2026–2027**, le nouveau programme applic
 en **2027–2028**, et l'option **mathématiques expertes**. Il comprend **36 chapitres,
 216 exercices corrigés, huit synthèses corrigées et 72 automatismes avec réponses**.
 
-| Document | PDF après publication d'un tag contenant ce niveau | Source LaTeX |
+| Document | Nom du PDF attendu | Source LaTeX |
 | --- | --- | --- |
-| Cours et démonstrations | [Lire le cours](https://github.com/yilas/maths/releases/latest/download/terminale-cours.pdf) | [cours_tle.tex](sources/03-lycee/03-terminale/cours_tle.tex) |
-| Exercices et problèmes | [Lire les exercices](https://github.com/yilas/maths/releases/latest/download/terminale-exercices.pdf) | [exercices_tle.tex](sources/03-lycee/03-terminale/exercices_tle.tex) |
-| Corrigés expliqués | [Lire les corrigés](https://github.com/yilas/maths/releases/latest/download/terminale-corriges.pdf) | [corriges_tle.tex](sources/03-lycee/03-terminale/corriges_tle.tex) |
-| Guide et couverture | [Lire le guide](https://github.com/yilas/maths/releases/latest/download/terminale-guide.pdf) | [guide_tle.tex](sources/03-lycee/03-terminale/guide_tle.tex) |
+| Cours et démonstrations | `terminale-cours.pdf` | [cours_tle.tex](sources/03-lycee/03-terminale/cours_tle.tex) |
+| Exercices et problèmes | `terminale-exercices.pdf` | [exercices_tle.tex](sources/03-lycee/03-terminale/exercices_tle.tex) |
+| Corrigés expliqués | `terminale-corriges.pdf` | [corriges_tle.tex](sources/03-lycee/03-terminale/corriges_tle.tex) |
+| Guide et couverture | `terminale-guide.pdf` | [guide_tle.tex](sources/03-lycee/03-terminale/guide_tle.tex) |
 
 Dénombrement, géométrie dans l'espace, analyse, intégration et probabilités sont
 complétés par les complexes, l'arithmétique, les matrices, les graphes et Markov.
@@ -58,12 +57,12 @@ en **2026–2027**. [Texte officiel et annexe](https://www.education.gouv.fr/bo/
 Il comprend **30 chapitres, 180 exercices corrigés, huit problèmes de synthèse
 corrigés et 80 automatismes avec réponses**.
 
-| Document | PDF | Source LaTeX |
+| Document | Nom du PDF attendu | Source LaTeX |
 | --- | --- | --- |
-| Cours et démonstrations | [Lire le cours](https://github.com/yilas/maths/releases/latest/download/premiere-cours.pdf) | [cours_1re.tex](sources/03-lycee/02-premiere/cours_1re.tex) |
-| Exercices et problèmes | [Lire les exercices](https://github.com/yilas/maths/releases/latest/download/premiere-exercices.pdf) | [exercices_1re.tex](sources/03-lycee/02-premiere/exercices_1re.tex) |
-| Corrigés expliqués | [Lire les corrigés](https://github.com/yilas/maths/releases/latest/download/premiere-corriges.pdf) | [corriges_1re.tex](sources/03-lycee/02-premiere/corriges_1re.tex) |
-| Guide, couverture et révisions | [Lire le guide](https://github.com/yilas/maths/releases/latest/download/premiere-guide.pdf) | [guide_1re.tex](sources/03-lycee/02-premiere/guide_1re.tex) |
+| Cours et démonstrations | `premiere-cours.pdf` | [cours_1re.tex](sources/03-lycee/02-premiere/cours_1re.tex) |
+| Exercices et problèmes | `premiere-exercices.pdf` | [exercices_1re.tex](sources/03-lycee/02-premiere/exercices_1re.tex) |
+| Corrigés expliqués | `premiere-corriges.pdf` | [corriges_1re.tex](sources/03-lycee/02-premiere/corriges_1re.tex) |
+| Guide, couverture et révisions | `premiere-guide.pdf` | [guide_1re.tex](sources/03-lycee/02-premiere/guide_1re.tex) |
 
 Algèbre et suites, dérivation, exponentielle, trigonométrie, produit scalaire,
 géométrie repérée, probabilités, statistiques et algorithmique sont accompagnés
@@ -92,12 +91,12 @@ identifiées dans le programme sont rédigées, avec de nombreuses preuves
 supplémentaires. Les définitions, fondements admis et approfondissements sont
 explicitement distingués.
 
-| Document | PDF | Source LaTeX |
+| Document | Nom du PDF attendu | Source LaTeX |
 | --- | --- | --- |
-| Cours et démonstrations | [Lire le cours](https://github.com/yilas/maths/releases/latest/download/seconde-cours.pdf) | [cours_2de.tex](sources/03-lycee/01-seconde/cours_2de.tex) |
-| Exercices et problèmes | [Lire les exercices](https://github.com/yilas/maths/releases/latest/download/seconde-exercices.pdf) | [exercices_2de.tex](sources/03-lycee/01-seconde/exercices_2de.tex) |
-| Corrigés expliqués | [Lire les corrigés](https://github.com/yilas/maths/releases/latest/download/seconde-corriges.pdf) | [corriges_2de.tex](sources/03-lycee/01-seconde/corriges_2de.tex) |
-| Guide, couverture et révisions | [Lire le guide](https://github.com/yilas/maths/releases/latest/download/seconde-guide.pdf) | [guide_2de.tex](sources/03-lycee/01-seconde/guide_2de.tex) |
+| Cours et démonstrations | `seconde-cours.pdf` | [cours_2de.tex](sources/03-lycee/01-seconde/cours_2de.tex) |
+| Exercices et problèmes | `seconde-exercices.pdf` | [exercices_2de.tex](sources/03-lycee/01-seconde/exercices_2de.tex) |
+| Corrigés expliqués | `seconde-corriges.pdf` | [corriges_2de.tex](sources/03-lycee/01-seconde/corriges_2de.tex) |
+| Guide, couverture et révisions | `seconde-guide.pdf` | [guide_2de.tex](sources/03-lycee/01-seconde/guide_2de.tex) |
 
 Les chapitres couvrent nombres et algèbre (1–6), géométrie (7–11),
 fonctions (12–16), proportions et statistiques (17–20), probabilités (21–22),
@@ -121,12 +120,12 @@ Le dossier couvre le programme français de troisième applicable en **2026–20
 avec les prérequis utiles du cycle 4. Il comprend 20 chapitres, 80 exercices,
 4 problèmes de synthèse corrigés et 40 automatismes avec réponses.
 
-| Document | PDF | Source LaTeX |
+| Document | Nom du PDF attendu | Source LaTeX |
 | --- | --- | --- |
-| Cours et démonstrations | [Lire le cours](https://github.com/yilas/maths/releases/latest/download/troisieme-cours.pdf) | [cours_3e.tex](sources/02-college/04-troisieme/cours_3e.tex) |
-| Exercices | [Lire les exercices](https://github.com/yilas/maths/releases/latest/download/troisieme-exercices.pdf) | [exercices_3e.tex](sources/02-college/04-troisieme/exercices_3e.tex) |
-| Corrigés expliqués | [Lire les corrigés](https://github.com/yilas/maths/releases/latest/download/troisieme-corriges.pdf) | [corriges_3e.tex](sources/02-college/04-troisieme/corriges_3e.tex) |
-| Guide, couverture et révisions | [Lire le guide](https://github.com/yilas/maths/releases/latest/download/troisieme-guide.pdf) | [guide_3e.tex](sources/02-college/04-troisieme/guide_3e.tex) |
+| Cours et démonstrations | `troisieme-cours.pdf` | [cours_3e.tex](sources/02-college/04-troisieme/cours_3e.tex) |
+| Exercices | `troisieme-exercices.pdf` | [exercices_3e.tex](sources/02-college/04-troisieme/exercices_3e.tex) |
+| Corrigés expliqués | `troisieme-corriges.pdf` | [corriges_3e.tex](sources/02-college/04-troisieme/corriges_3e.tex) |
+| Guide, couverture et révisions | `troisieme-guide.pdf` | [guide_3e.tex](sources/02-college/04-troisieme/guide_3e.tex) |
 
 Commencer par le guide : il présente les sources officielles, la correspondance
 entre notions et chapitres, une progression et les principes admis. Les notions
@@ -190,6 +189,9 @@ Le compilateur ajoute `commun/` à `TEXINPUTS`, effectue trois passages et refus
 les références non résolues ou les débordements. Il fonctionne depuis tout dossier.
 
 ## PDF et releases
+
+**Téléchargements :** consulter la [liste des releases](https://github.com/yilas/maths/releases) et ouvrir une publication disposant réellement de fichiers joints. Les noms indiqués dans les tableaux sont les noms attendus à la génération, pas des liens de téléchargement garantis. Pour compiler sans release, utiliser `make pdf` dans Codespaces.
+
 
 Aucun PDF n'est versionné. Les anciennes versions restent dans l'historique Git.
 Une PR construit l'environnement Codespaces, compile tous les niveaux, exécute les
